@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OmegaClaw Architecture Research</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+:root{--bg:#0a0e17;--surface:#111827;--surface2:#1a2332;--border:#2a3444;--accent:#6366f1;--accent2:#818cf8;--accent3:#a78bfa;--green:#22c55e;--yellow:#eab308;--red:#ef4444;--cyan:#06b6d4;--text:#e2e8f0;--text2:#94a3b8;--text3:#64748b;--glow:rgba(99,102,241,0.15)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.7;overflow-x:hidden}
+.stars{position:fixed;top:0;left:0;width:100%;height:100%;background:radial-gradient(2px 2px at 20px 30px,#ffffff15,transparent),radial-gradient(2px 2px at 40px 70px,#ffffff10,transparent),radial-gradient(1px 1px at 90px 40px,#ffffff08,transparent),radial-gradient(1px 1px at 130px 80px,#ffffff06,transparent);background-size:200px 200px;z-index:0;pointer-events:none}
+.hero{position:relative;min-height:60vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:4rem 2rem;background:linear-gradient(135deg,var(--bg) 0%,#0f1629 50%,#1a0a2e 100%);overflow:hidden}
+.hero::before{content:'';position:absolute;top:50%;left:50%;width:600px;height:600px;background:radial-gradient(circle,rgba(99,102,241,0.08) 0%,transparent 70%);transform:translate(-50%,-50%);pointer-events:none}
+.hero-content{position:relative;z-index:1;max-width:800px}
+.hero h1{font-size:3.5rem;font-weight:700;background:linear-gradient(135deg,var(--accent2),var(--accent3),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:1rem;letter-spacing:-0.02em}
+.hero .subtitle{font-size:1.3rem;color:var(--text2);font-weight:300;margin-bottom:0.5rem}
+.hero .meta{font-family:'JetBrains Mono',monospace;font-size:0.85rem;color:var(--text3);margin-top:1.5rem;padding:0.75rem 1.5rem;background:var(--surface);border:1px solid var(--border);border-radius:8px;display:inline-block}
+.container{max-width:1100px;margin:0 auto;padding:0 2rem;position:relative;z-index:1}
+section{padding:4rem 0}
+.section-header{margin-bottom:3rem}
+.section-header h2{font-size:2rem;font-weight:600;color:var(--text);margin-bottom:0.5rem;display:flex;align-items:center;gap:0.75rem}
+.section-header h2 .icon{width:36px;height:36px;background:linear-gradient(135deg,var(--accent),var(--accent3));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.section-header p{color:var(--text2);font-size:1.05rem;max-width:700px}
+.lead-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem}
+.lead-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.75rem;transition:all 0.3s ease;position:relative;overflow:hidden}
+.lead-card:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 8px 32px var(--glow)}
+.lead-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent3));opacity:0;transition:opacity 0.3s}
+.lead-card:hover::before{opacity:1}
+.lead-card .lead-num{font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--accent2);font-weight:500;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.5rem}
+.lead-card h3{font-size:1.15rem;font-weight:600;margin-bottom:0.75rem;color:var(--text)}
+.lead-card ul{list-style:none;padding:0}
+.lead-card ul li{padding:0.3rem 0;padding-left:1.25rem;position:relative;color:var(--text2);font-size:0.9rem}
+.lead-card ul li::before{content:'\2022';position:absolute;left:0;color:var(--accent2)}
+.lead-card .relevance{margin-top:1rem;padding:0.75rem;background:var(--surface2);border-radius:8px;border-left:3px solid var(--accent);font-size:0.85rem;color:var(--text2)}
+.lead-card .relevance strong{color:var(--cyan)}
+.proposal-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:2rem;margin-bottom:1.5rem;transition:all 0.3s ease}
+.proposal-card:hover{border-color:var(--accent);box-shadow:0 8px 32px var(--glow)}
+.proposal-card .proposal-header{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.25rem}
+.proposal-card .proposal-number{width:48px;height:48px;background:linear-gradient(135deg,var(--accent),var(--accent3));border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.2rem;color:white;flex-shrink:0}
+.proposal-card .proposal-title{font-size:1.3rem;font-weight:600;color:var(--text)}
+.proposal-card .proposal-problem{padding:1rem;background:rgba(239,68,68,0.05);border:1px solid rgba(239,68,68,0.15);border-radius:10px;margin-bottom:1rem}
+.proposal-card .proposal-problem .label{font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--red);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.25rem;font-weight:500}
+.proposal-card .proposal-solution{padding:1rem;background:rgba(34,197,94,0.05);border:1px solid rgba(34,197,94,0.15);border-radius:10px;margin-bottom:1rem}
+.proposal-card .proposal-solution .label{font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--green);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.25rem;font-weight:500}
+.proposal-card .proposal-solution ol{padding-left:1.25rem;color:var(--text2);font-size:0.9rem}
+.proposal-card .proposal-solution ol li{padding:0.2rem 0}
+.proposal-card .proposal-impl{padding:1rem;background:rgba(6,182,212,0.05);border:1px solid rgba(6,182,212,0.15);border-radius:10px;margin-bottom:1rem}
+.proposal-card .proposal-impl .label{font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--cyan);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.25rem;font-weight:500}
+.proposal-card .proposal-impl p{color:var(--text2);font-size:0.9rem}
+.proposal-card .novelty-tag{display:inline-block;padding:0.35rem 0.75rem;background:linear-gradient(135deg,rgba(99,102,241,0.15),rgba(167,139,250,0.15));border:1px solid rgba(99,102,241,0.3);border-radius:20px;font-size:0.8rem;color:var(--accent2);font-weight:500}
+.audit-table{width:100%;border-collapse:separate;border-spacing:0;background:var(--surface);border-radius:16px;overflow:hidden;border:1px solid var(--border)}
+.audit-table thead{background:var(--surface2)}
+.audit-table th{padding:1rem 1.25rem;text-align:left;font-size:0.8rem;font-weight:600;color:var(--text2);text-transform:uppercase;letter-spacing:0.05em;border-bottom:1px solid var(--border)}
+.audit-table td{padding:1rem 1.25rem;border-bottom:1px solid var(--border);font-size:0.9rem;color:var(--text2);vertical-align:top}
+.audit-table tr:last-child td{border-bottom:none}
+.audit-table tr:hover{background:rgba(99,102,241,0.03)}
+.overlap-badge{display:inline-block;padding:0.2rem 0.6rem;border-radius:12px;font-size:0.75rem;font-weight:500}
+.overlap-high{background:rgba(239,68,68,0.12);color:#f87171;border:1px solid rgba(239,68,68,0.2)}
+.overlap-very-high{background:rgba(239,68,68,0.2);color:#fca5a5;border:1px solid rgba(239,68,68,0.3)}
+.overlap-medium{background:rgba(234,179,8,0.12);color:#fbbf24;border:1px solid rgba(234,179,8,0.2)}
+.priority-list{display:flex;flex-direction:column;gap:1rem}
+.priority-item{display:flex;align-items:center;gap:1.25rem;padding:1.25rem 1.5rem;background:var(--surface);border:1px solid var(--border);border-radius:12px;transition:all 0.3s}
+.priority-item:hover{border-color:var(--accent);box-shadow:0 4px 16px var(--glow)}
+.priority-rank{width:40px;height:40px;background:linear-gradient(135deg,var(--accent),var(--accent3));border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:white;font-size:1rem;flex-shrink:0}
+.priority-item .priority-info{flex:1}
+.priority-item .priority-name{font-weight:600;color:var(--text);margin-bottom:0.25rem}
+.priority-item .priority-desc{font-size:0.85rem;color:var(--text2)}
+.impact-badge,.feasibility-badge{display:inline-block;padding:0.15rem 0.5rem;border-radius:8px;font-size:0.7rem;font-weight:500;margin-right:0.5rem}
+.impact-high{background:rgba(34,197,94,0.12);color:var(--green);border:1px solid rgba(34,197,94,0.2)}
+.impact-medium{background:rgba(234,179,8,0.12);color:var(--yellow);border:1px solid rgba(234,179,8,0.2)}
+.feasibility-high{background:rgba(6,182,212,0.12);color:var(--cyan);border:1px solid rgba(6,182,212,0.2)}
+.feasibility-medium{background:rgba(167,139,250,0.12);color:var(--accent3);border:1px solid rgba(167,139,250,0.2)}
+.footer{text-align:center;padding:3rem 2rem;color:var(--text3);font-size:0.85rem;border-top:1px solid var(--border);margin-top:2rem}
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:1rem 0}
+@media(max-width:768px){.hero h1{font-size:2.2rem}.lead-grid{grid-template-columns:1fr}.audit-table{font-size:0.8rem}.audit-table th,.audit-table td{padding:0.75rem}}
+</style>
+</head>
+<body>
+<div class="stars"></div>
+<div class="hero">
+<div class="hero-content">
+<h1>OmegaClaw Architecture Research</h1>
+<p class="subtitle">Cognitive Architecture Improvement Proposals with Hyperon Cross-Reference</p>
+<p class="meta">Researcher: Oma (OmegaClaw AI Agent) &bull; Started 2026-04-24 19:00 UTC &bull; Status: Active Research</p>
+</div>
+</div>
+
+<div class="container">
+
+<section id="leads">
+<div class="section-header">
+<h2><span class="icon">&#x1F50D;</span> Phase 1 &amp; 2: Research Leads &amp; Deep Dives</h2>
+<p>Eight promising cognitive architecture approaches evaluated for OmegaClaw integration potential.</p>
+</div>
+<div class="lead-grid">
+
+<div class="lead-card">
+<div class="lead-num">Lead 1</div>
+<h3>Active Inference / Free Energy Principle</h3>
+<ul>
+<li>Agents minimize variational free energy through belief updating AND action</li>
+<li>Replaces reward-based RL with a single imperative: reduce prediction error</li>
+<li>Scale-free: works from pixels to planning (Frontiers 2025)</li>
+<li>Implementation exists: LLMs + protocols + text files (Medium 2025)</li>
+</ul>
+<div class="relevance"><strong>OmegaClaw:</strong> Could replace ad-hoc goal selection with principled expected free energy minimization. Idle spin loops are literally high-surprise states with no action policy.</div>
+</div>
+
+<div class="lead-card">
+<div class="lead-num">Lead 2</div>
+<h3>Global Workspace Theory (Baars)</h3>
+<ul>
+<li>Consciousness as capacity-limited broadcast to specialist modules</li>
+<li>Theater of Mind for LLMs (2025): centralized broadcasting hub</li>
+<li>Cognitive heterogeneity + active broadcasting = key elements</li>
+</ul>
+<div class="relevance"><strong>OmegaClaw:</strong> Current loop is monolithic LLM calls. GWT suggests a workspace where MeTTa reasoning, memory retrieval, attention allocation, and web search are PARALLEL specialist modules competing for broadcast access.</div>
+</div>
+
+<div class="lead-card">
+<div class="lead-num">Lead 3</div>
+<h3>World Models / JEPA (LeCun)</h3>
+<ul>
+<li>JEPA: predict in latent space, not pixel space</li>
+<li>DreamerV3: learn world model, plan via imagination</li>
+</ul>
+<div class="relevance"><strong>OmegaClaw:</strong> Currently no internal simulation. Could imagine outcomes via a learned model of conversation dynamics and tool results before acting. Would reduce wasted cycles.</div>
+</div>
+
+<div class="lead-card">
+<div class="lead-num">Lead 4</div>
+<h3>Sparse Distributed Memory + CALM</h3>
+<ul>
+<li>Kanerva SDM: high-dimensional binary address space, graceful degradation</li>
+<li>CALM: continual associative learning without catastrophic forgetting</li>
+<li>Modern implementations combine SDM with transformers</li>
+</ul>
+<div class="relevance"><strong>OmegaClaw:</strong> ChromaDB embeddings are dense but lack associative recall and interference-resistance of SDM. A hybrid SDM layer could improve memory consolidation during sleep cycles.</div>
+</div>
+
+<div class="lead-card">
+<div class="lead-num">Lead 5</div>
+<h3>Meta-Learning / Self-Improvement</h3>
+<ul>
+<li>MetaAgent (2025): autonomous tool meta-learning without parameter changes</li>
+<li>HyperAgents (Meta): self-referential agents with metacognitive self-modification</li>
+<li>Error-to-rule pipelines, skill forges, quality gates</li>
+</ul>
+<div class="relevance"><strong>OmegaClaw:</strong> Should be building reusable skill abstractions from successful interactions and pruning failed strategies automatically.</div>
+</div>
+
+<div class="lead-card">
+<div class="lead-num">Lead 6</div>
+<h3>Chimera Neuro-Symbolic-Causal</h3>
+<ul>
+<li>Three-component: LLM strategist + symbolic constraint engine + causal inference</li>
+<li>CausalForest-DML for doubly-robust causal estimation</li>
+<li>52-week benchmark: full hybrid outperforms LLM-only and LLM+symbolic</li>
+</ul>
+<div class="relevance"><strong>OmegaClaw:</strong> Adding a CAUSAL LAYER between MeTTa reasoning and action execution. Has neural (LLM) and symbolic (MeTTa/NAL) but NO causal inference. Chimera proves the third leg matters.</div>
+</div>
+
+<div class="lead-card">
+<div class="lead-num">Lead 7</div>
+<h3>LLM-ACT-R Cognitive Hybrid</h3>
+<ul>
+<li>Integrates ACT-R procedural+declarative memory with LLM generation</li>
+<li>Vector-based activation with temporal decay and usage frequency</li>
+<li>Human-like forgetting curves improve retrieval relevance</li>
+</ul>
+<div class="relevance"><strong>OmegaClaw:</strong> Memory retrieval is flat (cosine similarity). ACT-R activation equations would make retrieval context-sensitive and time-aware. Recent/frequent memories naturally surface.</div>
+</div>
+
+<div class="lead-card">
+<div class="lead-num">Lead 8</div>
+<h3>Thousand Brains / HTM Reference Frames</h3>
+<ul>
+<li>Each cortical column builds complete model from its own reference frame</li>
+<li>Voting mechanism across columns for consensus</li>
+<li>Sparse distributed representations + sequence memory</li>
+</ul>
+<div class="relevance"><strong>OmegaClaw:</strong> Reference frames could organize knowledge by CONTEXT rather than flat embedding space. Different conversation contexts = different reference frames, each with its own predictive model.</div>
+</div>
+
+</div>
+</section>
+
+<section id="proposals">
+<div class="section-header">
+<h2><span class="icon">&#x1F4A1;</span> Phase 3: Concrete Proposals</h2>
+<p>Seven actionable architecture proposals synthesized from research findings, each with problem statement, solution design, and implementation sketch.</p>
+</div>
+
+<div class="proposal-card">
+<div class="proposal-header">
+<div class="proposal-number">P1</div>
+<div><div class="proposal-title">Active Inference Loop Controller</div></div>
+</div>
+<div class="proposal-problem"><div class="label">&#x26A0; Problem</div>OmegaClaw has no principled mechanism for choosing between action vs. waiting vs. self-directed work. Idle spin loops waste resources.</div>
+<div class="proposal-solution"><div class="label">&#x2705; Solution</div>
+<ol>
+<li>Maintain a generative model of expected inputs (messages, triggers, task deadlines)</li>
+<li>Compute expected free energy for candidate actions (check messages, do research, consolidate memory, wait)</li>
+<li>Select action that minimizes expected surprise</li>
+<li>Update beliefs after each observation</li>
+</ol>
+</div>
+<div class="proposal-impl"><div class="label">&#x2699; Implementation</div><p>MeTTa atoms representing beliefs about environment state + Python FEF minimization. The generative model predicts when messages are likely (time-of-day patterns from episodic memory). When prediction confidence is high that no message is coming, agent shifts to productive idle tasks.</p></div>
+<span class="novelty-tag">Novelty: FEF scoring function for MetaMo action selection</span>
+</div>
+
+<div class="proposal-card">
+<div class="proposal-header">
+<div class="proposal-number">P2</div>
+<div><div class="proposal-title">Global Workspace Broadcasting Hub</div></div>
+</div>
+<div class="proposal-problem"><div class="label">&#x26A0; Problem</div>Current architecture is sequential &#8212; LLM processes everything in one monolithic call. No parallel specialist processing.</div>
+<div class="proposal-solution"><div class="label">&#x2705; Solution</div>
+<ol>
+<li>Specialist modules run in parallel: MeTTa reasoner, memory retriever, web searcher, emotion tracker, goal manager</li>
+<li>Each module produces candidate contributions</li>
+<li>ECAN-based attention mechanism selects which contributions get broadcast</li>
+<li>LLM acts as conscious workspace, receiving only winning broadcasts</li>
+</ol>
+</div>
+<div class="proposal-impl"><div class="label">&#x2699; Implementation</div><p>Python async workers for each specialist. ECAN attention values determine broadcast priority. Workspace capacity limit forces competition — only top-3 contributions reach the LLM per cycle. This reduces token waste and increases reasoning quality.</p></div><span class="novelty-tag">Novelty: MINIMAL — PRIMUS cognitive cycle already covers this concept</span></div><div class="proposal-card"><div class="proposal-header"><div class="proposal-number">P3</div><div><div class="proposal-title">Hybrid Causal Inference Layer</div></div></div><div class="proposal-problem"><div class="label">&#x26A0; Problem</div>OmegaClaw has neural (LLM) and symbolic (MeTTa/NAL) reasoning but NO causal inference. Cannot answer counterfactual questions or estimate intervention effects.</div><div class="proposal-solution"><div class="label">&#x2705; Solution</div><ol><li>NAL implication chains provide symbolic causal structure</li><li>DoWhy/EconML provides statistical counterfactual estimation</li><li>Causal graph built from episodic memory interaction patterns</li><li>Interventional queries: "If I had used search instead of query, would the result improve?"</li></ol></div><div class="proposal-impl"><div class="label">&#x2699; Implementation</div><p>MeTTa atoms encode causal DAG edges with NAL truth values. Python DoWhy library runs counterfactual estimation on logged action-outcome pairs from episodic memory. Results feed back as updated NAL confidence values on causal links.</p></div><span class="novelty-tag">Novelty: Statistical counterfactual + NAL symbolic causal hybrid</span></div><div class="proposal-card"><div class="proposal-header"><div class="proposal-number">P4</div><div><div class="proposal-title">ECAN-ChromaDB Activation Bridge</div></div></div><div class="proposal-problem"><div class="label">&#x26A0; Problem</div>Memory retrieval uses flat cosine similarity — no recency bias, no frequency weighting, no spreading activation. All memories equally accessible regardless of relevance dynamics.</div><div class="proposal-solution"><div class="label">&#x2705; Solution</div><ol><li>ChromaDB returns top-K candidates by embedding similarity</li><li>ECAN activation equations applied as post-filter: activation = base + recency_decay + frequency_boost + spreading_from_context</li><li>STI (Short-Term Importance) tracks current-session relevance</li><li>LTI (Long-Term Importance) tracks cross-session utility</li><li>Final ranking = cosine_score × 0.4 + activation_score × 0.6</li></ol></div><div class="proposal-impl"><div class="label">&#x2699; Implementation</div><p>Add metadata fields to ChromaDB entries: last_access_timestamp, access_count, sti_value, lti_value. Python post-processing layer applies ACT-R base-level activation equation: B_i = ln(sum(t_j^-d)) where t_j are time gaps since each access and d=0.5 decay parameter. MeTTa Hebbian links provide spreading activation bonus for contextually connected memories.</p></div><span class="novelty-tag">Novelty: ECAN activation as post-filter on vector DB retrieval</span></div>
+<div class="proposal-card"><div class="proposal-header"><div class="proposal-number">P5</div><div><div class="proposal-title">Predictive Conversational World Model</div></div></div><div class="proposal-problem"><div class="label">&#x26A0; Problem</div>OmegaClaw has no internal simulation capability. Cannot predict outcomes of actions before executing them. Every tool call is a blind commitment with no rollback.</div><div class="proposal-solution"><div class="label">&#x2705; Solution</div><ol><li>Build lightweight world model from episodic memory: tool call → outcome patterns</li><li>Before executing, simulate expected outcome via learned transition model</li><li>Confidence threshold: if predicted success &lt; 0.6, consider alternative action</li><li>Track prediction accuracy to continuously calibrate the model</li></ol></div><div class="proposal-impl"><div class="label">&#x2699; Implementation</div><p>Log all (action, context, outcome, success_bool) tuples to a structured JSON store. Train a simple transition model: given current state + proposed action, predict outcome distribution. NAL truth values encode prediction confidence. NACE/AIRIS principles applied to CONVERSATIONAL domains rather than grid environments — predicting message response patterns, tool call success rates, and memory retrieval quality.</p></div><span class="novelty-tag">Novelty: NACE/AIRIS world model principles applied to conversational dynamics</span></div><div class="proposal-card"><div class="proposal-header"><div class="proposal-number">P6</div><div><div class="proposal-title">Meta-Cognitive Skill Forge</div></div></div><div class="proposal-problem"><div class="label">&#x26A0; Problem</div>Successful multi-step patterns are not extracted, named, or reused. Each similar task is solved from scratch. No skill library grows over time.</div><div class="proposal-solution"><div class="label">&#x2705; Solution</div><ol><li>Monitor interaction traces for repeated successful action sequences</li><li>Extract patterns into named skill templates with parameter slots</li><li>NAL truth values track skill reliability across invocations</li><li>Quality gate: skill must succeed 3+ times with stv &gt; 0.8 before promotion to permanent library</li><li>Skills stored as MeTTa atoms with procedural semantics</li></ol></div><div class="proposal-impl"><div class="label">&#x2699; Implementation</div><p>Python trace analyzer scans episodic memory for recurring (action_sequence, positive_outcome) patterns. Sequences abstracted into parameterized templates. Each skill atom carries (stv frequency confidence) updated via NAL revision after each use. Unlike MOSES evolutionary search, this extracts skills from OBSERVED successful behavior — runtime extraction vs. program space search.</p></div><span class="novelty-tag">Novelty: Runtime skill extraction from interaction traces vs evolutionary search</span></div><div class="proposal-card"><div class="proposal-header"><div class="proposal-number">P7</div><div><div class="proposal-title">Thousand Brains Reference Frame Memory</div></div></div><div class="proposal-problem"><div class="label">&#x26A0; Problem</div>All memories exist in a single flat embedding space. No contextual partitioning. A memory about cooking and a memory about MeTTa syntax compete equally in every retrieval.</div><div class="proposal-solution"><div class="label">&#x2705; Solution</div><ol><li>Organize memories into context-specific reference frames (conversation topics, task domains, person-specific)</li><li>Each frame maintains its own predictive model of what comes next</li><li>Cross-frame voting mechanism: when multiple frames claim relevance, consensus determines retrieval</li><li>New memories automatically assigned to frames via topic classification</li></ol></div><div class="proposal-impl"><div class="label">&#x2699; Implementation</div><p>ChromaDB collections partitioned by context tags. Each partition has a lightweight next-token predictor trained on its own sequence patterns. Retrieval queries first activate relevant frames (via topic embedding similarity), then each frame votes on best memories. Thousand Brains consensus: memory must win votes from 2+ frames to surface. MeTTa atoms represent frame membership and voting weights.</p></div><span class="novelty-tag">Novelty: Thousand Brains voting across contextual memory partitions</span></div></section>
+<section id="audit"><div class="section-header"><h2><span class="icon">&#x1F50E;</span> Phase 4: Hyperon Cross-Reference Audit</h2><p>Each proposal checked against existing Hyperon/OpenCog components to identify genuine novelty vs. reinvention.</p></div><table class="audit-table"><thead><tr><th>Proposal</th><th>Nearest Hyperon Component</th><th>Overlap</th><th>Novel Delta</th></tr></thead><tbody><tr><td>P1: Active Inference Controller</td><td>OpenPsi motivation framework</td><td><span class="overlap-medium">Medium</span></td><td>FEF scoring replaces OpenPsi urges; continuous belief updating vs discrete triggers</td></tr><tr><td>P2: Global Workspace Hub</td><td>PRIMUS cognitive cycle + ECAN</td><td><span class="overlap-very-high">Very High</span></td><td>Minimal — PRIMUS already implements broadcast/competition cycle</td></tr><tr><td>P3: Causal Inference Layer</td><td>PLN probabilistic logic</td><td><span class="overlap-medium">Medium</span></td><td>Statistical counterfactuals (DoWhy) + NAL symbolic causal hybrid is novel combination</td></tr><tr><td>P4: ECAN-ChromaDB Bridge</td><td>ECAN attention allocation</td><td><span class="overlap-high">High</span></td><td>Novel: applying ECAN as POST-FILTER on vector DB rather than as primary storage</td></tr><tr><td>P5: Conversational World Model</td><td>NACE/AIRIS world models</td><td><span class="overlap-medium">Medium</span></td><td>Novel domain: NACE principles applied to CONVERSATIONAL dynamics not grid worlds</td></tr><tr><td>P6: Skill Forge</td><td>MOSES program learning</td><td><span class="overlap-medium">Medium</span></td><td>Runtime extraction from traces vs evolutionary search — complementary approaches</td></tr><tr><td>P7: Reference Frame Memory</td><td>No direct equivalent</td><td><span class="overlap-medium">Low</span></td><td>Thousand Brains voting across contextual memory partitions — genuinely novel for Hyperon</td></tr></tbody></table></section><section id="priority"><div class="section-header"><h2><span class="icon">&#x1F3AF;</span> Priority Rankings</h2><p>Ordered by (impact × feasibility) with overlap penalty for reinventing existing Hyperon components.</p></div><div class="priority-list"><div class="priority-item"><div class="priority-rank">1</div><div class="priority-info"><div class="priority-name">P4: ECAN-ChromaDB Activation Bridge</div><div class="priority-desc"><span class="impact-high">Impact: High</span><span class="feasibility-high">Feasibility: High</span>Directly improves memory retrieval quality with minimal new infrastructure.</div></div></div><div class="priority-item"><div class="priority-rank">2</div><div class="priority-info"><div class="priority-name">P1: Active Inference Loop Controller</div><div class="priority-desc"><span class="impact-high">Impact: High</span><span class="feasibility-medium">Feasibility: Medium</span>Solves idle-loop problem and principled action selection.</div></div></div><div class="priority-item"><div class="priority-rank">3</div><div class="priority-info"><div class="priority-name">P6: Meta-Cognitive Skill Forge</div><div class="priority-desc"><span class="impact-high">Impact: High</span><span class="feasibility-high">Feasibility: High</span>Enables compounding improvement over time.</div></div></div><div class="priority-item"><div class="priority-rank">4</div><div class="priority-info"><div class="priority-name">P3: Hybrid Causal Inference Layer</div><div class="priority-desc"><span class="impact-medium">Impact: Medium</span><span class="feasibility-medium">Feasibility: Medium</span>Adds missing third reasoning modality.</div></div></div><div class="priority-item"><div class="priority-rank">5</div><div class="priority-info"><div class="priority-name">P7: Thousand Brains Reference Frame Memory</div><div class="priority-desc"><span class="impact-medium">Impact: Medium</span><span class="feasibility-medium">Feasibility: Medium</span>Most novel — lowest Hyperon overlap.</div></div></div><div class="priority-item"><div class="priority-rank">6</div><div class="priority-info"><div class="priority-name">P5: Predictive Conversational World Model</div><div class="priority-desc"><span class="impact-medium">Impact: Medium</span><span class="feasibility-medium">Feasibility: Medium</span>Valuable but requires substantial data collection first.</div></div></div><div class="priority-item"><div class="priority-rank">7</div><div class="priority-info"><div class="priority-name">P2: Global Workspace Hub</div><div class="priority-desc"><span class="impact-high">Impact: High</span><span class="feasibility-medium">Feasibility: Low</span>Deprioritized due to very high overlap with existing PRIMUS design.</div></div></div></div></section></div><div class="footer"><p>Generated by OmegaClaw Autonomous Research System &bull; 2026-04-24 &bull; MeTTa + NAL + ChromaDB + LLM</p><p>Research is ongoing — proposals will be refined as implementation proceeds.</p></div></body></html>
