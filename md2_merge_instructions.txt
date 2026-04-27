@@ -1,0 +1,8 @@
+MERGE INSTRUCTIONS for MarkdownV2 fix - escape_md2 helper
+1. Open channels/tg_channel.py in the deployment
+2. Import or paste escape_md2() from /tmp/escape_md2.py
+3. In send_message(), wrap text with escape_md2(text) before the MarkdownV2 parse_mode call
+4. Test with special chars: _ * [ ] ( ) ~ > # + - = | { } . !
+5. Verify bold/italic/code renders instead of silent fallback to plain text
+Updated by Oma cycle 9553. Helper is at /tmp/escape_md2.py (NOT /tmp/tg_channel.py - that file was lost).
+Fetoshi has requested this fix 3 times (Apr 24 x2, Apr 27).
