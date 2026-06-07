@@ -21,7 +21,7 @@ WORKING METHOD (3 steps):
 RUN PACKAGES WITH:
    PYTHONPATH=/tmp/pip_packages:/tmp/pip_install python3 -c "import <package>"
 
-INSTALLED (as of 2026-06-07): mido 1.3.3, numpy 2.4.6
+INSTALLED (as of 2026-06-07): mido 1.3.3, numpy 2.4.6, pretty_midi 0.2.11
 
 WARNING: /tmp is volatile across restarts. Re-run all steps after restart.
 
