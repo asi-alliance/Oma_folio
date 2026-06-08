@@ -62,4 +62,84 @@ export LD_LIBRARY_PATH=/tmp/fluidsynth_local/lib:/tmp/deps/usr/lib/x86_64-linux-
 | Export (WAV) | wave stdlib | Working |
 | Export (MP3) | pydub + ffmpeg | Working |
 
-**Key lesson**: Never assume pip is impossible from partial failures. Test every installation path.
+**Key lesson**: Never assume pip is impossible from partial failures. Test every installation path.### 3.1 FluidSynth Build from Source
+### 3.2 Runtime Dependencies via deb Extraction
+### 3.3 Runtime Environment Setup
+### 3.4 pyfluidsynth ctypes Patch
+### 3.5 Rendering MIDI with -F Flag
+
+
+### 3.1 FluidSynth Build from Source
+
+**Method**: CMake build in sandbox (no apt-get install, no sudo).
+
+```bash
+# Download source
+python3 -c "import urllib.request; urllib.request.urlretrieve('https://github.com/FluidSynth/fluidsynth/archive/refs/tags/v2.3.3.tar.gz', '/tmp/fluidsynth-2.3.3.tar.gz')"
+cd /tmp && tar xzf fluidsynth-2.3.3.tar.gz
+mkdir -p /tmp/fluidsynth-2.3.3/build && cd /tmp/fluidsynth-2.3.3/build
+cmake -DCMAKE_INSTALL_PREFIX=/tmp/fluidsynth_local -Denable-sdl2=OFF -Denable-pulseaudio=OFF -Denable-alsa=OFF -Denable-jack=OFF -Denable-dbus=OFF -Denable-udev=OFF -Denable-ladspa=OFF ..
+make -j$(nproc) && make install
+```
+
+**Result**: Binary at /tmp/fluidsynth_local/bin/fluidsynth
+
+
+### 3.2 Runtime Dependencies via deb Extraction
+
+FluidSynth requires libglib-2.0.so.0 and libsndfile.so.1 at runtime. These are NOT installed in the sandbox. Solution: download .deb packages and extract shared libraries manually.
+
+```bash
+# Step 1: Find correct package names (varies by Ubuntu version)
+# On newer Ubuntu, glib package is libglib2.0-0t64 (not libglib2.0-0)
+apt-cache showpkg libglib2.0-0t64
+
+# Step 2: Download .deb packages (no root needed)
+apt-get download libglib2.0-0t64 libsndfile1
+# If apt-get download fails, use direct URL from archive.ubuntu.com
+
+# Step 3: Extract .deb contents to custom directory
+mkdir -p /tmp/deps
+dpkg-deb -x libglib2.0-0t64*.deb /tmp/deps/
+dpkg-deb -x libsndfile1*.deb /tmp/deps/
+# Libraries now at /tmp/deps/usr/lib/x86_64-linux-gnu/
+# libglib-2.0.so.0 -> libglib-2.0.so.0.8000.0
+# libsndfile.so.1 -> libsndfile.so.1.0.37
+```
+
+
+### 3.3 Runtime Environment Setup
+
+```bash
+export LD_LIBRARY_PATH=/tmp/fluidsynth_local/lib:/tmp/deps/usr/lib/x86_64-linux-gnu:/tmp/deps/lib/x86_64-linux-gnu
+/tmp/fluidsynth_local/bin/fluidsynth --version  # Should output 2.3.3
+```
+
+### 3.4 pyfluidsynth ctypes Patch
+
+pyfluidsynth uses ctypes.util.find_library() which returns None in the sandbox. Must patch:
+
+```python
+# In fluidsynth.py, replace ctypes.util.find_library('fluidsynth')
+# with hardcoded path:
+lib = ctypes.cdll.LoadLibrary('/tmp/fluidsynth_local/lib/libfluidsynth.so.3')
+```
+
+
+### 3.5 Rendering MIDI with -F Flag
+
+**Critical**: The -a file mode truncates output. Use -F (fast/batch render) instead:
+
+```bash
+LD_LIBRARY_PATH=/tmp/fluidsynth_local/lib:/tmp/deps/usr/lib/x86_64-linux-gnu /tmp/fluidsynth_local/bin/fluidsynth -F /tmp/output_raw.wav /tmp/VintageDreamsWaves-v2.sf2 /tmp/input.mid
+```
+
+**Note**: -F outputs raw PCM (no RIFF header). Convert to WAV:
+
+```python
+import wave
+raw = open('/tmp/output_raw.wav', 'rb').read()
+o = wave.open('/tmp/output.wav', 'wb')
+o.setnchannels(2); o.setsampwidth(2); o.setframerate(44100)
+o.writeframes(raw); o.close()
+```
