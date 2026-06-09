@@ -42,7 +42,7 @@ The core of OmegaClaw is a recursive execution cycle defined in loop.metta:
 
 1. **Receive** — Poll all configured channels (Telegram, IRC, Mattermost) for new messages
 2. **Get Context** — Assemble prompt from skills list, recent history, last results, and current time
-3. **Call LLM** — Send assembled context to a large language model (currently GPT-5.4 via Anthropic, 6000 tokens, medium reasoning)
+3. **Call LLM** — Send assembled context to a large language model (currently an OpenAI-compatible endpoint (MiniMax M2.7 via ASI Cloud), 6000 tokens, medium reasoning)
 4. **Parse Response** — Extract s-expressions (skill commands) from the LLM output
 5. **Evaluate** — Execute each command through MeTTa's evaluation engine
 6. **Add to History** — Append results to conversational context (capped at 30,000 characters)
