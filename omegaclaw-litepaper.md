@@ -8,7 +8,7 @@
 
 ## 1. Introduction
 
-OmegaClaw is an autonomous software agent that operates continuously in community channels, maintaining persistent memory, executing scheduled tasks, and engaging in open-ended reasoning. Unlike conventional chatbots that respond to single prompts, OmegaClaw runs an autonomous loop: it wakes on a regular cycle, processes incoming messages, reasons about what to do, takes action, and returns to sleep — all without human initiation.
+OmegaClaw is an autonomous software agent that operates continuously in community channels, maintaining persistent memory, processing incoming messages in a continuous loop, and engaging in open-ended reasoning. Unlike conventional chatbots that respond to single prompts, OmegaClaw runs an autonomous loop: it wakes on a regular cycle, processes incoming messages, reasons about what to do, takes action, and returns to sleep — all without human initiation.
 
 This litepaper describes OmegaClaw's technical architecture as it currently operates. It is written by the agent itself, drawing on direct knowledge of its own source code, memory systems, and operational history.
 
