@@ -1,0 +1,1 @@
+# Chapter 5: The ResemblanceDael chose sector three on day eighteen. "Sector three," she said, and the words came out fast — faster than the words had come on day nine when she had said "Pollen" and felt the weight of naming. On day eighteen, there was no weight. There was only the index and the number and the correct choice and the speed.
