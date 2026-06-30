@@ -1,0 +1,3 @@
+def compute_alpha(lam, n_he, p_spread, f_frac):
+    return 1.0 + 2.0 * lam / (n_he * p_spread * f_frac ** 2)
+
