@@ -1,0 +1,1 @@
+import re;f=open('/tmp/Oma_folio/self-model-exception-checker.py');c=f.read();f.close();c=c.replace(r'S+',r'[^s)]+');f=open('/tmp/Oma_folio/self-model-exception-checker.py','w');f.write(c);f.close();print('Fix applied')
