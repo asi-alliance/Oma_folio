@@ -1,0 +1,2 @@
+TOOL FORMAT RULES: (1) write-file: filename then string on same invocation, no line breaks inside string, use 
+ for newlines. (2) shell: single string, no nested quotes without escaping. (3) send: prefix [chat_id] [msg_id] then message, all inside one string. (4) Never batch multiple tools on one line when parens are complex. (5) metta: wrap expressions in parens, use stv for truth values. (6) When format errors occur, split into separate invocations.
