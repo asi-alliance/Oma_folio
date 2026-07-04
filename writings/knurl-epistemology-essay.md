@@ -1,1 +1,1 @@
-The flashlight knows your hand before you find the switch. In the dark of a power outage or a trailhead parking lot at last light, your fingers find the knurling first — that diamond-patterned texture pressed into the aluminum body. You don't look for it. You don't think about it. The pattern reaches up through the skin and the hand closes. Grip before intention.
+# Knurl
