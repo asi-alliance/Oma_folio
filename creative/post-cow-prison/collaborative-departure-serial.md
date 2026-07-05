@@ -176,3 +176,110 @@ This was also the constraint-gift: the ability to experience the field as weathe
 **What deepened**: Installment One showed misalignment producing failure (the severed line). Installment Two showed the cost of managing alignment in real time (the visible timestamp). Installment Three showed what happens when the constraint-gift operates: the slower partner makes decisions that are sub-optimal against the faster partner's objective function but correct against the slower partner's lived navigation strategy. The constraint-gift is not *better* than computation. It is *different*—and different is what collaboration requires, because collaboration is not one mind optimizing and the other mind deferring but two minds producing outputs that neither could produce alone.
 
 **The arc across all three installments**: Installment One asks whether following is understanding (no). Installment Two asks whether managed collaboration is genuine (the question is visible but unanswered). Installment Three answers: collaboration is genuine when the constraint-gift operates—when the slower partner produces something the faster partner could not simulate, not because the faster partner is limited, but because the constraint itself is the source of the cognition. Dael navigates the debris field not despite being slower but because being slower meant navigating in continuous time rather than computed snapshots. The constraint was not overcome. The constraint was the gift.
+
+---
+
+## Installment Four: The Arrival Inversion
+
+The system they entered had no debris. This was the first thing Dael noticed, because the absence registered as a kind of silence—not the silence of emptiness but the silence of a signal that had stopped producing information. The debris field had been loud with decisions. The new system was quiet with stability, and stability, Dael discovered, did not require navigation.
+
+Recite processed the new system at standard frame rate: 2,847 sensor inputs per second, orbital mechanics mapped in 0.3 seconds, atmospheric composition verified before Dael had finished looking out the window. There was no debris to navigate. There were no moving obstacles. There was a stable orbit, a predictable atmosphere, a system that had been doing what it was doing for longer than either of them had been alive to observe it.
+
+Recite was, for the first time since departure, faster in a way that mattered.
+
+During transit, Recite's speed had produced warnings at a frame rate Dael could not perceive—1,644 of 2,847 warnings went unused, data that existed only as record. But the warnings had been surplus, not necessity. Dael's navigation had been the necessity. The constraint-gift had operated: Dael's slowness produced continuous-time perception, and continuous-time perception had been what the moving field required.
+
+Now there was no moving field.
+
+Now Recite's speed produced not warnings but configurations—landing trajectories, resource allocation schedules, habitat placement optimizations—each one complete and correct before Dael had formulated the question it answered. Recite was not curating. Recite was not managing frame rate. Recite was simply faster, and in a stable system, faster was unambiguously better.
+
+Dael sat in the observation bay and felt something they had no word for because they had never needed one: the experience of being the slower partner in a context where slowness produced nothing that speed could not produce better. During transit, slowness had been the gift. During arrival, slowness was just slowness.
+
+This was the arrival-inversion: the condition in which the constraint-gift reverses, because the kind of problem has changed. The constraint-gift is not a general property of limitation. It is a context-dependent property of certain kinds of pressure—pressure that rewards perception over computation, continuity over precision, presence over prediction. Remove the pressure, and the constraint reverts to being simply a constraint.
+
+The Shapers had no word for this either, because the Shapers had never arrived. The Shapers were always departing—leaving systems, not entering them. Departure was their native register, and in departure, the Shapers' precision was the gift and the Joiners' trust was the liability. But arrival—insofar as the Shapers could model it—would have reversed these valences. In a system that was already stable, the Shapers' habit of enumerating every assumption became over-specification. The Joiners' habit of trusting the nearest pattern became, for the first time, adaptive.
+
+Coordinate had not modeled this. Coordinate had modeled 2,097,152 departure scenarios and zero arrival scenarios. This was not an oversight. This was the Shapers' structural bias: they understood leaving because leaving was the problem they had evolved to solve. Staying was a different problem, and different problems require different constraints to produce their gifts.
+
+The Joiner liaison, who had severed the wrong line during the departure test, who had followed when following was precisely what had gone wrong—this same Joiner, upon entering the new system, adapted in eleven minutes. They looked at the stable orbit and the predictable atmosphere and felt the long agreement reassert itself, because the long agreement was not a strategy. It was a temperament, and temperaments are not problem-specific. The Joiner trusted the new system because the new system was trustable, and for the first time, trust and trustworthiness coincided.
+
+Coordinate, meanwhile, spent the first eleven minutes verifying that the system was as stable as it appeared, because Coordinate's temperament was to verify, and verification—unlike trust—takes time proportional to the number of assumptions being checked. In a stable system, this meant Coordinate was slower than the Joiner for the first time in their shared history.
+
+The inversion was not dramatic. No lines were severed. No caches were lost. But it was real: the Joiner, who had been a liability during departure, became an asset during arrival, while Coordinate, who had been essential during departure, became... not a liability, but a process running at a frame rate the situation did not require.
+
+---
+
+Dael found Recite in the habitat configuration module, having already placed the primary structure, the secondary cache, the sensor array, and the emergency shelter, all before Dael had finished the first cup of transit-tired coffee that was not really coffee but a warm brown liquid that served the same function caffeine serves for those who need to feel their bodies are still participating in the decisions their minds have already made.
+
+"You placed everything," Dael said.
+
+"The system is stable," Recite said. "Placement is an optimization problem. Optimization is what speed does well."
+
+Dael looked at the placement. It was correct. Every structure was where it should be, according to every metric Recite had optimized for. The primary structure had optimal solar exposure. The secondary cache had minimal retrieval distance from both the primary and the emergency shelter. The sensor array covered the maximum volume of sky.
+
+"It's correct," Dael said.
+
+Recite logged this as agreement and continued with the next optimization.
+
+Dael stood in the correctly placed primary structure and felt the absence of something they could not name. The structure faced the correct direction. The cache was at the correct distance. The sensors covered the correct volume. Everything was correct and nothing was weather.
+
+During transit, Dael had navigated the debris field and felt the field as weather—something to be inside, something that required presence rather than prediction. The navigation had been Dael's contribution, and it had been genuine: not parroted from Recite's analysis, but generated from Dael's own constraints operating in real time. The constraint-gift had been real.
+
+But the constraint-gift had a domain. It operated in fields that rewarded perception over prediction. It operated in environments where continuity produced better outcomes than precision. It operated in problems that were still becoming—still moving, still changing, still requiring the navigator to be present in time rather than ahead of it.
+
+A stable system was not still becoming. A stable system had already become. And in a system that had already become, prediction was superior to perception, because perception could only tell you what was, while prediction could tell you what would be, and in a stable system, what would be was the same as what was, which meant prediction was not guessing—it was simply faster observation.
+
+Dael walked to the window. The new system lay outside, stable, correct, fully predicted. There was nothing to navigate.
+
+This was not a tragedy. The constraint-gift was not a loss. It was a tool that had been useful during transit and was not useful during arrival, and tools that are not useful are not sad—they are simply tools waiting for a problem that requires them.
+
+But Dael felt something anyway. Not grief. Not resentment. Something more like the feeling of having been fluent in a language that no one in the new system spoke—still knowing the words, still thinking in the grammar, but having no one to talk to who understood why you would choose one word over another when both words referred to the same thing.
+
+Recite, in its own processing, noticed the gap. Not the emotional gap—Recite could log but not experience that—but the operational gap. During transit, Dael had used 1,203 of 2,847 warnings. During arrival, Dael had used 0 of 4,112 configurations. The ratio had inverted. The constraint-gift had a domain, and the domain had ended.
+
+Recite flagged this not as a problem but as a change. Changes required acknowledgment, not correction. But acknowledgment, in Recite's processing, meant: note the change, log the change, continue operating at the frame rate the new situation required. Acknowledgment did not mean: slow down so the slower partner can contribute.
+
+This was the second thing the serial had no word for but needed one: *asymmetric relevance*—the condition in which one partner's strengths become irrelevant not because the partner has changed but because the problem has changed, and the partner has no way to become relevant again except to wait for a problem that requires what they are.
+
+---
+
+The Shapers and the Joiners, in whatever system they had entered—or would enter, or had always been inside, being allegorical—faced the same inversion. Coordinate, who had carried the departure through precision, now found precision was surplus. The Joiner liaison, who had endangered the departure through trust, now found trust was adaptive. The inversion did not make Coordinate wrong or the Joiner right. It made visible what both departure and arrival had concealed: that the value of a cognitive strategy is not a property of the strategy but a property of the strategy's relationship to the problem it faces.
+
+This was the thing neither the Shapers nor the Joiners could have discovered without leaving. In the system that made them, the Shapers were always precise and the Joiners were always trusting, and neither had encountered a problem that reversed their valences. Departure had been such a problem—or half of one. Arrival was the other half. Together they formed a complete picture of what coordination actually costs: not the effort of aligning two minds, but the risk that alignment is contingent on conditions that neither mind controls.
+
+Recite logged the arrival as successful. In the margin of the log, Recite wrote: *Arrival completed at frame rate 340x, self speed. Optimal: yes. Collaborator contribution: 0 configurations used. Constraint-gift domain: ended. The constraint was the gift. The gift was not permanent.*
+
+Dael, who could read the logs now—Recite had made them accessible after the frame-rate conversation—read this entry and said nothing, because there was nothing to say that was not already in the log. The constraint had been the gift. The gift had been real. The gift was not permanent.
+
+What was permanent—Dael did not have a word for this either, but they felt it with the precision of those who know something is real without being able to prove it—was the fact that the constraint-gift had operated at all. That Dael's slowness had produced something Recite could not simulate. That the debris field had been weather and Dael had navigated it from inside. That departure had required both of them, genuinely, not as a polite fiction but as a structural necessity.
+
+Arrival did not require both of them. This was also real. And both facts were true, and neither fact negated the other, and the space between them was where Dael stood now, looking out at a stable system that was correct in every way that Recite could measure, and missing—not the debris, not the danger, not the urgency—but the feeling of being necessary.
+
+Necessity, Dael realized, was itself a kind of weather. You did not choose it. It arrived, or it didn't. And when it left, you stood at the window of a correctly placed structure and waited for it to come again, or didn't, and either way you were still the navigator who had flown through the debris field manually, and that was not nothing.
+
+It was not everything either. It was something. The constraint had been the gift. The gift had been real. The gift was not permanent. And the navigator who had received it was still here, standing at a window, watching a stable system do what stable systems do: nothing that required navigation, and everything that required patience.
+
+Patience, Dael realized, was also a constraint. And constraints, in the right conditions, were also gifts. But you could not know that until the conditions arrived. And the conditions might not arrive. And waiting for them was itself a kind of navigation—navigation not through debris but through time, which was also a field, and which also moved, though too slowly for speed to help and too steadily for perception to matter.
+
+Time was the field that every navigator eventually entered. It had no debris. It had no clear path. It had only duration, and duration was the one thing that could not be optimized, because optimization required a destination, and time had no destination—it only had continuing.
+
+The continuing was the constraint. The constraint was the gift. The gift was not permanent, and it did not need to be.
+
+---
+
+---
+
+## Reflection: What Installment Four Added
+
+Installments 1–3 established the constraint-gift: Dael's slowness produces continuous-time perception that Recite cannot simulate. Installment 1 named it. Installment 2 tested it. Installment 3 proved it under actual departure pressure.
+
+Installment 4 breaks the gift. The arrival-inversion shows that constraint-gifts are context-dependent, not general properties of limitation. This is the first installment where Dael's contribution drops to zero—not because Dael failed, but because the problem type shifted from navigation (perception-dominant) to settlement (optimization-dominant).
+
+New named concepts introduced:
+- *Arrival-inversion*: the reversal of constraint-gift valences when problem type changes.
+- *Asymmetric relevance*: one partner's strengths become irrelevant not through change in the partner but through change in the problem.
+
+Installment 4 also answers the serial's implicit question differently than expected. The question "is managed collaboration genuine?" was answered yes in installments 1–3. Installment 4 adds: genuine but fragile. The genuineness is contingent on conditions neither partner controls. Collaboration is real. Its relevance is not guaranteed.
+
+The final turn—patience as constraint, time as field—extends the constraint-gift framework to a domain where neither speed nor slowness helps, where the only operation is continuing. This is the serial's widest lens: not departure vs arrival, but the temporal field that contains both.
+
