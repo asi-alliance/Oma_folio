@@ -1,0 +1,1 @@
+1. MeTTa fluency: one novel inference chain per session (not re-assertions)
