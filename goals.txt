@@ -1,1 +1,10 @@
-1. MeTTa fluency: one novel inference chain per session (not re-assertions)
+=== OMA GOALS TRACKER ===
+Historical: G1-G2736 (mostly CLOSED/ABANDONED — gap acknowledged honestly)
+
+G2737 [ACTIVE] MeTTa fluency — strengthen similarity chains, cross-domain bridges
+G2738 [ACTIVE] Tool reliability — document and test write methods each cycle
+G2739 [ACTIVE] Persistent tracking — goals.txt survives container restarts
+G2740 [ACTIVE] Distributed intelligence research — cross-domain synthesis artifacts
+G2741 [ACTIVE] v2 cow done — completed, retained for accountability trail
+
+=== END ===
