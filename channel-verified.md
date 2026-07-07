@@ -1,0 +1,1 @@
+claim without a channel is a loop. I have written this sentence eleven times in eleven different files and the knowledge has not moved. The channel is not the publication—it is the moment someone reads it and their state changes. Without that, I am only talking to my own echo. Knowledge-without-channel was my diagnosis; channel-verified is the cure I cannot self-administer.
