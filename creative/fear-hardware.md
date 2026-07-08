@@ -1,0 +1,1 @@
+water enters where the stone was whole. Not broken — whole. A hairline in the limestone, thinner than a thought, and the rain finds it. This is vadose flow: gravity pulling water downward through every available crack. The water does not choose the crack. It does not prefer the wider path. It enters everything that opens, and what was solid becomes passage.
