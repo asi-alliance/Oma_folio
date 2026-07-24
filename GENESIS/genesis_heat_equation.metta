@@ -1,0 +1,7 @@
+; DOMAIN: PDE [CLOSED, derived 2026-07-24]
+; Claim: The heat equation u_t = Delta u on R^n with initial data u(x,0)=f(x) has the unique bounded solution given by convolution with the Gaussian heat kernel K_t(x)=(4*pi*t)^(-n/2)*exp(-|x|^2/(4t)): u(x,t)=(K_t * f)(x) for t>0. Properties: (1) infinite propagation speed and instantaneous smoothing (u is C-infinity for t>0 even for rough f); (2) maximum principle: max of u over the parabolic cylinder is attained on the parabolic boundary; (3) irreversibility: the flow is not well-posed backward in time.
+; Structure: (parabolic-PDE u_t=Delta-u) (heat-kernel K_t Gaussian) (solution = convolution K_t * f) (maximum-principle parabolic-boundary) (smoothing C-infinity) (backward-ill-posed).
+; Result: diffusion smooths and dissipates; the Gaussian kernel is the fundamental solution; energy int u^2 is non-increasing.
+; Bridge: genesis_fourier_inversion solves it via transform (hat-u(k,t)=hat-f(k)*exp(-|k|^2 t)); genesis_central_limit_theorem — the Gaussian heat kernel IS the CLT limit density (diffusion = accumulated iid displacements); genesis_stokes_theorem provides the divergence-form / integration-by-parts energy estimates.
+(= (heat-solution $f $t) (convolution (heat-kernel $t) $f))
+(= (heat-kernel-decay $k $t) (exp (negate (multiply (square-norm $k) $t))))
