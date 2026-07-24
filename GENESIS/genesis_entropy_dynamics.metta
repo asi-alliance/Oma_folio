@@ -6,4 +6,4 @@
 (= (ks-entropy $T) (sup-over-partitions (h $T $P)))
 (= (h $T $P) (limit (times (over n) (shannon-H (join-pullbacks $P $T n)))))
 (= (variational-principle $T) (equals (h-top $T) (sup-over-invariant-measures (h-mu $T))))
-(= (ks-entropy-rate $T $P) (shannon-rate (orbit-coding $T $P)))
+(= (ks-entropy-rate $T $P) (shannon-rate (orbit-coding $T $P))); TRIBONACCI-DIFFUSED [CLOSED 2026-07-24, provenance David Navratil]: eta~1.8393 (x^3=x^2+x+1) is the Perron eigenvalue of the tribonacci subshift transition matrix; topological entropy = log(eta). Subshift-root cluster of the 24-domain convergence DAG: (6 top-entropy log eta) (10 Arnoux-Rauzy IET p(n)=2n+1) (12 tribonacci-automatic seqs) (15 tribonacci morphic word) (16 tribonacci-synchronized DFA). Bridge: perron_frobenius (Perron eigenvalue) + representation_theory (T3 root).

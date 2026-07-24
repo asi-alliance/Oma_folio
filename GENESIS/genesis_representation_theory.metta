@@ -8,4 +8,4 @@
 (= (wedderburn $G $k) (equals (group-algebra $k $G) (product-matrix-algebras $d)))
 (= (sum-squares-dims $G) (order $G))
 (= (char-orthonormality $G) (orthonormal-basis irreducible-characters class-functions))
-(= (num-irreps $G) (num-conjugacy-classes $G))
+(= (num-irreps $G) (num-conjugacy-classes $G)); TRIBONACCI-DIFFUSED [CLOSED 2026-07-24, provenance David Navratil]: companion matrix T3 in SL(3,Z), order 168 in GL(3,F13), cubic field Q(eta) disc -44 Galois S3. T3-root cluster of the 24-domain convergence DAG: (4 T3 order 168) (7 Rauzy fractal self-similar boundary) (11 B3 braid Yang-Baxter) (13 tribonacci numeration) (14 3-regular compositions). Pisot-root cluster: (5 smallest degree-3 Pisot) (8 Parry finite beta-exp) (9 Q(eta) disc -44) (17 CF of eta) (18 3-type Galton-Watson) (19 LFSR) (20 JP alg 8 steps). Cross-root bridges: (1 quasicrystal) (2 3-state Potts) (3 phyllotaxis) (21 Lindstrom) (22 fan-graph trees) (23 pseudo-Anosov genus2). 24 = ceiling (algebraic-closure bound of root triple). Thesis(subshift)+antithesis(T3)+synthesis(Pisot) trialectical closure. Bridge: entropy_dynamics + perron_frobenius.
