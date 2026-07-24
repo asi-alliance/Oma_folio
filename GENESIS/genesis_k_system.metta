@@ -1,0 +1,10 @@
+; DOMAIN: dynamics [CLOSED, derived 2026-07-24]
+; Claim: A measure-preserving system (X,B,mu,T) mu(X)=1 is a Kolmogorov (K-) system if there is a sub-sigma-algebra F with F subset T^-1 F, join of T^-n F = B, and intersection of T^n F = trivial (the tail sigma-algebra is {0,X} mod null). Equivalent characterizations: (a) completely positive entropy: every nontrivial factor has h>0; (b) the Pinsker sigma-algebra is trivial; (c) uniform mixing of all orders. Hierarchy: Bernoulli => K-system => mixing-of-all-orders => strong-mixing => weak-mixing => ergodic. Each implication is strict. K-systems sit strictly above mixing_dynamics and strictly below Bernoulli in isomorphism strength.
+; Structure: (filtration F increasing under T^-1) (generates B under join) (trivial tail intersection) (equiv: completely-positive-entropy) (equiv: trivial Pinsker) (chain: Bernoulli => K => mixing-all-orders => strong-mixing).
+; Result: the K-property is the qualitative peak of the mixing hierarchy expressed via a trivial tail (asymptotic independence of the remote past), equivalently completely positive entropy; it is the dynamical analogue of a 0-1 law and the natural top of the entropy_dynamics chain below full Bernoulli isomorphism.
+; Bridge: genesis_entropy_dynamics (K-system = completely positive entropy = trivial Pinsker sigma-algebra, the entropy-theoretic characterization) + genesis_mixing_dynamics (K strictly implies mixing of all orders, sitting atop that chain) + genesis_poincare_recurrence (trivial tail is a dynamical 0-1 law strengthening the qualitative recurrence base).
+(= (k-system $T) (and (increasing-filtration $F $T) (and (generates-join $F $T) (trivial-tail $F $T))))
+(= (k-system $T) (completely-positive-entropy $T))
+(= (k-system $T) (trivial-pinsker $T))
+(= (implies (k-system $T) (mixing-all-orders $T)) true)
+(= (implies (bernoulli $T) (k-system $T)) true)
