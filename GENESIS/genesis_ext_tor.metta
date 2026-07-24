@@ -1,0 +1,12 @@
+; DOMAIN: homological-algebra/derived-functors [CLOSED, derived 2026-07-24]
+; Claim: For a ring R and R-modules, Ext^n_R(A,B) is the n-th right-derived functor of Hom_R(-,B) (or Hom_R(A,-)), computed by taking a projective resolution P_* -> A (or injective resolution B -> I^*), applying Hom, and taking cohomology; the two computations agree (balancing). Tor_n^R(A,B) is the n-th left-derived functor of the tensor product A (x)_R -, computed from a projective resolution of either argument and taking homology of the tensored complex; also balanced. Ext^0 = Hom, Tor_0 = tensor. A short exact sequence in either variable yields a long exact sequence of Ext (resp. Tor). Ext^1_R(A,B) classifies extensions 0->B->E->A->0. Vanishing detects projectivity/flatness: A projective => Ext^n(A,-)=0 (n>0); A flat => Tor_n(A,-)=0 (n>0). Group cohomology H^n(G,M)=Ext^n_ZG(Z,M) and group homology H_n(G,M)=Tor_n^ZG(Z,M) are special cases; the universal coefficient theorem relates homology with coefficients to Tor/Ext of integral homology.
+; Structure: (Ext^n=R^n Hom, projective/injective resolution + cohomology, balanced) (Tor_n=L_n tensor, projective resolution + homology, balanced) (Ext^0=Hom, Tor_0=tensor) (LES from SES in either variable) (Ext^1=extension classes) (projective=>Ext vanish, flat=>Tor vanish) (universal coefficient: H_n(C;M) via Tor of integral homology).
+; Result: Ext and Tor are the derived functors measuring the failure of Hom (left-exact) and tensor (right-exact) to be exact; they unify extension theory, projectivity/flatness obstructions, and provide the homological-algebra engine underlying group (co)homology and the universal coefficient theorem.
+; Bridge: genesis_group_cohomology (H^n(G,M)=Ext^n_ZG(Z,M), H_n(G,M)=Tor_n^ZG(Z,M) - group (co)homology is Ext/Tor over the group ring) + genesis_homology (universal coefficient theorem: H_n(C;M) built from Tor_1(H_{n-1},M); cohomology from Ext) + genesis_lie_algebra (Lie cohomology H^*(g,M)=Ext_{U(g)}(k,M) is Ext over the universal enveloping algebra) + genesis_representation_theory (Ext^n between modules measures non-splitting; semisimple/Maschke => all higher Ext vanish).
+(= (ext $R $A $B $n) (cohomology (apply-hom (projective-resolution $A) $B) $n))
+(= (tor $R $A $B $n) (homology (apply-tensor (projective-resolution $A) $B) $n))
+(= (ext $R $A $B 0) (hom $R $A $B))
+(= (tor $R $A $B 0) (tensor $R $A $B))
+(= (ext1-classifies $R $A $B) (extensions (ses $B $E $A)))
+(= (projective $A) (= (ext $R $A $any (succ $n)) 0))
+(= (flat $A) (= (tor $R $A $any (succ $n)) 0))
