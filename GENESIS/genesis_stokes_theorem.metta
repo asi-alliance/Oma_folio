@@ -1,0 +1,6 @@
+; DOMAIN: differential-geometry [CLOSED, derived 2026-07-24]
+; Claim: For a smooth oriented n-manifold M with boundary ∂M (induced orientation) and a compactly-supported smooth (n-1)-form ω, the integral of dω over M equals the integral of ω over ∂M: ∫_M dω = ∫_∂M ω.
+; Structure: (smooth-oriented-manifold M) (boundary ∂M induced-orientation) (differential-form ω degree n-1) (exterior-derivative dω degree n) (integration-of-forms over-chains).
+; Result: the generalized Stokes theorem; specializes to FTC (n=1), Green's theorem (n=2 plane), classical Kelvin-Stokes (curl, surface in R^3), and Gauss divergence theorem (n=3); expresses d as adjoint to ∂ (Stokes duality).
+; Bridge: complex analog is genesis_cauchy_integral / genesis_residue_theorem (contour ∂ of a region encloses interior data); exterior-derivative complements de-Rham cohomology; foundation for Gauss-Bonnet + G343 differential-geometry encoding.
+(= (integral-over $M (exterior-derivative $omega)) (integral-over (boundary $M) $omega))
