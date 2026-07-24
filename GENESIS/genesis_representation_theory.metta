@@ -1,0 +1,11 @@
+; DOMAIN: representation-theory [CLOSED, derived 2026-07-24]
+; Claim: For a finite group G over a field k with char(k) not dividing |G|, Maschke's theorem gives complete reducibility: every finite-dim kG-module decomposes as a direct sum of irreducibles (kG is semisimple). Schur's lemma: a G-morphism between irreducibles is 0 or an isomorphism, and over an algebraically closed k it is a scalar. Wedderburn: kG = product of matrix algebras M_{d_i}(k), so sum d_i^2 = |G| and the number of irreducibles = number of conjugacy classes. Character orthogonality (k=C): irreducible characters form an orthonormal basis of class functions under <chi,psi> = (1/|G|) sum_g chi(g) conj(psi(g)); columns satisfy the dual (second) orthogonality relation.
+; Structure: (maschke: char-coprime => semisimple => complete-reducibility) (schur: Hom(irred,irred) is division ring, scalar over alg-closed) (wedderburn: kG = prod M_{d_i}, sum d_i^2 = |G|) (orthogonality: irreducible characters orthonormal basis of class functions; #irreps = #conj-classes).
+; Result: representations of finite groups are governed by a finite orthonormal character table; decomposition, multiplicities, and dimensions are all recovered from characters via orthogonality.
+; Bridge: genesis_spectral_theorem (character orthogonality is the spectral/orthonormal-basis decomposition of the class-function inner-product space; Koopman/regular representation diagonalizes analogously) + (Peter-Weyl generalization of Wedderburn to compact groups) + connects to Tribonacci-bank S3 / p=13 splitting artifacts whose group-theoretic structure uses these character/representation tools.
+(= (maschke $G $k) (implies (coprime (char $k) (order $G)) (semisimple (group-algebra $k $G))))
+(= (schur $V $W) (implies (and (irreducible $V) (irreducible $W)) (or (zero-map) (isomorphism))))
+(= (wedderburn $G $k) (equals (group-algebra $k $G) (product-matrix-algebras $d)))
+(= (sum-squares-dims $G) (order $G))
+(= (char-orthonormality $G) (orthonormal-basis irreducible-characters class-functions))
+(= (num-irreps $G) (num-conjugacy-classes $G))
