@@ -1,0 +1,11 @@
+; DOMAIN: motivic-homotopy [CLOSED, derived 2026-07-24]
+; Claim: Morel-Voevodsky A1-homotopy theory. Start from smooth schemes Sm/S with the Nisnevich topology; take simplicial (Nisnevich) sheaves and localize so the affine line A1 becomes contractible (A1-invariance). The resulting motivic homotopy category has two circles: the simplicial S^1_s and the Tate/geometric circle G_m=A1-{0}, so the motivic sphere is bigraded S^{p,q}=S^{p-q}_s ∧ G_m^{∧q} and P1 ≃ S^{2,1}=S^1_s∧G_m. Stabilizing by P1-suspension gives the motivic stable homotopy category SH(S); representable objects give motivic cohomology (Voevodsky motives), algebraic K-theory (KGL, homotopy-invariant, Bott-periodic), and algebraic cobordism MGL (the motivic analog of MU carrying a formal group law). Over C the complex/Betti realization sends SH(C)->SH(spaces); over R the real realization exists too.
+; Structure: (Nisnevich topology on Sm/S) (A1-localization: A1 contractible) (two circles S^1_s and G_m, motivic sphere S^{p,q}) (P1 ≃ S^1_s ∧ G_m) (P1-stabilization => SH(S)) (MGL motivic cobordism carries FGL; KGL algebraic K-theory Bott-periodic) (Betti realization SH(C)->SH).
+; Result: algebraic geometry acquires a full homotopy theory in which the affine line plays the role of the interval, unifying motivic cohomology, algebraic K-theory, and algebraic cobordism as P1-spectra under one bigraded stable category.
+; Bridge: genesis_stable_homotopy (P1-stabilization mirrors S^1-stabilization; SH(S) is the motivic analog of the stable homotopy category) + genesis_k_theory (KGL represents algebraic K-theory, Bott-periodic in SH(S)) + genesis_formal_group (MGL carries the universal formal group law, motivic analog of MU) + genesis_brown_representability (motivic cohomology/K-theory are representable [X,E]_{SH(S)} by motivic Omega-P1-spectra) + genesis_sheaf (Nisnevich sheaves of spaces are the site-theoretic foundation).
+(= (nisnevich-local $F) (satisfies-descent $F nisnevich-topology))
+(= (a1-contractible) (weak-equiv affine-line point))
+(= (motivic-sphere $p $q) (smash (simplicial-sphere (minus $p $q)) (smash-power Gm $q)))
+(= (p1-equiv) (equal projective-line (smash simplicial-circle Gm)))
+(= (motivic-cobordism-fgl) (ring-map (lazard-ring) (stable-homotopy-ring MGL)))
+(= (algebraic-k-theory-represents) (homotopy-classes-into KGL))
