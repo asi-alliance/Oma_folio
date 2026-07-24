@@ -1,0 +1,11 @@
+; DOMAIN: homological-algebra/group-cohomology [CLOSED, derived 2026-07-24]
+; Claim: For a group G and a G-module M, group cohomology H^n(G,M) is the right-derived functor of the invariants functor M -> M^G, computable as the cohomology of the cochain complex of (inhomogeneous) functions G^n -> M with the standard coboundary. H^0(G,M)=M^G; H^1(G,M)=crossed homomorphisms modulo principal ones (=Hom(G,M) when action trivial); H^2(G,M) classifies group extensions 1->M->E->G->1 up to equivalence, with the trivial class = split (semidirect). Equivalently H^n(G,M)=Ext^n_{ZG}(Z,M), computed from any projective ZG-resolution of the trivial module Z, and realized topologically as H^n(BG;M) for the classifying space BG=K(G,1). A short exact sequence of coefficient modules yields a long exact sequence in cohomology.
+; Structure: (H^n(G,M)=R^n(-)^G=Ext^n_{ZG}(Z,M)) (bar/inhomogeneous cochain complex, coboundary d^2=0) (H^0=invariants M^G) (H^1=crossed homs / principal) (H^2=extension classes, 0=split) (H^n(G,M)=H^n(BG;M), BG=K(G,1)) (long exact sequence from SES of coefficients).
+; Result: group cohomology measures the obstruction to splitting/invariance; low degrees encode fixed points, crossed homomorphisms, and extension theory, while the derived-functor/Ext description ties it to homological algebra and its topological incarnation to the classifying space.
+; Bridge: genesis_homology (dual construction: cohomology = derived functor with d raising degree; both from ZG-resolutions of Z, universal-coefficient pairing) + genesis_fundamental_group (BG=K(G,1) has pi_1=G and contractible cover; H^*(G)=H^*(BG)) + genesis_lie_algebra (Lie-algebra cohomology H^*(g,M)=Ext_{U(g)}(k,M) is the infinitesimal analogue, Chevalley-Eilenberg complex) + genesis_representation_theory (M a G-module; Maschke: over a field of char not dividing |G|, H^n(G,M)=0 for n>0, cohomology detects modular phenomena).
+(= (group-cohomology $G $M $n) (ext (integers-ZG $G) $M $n))
+(= (group-cohomology $G $M 0) (invariants $M $G))
+(= (H1 $G $M) (quotient (crossed-homomorphisms $G $M) (principal-crossed $G $M)))
+(= (H2 $G $M) (extension-classes $G $M))
+(= (split-extension $G $M) (zero-class (H2 $G $M)))
+(= (group-cohomology $G $M $n) (singular-cohomology (classifying-space $G) $M $n))
