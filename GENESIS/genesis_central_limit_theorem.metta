@@ -1,0 +1,7 @@
+; DOMAIN: probability [CLOSED, derived 2026-07-24]
+; Claim: For iid random variables X_1..X_n with mean mu and finite variance sigma^2>0, the normalized sum Z_n = (sum X_i - n*mu)/(sigma*sqrt(n)) converges in distribution to a standard Gaussian N(0,1). Proof via Levy continuity: characteristic function phi_{Z_n}(t) = [phi((t/(sigma*sqrt(n))))]^n -> exp(-t^2/2), the char-fn of N(0,1).
+; Structure: (iid X_i mean mu var sigma^2) (normalized-sum Z_n) (characteristic-function phi(t)=E[e^{itX}]) (Levy-continuity: pointwise phi convergence + continuity at 0 => convergence in distribution) (Taylor phi(t)=1 - sigma^2 t^2/2 + o(t^2)).
+; Result: universality of the Gaussian as the limiting law of normalized sums under finite variance; foundation for confidence intervals, diffusion limits, error scaling ~1/sqrt(n).
+; Bridge: genesis_cramer (LDP) refines CLT by describing large-deviation tails beyond the Gaussian bulk; genesis_fourier_inversion supplies the characteristic-function=Fourier-transform machinery underpinning Levy continuity; complements genesis_birkhoff (ergodic averages) as the fluctuation counterpart to the law of large numbers.
+(= (normalized-sum-limit $iid-finite-variance) standard-gaussian)
+(= (char-fn-limit $t) (exp (negate (divide (square $t) 2))))
