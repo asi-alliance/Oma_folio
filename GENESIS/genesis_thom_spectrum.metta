@@ -1,0 +1,11 @@
+; DOMAIN: thom-spectra [CLOSED, derived 2026-07-24]
+; Claim: For a rank-n real vector bundle E->X with structure group G, the Thom space Th(E)=D(E)/S(E) is the one-point compactification along fibers. The Thom isomorphism Phi: H^k(X;R) ≅ H~^{k+n}(Th(E);R) holds when E is R-orientable, given by cup with the Thom class u in H^n(Th(E)). Assembling universal Thom spaces MG_n=Th(gamma_n over BG(n)) with structure maps S^1∧MG_n->MG_{n+1} yields the Thom spectrum MG (MO,MSO,MU,MSp,MString...). By Pontryagin-Thom pi_n(MG)=Omega_n^G, tying bordism to a genuine spectrum. A ring spectrum E is MG-orientable iff there is a Thom class making E^*(Th) free of rank one; complex orientations of E correspond to FGLs, and MU is the universal complex-oriented theory.
+; Structure: (Th(E) = D(E)/S(E) fiberwise one-point compactification) (Thom class u in H^n; Phi = cup u is iso when oriented) (MG = colim Th(gamma_n) with S^1∧MG_n->MG_{n+1}) (pi_* MG = Omega_*^G Pontryagin-Thom) (E-orientation <=> Thom class; complex orientation <=> FGL, MU universal).
+; Result: characteristic-class computations and bordism invariants are unified as the (co)homology of a single spectrum, with orientability of a bundle governing when suspension by it is invertible.
+; Bridge: genesis_cobordism (pi_* MG = bordism ring, Pontryagin-Thom) + genesis_stable_homotopy (MG is a genuine spectrum, colim of Thom spaces) + genesis_homology (Thom isomorphism = cup with Thom class, characteristic classes) + genesis_chern_character (MU complex orientation, Chern classes / genera as ring homs).
+(= (thom-space $E) (quotient (disk-bundle $E) (sphere-bundle $E)))
+(= (thom-iso $E $k) (iso (cohomology $X $k) (reduced-cohomology (thom-space $E) (plus $k (rank $E)))))
+(= (thom-iso-map $E) (cup-product (thom-class $E)))
+(= (thom-spectrum $G) (colim $n (thom-space (universal-bundle $G $n))))
+(= (pontryagin-thom-thom $G $n) (equal (stable-homotopy-group (thom-spectrum $G) $n) (cobordism-group $G $n)))
+(= (complex-orientation $E) (formal-group-law $E))
