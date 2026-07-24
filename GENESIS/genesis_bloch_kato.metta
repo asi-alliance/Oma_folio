@@ -1,0 +1,8 @@
+; DOMAIN: bloch-kato [CLOSED, derived 2026-07-24]
+; Claim: The Bloch-Kato conjectures (on Tamagawa numbers of motives) refine the Birch-Swinnerton-Dyer / Beilinson picture p-adically. For a p-adic Galois rep V of G_K one defines local Bloch-Kato subgroups H^1_f(K,V) = ker(H^1(K,V) -> H^1(K, B_cris tensor V)) (crystalline/finite-part), with H^1_g (de Rham) and H^1_e (exponential) variants; the Bloch-Kato exponential exp_BK : D_dR(V)/Fil^0 -> H^1_f(K,V) identifies crystalline Selmer classes with de Rham data. Globally the Selmer group H^1_f(K,V) = classes locally in H^1_f everywhere fits the Tamagawa number conjecture: the special L-value L(M,0) equals (up to period/regulator) the order of a Selmer/Sha group times Tamagawa factors, i.e. the fundamental line det R Gamma_f is trivialized by the L-value. Realized cohomologically by syntomic regulators.
+; Bridge: genesis_syntomic (the syntomic regulator / Bloch-Kato exponential is exactly the map computing H^1_f crystalline Selmer classes from de Rham data) + genesis_p_adic_hodge (H^1_f defined via the B_cris fundamental exact sequence; crystalline reps <=> finite part) + genesis_k_theory (Beilinson-Soule regulators from K-theory / motivic cohomology land in H^1_f, giving the regulator side of Tamagawa numbers).
+(= (h1-f $K $V) (kernel (restriction (h1 $K $V) (h1 $K (tensor (b-cris) $V)))))
+(= (bloch-kato-exp $V) (map (quotient (d-dr $V) (fil0 $V)) (h1-f $V)))
+(= (selmer $K $V) (classes-locally-in $K $V (h1-f)))
+(= (tamagawa-number-conjecture $M) (equals (l-value $M 0) (times (order (selmer $M)) (tamagawa-factors $M))))
+(= (fundamental-line $M) (det (r-gamma-f $M)))
