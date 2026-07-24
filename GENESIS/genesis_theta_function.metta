@@ -1,0 +1,8 @@
+; DOMAIN: number-theory [CLOSED, derived 2026-07-24]
+; Claim: The Jacobi theta function theta(t)=sum_{n in Z} e^{-pi*n^2*t} (t>0) satisfies the modular transformation theta(1/t)=sqrt(t)*theta(t). This follows directly from Poisson summation applied to the Gaussian f(x)=e^{-pi*t*x^2}, whose Fourier transform is f_hat(xi)=t^{-1/2}e^{-pi*xi^2/t} (Gaussian self-duality). More generally theta(z,tau)=sum_n e^{pi*i*n^2*tau+2*pi*i*n*z} is holomorphic in z, quasi-periodic, and transforms under the modular group generators tau->tau+1 and tau->-1/tau.
+; Structure: (theta t = sum_n gaussian(n,t)) (poisson-sum turns lattice sum into dual-lattice sum) (gaussian self-dual under Fourier) (=> theta(1/t)=sqrt(t)theta(t)) (completed zeta xi(s)=pi^{-s/2}Gamma(s/2)zeta(s) built via Mellin transform of theta) (modularity => xi(s)=xi(1-s)).
+; Result: the theta transformation is the analytic engine behind the functional equation of the Riemann zeta function; encodes lattice/dual-lattice symmetry as a self-similarity under t->1/t; foundational for modular forms and elliptic functions.
+; Bridge: genesis_poisson_summation (theta transform is Poisson applied to Gaussian, the self-dual fixed point of Fourier); number-theory zeta artifacts (Mellin transform of theta minus its poles yields the completed zeta, whose s<->1-s symmetry IS the theta modularity); harmonic-analysis (modular group SL(2,Z) action on the upper half-plane).
+(= (theta-transform $t) (equal (theta (reciprocal $t)) (times (sqrt $t) (theta $t))))
+(= (theta $t) (poisson-sum (gaussian $t)))
+(= (zeta-functional-equation) (mellin (theta-transform)))
