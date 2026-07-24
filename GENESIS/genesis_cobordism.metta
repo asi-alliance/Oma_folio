@@ -1,0 +1,10 @@
+; DOMAIN: cobordism-theory [CLOSED, derived 2026-07-24]
+; Claim: Two closed n-manifolds M, N are cobordant if there is a compact (n+1)-manifold W with boundary M ⊔ N; cobordism classes form a graded ring Omega_* under disjoint union (addition) and Cartesian product (multiplication). The Pontryagin-Thom construction gives an isomorphism Omega_n^{(B,f)} ≅ pi_n(MG), the n-th stable homotopy group of the Thom spectrum MG of the structure group G: unoriented Omega^O_* ≅ pi_*(MO) = polynomial F_2-algebra on generators in each degree != 2^k-1 (Thom); oriented Omega^{SO}_*⊗Q = Q[CP^2, CP^4, ...] detected by Pontryagin/Stiefel-Whitney numbers; complex Omega^U_* ≅ pi_*(MU) = Z[x_1,x_2,...], |x_i|=2i, carrying the universal formal group law (Quillen).
+; Structure: (M ~ N iff bounding W with ∂W = M ⊔ N) (Omega_n = cobordism classes, ring under ⊔ and ×) (Pontryagin-Thom: Omega_n^G ≅ pi_n MG) (transversality collapses a framed submanifold to a map to Thom space) (MO = wedge of EM spectra, MU carries universal FGL).
+; Result: geometric bordism of manifolds is computed as the stable homotopy of a Thom spectrum, converting a geometric equivalence relation into an algebraic-topological calculation, and MU's coefficient ring is the Lazard ring of the universal formal group law.
+; Bridge: genesis_stable_homotopy (Omega_* = pi_* of the Thom spectrum, a genuine spectrum) + genesis_homology (Stiefel-Whitney/Pontryagin numbers = characteristic-class integrals detecting classes) + genesis_k_theory (MU orientation, genera as ring homs Omega^U_*->R) + genesis_chern_character (Chern/Pontryagin numbers as cohomological invariants).
+(= (cobordant $M $N) (exists $W (equal (boundary $W) (disjoint-union $M $N))))
+(= (cobordism-ring-add $a $b) (disjoint-union $a $b))
+(= (cobordism-ring-mul $a $b) (cartesian-product $a $b))
+(= (pontryagin-thom $G $n) (iso (cobordism-group $G $n) (stable-homotopy-group (thom-spectrum $G) $n)))
+(= (mu-coefficients) (lazard-ring-universal-formal-group-law))
