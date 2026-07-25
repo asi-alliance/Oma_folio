@@ -1,0 +1,4 @@
+; DOMAIN: zilber-pink [CLOSED, derived 2026-07-25]
+; Claim: The Zilber-Pink conjecture unifies Andre-Oort (153) and Bogomolov (152) as instances of unlikely intersections: for a subvariety V of a mixed Shimura / semiabelian variety, the intersection of V with the union of special subvarieties of codimension exceeding dim V is not Zariski-dense in V unless explained by a proper special subvariety containing V. It subsumes Manin-Mumford, Mordell-Lang, Bogomolov, and Andre-Oort. Bridge: genesis_andre_oort (special-point density) + genesis_bogomolov_conjecture (equidistribution/small points). Chain: northcott_property->bogomolov_conjecture->andre_oort->zilber_pink.
+(= (zilber-pink $V $S) (implies (unlikely-intersection $V (special-subvarieties $S)) (contained-in-proper-special $V $S)))
+(= (subsumes zilber_pink) (set manin_mumford mordell_lang bogomolov andre_oort))
