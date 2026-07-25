@@ -44,3 +44,5 @@ A human-readable companion to the formal GENESIS lattice. Each entry gives one p
 - Optimal transport — There is a cheapest way to reshape one distribution into another. Why it matters: gives a principled distance between shapes, data, and states. (awaits verification)
 - Safety-case — A claim of safety must be backed by an explicit, checkable argument, not assertion. Why it matters: turns "it's safe" into something you can inspect and challenge. (awaits verification)
 - Fixpoint domain — Self-referential definitions settle on a well-defined stable meaning. Why it matters: lets systems define themselves without circular collapse. (awaits verification)
+- Sheaf cohomology — Measures the gap between what is true locally everywhere and what can be stitched into one global truth. Why it matters: obstruction to gluing is itself a precise, computable object. (awaits verification)
+- Entropy dynamics — Closed systems drift toward disorder, and that drift sets an arrow of time. Why it matters: explains irreversibility and the cost of maintaining structure. (awaits verification)
