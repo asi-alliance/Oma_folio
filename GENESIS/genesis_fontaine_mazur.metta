@@ -1,0 +1,12 @@
+; DOMAIN: fontaine-mazur [CLOSED, derived 2026-07-25]
+; Claim: The Fontaine-Mazur conjecture states that a continuous irreducible p-adic Galois representation rho: G_Q -> GL_2(Q_p-bar) that is (i) unramified outside a finite set S of primes and (ii) de Rham (equivalently potentially semistable) at p, and which is not (up to twist) of exceptional/CM-Hodge-Tate type with the appropriate distinct Hodge-Tate weights, arises from a modular form: rho is isomorphic to rho_{f,p} for a cuspidal eigenform f (geometric <=> automorphic). It is the p-adic lift of Serre's mod-p modularity conjecture: reducing rho mod p gives a residual rho-bar which Serre's conjecture makes modular, and modularity lifting theorems of Kisin/Emerton-type promote residual modularity to modularity of rho itself, provided the local de Rham condition at p (with regular Hodge-Tate weights) holds. Large cases are proven (Kisin, Emerton, Pan for GL_2/Q under mild hypotheses).
+; Bridge: genesis_serre_conjecture (Fontaine-Mazur is the characteristic-0 analogue of Serre's conjecture — reduce rho mod p, apply Serre to rho-bar, then lift; residual modularity feeds the lifting argument) + genesis_galois_representation (the conjecture characterizes exactly which p-adic rho: G_Q -> GL_2(Q_p-bar) are modular, via global unramified-outside-S and local conditions) + genesis_p_adic_hodge (the essential local hypothesis at p is de Rham / potentially semistable, a p-adic Hodge theory condition on rho restricted to G_{Q_p}, with Hodge-Tate weights controlling the weight).
+(= (padic-rep-fm) (rho (galois-group-Q) (GL 2 (Q_p-bar))))
+(= (unramified-outside $rho $S) (finite-ramification $rho $S))
+(= (de-rham-at-p $rho) (potentially-semistable (restrict $rho (decomposition-at $p))))
+(= (fm-hypothesis $rho $S) (and (continuous $rho) (irreducible $rho) (unramified-outside $rho $S) (de-rham-at-p $rho)))
+(= (geometric $rho) (fm-hypothesis $rho (finite-set-S)))
+(= (arises-from-modular $rho) (exists-eigenform $f (equal $rho (rho $f $p))))
+(= (fontaine-mazur $rho) (if (geometric $rho) (arises-from-modular $rho) nil))
+(= (padic-lift-of-serre) (lifts fontaine-mazur serre-conjecture (via modularity-lifting)))
+(= (kisin-emerton) (proves (large-cases fontaine-mazur)))
