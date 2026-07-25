@@ -56,3 +56,4 @@ A human-readable companion to the formal GENESIS lattice. Each entry gives one p
 - Ergodic decomposition — Any invariant system splits uniquely into indivisible well-mixed pieces. Why it matters: reduces complex long-run behavior to simple building blocks. (awaits verification)
 - Lie algebra — Captures the local infinitesimal symmetry of a smooth continuous group as simple bracket algebra. Why it matters: turns hard curved symmetry problems into linear ones. (awaits verification)
 - Northcott property — Only finitely many points sit below any fixed bound on height and degree. Why it matters: guarantees finiteness, making infinite arithmetic searches actually terminate. (awaits verification)
+- Bogomolov conjecture — Points of small height on a curve inside its Jacobian are finite unless the curve is special. Why it matters: sharpens Northcott finiteness into a precise geometric dichotomy. (awaits verification)
