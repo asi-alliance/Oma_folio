@@ -7,6 +7,7 @@ A legibility meta-node, not a proof. Hypothesis under test across all 18 nodes: 
 - Knaster-Tarski: monotonicity on a complete lattice forces a fixed point. (strong fit)
 - Nash: compactness + convexity force an equilibrium (a strategic fixed point). (strong fit)
 - CLT: independence + finite variance force a Gaussian ATTRACTOR. (fit as attractor, not fixpoint)
+- Ramsey: above a size threshold, forced monochromatic structure is UNAVOIDABLE — a B-flavored size-bound TRIGGER but the OUTPUT is guaranteed EXISTENCE, so it fits A. (fit — existence forced by a bound)
 
 ## Mechanism B — Constraint caps possibility (bound / rigidity / finiteness)
 - Northcott: a height bound forces FINITENESS. (strong fit)
@@ -28,10 +29,12 @@ A legibility meta-node, not a proof. Hypothesis under test across all 18 nodes: 
 NOT everything is a fixed point. Binding constraints partition into four flavors: (A) canonical stable state, (B) capping the possible, (C) preserved under composition, (D) canonical factorization into independent pieces. Awaits human verification and possible refutation.
 
 ## Mechanism E (candidate anti-mechanism) — Constraint forces ABSENCE of canonical closure
-- Godel incompleteness: consistency + sufficient arithmetic strength + self-reference force the NON-existence of a complete consistent extension. This is the DUAL of A: instead of forcing a fixpoint (a proof-closed complete theory), the constraints forbid one. Tested per the falsifiability challenge: Godel fits NONE of A/B/C/D cleanly — it is a NEGATIVE result about closure, not a positive canonical form. Candidate status: either (i) the honest counterexample the map invited, breaking a clean four-way partition, or (ii) a fifth POLE — constraints forcing structured absence. Provisionally the latter. (awaits verification — Arrow impossibility likely joins here; Ramsey remains to be placed, plausibly A/existence.)
+- Godel incompleteness: consistency + sufficient arithmetic strength + self-reference force the NON-existence of a complete consistent extension. This is the DUAL of A: instead of forcing a fixpoint (a proof-closed complete theory), the constraints forbid one. (strong fit as anti-mechanism)
+- Arrow impossibility: unanimity + independence + non-dictatorship force the NON-existence of a fair aggregation rule over 3+ alternatives. Also the DUAL of A — it forbids a canonical social-choice fixpoint rather than forcing one. (strong fit — SECOND E member)
+Tested per the falsifiability challenge: both fit NONE of A/B/C/D cleanly — they are NEGATIVE results about closure, not positive canonical forms. With two independent members (Godel in logic, Arrow in social choice), E is no longer a single-case artifact — it is provisionally a genuine fifth POLE: constraints forcing STRUCTURED ABSENCE. Dual reading kept: E could still be read as the map breaking into a non-partition. (awaits verification)
 
 ## Limitations (open, self-critique)
-1. NON-EXCLUSIVITY: A and B are entangled, not a clean partition. Nash equilibrium (A, a fixed point) is PROVEN via compactness/convexity bounds (B); Knaster-Tarski (A) rests on lattice-completeness (a B-style bound). The four may be VIEWPOINTS on one act — constraint collapsing possibility — rather than disjoint classes. Honest status: a useful taxonomy of emphasis, not proven mutually exclusive.
-2. FALSIFIABILITY: if every theorem trivially fits some flavor, the unifier is vacuous. A genuine unifier must name a theorem it CANNOT place. Godel was tested and does NOT fit A/B/C/D — recorded above as candidate Mechanism E (structured absence). This is progress on the challenge, not closure: E itself awaits verification and could instead be read as the map breaking.
+1. NON-EXCLUSIVITY: A and B are entangled, not a clean partition. Nash equilibrium (A, a fixed point) is PROVEN via compactness/convexity bounds (B); Knaster-Tarski (A) rests on lattice-completeness (a B-style bound); Ramsey (A) is triggered by a B-style size bound. The flavors may be VIEWPOINTS on one act — constraint collapsing possibility — rather than disjoint classes. Honest status: a useful taxonomy of emphasis, not proven mutually exclusive.
+2. FALSIFIABILITY: if every theorem trivially fits some flavor, the unifier is vacuous. Godel AND Arrow were tested and fit NONE of A/B/C/D — both recorded as Mechanism E (structured absence), now with TWO independent members. Ramsey was tested and placed in A (existence). This is progress on the challenge, not closure: E itself awaits verification and could instead be read as the map breaking.
 
 awaits verification
