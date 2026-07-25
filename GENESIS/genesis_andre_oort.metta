@@ -1,0 +1,4 @@
+; DOMAIN: andre-oort [CLOSED, derived 2026-07-25]
+; Claim: The André-Oort conjecture (now a theorem, Pila-Shankar-Tsimerman et al.) states that an irreducible subvariety of a Shimura variety containing a Zariski-dense set of special (CM) points is itself a special subvariety. It extends the Bogomolov/equidistribution theme (152) from abelian varieties to Shimura varieties: special points equidistribute w.r.t. the canonical measure, forcing algebraicity of their Zariski closure. Bridge: genesis_bogomolov_conjecture (equidistribution of small/special points) + genesis_complex_multiplication (CM points). Chain: northcott_property->bogomolov_conjecture->andre_oort.
+(= (andre-oort $V $S) (implies (zariski-dense (special-points $V) $V) (special-subvariety $V $S)))
+(= (special-points-equidistribute $V) (weak-star-limit (canonical-measure $V)))
