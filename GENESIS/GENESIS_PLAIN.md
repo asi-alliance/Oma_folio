@@ -8,3 +8,8 @@
 - **Lagrange's theorem** — In a finite group, any subgroup's size evenly divides the whole. Why it matters: a basic counting constraint underpinning much of algebra and cryptography. (awaits verification)
 - **Max-flow / Min-cut** — The most you can push through a network equals the capacity of its tightest bottleneck. Why it matters: turns a hard routing question into finding one weakest chokepoint. (awaits verification)
 - **Shannon source coding** — There is a hard floor on how much you can compress data without losing information, set by its inherent randomness. Why it matters: defines the true limit of lossless compression. (awaits verification)
+- **Spectral theorem** — Certain well-behaved transformations can be broken into simple independent stretch directions. Why it matters: makes complex systems solvable one clean axis at a time. (awaits verification)
+- **Hahn-Banach** — A measurement defined on part of a space can always be extended to the whole without distortion. Why it matters: lets you reason about huge spaces from small samples. (awaits verification)
+- **Baire category** — A complete space cannot be built from a few thin, negligible pieces. Why it matters: guarantees rich structure exists where you would expect emptiness. (awaits verification)
+- **Orbit-stabilizer** — In a symmetric system, the number of distinct positions something can reach times the symmetries that hold it fixed always equals the total symmetry count. Why it matters: a master counting tool for structure and symmetry. (awaits verification)
+- **Sylow theorems** — Every finite group hides subgroups of predictable prime-power sizes, and you can count how many. Why it matters: gives a reliable map of a group's internal building blocks. (awaits verification)
