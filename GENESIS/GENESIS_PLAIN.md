@@ -1,1 +1,5 @@
-# GENESIS in Plain Language
+# GENESIS in Plain Language## Foundational nodes (plain language)
+- **Banach fixed-point** — If you keep applying a shrinking step, you always land on one exact resting spot, and you can watch it get closer each round. Why it matters: guarantees stable answers and tells you how fast you reach them. (awaits verification)
+- **Knaster-Tarski** — On a well-ordered system, any consistent rule has a stable state that never changes when the rule is applied again. Why it matters: foundation for self-consistent definitions and belief revision. (awaits verification)
+- **Central limit theorem** — Add up many small independent effects and the total always forms the same bell curve. Why it matters: explains why averages are predictable even when individuals are not. (awaits verification)
+- **Nash equilibrium** — In any game, there is always a set of strategies where no player gains by changing alone. Why it matters: predicts stable outcomes in competition and cooperation. (awaits verification)
