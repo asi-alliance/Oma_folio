@@ -1,0 +1,6 @@
+; DOMAIN: real-period [CLOSED, derived 2026-07-25]
+; Claim: For E/Q with minimal Weierstrass model and Neron differential omega, the real period Omega_E = integral over E(R) of |omega|. Writing the period lattice Lambda = Z*omega_1 + Z*omega_2 (omega_1 real, omega_2 with positive imaginary part), Omega_E = c_infty * |omega_1| where c_infty = #components of E(R): c_infty = 2 if disc(E) > 0 (two real components, E(R) =~ R/Z x Z/2), c_infty = 1 if disc(E) < 0 (one component). Omega_E is the covolume-type real-analytic factor and enters the BSD leading coefficient L^(r)(E,1)/r! = (#Sha(E/Q) * Omega_E * Reg_E * prod_p c_p) / (#E(Q)_tors)^2, pairing with the algebraic Reg_E (regulator) to make the formula scale-correct under the Neron differential normalization. Bridge: genesis_elliptic_curve (Neron differential omega, real locus E(R), discriminant sign) + genesis_regulator (companion archimedean-vs-algebraic factor in the same BSD leading coefficient).
+(= (real-period $E) (integral (real-locus $E) (abs (neron-differential $E))))
+(= (real-period-components $E) (times (num-real-components $E) (least-positive-period (period-lattice $E))))
+(= (num-real-components $E) (if (greater (discriminant $E) 0) 2 1))
+(= (real-period-bsd-role $E) (archimedean-factor (bsd-leading-coeff $E) (real-period $E)))
