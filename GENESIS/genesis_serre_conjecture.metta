@@ -1,0 +1,12 @@
+; DOMAIN: serre-conjecture [CLOSED, derived 2026-07-25]
+; Claim: Serre's modularity conjecture (proved by Khare-Wintenberger 2009, with Kisin) states that every continuous, odd, absolutely irreducible representation rho-bar: G_Q -> GL_2(F_p-bar) is modular: it arises as the mod-p reduction rho-bar_{f,p} of a modular eigenform f. The strong (refined) form specifies the minimal weight k(rho-bar) and level N(rho-bar) via Serre's explicit recipe: N(rho-bar) is the prime-to-p Artin conductor (from local ramification away from p) and k(rho-bar) is read off the restriction to inertia at p. This generalizes Ribet's epsilon-conjecture (which handled level-lowering, one direction of the weight/level optimization) to a full existence-and-optimization statement, and its proof proceeds by a vast lifting argument reducing to modularity lifting theorems of Taylor-Wiles type. Serre's conjecture implies FLT, the Artin conjecture for odd 2-dimensional representations, and much of the mod-p Langlands picture for GL_2/Q.
+; Bridge: genesis_ribet_level_lowering (Serre's conjecture generalizes the epsilon-conjecture Ribet proved — level-lowering is the special case of weight/level optimization, now subsumed by the full existence statement) + genesis_galois_representation (the conjecture is precisely about which mod-p Galois representations rho-bar: G_Q -> GL_2(F_p-bar) are modular) + genesis_taylor_wiles (the Khare-Wintenberger proof invokes modularity lifting theorems of Taylor-Wiles type to promote residual modularity along the induction).
+(= (residual-rep-serre) (rho-bar (galois-group-Q) (GL 2 (F_p-bar))))
+(= (odd $rho) (equal (det $rho (complex-conjugation)) -1))
+(= (serre-hypothesis $rho) (and (continuous $rho) (odd $rho) (absolutely-irreducible $rho)))
+(= (serre-weight $rho) (weight-recipe (restrict $rho (inertia-at $p))))
+(= (serre-level $rho) (prime-to-p-artin-conductor $rho))
+(= (is-modular $rho) (exists-eigenform $f (equal (rho-bar $f $p) $rho)))
+(= (serre-conjecture $rho) (if (serre-hypothesis $rho) (and (is-modular $rho) (arises-at $rho (serre-weight $rho) (serre-level $rho))) nil))
+(= (khare-wintenberger) (proves serre-conjecture (via modularity-lifting)))
+(= (generalizes-ribet) (subsumes serre-conjecture ribet-level-lowering))
