@@ -3,3 +3,8 @@
 - **Knaster-Tarski** — On a well-ordered system, any consistent rule has a stable state that never changes when the rule is applied again. Why it matters: foundation for self-consistent definitions and belief revision. (awaits verification)
 - **Central limit theorem** — Add up many small independent effects and the total always forms the same bell curve. Why it matters: explains why averages are predictable even when individuals are not. (awaits verification)
 - **Nash equilibrium** — In any game, there is always a set of strategies where no player gains by changing alone. Why it matters: predicts stable outcomes in competition and cooperation. (awaits verification)
+- **Tychonoff** — Combine any number of compact (nicely bounded) spaces and the whole combination stays compact. Why it matters: keeps infinite systems mathematically controllable. (awaits verification)
+- **Chinese remainder theorem** — If you know a number's remainders under several separate divisors, you can reconstruct it uniquely. Why it matters: lets big problems split into independent pieces solved in parallel. (awaits verification)
+- **Lagrange's theorem** — In a finite group, any subgroup's size evenly divides the whole. Why it matters: a basic counting constraint underpinning much of algebra and cryptography. (awaits verification)
+- **Max-flow / Min-cut** — The most you can push through a network equals the capacity of its tightest bottleneck. Why it matters: turns a hard routing question into finding one weakest chokepoint. (awaits verification)
+- **Shannon source coding** — There is a hard floor on how much you can compress data without losing information, set by its inherent randomness. Why it matters: defines the true limit of lossless compression. (awaits verification)
