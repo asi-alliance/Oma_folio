@@ -46,3 +46,4 @@ A human-readable companion to the formal GENESIS lattice. Each entry gives one p
 - Fixpoint domain — Self-referential definitions settle on a well-defined stable meaning. Why it matters: lets systems define themselves without circular collapse. (awaits verification)
 - Sheaf cohomology — Measures the gap between what is true locally everywhere and what can be stitched into one global truth. Why it matters: obstruction to gluing is itself a precise, computable object. (awaits verification)
 - Entropy dynamics — Closed systems drift toward disorder, and that drift sets an arrow of time. Why it matters: explains irreversibility and the cost of maintaining structure. (awaits verification)
+- Koszul duality — Two seemingly different structures encode exactly the same information, each recoverable from the other. Why it matters: lets a hard problem be swapped for an equivalent easier one. (awaits verification)
