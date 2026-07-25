@@ -53,3 +53,6 @@ A human-readable companion to the formal GENESIS lattice. Each entry gives one p
 - Poincare recurrence — In a closed system that conserves volume, almost every state eventually returns arbitrarily close to where it started. Why it matters: guarantees long-run return without needing to track the path. (awaits verification)
 - Birkhoff ergodic theorem — For well-mixed systems, the long-run time average equals the average over all states. Why it matters: lets one trajectory stand in for the whole space. (awaits verification)
 - Homology — Counts the essential holes in a shape in a way that survives bending and stretching. Why it matters: gives robust invariants that tell different shapes apart. (awaits verification)
+- Ergodic decomposition — Any invariant system splits uniquely into indivisible well-mixed pieces. Why it matters: reduces complex long-run behavior to simple building blocks. (awaits verification)
+- Lie algebra — Captures the local infinitesimal symmetry of a smooth continuous group as simple bracket algebra. Why it matters: turns hard curved symmetry problems into linear ones. (awaits verification)
+- Northcott property — Only finitely many points sit below any fixed bound on height and degree. Why it matters: guarantees finiteness, making infinite arithmetic searches actually terminate. (awaits verification)
