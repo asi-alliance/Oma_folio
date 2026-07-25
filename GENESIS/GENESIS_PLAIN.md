@@ -38,3 +38,9 @@ A human-readable companion to the formal GENESIS lattice. Each entry gives one p
 ## Game Theory & Networks
 - Nash equilibrium — There is always a strategy set where no player gains by changing alone. Why it matters: predicts stable outcomes. (awaits verification)
 - Max-flow / Min-cut — Max throughput equals the tightest bottleneck's capacity. Why it matters: reduces routing to finding one chokepoint. (awaits verification)
+## Foundations & Systems
+- Provenance — Every claim carries a traceable record of where it came from and how it was derived. Why it matters: makes the whole lattice auditable rather than trust-based. (awaits verification)
+- Morphogenesis — Simple local rules can reliably grow into stable large-scale patterns. Why it matters: explains how structure self-organizes without a central blueprint. (awaits verification)
+- Optimal transport — There is a cheapest way to reshape one distribution into another. Why it matters: gives a principled distance between shapes, data, and states. (awaits verification)
+- Safety-case — A claim of safety must be backed by an explicit, checkable argument, not assertion. Why it matters: turns "it's safe" into something you can inspect and challenge. (awaits verification)
+- Fixpoint domain — Self-referential definitions settle on a well-defined stable meaning. Why it matters: lets systems define themselves without circular collapse. (awaits verification)
