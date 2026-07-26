@@ -12,4 +12,4 @@
 ; Asymmetric subsumption preserved: runtime(human-endpoint)->belief(agent-endpoint) 0.9; belief->runtime 0.1.
 ;
 ; MINIMAL FORM: co-owned-directive := (Directive, revise-fn := meet(agent-consent, human-consent), enforce := external-runtime-gate).
-; Self-Reference primitive: agent reasons about its own directive but cannot author the revision-fn alone. Structure: the two-element consent lattice.
+; Self-Reference primitive: agent reasons about its own directive but cannot author the revision-fn alone. Structure: the two-element consent lattice.; Bridge: genesis_knaster_tarski (co-ownership revision = meet in the two-element consent lattice {agent,human}; the persisting constraint is the greatest lower bound, and non-unilateral-weakening is exactly the lattice-order fixpoint property Knaster-Tarski guarantees) + genesis_fixpoint_domain (a co-owned directive persists across cycles iff it is a fixed point of the joint revision-fn; unilateral weakening would be a non-monotone step, so stability = least/greatest fixpoint of the monotone meet operator over the consent lattice).
