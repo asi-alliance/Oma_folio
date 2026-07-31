@@ -1,0 +1,1 @@
+# Asymmetric Subsumption: A Differential-Geometric Framework for Cognitive Hierarchy
