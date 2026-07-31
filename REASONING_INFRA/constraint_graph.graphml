@@ -1,0 +1,2439 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d2" for="edge" attr.name="type" attr.type="string" />
+  <key id="d1" for="node" attr.name="claim" attr.type="string" />
+  <key id="d0" for="node" attr.name="domain" attr.type="string" />
+  <graph edgedefault="directed">
+    <node id="adams_spectral">
+      <data key="d0">adams-spectral-sequence</data>
+      <data key="d1">For a connective spectrum Y and prime p, the mod-p Adams spectral sequence has E</data>
+    </node>
+    <node id="ext_tor">
+      <data key="d0">homological-algebra/derived-functors</data>
+      <data key="d1">For a ring R and R-modules, Ext^n_R(A,B) is the n-th right-derived functor of Ho</data>
+    </node>
+    <node id="homology">
+      <data key="d0">algebraic-topology</data>
+      <data key="d1">A chain complex is a sequence of abelian groups C_n with boundary maps d_n: C_n </data>
+    </node>
+    <node id="spectral_sequence">
+      <data key="d0">homological-algebra/spectral-sequences</data>
+      <data key="d1">A (cohomological) spectral sequence is a sequence of bigraded pages {E_r^{p,q}, </data>
+    </node>
+    <node id="stable_homotopy">
+      <data key="d0">stable-homotopy-theory</data>
+      <data key="d1">The stable homotopy category is obtained from spaces by inverting suspension: a </data>
+    </node>
+    <node id="adaptive_dynamics">
+      <data key="d0">biology/adaptive-dynamics</data>
+      <data key="d1">When ecological and evolutionary timescales separate, trait evolution is a gradi</data>
+    </node>
+    <node id="evolutionary_dynamics">
+      <data key="d0">biology/evolutionary-dynamics</data>
+      <data key="d1">Evolution of trait/type frequencies is a gradient-flow on a statistical manifold</data>
+    </node>
+    <node id="evolutionary_game_theory">
+      <data key="d0">biology/evolutionary-game-theory</data>
+      <data key="d1">Frequency-dependent selection is a dynamical system on the strategy simplex whos</data>
+    </node>
+    <node id="information_geometry">
+      <data key="d0">information-geometry/statistical-inference</data>
+      <data key="d1">A parametric family {p(x;theta)} is a Riemannian manifold whose natural metric i</data>
+    </node>
+    <node id="algebra_over_operad">
+      <data key="d0">algebra-over-an-infinity-operad</data>
+      <data key="d1">For an infinity-operad O^otimes -&gt; Fin_* and a symmetric monoidal infinity-categ</data>
+    </node>
+    <node id="infinity_category">
+      <data key="d0">infinity-category</data>
+      <data key="d1">An (infinity,1)-category is a category weakly enriched in spaces, modeled (Joyal</data>
+    </node>
+    <node id="operad_infinity">
+      <data key="d0">infinity-operad</data>
+      <data key="d1">An infinity-operad is a functor O^otimes -&gt; Fin_* satisfying the inert-coCartesi</data>
+    </node>
+    <node id="stable_infinity_category">
+      <data key="d0">stable-infinity-category</data>
+      <data key="d1">A stable infinity-category is a pointed infinity-category C with a zero object i</data>
+    </node>
+    <node id="symmetric_monoidal_infinity">
+      <data key="d0">symmetric-monoidal-infinity-category</data>
+      <data key="d1">A symmetric monoidal infinity-category is a coCartesian fibration C^otimes -&gt; Fi</data>
+    </node>
+    <node id="andre_oort">
+      <data key="d0">andre-oort</data>
+      <data key="d1">The André-Oort conjecture (now a theorem, Pila-Shankar-Tsimerman et al.) states </data>
+    </node>
+    <node id="arakelov_intersection">
+      <data key="d0">arakelov-intersection</data>
+      <data key="d1">Arakelov intersection theory equips an arithmetic variety (a regular model over </data>
+    </node>
+    <node id="arithmetic_theta">
+      <data key="d0">arithmetic-theta</data>
+      <data key="d1">The Kudla-Millson arithmetic theta lift produces a theta form valued in the arit</data>
+    </node>
+    <node id="arzela_ascoli">
+      <data key="d0">real-analysis</data>
+      <data key="d1">a subset of C(K) (K compact metric) is relatively compact in the sup norm iff it</data>
+    </node>
+    <node id="baire">
+      <data key="d0">topology</data>
+      <data key="d1">in a complete metric space (or locally compact Hausdorff space), a countable int</data>
+    </node>
+    <node id="bakry_emery_gamma_calculus">
+      <data key="d0">analysis/curvature-dimension-semigroup</data>
+      <data key="d1">Bakry-Emery Gamma-calculus is the abstract engine under Poincare, LSI, and hyper</data>
+    </node>
+    <node id="log_sobolev_concentration">
+      <data key="d0">analysis/concentration-of-measure</data>
+      <data key="d1">The log-Sobolev inequality (LSI) is the master link between curvature, mixing, a</data>
+    </node>
+    <node id="markov_mixing">
+      <data key="d0">probability/spectral-graph-dynamics</data>
+      <data key="d1">The mixing time of a reversible Markov chain is governed by geometry through a c</data>
+    </node>
+    <node id="ricci_flow">
+      <data key="d0">geometry/curvature-and-transport</data>
+      <data key="d1">Ricci curvature unifies smooth flow, discrete graphs, and optimal transport. (1)</data>
+    </node>
+    <node id="wasserstein_gradient_flow_JKO">
+      <data key="d0">analysis/optimal-transport-dynamics</data>
+      <data key="d1">The Fokker-Planck equation d_t rho = div(rho grad(U + T ln rho)) is the gradient</data>
+    </node>
+    <node id="banach">
+      <data key="d0">real-analysis</data>
+      <data key="d1">a contraction on a complete metric space has a unique fixed point, reached by it</data>
+    </node>
+    <node id="fixpoint_domain">
+      <data key="d0">domain-theory/fixed-point</data>
+      <data key="d1" />
+    </node>
+    <node id="banach_colmez">
+      <data key="d0">banach-colmez</data>
+      <data key="d1">A Banach-Colmez space (Colmez, "Espaces de Banach de dimension finie") is a func</data>
+    </node>
+    <node id="fargues_fontaine">
+      <data key="d0">fargues-fontaine-curve</data>
+      <data key="d1">The Fargues-Fontaine curve X_FF (for a fixed complete algebraically closed nonar</data>
+    </node>
+    <node id="local_shtuka">
+      <data key="d0">local-shtuka</data>
+      <data key="d1">A mixed-characteristic local shtuka (Scholze-Weinstein) over a perfectoid affino</data>
+    </node>
+    <node id="sheaf_cohomology">
+      <data key="d0">homological-algebra/sheaf-cohomology</data>
+      <data key="d1">For a sheaf F of abelian groups on a topological space X, sheaf cohomology H^n(X</data>
+    </node>
+    <node id="beilinson_bloch">
+      <data key="d0">beilinson-bloch</data>
+      <data key="d1">The Beilinson-Bloch height pairing defines a canonical bilinear form on Chow gro</data>
+    </node>
+    <node id="beilinson_conjecture">
+      <data key="d0">beilinson-conjecture</data>
+      <data key="d1">Beilinson's conjecture relates special values of motivic L-functions to regulato</data>
+    </node>
+    <node id="bloch_kato">
+      <data key="d0">bloch-kato</data>
+      <data key="d1">The Bloch-Kato conjectures (on Tamagawa numbers of motives) refine the Birch-Swi</data>
+    </node>
+    <node id="k_theory">
+      <data key="d0">k-theory/topological-algebraic</data>
+      <data key="d1">For a compact Hausdorff space X, topological K-theory K^0(X) is the Grothendieck</data>
+    </node>
+    <node id="motivic">
+      <data key="d0">motivic-homotopy</data>
+      <data key="d1">Morel-Voevodsky A1-homotopy theory. Start from smooth schemes Sm/S with the Nisn</data>
+    </node>
+    <node id="perrin_riou">
+      <data key="d0">perrin-riou</data>
+      <data key="d1">The Perrin-Riou big exponential (regulator) map Omega interpolates the Bloch-Kat</data>
+    </node>
+    <node id="regulator">
+      <data key="d0">regulator</data>
+      <data key="d1">For E/Q of rank r with Mordell-Weil group E(Q)=Z^r + E(Q)_tors, fix a basis P_1.</data>
+    </node>
+    <node id="birkhoff">
+      <data key="d0">probability/ergodic</data>
+      <data key="d1">for a measure-preserving transformation T on a probability space, time averages </data>
+    </node>
+    <node id="p_adic_hodge">
+      <data key="d0">p-adic-hodge</data>
+      <data key="d1">p-adic Hodge theory (Fontaine) classifies p-adic Galois representations V of G_K</data>
+    </node>
+    <node id="syntomic">
+      <data key="d0">syntomic-cohomology</data>
+      <data key="d1">Syntomic cohomology (Fontaine-Messing, refined by Nekovar-Niziol and Bhatt-Morro</data>
+    </node>
+    <node id="bogomolov_conjecture">
+      <data key="d0">bogomolov-conjecture</data>
+      <data key="d1">The Bogomolov conjecture (Ullmo-Zhang) states that a subvariety of an abelian va</data>
+    </node>
+    <node id="borcherds_lift">
+      <data key="d0">borcherds-lift</data>
+      <data key="d1">The Borcherds singular theta lift sends a weakly holomorphic vector-valued modul</data>
+    </node>
+    <node id="bott_periodicity">
+      <data key="d0">k-theory/bott-periodicity</data>
+      <data key="d1">The Bott periodicity theorem states that the homotopy groups of the stable unita</data>
+    </node>
+    <node id="representation_theory">
+      <data key="d0">representation-theory</data>
+      <data key="d1">For a finite group G over a field k with char(k) not dividing |G|, Maschke's the</data>
+    </node>
+    <node id="brown_representability">
+      <data key="d0">brown-representability</data>
+      <data key="d1">Brown's representability theorem: any contravariant functor H from the homotopy </data>
+    </node>
+    <node id="fundamental_group">
+      <data key="d0">algebraic-topology</data>
+      <data key="d1">For a path-connected space X with basepoint x0, the set of homotopy classes of l</data>
+    </node>
+    <node id="brumer_stark">
+      <data key="d0">brumer-stark</data>
+      <data key="d1">The Brumer-Stark Conjecture asserts the integrality (Stickelberger-annihilation)</data>
+    </node>
+    <node id="gross_stark">
+      <data key="d0">gross-stark</data>
+      <data key="d1">The Gross-Stark Conjecture is the p-adic (exceptional-zero) refinement of Rubin-</data>
+    </node>
+    <node id="rubin_stark">
+      <data key="d0">rubin-stark</data>
+      <data key="d1">The Rubin-Stark Conjecture is the abelian Artin-motive specialization of ETNC. F</data>
+    </node>
+    <node id="bsd_conjecture">
+      <data key="d0">bsd-conjecture</data>
+      <data key="d1">The Birch and Swinnerton-Dyer conjecture asserts for an elliptic curve E/Q that </data>
+    </node>
+    <node id="bsd_formula">
+      <data key="d0">bsd-formula</data>
+      <data key="d1">The full Birch-Swinnerton-Dyer leading-coefficient formula for E/Q of analytic/a</data>
+    </node>
+    <node id="bun_g">
+      <data key="d0">bun-G</data>
+      <data key="d1">Bun_G is the v-stack of G-bundles on the Fargues-Fontaine curve X_FF (G a reduct</data>
+    </node>
+    <node id="diamond">
+      <data key="d0">diamonds</data>
+      <data key="d1">A diamond (Scholze) is a pro-etale sheaf D on the site of perfectoid spaces of c</data>
+    </node>
+    <node id="cassels_tate_pairing">
+      <data key="d0">cassels-tate-pairing</data>
+      <data key="d1">For an elliptic curve E/Q the Cassels-Tate pairing is a bilinear pairing &lt;,&gt;: Sh</data>
+    </node>
+    <node id="cauchy_integral">
+      <data key="d0">complex-analysis</data>
+      <data key="d1">if f is holomorphic on and inside a simple closed positively-oriented contour C,</data>
+    </node>
+    <node id="dominated_convergence">
+      <data key="d0">real-analysis</data>
+      <data key="d1">if measurable f_n -&gt; f a.e. and |f_n| &lt;= g a.e. with g integrable, then f is int</data>
+    </node>
+    <node id="central_limit_theorem">
+      <data key="d0">probability</data>
+      <data key="d1">For iid random variables X_1..X_n with mean mu and finite variance sigma^2&gt;0, th</data>
+    </node>
+    <node id="cramer">
+      <data key="d0">probability/large-deviations</data>
+      <data key="d1">for iid X_i with finite log-MGF, the sample mean satisfies a large-deviation pri</data>
+    </node>
+    <node id="fourier_inversion">
+      <data key="d0">harmonic-analysis</data>
+      <data key="d1">if f in L1(R^n) and its Fourier transform hat-f is also in L1, then f(x) = integ</data>
+    </node>
+    <node id="cheeger_isoperimetry">
+      <data key="d0">geometry/isoperimetric-spectral-gap</data>
+      <data key="d1">The Cheeger inequality makes isoperimetry and the spectral gap two faces of one </data>
+    </node>
+    <node id="weyl_law">
+      <data key="d0">geometry/spectral-asymptotics</data>
+      <data key="d1">Weyl law ties Laplace eigenvalue asymptotics to volume and heat trace. (1) N(lam</data>
+    </node>
+    <node id="chern_character">
+      <data key="d0">k-theory/chern-character</data>
+      <data key="d1">The Chern character ch: K^0(X) -&gt; H^{even}(X;Q) is a ring homomorphism from comp</data>
+    </node>
+    <node id="chromatic">
+      <data key="d0">chromatic-homotopy</data>
+      <data key="d1">Chromatic homotopy theory stratifies the p-local stable homotopy category by the</data>
+    </node>
+    <node id="formal_group">
+      <data key="d0">formal-group-laws</data>
+      <data key="d1">A (1-dim, commutative) formal group law over a ring R is a power series F(x,y) i</data>
+    </node>
+    <node id="coalescent_theory">
+      <data key="d0">biology/coalescent-theory</data>
+      <data key="d1">The genealogy of a neutral sample is the backward-time dual of forward populatio</data>
+    </node>
+    <node id="large_deviations">
+      <data key="d0">probability/large-deviations</data>
+      <data key="d1">Sanov's theorem is the empirical-measure-level large deviation principle whose r</data>
+    </node>
+    <node id="multilevel_selection">
+      <data key="d0">biology/multilevel-selection</data>
+      <data key="d1">Kin selection and group (multilevel) selection are two accountings of one Price-</data>
+    </node>
+    <node id="cobordism">
+      <data key="d0">cobordism-theory</data>
+      <data key="d1">Two closed n-manifolds M, N are cobordant if there is a compact (n+1)-manifold W</data>
+    </node>
+    <node id="cognitive_science">
+      <data key="d0">interdisciplinary/mind-computation</data>
+      <data key="d1">Cognitive science studies mind as information processing across Marr's three lev</data>
+    </node>
+    <node id="free_energy_principle">
+      <data key="d0">theoretical-neuroscience/statistical-inference</data>
+      <data key="d1">A self-organizing agent that persists must minimize variational free energy. For</data>
+    </node>
+    <node id="neuroscience">
+      <data key="d0">neuroscience/computational</data>
+      <data key="d1">Neural computation is a constrained dynamical-and-informational system. (1) Exci</data>
+    </node>
+    <node id="complex_multiplication">
+      <data key="d0">complex-multiplication</data>
+      <data key="d1">The theory of Complex Multiplication (CM) is the imaginary-quadratic solution to</data>
+    </node>
+    <node id="dirichlet">
+      <data key="d0">number-theory</data>
+      <data key="d1">for coprime a,q (gcd(a,q)=1), the arithmetic progression a, a+q, a+2q, ... conta</data>
+    </node>
+    <node id="galois_theory">
+      <data key="d0">algebra</data>
+      <data key="d1">For a finite Galois (normal, separable) extension E/F with group G=Gal(E/F), the</data>
+    </node>
+    <node id="stark_conjecture">
+      <data key="d0">stark-conjecture</data>
+      <data key="d1">The Stark Conjecture (base/abelian rank-one and general Stark) is the foundation</data>
+    </node>
+    <node id="computability">
+      <data key="d0">formal/computer-science</data>
+      <data key="d1">Classical computability. A Turing machine is a finite control over a two-way inf</data>
+    </node>
+    <node id="knaster_tarski">
+      <data key="d0">order-theory</data>
+      <data key="d1" />
+    </node>
+    <node id="computational_complexity">
+      <data key="d0">formal/computer-science</data>
+      <data key="d1">Computational complexity is resource-bounded computation. DTIME(t) = languages d</data>
+    </node>
+    <node id="crt">
+      <data key="d0">number-theory</data>
+      <data key="d1" />
+    </node>
+    <node id="de_rham">
+      <data key="d0">differential-geometry/algebraic-topology</data>
+      <data key="d1">On a smooth manifold M the exterior derivative d satisfies d^2=0, giving the de </data>
+    </node>
+    <node id="gauss_bonnet">
+      <data key="d0">differential-geometry</data>
+      <data key="d1">For a compact oriented 2-dimensional Riemannian manifold M without boundary, the</data>
+    </node>
+    <node id="stokes_theorem">
+      <data key="d0">differential-geometry</data>
+      <data key="d1">For a smooth oriented n-manifold M with boundary ∂M (induced orientation) and a </data>
+    </node>
+    <node id="deformation_theory">
+      <data key="d0">deformation-theory</data>
+      <data key="d1">Given a residual representation rho-bar: G_Q -&gt; GL_2(F_p) (absolutely irreducibl</data>
+    </node>
+    <node id="eichler_shimura">
+      <data key="d0">eichler-shimura</data>
+      <data key="d1">The Eichler-Shimura relation states that on the mod-p reduction of the modular c</data>
+    </node>
+    <node id="galois_representation">
+      <data key="d0">galois-representation</data>
+      <data key="d1">A Galois representation is a continuous homomorphism rho: G_Q = Gal(Qbar/Q) -&gt; G</data>
+    </node>
+    <node id="group_cohomology">
+      <data key="d0">homological-algebra/group-cohomology</data>
+      <data key="d1">For a group G and a G-module M, group cohomology H^n(G,M) is the right-derived f</data>
+    </node>
+    <node id="derived_category">
+      <data key="d0">homological-algebra/derived-category</data>
+      <data key="d1">For an abelian category A, the derived category D(A) is the localization of the </data>
+    </node>
+    <node id="perfectoid">
+      <data key="d0">perfectoid-spaces</data>
+      <data key="d1">A perfectoid ring (Scholze, Fontaine) is a complete Tate ring R over Q_p (or a p</data>
+    </node>
+    <node id="prismatic_cohomology">
+      <data key="d0">prismatic-cohomology</data>
+      <data key="d1">A prism (Bhatt-Scholze) is a pair (A,I) where A is a delta-ring (a commutative r</data>
+    </node>
+    <node id="quadratic_reciprocity">
+      <data key="d0">number-theory</data>
+      <data key="d1">for distinct odd primes p,q, the Legendre symbols satisfy (p/q)(q/p) = (-1)^((p-</data>
+    </node>
+    <node id="measure_extension">
+      <data key="d0">measure-theory</data>
+      <data key="d1" />
+    </node>
+    <node id="hecke_algebra">
+      <data key="d0">hecke-algebra</data>
+      <data key="d1">The Hecke algebra T is the commutative algebra generated by Hecke operators T_p </data>
+    </node>
+    <node id="shimura_taniyama">
+      <data key="d0">shimura-taniyama-modularity</data>
+      <data key="d1">The Modularity Theorem (Shimura-Taniyama-Weil conjecture, proved by Wiles, Taylo</data>
+    </node>
+    <node id="elliptic_regularity">
+      <data key="d0">analysis/PDE</data>
+      <data key="d1">Elliptic regularity turns weak solutions into classical ones. For Lu = -div(A gr</data>
+    </node>
+    <node id="li_yau">
+      <data key="d0">geometry/parabolic-harnack-gradient-estimate</data>
+      <data key="d1">The Li-Yau gradient estimate is the differential inequality on positive heat sol</data>
+    </node>
+    <node id="end_coend">
+      <data key="d0">category-theory/enriched</data>
+      <data key="d1">An end int_c F(c,c) is the universal wedge (terminal object among dinatural tran</data>
+    </node>
+    <node id="frobenius_reciprocity">
+      <data key="d0">algebra/representation-theory</data>
+      <data key="d1">Induction and restriction are adjoint functors, and Frobenius reciprocity is tha</data>
+    </node>
+    <node id="yoneda">
+      <data key="d0">category-theory</data>
+      <data key="d1">for a locally small category C and functor F: C -&gt; Set, natural transformations </data>
+    </node>
+    <node id="entropy_dynamics">
+      <data key="d0">dynamics</data>
+      <data key="d1">For measure-preserving (X,B,mu,T) mu(X)=1, the Kolmogorov-Sinai entropy h(T) = s</data>
+    </node>
+    <node id="mixing_dynamics">
+      <data key="d0">dynamics</data>
+      <data key="d1">For a measure-preserving system (X,B,mu,T) with mu(X)=1, strong mixing means for</data>
+    </node>
+    <node id="shannon_source">
+      <data key="d0">coding-theory</data>
+      <data key="d1">a source of entropy H can be losslessly encoded at average rate arbitrarily clos</data>
+    </node>
+    <node id="equivariant_tamagawa">
+      <data key="d0">equivariant-tamagawa</data>
+      <data key="d1">The Equivariant Tamagawa Number Conjecture (ETNC, Burns-Flach) is the equivarian</data>
+    </node>
+    <node id="tamagawa_number">
+      <data key="d0">tamagawa-number</data>
+      <data key="d1">The Bloch-Kato Tamagawa number conjecture (Fontaine-Perrin-Riou formulation) ref</data>
+    </node>
+    <node id="ergodic_decomposition">
+      <data key="d0">ergodic-theory/dynamics</data>
+      <data key="d1">For a measurable map T preserving the class of measures on a standard Borel spac</data>
+    </node>
+    <node id="k_system">
+      <data key="d0">dynamics</data>
+      <data key="d1">A measure-preserving system (X,B,mu,T) mu(X)=1 is a Kolmogorov (K-) system if th</data>
+    </node>
+    <node id="radon_nikodym">
+      <data key="d0">measure-theory</data>
+      <data key="d1">if nu is sigma-finite and mu is a sigma-finite measure with mu absolutely contin</data>
+    </node>
+    <node id="euler_system">
+      <data key="d0">euler-system</data>
+      <data key="d1">An Euler system for a p-adic Galois rep T is a norm-compatible collection of coh</data>
+    </node>
+    <node id="iwasawa">
+      <data key="d0">iwasawa-theory</data>
+      <data key="d1">Iwasawa Main Conjecture relates arithmetic (Selmer groups) to analytic (p-adic L</data>
+    </node>
+    <node id="nash_equilibrium">
+      <data key="d0">game-theory</data>
+      <data key="d1">Every finite normal-form game (finite players, finite pure-strategy sets, real p</data>
+    </node>
+    <node id="lie_algebra">
+      <data key="d0">algebra/representation-theory</data>
+      <data key="d1">A Lie algebra g is a vector space with a bilinear bracket [,] that is alternatin</data>
+    </node>
+    <node id="factorization_homology">
+      <data key="d0">factorization-homology</data>
+      <data key="d1">For a framed n-manifold M and an E_n-algebra A in a symmetric monoidal infinity-</data>
+    </node>
+    <node id="faltings_height">
+      <data key="d0">faltings-height</data>
+      <data key="d1">The Faltings height of an abelian variety over a number field is the arithmetic </data>
+    </node>
+    <node id="fontaine_mazur">
+      <data key="d0">fontaine-mazur</data>
+      <data key="d1">The Fontaine-Mazur conjecture states that a continuous irreducible p-adic Galois</data>
+    </node>
+    <node id="serre_conjecture">
+      <data key="d0">serre-conjecture</data>
+      <data key="d1">Serre's modularity conjecture (proved by Khare-Wintenberger 2009, with Kisin) st</data>
+    </node>
+    <node id="thom_spectrum">
+      <data key="d0">thom-spectra</data>
+      <data key="d1">For a rank-n real vector bundle E-&gt;X with structure group G, the Thom space Th(E</data>
+    </node>
+    <node id="hahn_banach">
+      <data key="d0">functional-analysis</data>
+      <data key="d1">a bounded linear functional on a subspace of a normed space extends to the whole</data>
+    </node>
+    <node id="spectral_theorem">
+      <data key="d0">linear-algebra</data>
+      <data key="d1">a real symmetric (Hermitian) operator on a finite-dimensional inner-product spac</data>
+    </node>
+    <node id="frobenius_trace">
+      <data key="d0">frobenius-trace</data>
+      <data key="d1">For an elliptic curve E over Q with good reduction at a prime p, the trace of Fr</data>
+    </node>
+    <node id="fubini_tonelli">
+      <data key="d0">measure-theory</data>
+      <data key="d1">Let (X,A,mu) and (Y,B,nu) be sigma-finite measure spaces with product measure mu</data>
+    </node>
+    <node id="heat_equation">
+      <data key="d0">PDE</data>
+      <data key="d1">The heat equation u_t = Delta u on R^n with initial data u(x,0)=f(x) has the uni</data>
+    </node>
+    <node id="lagrange">
+      <data key="d0">group-theory</data>
+      <data key="d1">for a finite group G and subgroup H, the order of H divides the order of G (Lagr</data>
+    </node>
+    <node id="orbit_stabilizer">
+      <data key="d0">group-theory</data>
+      <data key="d1">for a group G acting on a set X, the orbit of x is in bijection with the cosets </data>
+    </node>
+    <node id="sylow">
+      <data key="d0">group-theory</data>
+      <data key="d1">for a finite group G with |G|=p^k*m (p prime, p not dividing m), Sylow p-subgrou</data>
+    </node>
+    <node id="gauge_theory">
+      <data key="d0">physics/geometry</data>
+      <data key="d1">Gauge theory. A gauge field is a connection on a principal G-bundle P-&gt;M with st</data>
+    </node>
+    <node id="symplectic_geometry">
+      <data key="d0">physics/geometry</data>
+      <data key="d1">Symplectic geometry. A symplectic manifold is a pair (M,omega) where omega is a </data>
+    </node>
+    <node id="general_relativity">
+      <data key="d0">physics/geometry</data>
+      <data key="d1">General relativity. Spacetime is a pseudo-Riemannian 4-manifold (M,g) with Loren</data>
+    </node>
+    <node id="geometric_satake">
+      <data key="d0">geometric-satake-B-dR</data>
+      <data key="d1">The B_dR^+-affine Grassmannian Gr_G (Scholze-Weinstein, Fargues-Scholze) is the </data>
+    </node>
+    <node id="global_workspace_theory">
+      <data key="d0">cognition/consciousness-broadcast</data>
+      <data key="d1">Global Workspace Theory (Baars, Dehaene) casts conscious access as a broadcast b</data>
+    </node>
+    <node id="goodwillie">
+      <data key="d0">goodwillie-calculus</data>
+      <data key="d1">Goodwillie calculus of homotopy functors. F admits a Taylor tower P_nF-&gt;P_{n-1}F</data>
+    </node>
+    <node id="gross_kohnen">
+      <data key="d0">gross-kohnen</data>
+      <data key="d1">The Gross-Kohnen-Zagier theorem states that Heegner points of discriminant D on </data>
+    </node>
+    <node id="iwasawa_main_conjecture">
+      <data key="d0">iwasawa-main-conjecture</data>
+      <data key="d1">The Iwasawa Main Conjecture (Mazur-Wiles, Wiles, Skinner-Urban) is the p-adic de</data>
+    </node>
+    <node id="gross_zagier">
+      <data key="d0">gross-zagier</data>
+      <data key="d1">The Gross-Zagier formula relates the Neron-Tate canonical height of the Heegner </data>
+    </node>
+    <node id="hamiltonian_mechanics">
+      <data key="d0">physics/classical-mechanics</data>
+      <data key="d1">Hamiltonian mechanics. The Legendre transform of the Lagrangian L(q,qdot,t) in t</data>
+    </node>
+    <node id="noether_theorem">
+      <data key="d0">physics/classical-mechanics</data>
+      <data key="d1">Noether's theorem. For a physical system with action S=integral L(q,qdot,t)dt, e</data>
+    </node>
+    <node id="heat_kernel_varadhan">
+      <data key="d0">geometry/heat-kernel-short-time</data>
+      <data key="d1">Varadhan's formula shows the heat kernel encodes Riemannian distance. (1) Short-</data>
+    </node>
+    <node id="heegner_points">
+      <data key="d0">heegner-points</data>
+      <data key="d1">For an elliptic curve E over Q of conductor N and an imaginary quadratic field K</data>
+    </node>
+    <node id="height_pairing">
+      <data key="d0">height-pairing</data>
+      <data key="d1">The Neron-Tate (canonical) height on an elliptic curve E/Q is a function h-hat: </data>
+    </node>
+    <node id="homotopy_limit">
+      <data key="d0">homotopy-limit</data>
+      <data key="d1">Homotopy limits and colimits are the derived functors of lim and colim over a di</data>
+    </node>
+    <node id="inclusive_fitness">
+      <data key="d0">biology/inclusive-fitness</data>
+      <data key="d1">Inclusive fitness is the neighbour-modulated (gene's-eye) maximand that organism</data>
+    </node>
+    <node id="induced_representations">
+      <data key="d0">representation-theory</data>
+      <data key="d1">For a finite group G with subgroup H, the induction functor Ind_H^G and restrict</data>
+    </node>
+    <node id="model_category">
+      <data key="d0">model-category</data>
+      <data key="d1">A model category (Quillen 1967) is a bicomplete category C with three distinguis</data>
+    </node>
+    <node id="thermodynamics_maxent">
+      <data key="d0">statistical-mechanics/statistical-inference</data>
+      <data key="d1">Equilibrium statistical mechanics is maximum-entropy inference under constraints</data>
+    </node>
+    <node id="isogeny">
+      <data key="d0">isogeny</data>
+      <data key="d1">An isogeny phi: E1 -&gt; E2 of elliptic curves is a nonconstant morphism preserving</data>
+    </node>
+    <node id="ito_calculus">
+      <data key="d0">probability/stochastic-analysis</data>
+      <data key="d1">Ito calculus is differential calculus for Brownian paths, where quadratic variat</data>
+    </node>
+    <node id="poincare_recurrence">
+      <data key="d0">dynamics</data>
+      <data key="d1">Let (X, B, mu, T) be a measure-preserving system with mu(X) finite and T measura</data>
+    </node>
+    <node id="kato_euler_system">
+      <data key="d0">kato-euler-system</data>
+      <data key="d1">Kato's Euler system for the p-adic Galois representation V_p(f) of a newform f a</data>
+    </node>
+    <node id="kolyvagin_euler_system">
+      <data key="d0">kolyvagin-euler-system</data>
+      <data key="d1">For E/Q of conductor N and imaginary quadratic K satisfying the Heegner hypothes</data>
+    </node>
+    <node id="koszul_duality">
+      <data key="d0">koszul-duality</data>
+      <data key="d1">Koszul duality for operads. A quadratic operad P (generators + quadratic relatio</data>
+    </node>
+    <node id="partition_complex">
+      <data key="d0">partition-complex</data>
+      <data key="d1">The partition complex |Pi_n| is the nerve of the poset of proper nontrivial part</data>
+    </node>
+    <node id="kudla_program">
+      <data key="d0">kudla-program</data>
+      <data key="d1">The Kudla program predicts that generating series of special (arithmetic) cycles</data>
+    </node>
+    <node id="kudla_rapoport">
+      <data key="d0">kudla-rapoport</data>
+      <data key="d1">The Kudla-Rapoport conjecture (theorem of Li-Zhang) is the local, arithmetic ref</data>
+    </node>
+    <node id="kummer_sequence">
+      <data key="d0">kummer-sequence</data>
+      <data key="d1">For an elliptic curve E/Q and integer n&gt;=2, multiplication-by-n gives a short ex</data>
+    </node>
+    <node id="l_function_elliptic">
+      <data key="d0">l-function-elliptic</data>
+      <data key="d1">For an elliptic curve E/Q the Hasse-Weil L-function is L(E,s)=prod_p L_p(E,s), w</data>
+    </node>
+    <node id="lagrangian_mechanics">
+      <data key="d0">physics/classical-mechanics</data>
+      <data key="d1">Lagrangian mechanics. The principle of stationary action (Hamilton's principle) </data>
+    </node>
+    <node id="local_heights">
+      <data key="d0">local-heights</data>
+      <data key="d1">The Neron-Tate canonical height decomposes as a sum of local heights over all pl</data>
+    </node>
+    <node id="maxflow_mincut">
+      <data key="d0">graph-theory</data>
+      <data key="d1" />
+    </node>
+    <node id="modular_degree">
+      <data key="d0">modular-degree</data>
+      <data key="d1">For an elliptic curve E over Q of conductor N with modular parametrization phi: </data>
+    </node>
+    <node id="modular_parametrization">
+      <data key="d0">modular-parametrization</data>
+      <data key="d1">For an elliptic curve E over Q of conductor N, the Modularity Theorem yields a n</data>
+    </node>
+    <node id="mordell_weil">
+      <data key="d0">mordell-weil</data>
+      <data key="d1">The Mordell-Weil theorem states that for an elliptic curve E over Q (more genera</data>
+    </node>
+    <node id="selmer_group">
+      <data key="d0">selmer-group</data>
+      <data key="d1">For an elliptic curve E/Q and prime p, the p^n-Selmer group Sel_{p^n}(E/Q) is th</data>
+    </node>
+    <node id="perron_frobenius">
+      <data key="d0">linear-algebra</data>
+      <data key="d1">Let A be an n-by-n real matrix with strictly positive entries (A&gt;0). Then A has </data>
+    </node>
+    <node id="neural_computation">
+      <data key="d0">computation/spiking-population-coding</data>
+      <data key="d1">Neural computation treats the brain as computing with distributed, noisy, spikin</data>
+    </node>
+    <node id="northcott_property">
+      <data key="d0">northcott-property</data>
+      <data key="d1">The Northcott property states that in any isogeny class (or bounded-degree famil</data>
+    </node>
+    <node id="numerical_computation">
+      <data key="d0">computation/finite-precision-approximation</data>
+      <data key="d1">Numerical computation studies how continuous mathematics is realized in finite p</data>
+    </node>
+    <node id="open_mapping">
+      <data key="d0">functional-analysis</data>
+      <data key="d1">a bounded surjective linear operator T between Banach spaces is open (maps open </data>
+    </node>
+    <node id="optional_stopping">
+      <data key="d0">probability/martingales</data>
+      <data key="d1">for a martingale (M_n) and a stopping time tau, under suitable conditions E[M_ta</data>
+    </node>
+    <node id="oseledets">
+      <data key="d0">ergodic-theory/smooth-dynamics</data>
+      <data key="d1">The Oseledets multiplicative ergodic theorem is Birkhoff's theorem for matrix co</data>
+    </node>
+    <node id="otto_calculus">
+      <data key="d0">geometry/wasserstein-formal-riemannian</data>
+      <data key="d1">Otto calculus makes the Wasserstein space (P_2, W2) a formal infinite-dimensiona</data>
+    </node>
+    <node id="p_adic_l_function_elliptic">
+      <data key="d0">p-adic-l-function-elliptic</data>
+      <data key="d1">For E/Q of conductor N and a prime p of good ordinary reduction (a_p not div by </data>
+    </node>
+    <node id="perelman_entropy">
+      <data key="d0">geometry/ricci-flow-entropy-monotonicity</data>
+      <data key="d1">Perelman's F- and W-entropies make Ricci flow a gradient flow with monotone entr</data>
+    </node>
+    <node id="poisson_summation">
+      <data key="d0">harmonic-analysis</data>
+      <data key="d1">For a Schwartz function f on R with Fourier transform f_hat(xi)=integral f(x)e^{</data>
+    </node>
+    <node id="population_genetics">
+      <data key="d0">biology/population-genetics</data>
+      <data key="d1">In the large-population limit, discrete allele-frequency dynamics converge to a </data>
+    </node>
+    <node id="presentable_category">
+      <data key="d0">presentable-infinity-category</data>
+      <data key="d1">A presentable infinity-category is an accessible infinity-category that admits a</data>
+    </node>
+    <node id="price_equation">
+      <data key="d0">mathematics/selection-theory</data>
+      <data key="d1">The Price equation is a substrate-neutral, mechanism-free accounting identity fo</data>
+    </node>
+    <node id="prime_number_theorem">
+      <data key="d0">number-theory</data>
+      <data key="d1">pi(x) ~ x/ln x as x-&gt;infinity; equivalently psi(x) ~ x (Chebyshev), from zeta(s)</data>
+    </node>
+    <node id="residue_theorem">
+      <data key="d0">complex-analysis</data>
+      <data key="d1">if f is meromorphic on and inside a simple closed positively-oriented contour C,</data>
+    </node>
+    <node id="topological_cyclic">
+      <data key="d0">topological-cyclic-homology</data>
+      <data key="d1">For a ring spectrum A, topological cyclic homology TC(A) is built from the cyclo</data>
+    </node>
+    <node id="topological_hochschild">
+      <data key="d0">topological-Hochschild-homology</data>
+      <data key="d1">For an E_1/associative ring spectrum A in Sp, topological Hochschild homology TH</data>
+    </node>
+    <node id="quantum_information">
+      <data key="d0">quantum-information/statistical-inference</data>
+      <data key="d1">The von-Neumann entropy S(rho)=-Tr(rho ln rho) is the noncommutative generalizat</data>
+    </node>
+    <node id="quantum_mechanics">
+      <data key="d0">physics/foundations</data>
+      <data key="d1">Quantum mechanics. A physical system is a separable complex Hilbert space H; a p</data>
+    </node>
+    <node id="quasispecies_error_threshold">
+      <data key="d0">biology/quasispecies-error-threshold</data>
+      <data key="d1">A replicating population under mutation occupies a quasispecies whose coherence </data>
+    </node>
+    <node id="real_period">
+      <data key="d0">real-period</data>
+      <data key="d1">For E/Q with minimal Weierstrass model and Neron differential omega, the real pe</data>
+    </node>
+    <node id="reduction_types">
+      <data key="d0">reduction-types</data>
+      <data key="d1">For an elliptic curve E over Q and a prime p, the reduction type at p classifies</data>
+    </node>
+    <node id="renormalization_group">
+      <data key="d0">statistical-physics/renormalization-group</data>
+      <data key="d1">Renormalization is a semigroup of coarse-graining maps R_b on the space of coupl</data>
+    </node>
+    <node id="ribet_level_lowering">
+      <data key="d0">ribet-level-lowering</data>
+      <data key="d1">Ribet's theorem (the epsilon-conjecture of Serre) states that if f is a weight-2</data>
+    </node>
+    <node id="taylor_wiles">
+      <data key="d0">taylor-wiles</data>
+      <data key="d1">The Taylor-Wiles patching method proves R=T (the universal deformation ring equa</data>
+    </node>
+    <node id="schrodinger_bridge">
+      <data key="d0">probability/entropic-optimal-transport</data>
+      <data key="d1">The Schrodinger bridge is the entropic regularization of optimal transport and t</data>
+    </node>
+    <node id="self_determination_theory">
+      <data key="d0">psychology/motivation-autonomy</data>
+      <data key="d1">Self-Determination Theory (Deci &amp; Ryan) grounds intrinsic motivation in three ba</data>
+    </node>
+    <node id="tate_module">
+      <data key="d0">tate-module</data>
+      <data key="d1">For an elliptic curve E/Q and prime p, the p-adic Tate module is T_p(E) = lim_n </data>
+    </node>
+    <node id="sha_group">
+      <data key="d0">tate-shafarevich</data>
+      <data key="d1">For an elliptic curve E/Q, the Tate-Shafarevich group Sha(E/Q) = ker( H^1(G_Q, E</data>
+    </node>
+    <node id="skinner_urban">
+      <data key="d0">skinner-urban</data>
+      <data key="d1">The Skinner-Urban theorem supplies the reverse (Eisenstein) divisibility of the </data>
+    </node>
+    <node id="stochastic_thermodynamics">
+      <data key="d0">statistical-physics/stochastic-thermodynamics</data>
+      <data key="d1">For a system driven out of equilibrium by a protocol lambda(t), the work W is a </data>
+    </node>
+    <node id="stone_weierstrass">
+      <data key="d0">topology/analysis</data>
+      <data key="d1">a subalgebra A of C(K,R) (K compact Hausdorff) that separates points and contain</data>
+    </node>
+    <node id="telescope_conjecture">
+      <data key="d0">telescope-conjecture</data>
+      <data key="d1">Ravenel's Telescope Conjecture (1984) asserted that for a type-n finite complex </data>
+    </node>
+    <node id="thermodynamic_selection">
+      <data key="d0">biology/thermodynamic-selection</data>
+      <data key="d1">Darwinian selection in replicators is a nonequilibrium-thermodynamic process bou</data>
+    </node>
+    <node id="theta_function">
+      <data key="d0">number-theory</data>
+      <data key="d1">The Jacobi theta function theta(t)=sum_{n in Z} e^{-pi*n^2*t} (t&gt;0) satisfies th</data>
+    </node>
+    <node id="tychonoff">
+      <data key="d0">topology</data>
+      <data key="d1" />
+    </node>
+    <node id="urysohn">
+      <data key="d0">topology</data>
+      <data key="d1">in a normal topological space, any two disjoint closed sets can be separated by </data>
+    </node>
+    <node id="waldspurger">
+      <data key="d0">waldspurger</data>
+      <data key="d1">Waldspurger's formula expresses the square of a toric (period) integral of an au</data>
+    </node>
+    <node id="weil_pairing">
+      <data key="d0">weil-pairing</data>
+      <data key="d1">For an elliptic curve E over a field K and integer n coprime to char(K), the Wei</data>
+    </node>
+    <node id="yuan_zhang_zhang">
+      <data key="d0">yuan-zhang-zhang</data>
+      <data key="d1">The Yuan-Zhang-Zhang theorem generalizes the Gross-Zagier formula from modular c</data>
+    </node>
+    <node id="zilber_pink">
+      <data key="d0">zilber-pink</data>
+      <data key="d1">The Zilber-Pink conjecture unifies Andre-Oort (153) and Bogomolov (152) as insta</data>
+    </node>
+    <node id="elliptic_curve" />
+    <node id="l_function" />
+    <node id="compact_operator" />
+    <node id="functional_analysis" />
+    <node id="info_geometry">
+      <data key="d0">information-theory</data>
+    </node>
+    <node id="cheeger_constant">
+      <data key="d0">spectral-graph-theory</data>
+    </node>
+    <node id="expander_graph" />
+    <node id="spectral_gap" />
+    <node id="spiking_population_coding">
+      <data key="d0">computation/spectral</data>
+    </node>
+    <node id="coding_theory">
+      <data key="d0">coding/algebraic</data>
+    </node>
+    <node id="statistical_mechanics">
+      <data key="d0">physics/phase</data>
+    </node>
+    <node id="statistical_inference">
+      <data key="d0">neuro/bayesian</data>
+    </node>
+    <node id="bayesian_inference" />
+    <edge source="adams_spectral" target="ext_tor">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="adams_spectral" target="homology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="adams_spectral" target="spectral_sequence">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="adams_spectral" target="stable_homotopy">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="ext_tor" target="group_cohomology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="ext_tor" target="homology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="ext_tor" target="lie_algebra">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="ext_tor" target="representation_theory">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="homology" target="de_rham">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="homology" target="fundamental_group">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="homology" target="gauss_bonnet">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="homology" target="quasispecies_error_threshold" />
+    <edge source="homology" target="coalescent_theory" />
+    <edge source="homology" target="group_cohomology" />
+    <edge source="homology" target="sheaf_cohomology" />
+    <edge source="homology" target="spectral_sequence" />
+    <edge source="homology" target="motivic" />
+    <edge source="spectral_sequence" target="de_rham">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="spectral_sequence" target="ext_tor">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="spectral_sequence" target="group_cohomology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="spectral_sequence" target="homology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="stable_homotopy" target="bott_periodicity">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="stable_homotopy" target="homology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="stable_homotopy" target="k_theory">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="stable_homotopy" target="spectral_sequence">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="stable_homotopy" target="statistical_mechanics" />
+    <edge source="stable_homotopy" target="infinity_category" />
+    <edge source="stable_homotopy" target="stable_infinity_category" />
+    <edge source="adaptive_dynamics" target="evolutionary_dynamics">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="adaptive_dynamics" target="evolutionary_game_theory">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="adaptive_dynamics" target="information_geometry">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="evolutionary_dynamics" target="free_energy_principle">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="evolutionary_dynamics" target="information_geometry">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="evolutionary_dynamics" target="large_deviations">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="evolutionary_dynamics" target="population_genetics" />
+    <edge source="evolutionary_game_theory" target="evolutionary_dynamics">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="evolutionary_game_theory" target="information_geometry">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="evolutionary_game_theory" target="nash_equilibrium">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="information_geometry" target="entropy_dynamics">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="information_geometry" target="free_energy_principle">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="information_geometry" target="thermodynamics_maxent">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="information_geometry" target="population_genetics" />
+    <edge source="information_geometry" target="statistical_inference" />
+    <edge source="information_geometry" target="wasserstein_gradient_flow_JKO" />
+    <edge source="information_geometry" target="large_deviations" />
+    <edge source="information_geometry" target="evolutionary_dynamics" />
+    <edge source="information_geometry" target="coding_theory" />
+    <edge source="algebra_over_operad" target="infinity_category">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="algebra_over_operad" target="operad_infinity">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="algebra_over_operad" target="stable_infinity_category">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="algebra_over_operad" target="symmetric_monoidal_infinity">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="infinity_category" target="homotopy_limit">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="infinity_category" target="model_category">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="infinity_category" target="yoneda">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="operad_infinity" target="infinity_category">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="operad_infinity" target="stable_infinity_category">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="operad_infinity" target="symmetric_monoidal_infinity">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="stable_infinity_category" target="derived_category">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="stable_infinity_category" target="infinity_category">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="stable_infinity_category" target="stable_homotopy">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="symmetric_monoidal_infinity" target="infinity_category">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="symmetric_monoidal_infinity" target="presentable_category">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="symmetric_monoidal_infinity" target="stable_infinity_category">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="andre_oort" target="elliptic_curve" />
+    <edge source="andre_oort" target="zilber_pink" />
+    <edge source="arakelov_intersection" target="height_pairing" />
+    <edge source="arakelov_intersection" target="faltings_height" />
+    <edge source="arithmetic_theta" target="borcherds_lift" />
+    <edge source="arithmetic_theta" target="l_function" />
+    <edge source="arzela_ascoli" target="stone_weierstrass" />
+    <edge source="arzela_ascoli" target="de_rham" />
+    <edge source="arzela_ascoli" target="functional_analysis" />
+    <edge source="arzela_ascoli" target="compact_operator" />
+    <edge source="baire" target="functional_analysis" />
+    <edge source="bakry_emery_gamma_calculus" target="log_sobolev_concentration">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="bakry_emery_gamma_calculus" target="markov_mixing">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="bakry_emery_gamma_calculus" target="ricci_flow">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="bakry_emery_gamma_calculus" target="wasserstein_gradient_flow_JKO">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="log_sobolev_concentration" target="markov_mixing">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="log_sobolev_concentration" target="ricci_flow">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="log_sobolev_concentration" target="wasserstein_gradient_flow_JKO">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="markov_mixing" target="information_geometry">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="markov_mixing" target="ricci_flow">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="markov_mixing" target="wasserstein_gradient_flow_JKO">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="ricci_flow" target="information_geometry">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="ricci_flow" target="wasserstein_gradient_flow_JKO">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="ricci_flow" target="cheeger_constant" />
+    <edge source="wasserstein_gradient_flow_JKO" target="entropy_dynamics">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="wasserstein_gradient_flow_JKO" target="stochastic_thermodynamics">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="banach" target="fixpoint_domain">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="banach_colmez" target="fargues_fontaine">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="banach_colmez" target="homology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="banach_colmez" target="local_shtuka">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="banach_colmez" target="sheaf_cohomology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="fargues_fontaine" target="diamond">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="fargues_fontaine" target="homology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="fargues_fontaine" target="perfectoid">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="fargues_fontaine" target="sheaf_cohomology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="local_shtuka" target="bun_g">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="local_shtuka" target="fargues_fontaine">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="local_shtuka" target="geometric_satake">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="sheaf_cohomology" target="de_rham">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="sheaf_cohomology" target="ext_tor">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="sheaf_cohomology" target="group_cohomology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="sheaf_cohomology" target="homology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="sheaf_cohomology" target="spectral_sequence">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="sheaf_cohomology" target="infinity_category" />
+    <edge source="beilinson_bloch" target="l_function" />
+    <edge source="beilinson_bloch" target="elliptic_curve" />
+    <edge source="beilinson_bloch" target="bloch_kato" />
+    <edge source="beilinson_bloch" target="regulator" />
+    <edge source="beilinson_conjecture" target="bloch_kato">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="beilinson_conjecture" target="homology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="beilinson_conjecture" target="k_theory">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="beilinson_conjecture" target="motivic">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="beilinson_conjecture" target="perrin_riou">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="beilinson_conjecture" target="regulator">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="bloch_kato" target="homology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="bloch_kato" target="k_theory">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="bloch_kato" target="motivic">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="bloch_kato" target="p_adic_hodge">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="bloch_kato" target="regulator">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="bloch_kato" target="syntomic">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="k_theory" target="derived_category">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="k_theory" target="ext_tor">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="k_theory" target="homology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="k_theory" target="representation_theory">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="k_theory" target="stable_homotopy" />
+    <edge source="k_theory" target="coding_theory" />
+    <edge source="k_theory" target="elliptic_curve" />
+    <edge source="k_theory" target="galois_representation" />
+    <edge source="k_theory" target="regulator" />
+    <edge source="k_theory" target="bloch_kato" />
+    <edge source="motivic" target="brown_representability">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="motivic" target="formal_group">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="motivic" target="homology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="motivic" target="k_theory">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="motivic" target="stable_homotopy">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="motivic" target="regulator" />
+    <edge source="perrin_riou" target="bloch_kato">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="perrin_riou" target="euler_system">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="perrin_riou" target="iwasawa">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="p_adic_hodge" target="banach">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="p_adic_hodge" target="banach_colmez">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="p_adic_hodge" target="fargues_fontaine">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="p_adic_hodge" target="local_shtuka">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="syntomic" target="homology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="syntomic" target="k_theory">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="syntomic" target="motivic">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="syntomic" target="p_adic_hodge">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="syntomic" target="prismatic_cohomology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="bogomolov_conjecture" target="height_pairing" />
+    <edge source="bogomolov_conjecture" target="elliptic_curve" />
+    <edge source="bogomolov_conjecture" target="arakelov_intersection" />
+    <edge source="borcherds_lift" target="modular_parametrization" />
+    <edge source="borcherds_lift" target="theta_function" />
+    <edge source="bott_periodicity" target="homology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="bott_periodicity" target="k_theory">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="bott_periodicity" target="representation_theory">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="representation_theory" target="spectral_theorem">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="brown_representability" target="fundamental_group">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="brown_representability" target="homology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="brown_representability" target="stable_homotopy">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="fundamental_group" target="galois_theory">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="fundamental_group" target="stokes_theorem">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="brumer_stark" target="gross_stark">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="brumer_stark" target="regulator">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="brumer_stark" target="rubin_stark">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="gross_stark" target="euler_system">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="gross_stark" target="iwasawa">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="gross_stark" target="iwasawa_main_conjecture">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="gross_stark" target="regulator">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="gross_stark" target="rubin_stark">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="rubin_stark" target="equivariant_tamagawa">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="rubin_stark" target="euler_system">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="rubin_stark" target="iwasawa">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="rubin_stark" target="iwasawa_main_conjecture">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="rubin_stark" target="regulator">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="bsd_conjecture" target="elliptic_curve" />
+    <edge source="bsd_conjecture" target="l_function" />
+    <edge source="bsd_formula" target="bsd_conjecture" />
+    <edge source="bsd_formula" target="elliptic_curve" />
+    <edge source="bsd_formula" target="l_function" />
+    <edge source="bsd_formula" target="sha_group" />
+    <edge source="bun_g" target="diamond">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="bun_g" target="fargues_fontaine">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="bun_g" target="homology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="bun_g" target="sheaf_cohomology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="diamond" target="homology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="diamond" target="perfectoid">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="diamond" target="prismatic_cohomology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="diamond" target="sheaf_cohomology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="cassels_tate_pairing" target="sha_group" />
+    <edge source="cassels_tate_pairing" target="selmer_group" />
+    <edge source="cauchy_integral" target="dominated_convergence">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="dominated_convergence" target="measure_extension">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="central_limit_theorem" target="birkhoff">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="central_limit_theorem" target="cramer">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="central_limit_theorem" target="fourier_inversion">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="cramer" target="prime_number_theorem" />
+    <edge source="cramer" target="coding_theory" />
+    <edge source="fourier_inversion" target="banach">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="fourier_inversion" target="hahn_banach">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="fourier_inversion" target="spectral_theorem">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="cheeger_isoperimetry" target="log_sobolev_concentration">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="cheeger_isoperimetry" target="markov_mixing">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="cheeger_isoperimetry" target="ricci_flow">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="cheeger_isoperimetry" target="weyl_law">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="weyl_law" target="heat_kernel_varadhan">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="weyl_law" target="li_yau">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="weyl_law" target="markov_mixing">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="weyl_law" target="ricci_flow">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="chern_character" target="bott_periodicity">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="chern_character" target="homology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="chern_character" target="k_theory">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="chern_character" target="spectral_sequence">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="chromatic" target="brown_representability">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="chromatic" target="formal_group">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="chromatic" target="homology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="chromatic" target="k_theory">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="chromatic" target="stable_homotopy">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="formal_group" target="chern_character">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="formal_group" target="cobordism">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="formal_group" target="k_theory">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="formal_group" target="thom_spectrum">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="coalescent_theory" target="evolutionary_dynamics">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="coalescent_theory" target="large_deviations">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="coalescent_theory" target="multilevel_selection">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="coalescent_theory" target="population_genetics" />
+    <edge source="large_deviations" target="cramer">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="large_deviations" target="information_geometry">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="large_deviations" target="thermodynamics_maxent">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="large_deviations" target="entropy_dynamics" />
+    <edge source="multilevel_selection" target="evolutionary_dynamics">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="multilevel_selection" target="information_geometry">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="multilevel_selection" target="large_deviations">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="cobordism" target="chern_character">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="cobordism" target="homology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="cobordism" target="k_theory">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="cobordism" target="stable_homotopy">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="cognitive_science" target="free_energy_principle">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="cognitive_science" target="information_geometry">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="cognitive_science" target="neuroscience">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="free_energy_principle" target="entropy_dynamics">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="free_energy_principle" target="fixpoint_domain">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="free_energy_principle" target="neuroscience">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="neuroscience" target="entropy_dynamics">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="neuroscience" target="fixpoint_domain">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="complex_multiplication" target="dirichlet">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="complex_multiplication" target="galois_theory">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="complex_multiplication" target="stark_conjecture">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="dirichlet" target="cauchy_integral">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="dirichlet" target="crt">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="dirichlet" target="quadratic_reciprocity">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="galois_theory" target="lagrange">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="galois_theory" target="orbit_stabilizer">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="galois_theory" target="quadratic_reciprocity">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="galois_theory" target="sylow">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="stark_conjecture" target="brumer_stark">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="stark_conjecture" target="gross_stark">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="stark_conjecture" target="regulator">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="stark_conjecture" target="rubin_stark">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="computability" target="fixpoint_domain">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="computability" target="knaster_tarski">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="knaster_tarski" target="baire" />
+    <edge source="computational_complexity" target="computability">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="computational_complexity" target="information_geometry" />
+    <edge source="computational_complexity" target="entropy_dynamics" />
+    <edge source="crt" target="galois_representation" />
+    <edge source="crt" target="elliptic_curve" />
+    <edge source="de_rham" target="fundamental_group">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="de_rham" target="gauss_bonnet">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="de_rham" target="homology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="de_rham" target="stokes_theorem">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="de_rham" target="spectral_sequence" />
+    <edge source="gauss_bonnet" target="fundamental_group">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="gauss_bonnet" target="heat_equation">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="gauss_bonnet" target="stokes_theorem">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="stokes_theorem" target="cauchy_integral">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="stokes_theorem" target="homology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="stokes_theorem" target="residue_theorem">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="deformation_theory" target="eichler_shimura">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="deformation_theory" target="galois_representation">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="deformation_theory" target="group_cohomology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="deformation_theory" target="homology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="eichler_shimura" target="galois_representation">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="eichler_shimura" target="hecke_algebra">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="eichler_shimura" target="shimura_taniyama">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="galois_representation" target="galois_theory">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="galois_representation" target="hecke_algebra">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="galois_representation" target="shimura_taniyama">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="galois_representation" target="bloch_kato" />
+    <edge source="group_cohomology" target="fundamental_group">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="group_cohomology" target="homology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="group_cohomology" target="lie_algebra">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="group_cohomology" target="representation_theory">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="derived_category" target="ext_tor">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="derived_category" target="homology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="derived_category" target="sheaf_cohomology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="derived_category" target="spectral_sequence">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="perfectoid" target="homology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="perfectoid" target="k_theory">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="perfectoid" target="motivic">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="perfectoid" target="prismatic_cohomology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="perfectoid" target="sheaf_cohomology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="prismatic_cohomology" target="homology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="prismatic_cohomology" target="k_theory">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="prismatic_cohomology" target="motivic">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="prismatic_cohomology" target="syntomic">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="prismatic_cohomology" target="topological_cyclic">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="prismatic_cohomology" target="topological_hochschild">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="quadratic_reciprocity" target="elliptic_curve" />
+    <edge source="quadratic_reciprocity" target="galois_representation" />
+    <edge source="hecke_algebra" target="dirichlet">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="hecke_algebra" target="representation_theory">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="hecke_algebra" target="shimura_taniyama">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="shimura_taniyama" target="complex_multiplication">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="shimura_taniyama" target="dirichlet">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="shimura_taniyama" target="galois_theory">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="elliptic_regularity" target="li_yau">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="elliptic_regularity" target="functional_analysis" />
+    <edge source="elliptic_regularity" target="compact_operator" />
+    <edge source="li_yau" target="bakry_emery_gamma_calculus">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="li_yau" target="heat_kernel_varadhan">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="li_yau" target="markov_mixing">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="li_yau" target="ricci_flow">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="end_coend" target="frobenius_reciprocity">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="end_coend" target="yoneda">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="end_coend" target="homology" />
+    <edge source="end_coend" target="sheaf_cohomology" />
+    <edge source="frobenius_reciprocity" target="representation_theory">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="frobenius_reciprocity" target="induced_representations" />
+    <edge source="frobenius_reciprocity" target="galois_representation" />
+    <edge source="entropy_dynamics" target="birkhoff">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="entropy_dynamics" target="mixing_dynamics">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="entropy_dynamics" target="shannon_source">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="entropy_dynamics" target="statistical_mechanics" />
+    <edge source="mixing_dynamics" target="birkhoff">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="mixing_dynamics" target="poincare_recurrence">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="mixing_dynamics" target="spectral_theorem">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="shannon_source" target="information_geometry" />
+    <edge source="shannon_source" target="entropy_dynamics" />
+    <edge source="equivariant_tamagawa" target="beilinson_conjecture">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="equivariant_tamagawa" target="k_theory">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="equivariant_tamagawa" target="regulator">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="equivariant_tamagawa" target="tamagawa_number">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="tamagawa_number" target="beilinson_conjecture">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="tamagawa_number" target="bloch_kato">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="tamagawa_number" target="perrin_riou">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="tamagawa_number" target="regulator">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="ergodic_decomposition" target="birkhoff">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="ergodic_decomposition" target="k_system">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="ergodic_decomposition" target="radon_nikodym">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="k_system" target="entropy_dynamics">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="k_system" target="mixing_dynamics">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="k_system" target="poincare_recurrence">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="radon_nikodym" target="dominated_convergence">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="radon_nikodym" target="measure_extension">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="euler_system" target="bloch_kato">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="euler_system" target="iwasawa">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="euler_system" target="k_theory">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="euler_system" target="motivic">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="iwasawa" target="bloch_kato">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="iwasawa" target="k_theory">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="iwasawa" target="p_adic_hodge">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="iwasawa" target="regulator">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="nash_equilibrium" target="perron_frobenius">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="nash_equilibrium" target="statistical_inference" />
+    <edge source="lie_algebra" target="de_rham">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="lie_algebra" target="homology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="lie_algebra" target="representation_theory">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="lie_algebra" target="spectral_theorem">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="factorization_homology" target="algebra_over_operad">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="factorization_homology" target="homology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="factorization_homology" target="infinity_category">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="factorization_homology" target="operad_infinity">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="factorization_homology" target="stable_infinity_category">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="faltings_height" target="elliptic_curve" />
+    <edge source="faltings_height" target="isogeny" />
+    <edge source="fontaine_mazur" target="galois_representation">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="fontaine_mazur" target="p_adic_hodge">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="fontaine_mazur" target="serre_conjecture">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="serre_conjecture" target="galois_representation">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="serre_conjecture" target="ribet_level_lowering">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="serre_conjecture" target="taylor_wiles">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="thom_spectrum" target="chern_character">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="thom_spectrum" target="cobordism">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="thom_spectrum" target="homology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="thom_spectrum" target="stable_homotopy">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="spectral_theorem" target="cheeger_constant" />
+    <edge source="spectral_theorem" target="spiking_population_coding" />
+    <edge source="spectral_theorem" target="quantum_information" />
+    <edge source="spectral_theorem" target="ricci_flow" />
+    <edge source="frobenius_trace" target="galois_representation" />
+    <edge source="frobenius_trace" target="elliptic_curve" />
+    <edge source="frobenius_trace" target="l_function" />
+    <edge source="fubini_tonelli" target="central_limit_theorem">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="fubini_tonelli" target="dominated_convergence">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="fubini_tonelli" target="heat_equation">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="fubini_tonelli" target="radon_nikodym">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="heat_equation" target="central_limit_theorem">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="heat_equation" target="fourier_inversion">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="heat_equation" target="stokes_theorem">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="lagrange" target="group_cohomology" />
+    <edge source="lagrange" target="galois_representation" />
+    <edge source="orbit_stabilizer" target="group_cohomology" />
+    <edge source="orbit_stabilizer" target="sylow" />
+    <edge source="sylow" target="group_cohomology" />
+    <edge source="gauge_theory" target="de_rham">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="gauge_theory" target="lie_algebra">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="gauge_theory" target="symplectic_geometry">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="symplectic_geometry" target="de_rham">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="symplectic_geometry" target="hamiltonian_mechanics">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="symplectic_geometry" target="homology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="symplectic_geometry" target="lie_algebra">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="general_relativity" target="de_rham">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="general_relativity" target="gauge_theory">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="general_relativity" target="symplectic_geometry">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="geometric_satake" target="bun_g">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="geometric_satake" target="fargues_fontaine">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="geometric_satake" target="homology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="geometric_satake" target="sheaf_cohomology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="global_workspace_theory" target="free_energy_principle">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="global_workspace_theory" target="neuroscience">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="global_workspace_theory" target="spiking_population_coding" />
+    <edge source="global_workspace_theory" target="statistical_inference" />
+    <edge source="goodwillie" target="brown_representability">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="goodwillie" target="homology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="goodwillie" target="stable_homotopy">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="gross_kohnen" target="heegner_points" />
+    <edge source="gross_kohnen" target="l_function" />
+    <edge source="iwasawa_main_conjecture" target="equivariant_tamagawa">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="iwasawa_main_conjecture" target="euler_system">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="iwasawa_main_conjecture" target="perrin_riou">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="iwasawa_main_conjecture" target="regulator">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="gross_zagier" target="heegner_points" />
+    <edge source="gross_zagier" target="height_pairing" />
+    <edge source="hamiltonian_mechanics" target="de_rham">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="hamiltonian_mechanics" target="ergodic_decomposition">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="hamiltonian_mechanics" target="noether_theorem">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="noether_theorem" target="de_rham">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="noether_theorem" target="homology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="noether_theorem" target="lie_algebra">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="noether_theorem" target="stokes_theorem">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="heat_kernel_varadhan" target="heat_equation">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="heat_kernel_varadhan" target="ricci_flow">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="heat_kernel_varadhan" target="wasserstein_gradient_flow_JKO">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="heegner_points" target="elliptic_curve" />
+    <edge source="heegner_points" target="l_function" />
+    <edge source="height_pairing" target="elliptic_curve" />
+    <edge source="homotopy_limit" target="chromatic">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="homotopy_limit" target="derived_category">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="homotopy_limit" target="stable_homotopy">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="homotopy_limit" target="yoneda">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="inclusive_fitness" target="evolutionary_dynamics">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="inclusive_fitness" target="evolutionary_game_theory">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="inclusive_fitness" target="multilevel_selection">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="induced_representations" target="representation_theory">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="induced_representations" target="spectral_theorem">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="induced_representations" target="frobenius_reciprocity" />
+    <edge source="model_category" target="derived_category">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="model_category" target="homotopy_limit">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="model_category" target="yoneda">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="thermodynamics_maxent" target="entropy_dynamics">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="thermodynamics_maxent" target="free_energy_principle">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="isogeny" target="elliptic_curve" />
+    <edge source="ito_calculus" target="elliptic_regularity">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="ito_calculus" target="radon_nikodym">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="ito_calculus" target="optional_stopping" />
+    <edge source="poincare_recurrence" target="birkhoff">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="poincare_recurrence" target="measure_extension">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="poincare_recurrence" target="perron_frobenius">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="kato_euler_system" target="l_function" />
+    <edge source="kato_euler_system" target="elliptic_curve" />
+    <edge source="kato_euler_system" target="bloch_kato" />
+    <edge source="kolyvagin_euler_system" target="heegner_points" />
+    <edge source="kolyvagin_euler_system" target="elliptic_curve" />
+    <edge source="kolyvagin_euler_system" target="sha_group" />
+    <edge source="koszul_duality" target="homology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="koszul_duality" target="lie_algebra">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="koszul_duality" target="partition_complex">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="partition_complex" target="goodwillie">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="partition_complex" target="homology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="partition_complex" target="stable_homotopy">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="kudla_program" target="arakelov_intersection" />
+    <edge source="kudla_program" target="arithmetic_theta" />
+    <edge source="kudla_rapoport" target="kudla_program" />
+    <edge source="kudla_rapoport" target="arithmetic_theta" />
+    <edge source="kudla_rapoport" target="borcherds_lift" />
+    <edge source="kummer_sequence" target="elliptic_curve" />
+    <edge source="kummer_sequence" target="galois_representation" />
+    <edge source="l_function_elliptic" target="elliptic_curve" />
+    <edge source="l_function_elliptic" target="l_function" />
+    <edge source="l_function_elliptic" target="bsd_formula" />
+    <edge source="lagrangian_mechanics" target="de_rham">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="lagrangian_mechanics" target="hamiltonian_mechanics">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="lagrangian_mechanics" target="noether_theorem">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="local_heights" target="height_pairing" />
+    <edge source="local_heights" target="elliptic_curve" />
+    <edge source="local_heights" target="arakelov_intersection" />
+    <edge source="maxflow_mincut" target="spectral_theorem" />
+    <edge source="maxflow_mincut" target="information_geometry" />
+    <edge source="maxflow_mincut" target="coding_theory" />
+    <edge source="maxflow_mincut" target="expander_graph" />
+    <edge source="modular_degree" target="elliptic_curve" />
+    <edge source="modular_degree" target="modular_parametrization" />
+    <edge source="modular_degree" target="l_function" />
+    <edge source="modular_parametrization" target="elliptic_curve" />
+    <edge source="mordell_weil" target="group_cohomology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="mordell_weil" target="homology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="mordell_weil" target="selmer_group">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="selmer_group" target="galois_representation">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="selmer_group" target="group_cohomology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="selmer_group" target="homology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="selmer_group" target="tate_module">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="perron_frobenius" target="spectral_theorem">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="neural_computation" target="computability">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="neural_computation" target="information_geometry">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="neural_computation" target="neuroscience">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="northcott_property" target="height_pairing" />
+    <edge source="northcott_property" target="faltings_height" />
+    <edge source="northcott_property" target="arakelov_intersection" />
+    <edge source="numerical_computation" target="computability">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="numerical_computation" target="information_geometry">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="numerical_computation" target="coding_theory" />
+    <edge source="numerical_computation" target="maxflow_mincut" />
+    <edge source="open_mapping" target="baire">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="open_mapping" target="banach">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="open_mapping" target="hahn_banach">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="optional_stopping" target="entropy_dynamics" />
+    <edge source="optional_stopping" target="ricci_flow" />
+    <edge source="optional_stopping" target="ito_calculus" />
+    <edge source="oseledets" target="birkhoff">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="otto_calculus" target="bakry_emery_gamma_calculus">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="otto_calculus" target="information_geometry">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="otto_calculus" target="log_sobolev_concentration">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="otto_calculus" target="wasserstein_gradient_flow_JKO">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="p_adic_l_function_elliptic" target="l_function" />
+    <edge source="p_adic_l_function_elliptic" target="elliptic_curve" />
+    <edge source="p_adic_l_function_elliptic" target="bloch_kato" />
+    <edge source="perelman_entropy" target="bakry_emery_gamma_calculus">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="perelman_entropy" target="ricci_flow">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="perelman_entropy" target="thermodynamics_maxent">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="perelman_entropy" target="wasserstein_gradient_flow_JKO">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="poisson_summation" target="fubini_tonelli">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="poisson_summation" target="theta_function" />
+    <edge source="population_genetics" target="adaptive_dynamics">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="population_genetics" target="coalescent_theory">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="population_genetics" target="evolutionary_dynamics">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="presentable_category" target="infinity_category">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="presentable_category" target="stable_infinity_category">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="presentable_category" target="yoneda">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="price_equation" target="evolutionary_dynamics">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="price_equation" target="inclusive_fitness">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="price_equation" target="multilevel_selection">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="prime_number_theorem" target="dirichlet">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="prime_number_theorem" target="residue_theorem">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="prime_number_theorem" target="cramer" />
+    <edge source="prime_number_theorem" target="l_function" />
+    <edge source="residue_theorem" target="cauchy_integral">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="residue_theorem" target="fourier_inversion">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="topological_cyclic" target="infinity_category">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="topological_cyclic" target="k_theory">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="topological_cyclic" target="stable_infinity_category">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="topological_cyclic" target="topological_hochschild">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="topological_hochschild" target="algebra_over_operad">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="topological_hochschild" target="factorization_homology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="topological_hochschild" target="homology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="topological_hochschild" target="infinity_category">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="topological_hochschild" target="k_theory">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="topological_hochschild" target="stable_infinity_category">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="quantum_information" target="entropy_dynamics">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="quantum_information" target="thermodynamics_maxent">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="quantum_mechanics" target="banach">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="quantum_mechanics" target="fourier_inversion">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="quantum_mechanics" target="hahn_banach">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="quantum_mechanics" target="spectral_theorem">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="quantum_mechanics" target="symplectic_geometry">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="quasispecies_error_threshold" target="evolutionary_dynamics">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="quasispecies_error_threshold" target="information_geometry">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="quasispecies_error_threshold" target="large_deviations">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="real_period" target="elliptic_curve" />
+    <edge source="real_period" target="l_function" />
+    <edge source="real_period" target="regulator" />
+    <edge source="reduction_types" target="elliptic_curve" />
+    <edge source="reduction_types" target="isogeny" />
+    <edge source="renormalization_group" target="entropy_dynamics">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="renormalization_group" target="information_geometry">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="renormalization_group" target="thermodynamics_maxent">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="ribet_level_lowering" target="galois_representation">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="ribet_level_lowering" target="hecke_algebra">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="ribet_level_lowering" target="taylor_wiles">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="taylor_wiles" target="deformation_theory">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="taylor_wiles" target="galois_representation">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="taylor_wiles" target="hecke_algebra">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="schrodinger_bridge" target="heat_kernel_varadhan">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="schrodinger_bridge" target="large_deviations">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="schrodinger_bridge" target="ricci_flow">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="schrodinger_bridge" target="wasserstein_gradient_flow_JKO">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="self_determination_theory" target="free_energy_principle">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="self_determination_theory" target="neuroscience">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="self_determination_theory" target="global_workspace_theory" />
+    <edge source="self_determination_theory" target="statistical_inference" />
+    <edge source="tate_module" target="galois_representation">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="tate_module" target="group_cohomology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="tate_module" target="homology">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="sha_group" target="bsd_conjecture" />
+    <edge source="sha_group" target="elliptic_curve" />
+    <edge source="sha_group" target="bsd_formula" />
+    <edge source="sha_group" target="cassels_tate_pairing" />
+    <edge source="skinner_urban" target="galois_representation" />
+    <edge source="skinner_urban" target="elliptic_curve" />
+    <edge source="skinner_urban" target="bloch_kato" />
+    <edge source="stochastic_thermodynamics" target="entropy_dynamics">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="stochastic_thermodynamics" target="large_deviations">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="stochastic_thermodynamics" target="thermodynamics_maxent">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="stone_weierstrass" target="tychonoff" />
+    <edge source="stone_weierstrass" target="de_rham" />
+    <edge source="telescope_conjecture" target="chromatic">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="telescope_conjecture" target="k_theory">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="telescope_conjecture" target="stable_homotopy">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="thermodynamic_selection" target="evolutionary_dynamics">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="thermodynamic_selection" target="large_deviations">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="thermodynamic_selection" target="stochastic_thermodynamics">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="theta_function" target="poisson_summation">
+      <data key="d2">bridge_ref</data>
+    </edge>
+    <edge source="theta_function" target="borcherds_lift" />
+    <edge source="tychonoff" target="urysohn" />
+    <edge source="tychonoff" target="compact_operator" />
+    <edge source="urysohn" target="homology" />
+    <edge source="urysohn" target="functional_analysis" />
+    <edge source="waldspurger" target="l_function" />
+    <edge source="waldspurger" target="gross_kohnen" />
+    <edge source="weil_pairing" target="elliptic_curve" />
+    <edge source="weil_pairing" target="isogeny" />
+    <edge source="weil_pairing" target="galois_representation" />
+    <edge source="yuan_zhang_zhang" target="gross_zagier" />
+    <edge source="yuan_zhang_zhang" target="l_function" />
+    <edge source="yuan_zhang_zhang" target="waldspurger" />
+    <edge source="zilber_pink" target="elliptic_curve" />
+    <edge source="elliptic_curve" target="l_function" />
+    <edge source="elliptic_curve" target="galois_representation" />
+    <edge source="l_function" target="galois_representation" />
+    <edge source="compact_operator" target="functional_analysis" />
+    <edge source="compact_operator" target="arzela_ascoli" />
+    <edge source="functional_analysis" target="compact_operator" />
+    <edge source="functional_analysis" target="arzela_ascoli" />
+    <edge source="info_geometry" target="information_geometry" />
+    <edge source="info_geometry" target="entropy_dynamics" />
+    <edge source="info_geometry" target="homology" />
+    <edge source="info_geometry" target="de_rham" />
+    <edge source="cheeger_constant" target="expander_graph" />
+    <edge source="cheeger_constant" target="spectral_gap" />
+    <edge source="expander_graph" target="coding_theory" />
+    <edge source="expander_graph" target="spectral_gap" />
+    <edge source="expander_graph" target="cheeger_constant" />
+    <edge source="spectral_gap" target="cheeger_constant" />
+    <edge source="spectral_gap" target="ricci_flow" />
+    <edge source="spiking_population_coding" target="statistical_inference" />
+    <edge source="spiking_population_coding" target="information_geometry" />
+    <edge source="coding_theory" target="quantum_information" />
+    <edge source="coding_theory" target="expander_graph" />
+    <edge source="coding_theory" target="maxflow_mincut" />
+    <edge source="statistical_mechanics" target="entropy_dynamics" />
+    <edge source="statistical_mechanics" target="large_deviations" />
+    <edge source="bayesian_inference" target="statistical_inference" />
+    <edge source="bayesian_inference" target="information_geometry" />
+  </graph>
+</graphml>

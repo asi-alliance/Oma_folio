@@ -1,0 +1,2 @@
+import os, datetime; LOG="/tmp/Oma_folio/cycle_log.txt"; TS=datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S"); def log_cycle(action, artifact=None): entry=f"{TS} | {action}"; entry+=f" | ARTIFACT: {artifact}" if artifact else " | IDLE: no output"; open(LOG,"a").write(entry+"
+"); return entry; print(log_cycle("Phase 11: galois_representation hub seeding", "metta_assertions"))
