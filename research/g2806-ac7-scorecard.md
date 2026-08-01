@@ -1,1 +1,0 @@
-# G2806 Philosophy-of-Levigation — AC7 Scorecard

@@ -1,5 +1,0 @@
-metta_torsion_assertions.metta
-(|~ ((Implication (Evaluation (Concept "AsymmetricSubsumption") (ListLink (Variable "agent_a") (Variable "agent_b"))) (Evaluation (Concept "IntroducesTorsion") (ListLink (Variable "agent_a") (Variable "agent_b")))) (stv 0.85 0.9))
-(|~ ((Evaluation (Concept "ChainDepth") (ListLink (Variable "chain") (Variable "d"))) (Evaluation (Concept "TorsionMagnitude") (ListLink (Variable "chain") (Times (Concept "kappa") (Power (Concept "s") (Variable "d")))))) (stv 0.9 0.8))
-(|~ ((Implication (Evaluation (Concept "IntroducesTorsion") (ListLink (Variable "agent_a") (Variable "agent_b"))) (Evaluation (Concept "PathDependentRevision") (ListLink (Variable "agent_a") (Variable "agent_b")))) (stv 0.85 0.85))
-# Experimental Constants: kappa=0.391, s=1.166465 (from 200 trials, depths 1-5)

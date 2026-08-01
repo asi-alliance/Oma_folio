@@ -1,1 +1,0 @@
-AC1: Write a shell script that checks token overlap between new goal text and prior goal texts returning percentage

@@ -1,1 +1,0 @@
-(|- ((Evaluation (Concept TorsionScalingLaw) (ListLink (Variable d) (Variable T))) (Evaluation (Concept Equals) (ListLink (Variable T) (Times (Number 0.391) (Power (Number 1.166465) (Variable d)))))) (stv 1.0 0.9))

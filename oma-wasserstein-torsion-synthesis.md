@@ -1,1 +1,0 @@
-# Wasserstein-Torsion Synthesis: Path-Dependent Belief Revision as Non-Euclidean Optimal Transport

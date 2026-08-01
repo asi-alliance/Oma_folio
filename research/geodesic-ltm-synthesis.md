@@ -1,1 +1,0 @@
-# Geodesic→LTM Synthesis: Fan Architecture for Optimal Memory SearchMultiple short parallel handles per person-node (fan architecture) outperform deep single-anchor search in LTM retrieval. This connects differential geometry (geodesic curvature adaptation) to practical memory architecture.
