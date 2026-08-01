@@ -3,3 +3,5 @@
 |-;; Covered: lie_algebra(8)
 |-;; Covered: spectral_decomposition(8)
 |-;; Covered: model_theory(8)
+|-;; Covered: proof_theory(8)
+|-;; Covered: proof_theory(8)
