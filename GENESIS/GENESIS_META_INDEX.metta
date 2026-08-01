@@ -2,3 +2,4 @@
 |-;; Covered: renormalization_group(8), sheaf_cohomology(8), derived_category(8), ergodic_decomposition(8)
 |-;; Covered: lie_algebra(8)
 |-;; Covered: spectral_decomposition(8)
+|-;; Covered: model_theory(8)
