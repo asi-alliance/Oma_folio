@@ -5,3 +5,4 @@
 |-;; Covered: model_theory(8)
 |-;; Covered: proof_theory(8)
 |-;; Covered: proof_theory(8)
+|-;; Covered: automorphic_forms(7)
