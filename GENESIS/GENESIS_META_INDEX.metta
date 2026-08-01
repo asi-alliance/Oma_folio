@@ -9,3 +9,4 @@
 |-;; Covered: class_field_theory(6)
 |-;; Covered: zeta_function(7)
 |-;; Covered: analytic_number_theory(7)
+|-;; Covered: motives(7)
