@@ -7,3 +7,4 @@
 |-;; Covered: proof_theory(8)
 |-;; Covered: automorphic_forms(7)
 |-;; Covered: class_field_theory(6)
+|-;; Covered: zeta_function(7)
