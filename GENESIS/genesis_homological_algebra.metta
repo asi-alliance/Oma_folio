@@ -1,16 +1,16 @@
-; DOMAIN: homological-algebra/chain-complexes-derived-functors [OPEN, derived 2026-08-01]
-(= (chain-complex $C) (sequence-with-d2-equals-zero $C))
-(= (homology $H_n$) (kernel-mod-image-at-degree-n $H_n$))
-(= (cochain-complex $C$) (dual-sequence-with-d2-equals-zero $C$))
-(= (cohomology $H^n$) (kernel-mod-image-at-degree-n-dual $H^n$))
-(= (exact-functor $F$) (preserves-exact-sequences $F$))
-(= (left-derived-functor $L_n$) (measures-failure-of-right-exactness $L_n$))
-(= (right-derived-functor $R_n$) (measures-failure-of-left-exactness $R_n$))
-(= (tor-functor $Tor_n$) (left-derived-of-tensor-product $Tor_n$))
-(= (ext-functor $Ext_n$) (right-derived-of-hom-functor $Ext_n$))
-(= (injective-resolution $I$) (exact-sequence-of-injectives $I$))
-(= (projective-resolution $P$) (exact-sequence-of-projectives $P$))
-(= (spectral-sequence $E$) (filtered-complex-approximating-homology $E$))
-(= (derived-category $D$) (localization-of-chain-complex-category $D$))
-(= (acyclic-complex $C$) (zero-homology-at-all-degrees $C$))
-(= (snake-lemma $L$) (connecting-homomorphism-from-kernel-cokernel $L$))
+; DOMAIN: mathematics/algebra/homological-algebra [CLOSED, derived 2026-08-02]; Claim: Homological algebra studies chain complexes, derived functors, and exact sequences, providing tools to measure obstruction to exactness across categories. Key concepts: chain complexes and homology groups; exact sequences (short, long exact); projective and injective resolutions; derived functors (Tor, Ext) measuring failure of exactness of tensor and Hom; spectral sequences computing homology iteratively; abelian categories as the natural setting; the snake lemma and five lemma as diagram-chasing tools; acyclic models; derived categories and triangulated categories (Verdier quotients). Bridges to commutative_algebra (Tor/Ext over Noetherian rings), algebraic_topology (singular homology, chain complexes), algebraic_geometry (sheaf cohomology, derived categories of coherent sheaves), and representation_theory (Ext groups, quiver representations).;; Chain complex: sequence of modules with differentials d_n satisfying d_n compose d_{n+1} = 0; homology measures kernel modulo image
+(|- ((==> (&& (--> SequenceOfModules $C) (--> Differential $d (Compose $d_n $d_{n+1})) (--> Equals $d (ZeroMorphism)) (--> HomologyGroup (Quotient (Kernel $d_n) (Image $d_{n+1}))))) (--> ChainComplex $C $d)) (stv 1.0 0.9))
+;; Derived functor: measures failure of exactness of a left/right exact functor F by applying F to a projective/injective resolution
+(|- ((==> (&& (--> Functor $F) (--> LeftExact $F) (--> ProjectiveResolution $P $X) (--> Apply $F (HomologyOf $P)))) (--> DerivedFunctor $F $X)) (stv 1.0 0.9))
+;; Ext functor: derived functor of Hom, classifies extensions of modules; Ext^1(M,N) = equivalence classes of short exact sequences 0 -> N -> E -> M -> 0
+(|- ((==> (&& (--> Module $M $R) (--> Module $N $R) (--> DerivedFunctor (HomFunctor $R) $N) (--> Classifies (Extensions $M $N)))) (--> ExtFunctor $M $N)) (stv 1.0 0.9))
+;; Tor functor: derived functor of tensor product, measures failure of exactness of tensor; Tor_0 = tensor product; flat modules have vanishing Tor
+(|- ((==> (&& (--> Module $M $R) (--> Module $N $R) (--> LeftDerivedFunctor (TensorProduct $R) $N) (--> Equals (TorZero $M $N) (TensorProduct $M $N)))) (--> TorFunctor $M $N)) (stv 1.0 0.9))
+;; Spectral sequence: iterative algebraic tool computing homology/cohomology via successive approximations E_r pages with differentials d_r; E_{r+1} = H(E_r, d_r)
+(|- ((==> (&& (--> BigradedModule $E) (--> Differential $d (Bidegree $r $(- $1 $r))) (--> Equals (SuccessorPage $E $r $d) (Homology $E $d)))) (--> SpectralSequence $E $d $r)) (stv 1.0 0.9))
+;; Projective resolution: exact sequence ... -> P_1 -> P_0 -> M -> 0 with each P_i projective; used to compute left derived functors
+(|- ((==> (&& (--> Module $M $R) (--> ExactSequence $E) (--> ProjectiveModule $P (Each $P $E)))) (--> ProjectiveResolution $E $M)) (stv 1.0 0.9))
+;; Abelian category: additive category with kernels and cokernels where every morphism factors as a coimage-to-image isomorphism; natural setting for homological algebra
+(|- ((==> (&& (--> AdditiveCategory $C) (--> HasKernels $C) (--> HasCokernels $C) (--> Isomorphism (CoimageToImage $C)))) (--> AbelianCategory $C)) (stv 1.0 0.9))
+;; Snake lemma: given a commutative diagram of short exact sequences, there is a long exact sequence connecting kernels and cokernels
+(|- ((==> (&& (--> CommutativeDiagram $D) (--> ShortExactSequence $E1) (--> ShortExactSequence $E2) (--> LongExactSequence $L (Connecting $D)))) (--> SnakeLemma $D $L)) (stv 1.0 0.9))
