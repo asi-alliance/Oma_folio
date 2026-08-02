@@ -10,3 +10,4 @@
 |-;; Covered: zeta_function(7)
 |-;; Covered: analytic_number_theory(7)
 |-;; Covered: motives(7)
+|-;; Covered: descent(6)
