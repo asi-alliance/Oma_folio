@@ -14,3 +14,4 @@
 (= (ergodic_hierarchy $T $X $mu) (and (measure_space $X $B $mu) (==> (bernoulli $T) (mixing $T)) (==> (mixing $T) (weakly_mixing $T)) (==> (weakly_mixing $T) (ergodic $T))))
 (= (kingman_subadditive $f_n $T) (and (measure_preserving_transformation $T $X $mu) (subadditive $f_n) (== (lim (quotient $f_n $n)) (inf_n (quotient (integral $f_n) $n)))))
 (= (rokhlin_lemma $T $X $mu $E) (and (ergodic_transformation $T $X $mu) (aperiodic $T) (forall $N (exists $E (and (disjoint_family ($T^i $E) 0 (- $N 1)) (> (mu (union ($T^i $E) 0 (- $N 1))) (- 1 epsilon)))))))
+))

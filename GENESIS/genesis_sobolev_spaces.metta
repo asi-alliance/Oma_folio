@@ -28,4 +28,4 @@
 
 (= (sobolev_multiplication $f $g $k $p $Omega) (and (member $f $W) (member $g $W) (sobolev_space $W $k $p $Omega) (> $k (quotient $n $p)) (member (times $f $g) $W)))
 
-(= (aubin_lions $W0 $W $W1 $T $q) (and (compact_embedding $W0 $W) (continuous_embedding $W $W1) (== $T (compact_embedding (intersection (space_time $W0 $q) (space_time $W1 $q)) $L))))
+(= (aubin_lions $W0 $W $W1 $T $q) (and (compact_embedding $W0 $W) (continuous_embedding $W $W1) (== $T (compact_embedding (intersection (space_time $W0 $q) (space_time $W1 $q)) $L)))))))

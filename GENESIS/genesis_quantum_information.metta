@@ -22,3 +22,4 @@
 (|- ((==> (&& (--> CHSHInequality Violated) (--> BellState $rho))) (--> $rho NonlocalCorrelation)) (stv 1.0 0.9))
 ;; Concurrence: entanglement measure for mixed states
 (|- ((==> (&& (--> DensityMatrix $rho) (--> Concurrence $C))) (--> EntanglementMeasure $C)) (stv 1.0 0.8))
+)

@@ -8,7 +8,7 @@
 
 (= (borel_hierarchy $X $alpha $A) (and (polish_space $X) (ordinal $alpha) (or (== $A (sigma_generated (complement (Pi $X (- $alpha 1))))) (== $A (sigma_generated (complement (Sigma $X (- $alpha 1))))))))
 
-(= (analytic_set $X $A) (and (polish_space $X) (exists $B (and (closed_set $B (product $X (baire_space))) (continuous_map $proj (product $X (baire_space)) $X) (== $A (image $proj $B)))))))
+(= (analytic_set $X $A) (and (polish_space $X) (exists $B (and (closed_set $B (product $X (baire_space))) (continuous_map $proj (product $X (baire_space)) $X) (== $A (image $proj $B))))))
 
 (= (coanalytic_set $X $A) (and (polish_space $X) (complement (analytic_set $X $A))))
 

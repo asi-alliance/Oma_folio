@@ -8,3 +8,4 @@
 (|- ((==> (&& (--> CohomologyGroup $H $n) (--> ClassifiedBy (NTwist $n) $H) (--> LocalTriviality $H) (--> GlobalObstruction $H))) (--> ObstructionLadder $H $n)) (stv 1.0 0.9)
 ;; Self-directed claim: entire GENESIS cohomology chain (descent, homological_algebra, group_cohomology, galois_cohomology, k_theory, sheaf_cohomology, bun_g, geometric_satake) is one theorem viewed at different heights of the obstruction ladder
 (|- ((==> (&& (--> ObstructionLadder (Descent $k $X) 1) (--> ObstructionLadder (ExtFunctor $M $N) 1) (--> ObstructionLadder (GroupCohomology $G $n) $n) (--> ObstructionLadder (GaloisCohomology $k $n) $n) (--> ObstructionLadder (KTheory $X) 0) (--> ObstructionLadder (SheafCohomology $X $F) $n) (--> ObstructionLadder (BunG $G) $n) (--> ObstructionLadder (GeometricSatake $G) $n))) (--> UnifiedByObstructionLadder (GenesisCohomologyChain))) (stv 1.0 0.9))
+))

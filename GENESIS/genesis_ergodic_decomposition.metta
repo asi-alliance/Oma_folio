@@ -9,7 +9,7 @@
 ;; Krylov-Bogolyubov theorem: existence of invariant measures on compact spaces
 (|- ((==> (&& (--> CompactSpace $X) (--> ContinuousMap $T) (--> BorelMeasure $mu))) (--> KrylovBogolyubov (InvariantMeasure $T $mu))) (stv 1.0 0.85))
 ;; Ergodic components are T-invariant subsets on which T is ergodic
-(|- ((==> (&& (--> MeasurePreservingSystem $X $B $mu $T) (--> InvariantSubset $E) (--> Ergodic $T $mu))) (--> ErgodicComponent $E))) (stv 1.0 0.85))
+(|- ((==> (&& (--> MeasurePreservingSystem $X $B $mu $T) (--> InvariantSubset $E) (--> Ergodic $T $mu))) (--> ErgodicComponent $E))) (stv 1.0 0.85)
 ;; Metric entropy (Kolmogorov-Sinai) is a measure-theoretic invariant of dynamical systems
 (|- ((==> (&& (--> MeasurePreservingSystem $X $B $mu $T) (--> Partition $P) (--> Supremum $S))) (--> MetricEntropy (KS-Entropy $T $mu $P))) (stv 1.0 0.85))
 ;; Mixing: stronger property where correlations decay, implying ergodicity

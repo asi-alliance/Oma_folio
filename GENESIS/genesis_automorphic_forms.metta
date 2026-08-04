@@ -12,3 +12,4 @@
 (|- ((==> (&& (--> AutomorphicRepresentation $pi (GLn $n)) (--> GaloisRepresentation $rho) (--> Bijection $pi $rho))) (--> LanglandsCorrespondence $pi $rho)) (stv 1.0 0.9))
 ;; Selberg trace formula: relates spectral data (eigenvalues of Laplacian) to geometric data (conjugacy classes)
 (|- ((==> (&& (--> DiscreteSubgroup $Gamma) (--> SumOver $S (SpectralData $Gamma)) (--> SumOver $G (GeometricData $Gamma)) (--> Equals $S $G))) (--> SelbergTraceFormula $Gamma)) (stv 1.0 0.9))
+)

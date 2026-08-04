@@ -4,3 +4,4 @@
 (|- ((==> (&& (--> ObstructionTheory $O) (--> NotComplete $O) (--> MetaObstruction $O (UnclassifiableBy $O)) (--> LawvereContrapositive (ObstructionTheory $O)))) (--> IncompletenessOfObstructionTheory $O)) (stv 1.0 0.9)
 ;; The obstruction ladder has no top: degree n+1 obstruction classifies the obstruction to classifying degree n; self-reference forces infinite ascent
 (|- ((==> (&& (--> ObstructionLadder $H $n) (--> MetaObstruction $O (ObstructionTo (Classify $O $n))) (--> ClassifiedBy (ObstructionLadder $H ($n+1)) (MetaObstruction $O)) (--> NoTopElement (ObstructionLadder)))) (--> InfiniteAscent $O)) (stv 1.0 0.9)
+)))

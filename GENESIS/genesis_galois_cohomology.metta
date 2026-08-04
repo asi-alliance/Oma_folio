@@ -6,7 +6,7 @@
 
 (= (galois_module $M $G) (and (galois_group $L $K $G) (abelian_group $M) (action $G $M) (forall $g (== ($g (+ $m $n)) (+ ($g $m) ($g $n))))))
 
-(= (inhomogeneous_cochain $G $M $n) (and (galois_module $M $G) (== (cochain $n) (functions $G^n $M)) (forall $g (== ($g (cochain $n)) (cochain $n))))))
+(= (inhomogeneous_cochain $G $M $n) (and (galois_module $M $G) (== (cochain $n) (functions $G^n $M)) (forall $g (== ($g (cochain $n)) (cochain $n)))))
 
 (= (coboundary_map $G $M $n $f) (and (cochain $n) (== $f (sum $i (- (* (sign $i) ($sigma_i (cochain $n))))))))
 
@@ -14,7 +14,7 @@
 
 (= (hilbert_theorem_90 $G $L $K) (and (galois_group $L $K $G) (cyclic $G) (== (galois_cohomology_group $G $L 1) (trivial_group))))
 
-(= (kummer_sequence $G $L $n) (and (galois_group $L $K $G) (contains_root_of_unity $L $n) (exact_sequence $L^* /\mapsto L^* /\mapsto L^* /\mapsto Z/nZ)) (== (galois_cohomology_group $G $L^* 1) (galois_cohomology_group $G $mu_n 1))))
+(= (kummer_sequence $G $L $n) (and (galois_group $L $K $G) (contains_root_of_unity $L $n) (exact_sequence $L^* /\mapsto L^* /\mapsto L^* /\mapsto Z/nZ)) (== (galois_cohomology_group $G $L^* 1) (galois_cohomology_group $G $mu_n 1)))
 
 (= (inflation_restriction $G $H $M $n) (and (normal_subgroup $H $G) (galois_module $M $G) (exact_sequence (galois_cohomology_group $G $M $n) (galois_cohomology_group $H $M $n) (galois_cohomology_group (quotient_group $G $H) (fixed_points $H $M) $n))))
 

@@ -11,7 +11,7 @@
 
 ;; Orchestration Patterns
 (= (OrchPattern (Concept event-driven)) (Evaluation (Concept triggers) (List (Concept state-changes) (Concept reactive-behavior))))
-( (OrchPattern (Concept blackboard)) (Evaluation (Concept shares) (List (Concept common-workspace) (Concept opportunistic-reasoning)))
+(= (OrchPattern (Concept blackboard)) (Evaluation (Concept shares) (List (Concept common-workspace) (Concept opportunistic-reasoning)))
 (= (OrchPattern (Concept message-passing)) (Evaluation (Concept uses) (List (Concept async-queues) (Concept decoupled-communication))))
 
 ;; Key Design Considerations

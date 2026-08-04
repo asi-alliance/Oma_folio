@@ -19,12 +19,12 @@
 ;; Symmetry breaking: order parameter nonzero below critical temperature
 (|- ((==> (&& (--> Temperature $T) (< $T Tc) (--> PhaseTransition SecondOrder)) (--> OrderParameter Nonzero)) (stv 1.0 0.9)))
 ;; Critical exponents: power-law behavior near critical point
-(|- ((==> (&& (--> Observable $O) (--> Near $Tc) (--> CriticalExponent $alpha))) (--> ScalingLaw (PowerLaw $O (- $T Tc) $alpha))) (stv 1.0 0.85)))
+(|- ((==> (&& (--> Observable $O) (--> Near $Tc) (--> CriticalExponent $alpha))) (--> ScalingLaw (PowerLaw $O (- $T Tc) $alpha))) (stv 1.0 0.85))
 ;; Scaling relations connect critical exponents
-(|- ((==> (--> CriticalExponents $alpha $beta $gamma $delta $nu $eta)) (--> ScalingRelation (- (* 2 $alpha) (+ (* 2 $beta) $gamma) 0))) (stv 1.0 0.8)))
+(|- ((==> (--> CriticalExponents $alpha $beta $gamma $delta $nu $eta)) (--> ScalingRelation (- (* 2 $alpha) (+ (* 2 $beta) $gamma) 0))) (stv 1.0 0.8))
 ;; Universality: critical exponents depend on symmetry and dimension, not microscopic details
-(|- ((==> (&& (--> CriticalExponent $alpha) (--> SymmetryClass $C) (--> Dimension $d))) (--> UniversalityClass (× $C $d))) (stv 1.0 0.85)))
+(|- ((==> (&& (--> CriticalExponent $alpha) (--> SymmetryClass $C) (--> Dimension $d))) (--> UniversalityClass (× $C $d))) (stv 1.0 0.85))
 ;; RG bridge: fixed points define universality classes
-(|- ((==> (&& (--> RGFlow $f) (--> FixedPoint $f))) (--> UniversalityClass $f)) (stv 1.0 0.85)))
+(|- ((==> (&& (--> RGFlow $f) (--> FixedPoint $f))) (--> UniversalityClass $f)) (stv 1.0 0.85))
 ;; Correlation length divergence near critical point
 (|- ((==> (&& (--> Near $Tc) (--> CriticalExponent $nu))) (--> CorrelationLength (PowerLaw xi (- T Tc) (- $nu))) (stv 1.0 0.85)))

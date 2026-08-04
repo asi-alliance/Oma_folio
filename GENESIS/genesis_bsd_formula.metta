@@ -4,4 +4,4 @@
 (= (bsd-leading-coeff-numerator $E) (times (times (times (order (sha $E)) (real-period $E)) (regulator $E)) (tamagawa-product $E)))
 (= (bsd-leading-coeff-denominator $E) (square (order (torsion $E))))
 (= (tamagawa-product $E) (product-over-bad-primes (tamagawa-number $E)))
-(= (bsd-formula-assembles $E) (list (real-period $E) (regulator $E) (tamagawa-product $E) (order (sha $E)) (order (torsion $E)))))
+(= (bsd-formula-assembles $E) (list (real-period $E) (regulator $E) (tamagawa-product $E) (order (sha $E)) (order (torsion $E))))

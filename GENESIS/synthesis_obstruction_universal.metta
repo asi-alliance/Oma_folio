@@ -9,3 +9,4 @@
 (|- ((==> (&& (--> Space $X) (--> HomotopyGroup (Pi $n) $X) (--> Nontrivial (Pi $n) $X) (--> ObstructionTo (Contractibility $X) (Pi $n)))) (--> HomotopicalObstruction $X $n)) (stv 1.0 0.9))
 ;; Universal claim: GENESIS is a graph of obstruction theories; each node measures what prevents a structure from being trivial, canonical, or free; the four families (cohomological, logical, categorical, homotopical) are unified by: obstruction exists => structure is nontrivial; obstruction vanishes => structure is canonical/trivial/free
 (|- ((==> (&& (--> CohomologicalObstruction $H $n) (--> LogicalObstruction $T) (--> CategoricalObstruction $C $f $g) (--> HomotopicalObstruction $X $m) (--> Equals (MetaPattern (Obstruction $O)) (Prevents (TrivialCanonicalFree $O))))) (--> UniversalObstructionTheory (GenesisGraph))) (stv 1.0 0.9)
+))
