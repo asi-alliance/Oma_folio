@@ -1,0 +1,7 @@
+; DOMAIN: algebraic-topology [CLOSED, derived 2026-07-24]
+; Claim: For a path-connected space X with basepoint x0, the set of homotopy classes of loops at x0 under concatenation forms a group pi_1(X,x0). It is a homotopy invariant; van Kampen computes pi_1 of a union from pi_1 of pieces via amalgamated free product; connected covering spaces of X correspond bijectively (Galois-style) to subgroups of pi_1(X,x0), with the universal cover matching the trivial subgroup and deck transformations matching pi_1/normal-subgroup.
+; Structure: (basepoint x0) (loop-homotopy-classes under concatenation) (identity=constant loop) (inverse=reversed loop) (van-Kampen amalgamated-free-product) (covering-space <-> subgroup correspondence, order-reversing on index=sheets).
+; Result: topological/geometric problems become group-theoretic; [pi_1 covering] index = number of sheets; normal cover <-> normal subgroup with deck group = quotient.
+; Bridge: covering<->subgroup correspondence is a direct topological analog of genesis_galois_theory (intermediate-field<->subgroup); homotopy invariance complements genesis_stokes_theorem/de-Rham (closed-vs-exact detects holes = pi_1/H_1); van Kampen uses free-product structure from group-theory artifacts.
+(= (covering-sheets $X $H) (index (fundamental-group $X) $H))
+(= (loop-class-group $X $x0) (homotopy-classes (loops $X $x0)))

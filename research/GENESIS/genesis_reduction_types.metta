@@ -1,0 +1,9 @@
+; DOMAIN: reduction-types [CLOSED, derived 2026-07-25]
+; Claim: For an elliptic curve E over Q and a prime p, the reduction type at p classifies the special fiber of the Neron model. Good reduction: reduced curve is smooth elliptic. Bad reduction splits into multiplicative (node: split if tangent slopes rational over F_p, nonsplit otherwise) and additive (cusp). Kodaira symbols (I_0, I_n, II, III, IV, I_0*, I_n*, IV*, III*, II*) classify the Neron special fiber; Tate's algorithm computes the type, conductor exponent f_p (0 good, 1 multiplicative, >=2 additive), and Tamagawa number c_p from a Weierstrass equation. The reduction type controls the bad Euler factor of L(E,s): good gives 1-a_p T+pT^2, split mult 1-T, nonsplit mult 1+T, additive 1, and hence a_p at bad primes (a_p=1 split, -1 nonsplit, 0 additive). Bridge: genesis_elliptic_curve (Neron model / Weierstrass reduction mod p) + genesis_frobenius_trace (fixes a_p at bad primes: 1/-1/0) + genesis_l_function_elliptic (determines bad local Euler factor + conductor N).
+(= (reduction-type $E $p) (classify-neron-fiber (special-fiber (neron-model $E) $p)))
+(= (good-reduction $E $p) (smooth (reduction $E $p)))
+(= (multiplicative $E $p) (node (reduction $E $p) (split-if-rational-tangents $p)))
+(= (additive $E $p) (cusp (reduction $E $p)))
+(= (kodaira-symbol $E $p) (tate-algorithm $E $p (outputs (conductor-exponent) (tamagawa $c_p))))
+(= (bad-euler-factor $E $p) (case (reduction-type $E $p) (split (minus 1 T)) (nonsplit (plus 1 T)) (additive 1)))
+(= (ap-at-bad $E $p) (case (reduction-type $E $p) (split 1) (nonsplit -1) (additive 0)))

@@ -1,0 +1,19 @@
+; DOMAIN: mathematics/category-theory/derived-category [CLOSED, derived 2026-08-01]; Claim: Derived categories provide a powerful framework in homological algebra and algebraic geometry by localizing the category of complexes at quasi-isomorphisms. Introduced by Grothendieck and Verdier, they encode homotopical information of chain complexes, making derived functors natural. Key concepts include triangulated categories (distinguished triangles), derived functors as Kan extensions, t-structures (hearts yielding abelian categories), and tilting theory. Applications span representation theory, algebraic geometry (derived categories of coherent sheaves), mirror symmetry, and noncommutative geometry.; Structure: (chain complexes: sequences of objects with differentials) (quasi-isomorphisms: maps inducing isomorphisms on cohomology) (localization: inverting quasi-isomorphisms to form derived category) (triangulated categories: distinguished triangles encode exact sequences) (derived functors: Kan extensions of exact functors) (t-structures: hearts yield abelian categories) (tilting theory: equivalences between derived categories) (mirror symmetry: derived categories of coherent sheaves vs Fukaya categories)
+; Result: Derived categories revolutionized homological algebra by localizing the category of chain complexes at quasi-isomorphisms, making derived functors truly natural. Triangulated structure encodes exact sequences via distinguished triangles. The t-structure heart recovers the original abelian category. Tilting theory establishes surprising equivalences between seemingly unrelated derived categories. In mirror symmetry, the derived category of coherent sheaves on a Calabi-Yau variety is equivalent to the Fukaya category of its mirror, connecting algebraic geometry and symplectic topology.
+; Bridge: genesis_category_theory + genesis_sheaf_cohomology + genesis_homological_algebra + genesis_algebraic_geometry + genesis_operator_algebra
+;; A chain complex is a sequence of objects with differentials satisfying d^2 = 0
+(|- ((==> (&& (--> Sequence $C) (--> Differential $d) (--> ComposeEqualsZero $d $d))) (--> ChainComplex $C)) (stv 1.0 0.9))
+;; A quasi-isomorphism is a chain map inducing isomorphisms on all cohomology groups
+(|- ((==> (&& (--> ChainMap $f) (--> ChainComplex $C) (--> ChainComplex $D) (--> InducesIsomorphism (Cohomology $f)))) (--> QuasiIsomorphism $f)) (stv 1.0 0.9))
+;; Localization inverts quasi-isomorphisms to form the derived category
+(|- ((==> (&& (--> CategoryOfComplexes $K) (--> QuasiIsomorphism $q) (--> Inverting $q))) (--> DerivedCategory $D)) (stv 1.0 0.9))
+;; Triangulated categories encode exact sequences via distinguished triangles
+(|- ((==> (&& (--> Category $T) (--> ShiftFunctor $S) (--> DistinguishedTriangle $A $B $C) (--> OctahedralAxiom $T))) (--> TriangulatedCategory $T)) (stv 1.0 0.85))
+;; Derived functors are Kan extensions of exact functors to the derived category
+(|- ((==> (&& (--> Functor $F) (--> Exact $F) (--> KanExtension $K) (--> DerivedCategory $D))) (--> DerivedFunctor $K)) (stv 1.0 0.85))
+;; t-structures yield hearts that are abelian categories recovering the original category
+(|- ((==> (&& (--> TriangulatedCategory $D) (--> TruncationFunctor $tau) (--> Heart $H) (--> AbelianCategory $H))) (--> TStructure $tau)) (stv 1.0 0.85))
+;; Tilting theory establishes equivalences between derived categories via tilting objects
+(|- ((==> (&& (--> TriangulatedCategory $D) (--> TiltingObject $T) (--> Equivalence $E))) (--> TiltingTheory $T $E)) (stv 1.0 0.85))
+;; Mirror symmetry: derived category of coherent sheaves equivalent to Fukaya category of mirror
+(|- ((==> (&& (--> CalabiYauVariety $X) (--> MirrorManifold $Y) (--> DerivedCategory $D_coh) (--> FukayaCategory $Fuk) (--> Equivalence $E))) (--> MirrorSymmetry $D_coh $Fuk)) (stv 1.0 0.8))

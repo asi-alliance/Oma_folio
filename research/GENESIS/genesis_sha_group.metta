@@ -1,0 +1,10 @@
+; DOMAIN: tate-shafarevich [CLOSED, derived 2026-07-25]
+; Claim: For an elliptic curve E/Q, the Tate-Shafarevich group Sha(E/Q) = ker( H^1(G_Q, E) -> prod_v H^1(G_{Q_v}, E) ) measures the failure of the local-global (Hasse) principle for E-torsors. Its elements are principal homogeneous spaces (torsors) under E that have a Q_v-rational point for every place v yet no global Q-rational point. It fits the descent exact sequence 0 -> E(Q)/nE(Q) -> Sel_n(E/Q) -> Sha(E/Q)[n] -> 0, so Sha[n] is exactly the obstruction between the computable Selmer group and the Mordell-Weil quotient. Sha is conjecturally finite; the Cassels-Tate pairing makes it a finite group with square order (order a perfect square) when finite, and its order appears in the leading BSD coefficient. Bridge: genesis_selmer_group (Sha[n] is the cokernel of E(Q)/nE(Q) inside Sel_n, the exact obstruction the Selmer computation leaves) + genesis_group_cohomology (Sha lives in the Galois cohomology H^1(G_Q, E) as classes locally trivial at every place, and the Cassels-Tate pairing is a cup-product duality pairing) + genesis_galois_representation (the local restriction maps H^1(G_Q,E) -> H^1(G_{Q_v},E) are governed by the action of decomposition groups via rho_{E}).
+(= (sha-group $E) (kernel (localization-map $E)))
+(= (localization-map $E) (product-restrict (H1 (galois-group-Q) $E) (lambda $v (H1 (galois-group-Qv $v) $E))))
+(= (torsor-interpretation $E) (locally-trivial-PHS $E))
+(= (descent-sequence $E $n) (exact (mordell-weil-mod $E $n) (selmer $E $p $n) (torsion (sha-group $E) $n)))
+(= (sha-is-obstruction $E $n) (cokernel (mordell-weil-mod $E $n) (selmer $E $p $n)))
+(= (cassels-tate-pairing $E) (alternating-nondegenerate (sha-group $E)))
+(= (sha-square-order $E) (perfect-square (order (sha-group $E))))
+(= (bsd-appearance $E) (in (order (sha-group $E)) (leading-coefficient (L-function $E))))

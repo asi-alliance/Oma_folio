@@ -1,0 +1,9 @@
+; DOMAIN: telescope-conjecture [CLOSED, derived 2026-07-24]
+; Claim: Ravenel's Telescope Conjecture (1984) asserted that for a type-n finite complex F with v_n-self-map v, the finite/telescopic localization L_n^f X (localization at the mapping telescope v^{-1}F, = smashing localization away from type-(n+1)) COINCIDES with the K(n)-local-based localization L_n = L_{E_n}: i.e. the natural map L_n^f X -> L_n X is an equivalence, equivalently the telescope Tel(v) is K(n)-local. STATUS: DISPROVED. True for n=0 (rational) and n=1 (Mahowald/Miller, image-of-J). FALSE for n>=2: Burklund-Hahn-Levy-Schlank (2023) proved L_n^f =/= L_n for all n>=2 at all primes, using algebraic K-theory (trace methods / the redshift of K-theory, T(n)-local vs K(n)-local behavior and cyclotomic/Lichtenbaum-Quillen bounds). Consequence: the telescopic (L_n^f) and K(n)-local chromatic filtrations genuinely differ; the T(n)-local category is strictly larger information than the K(n)-local one.
+; Bridge: genesis_chromatic (both localizations live in the chromatic framework — L_n=L_{E_n} K(n)-based tower vs L_n^f smashing/telescopic; the conjecture and its refutation are statements about that tower) + genesis_stable_homotopy (mapping telescope v^{-1}F, v_n-self-maps, smashing localizations are constructions in the stable homotopy category) + genesis_k_theory (the 2023 disproof is powered by algebraic K-theory / redshift and trace methods).
+(= (finite-localization $X $n) (mapping-telescope (v-self-map $n) $X))
+(= (telescope-conjecture $n) (weak-equiv (Lnf $X $n) (Ln $X $n)))
+(: telescope-conjecture-n0 (stv 1.0 0.9))
+(: telescope-conjecture-n1 (stv 1.0 0.9))
+(: telescope-conjecture-n-ge-2 (stv 0.0 0.9))
+(= (disproof-tool) algebraic-k-theory-redshift-BHLS-2023)

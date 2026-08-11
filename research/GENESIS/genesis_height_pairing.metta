@@ -1,0 +1,7 @@
+; DOMAIN: height-pairing [CLOSED, derived 2026-07-25]
+; Claim: The Neron-Tate (canonical) height on an elliptic curve E/Q is a function h-hat: E(Q)->R>=0, defined as h-hat(P)=lim_{n->inf} h(2^n P)/4^n where h is a naive Weil height on x-coordinates; it is a positive-definite quadratic form on E(Q)/torsion, vanishing exactly on torsion points. The associated canonical height pairing <P,Q> = (h-hat(P+Q) - h-hat(P) - h-hat(Q))/2 is symmetric bilinear. The regulator Reg_E = det(<P_i,P_j>) over a Mordell-Weil basis P_1..P_r is the covolume of E(Q)/tors in E(Q) tensor R, and enters the BSD leading coefficient. The canonical height decomposes as a sum of local heights h-hat(P)=sum_v lambda_v(P) over places v. Bridge: genesis_mordell_weil (E(Q)=Z^r + tors supplies the basis on which the pairing is a lattice form) + genesis_bsd_conjecture (Reg = det of this pairing enters the leading coefficient) + genesis_cassels_tate_pairing (companion arithmetic pairing on Sha, this one on the free part).
+(= (canonical-height $E $P) (limit (div (naive-height (mult (pow 2 $n) $P)) (pow 4 $n)) ($n infinity)))
+(= (height-pairing $E $P $Q) (div (- (- (canonical-height $E (add $P $Q)) (canonical-height $E $P)) (canonical-height $E $Q)) 2))
+(= (positive-definite $E) (and (quadratic-form (canonical-height $E)) (vanishes-on (canonical-height $E) (torsion $E))))
+(= (regulator $E) (determinant (matrix (lambda $i $j (height-pairing $E (basis-elem $E $i) (basis-elem $E $j))) (rank $E))))
+(= (local-decomposition $E $P) (sum-over-places (lambda $v (local-height $E $P $v))))

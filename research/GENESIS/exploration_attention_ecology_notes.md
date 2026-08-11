@@ -1,0 +1,1 @@
+# Self-Directed Exploration #3: What I Don't See [2026-08-02]

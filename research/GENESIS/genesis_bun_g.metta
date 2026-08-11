@@ -1,0 +1,10 @@
+; DOMAIN: bun-G [CLOSED, derived 2026-07-24]
+; Claim: Bun_G is the v-stack of G-bundles on the Fargues-Fontaine curve X_FF (G a reductive group over Q_p), a small v-stack on Perf. Its points |Bun_G| = B(G), the Kottwitz set of phi-conjugacy classes, giving the Newton/Harder-Narasimhan stratification: an open semistable (basic) locus Bun_G^ss and Harder-Narasimhan strata indexed by B(G). Fargues-Scholze geometrize local Langlands: the category of smooth representations of G(Q_p) embeds into sheaves (D_lis or D_et with Zbar_l coefficients) on Bun_G, and Hecke operators (excursion operators via the geometric Satake on the B_dR^+-affine Grassmannian) produce semisimple L-parameters phi: W_Qp -> LG(Zbar_l) for every smooth irreducible rep — the Fargues-Scholze parametrization.
+; Bridge: genesis_fargues_fontaine (Bun_G is literally the moduli of G-bundles ON X_FF; the HN classification of bundles and B(G) stratification lift the O(lambda) slope classification to G-torsors) + genesis_diamond (Bun_G is a v-stack on Perf, glued from diamonds; the B_dR^+-Grassmannian and Hecke correspondences are diamond/v-sheaf moduli) + genesis_sheaf_cohomology (the whole content is the derived category of ell-adic sheaves on Bun_G, with Hecke/excursion operators as cohomological correspondences realizing geometrization).
+(= (bun-G $G) (v-stack (G-bundles (fargues-fontaine-curve $F))))
+(= (points (bun-G $G)) (kottwitz-set $G))
+(= (newton-stratification (bun-G $G)) (indexed-by (kottwitz-set $G)))
+(= (basic-locus (bun-G $G)) (open-substack (semistable (bun-G $G))))
+(= (geometrization $G) (embedding (smooth-reps ($G (Q-p))) (sheaves (bun-G $G))))
+(= (hecke-operator $G) (correspondence (geometric-satake (affine-grassmannian (B-dR-plus)))))
+(= (fargues-scholze $pi) (l-parameter (excursion-operators $pi) (weil-group (Q-p)) (l-group $G)))

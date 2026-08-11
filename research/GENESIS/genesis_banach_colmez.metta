@@ -1,0 +1,10 @@
+; DOMAIN: banach-colmez [CLOSED, derived 2026-07-24]
+; Claim: A Banach-Colmez space (Colmez, "Espaces de Banach de dimension finie") is a functor on perfectoid/affinoid algebras over Q_p built from the cohomology of vector bundles on the Fargues-Fontaine curve X_FF: for a bundle E=O(lambda), H^0 and H^1 are finite-dimensional Banach-Colmez spaces. Each carries two integer invariants — a dimension dim in Z_{>=0} (the B_dR^+/Q_p-dimension, "Banach part") and a height ht in Z (the Q_p-dimension) — additive in short exact sequences: for 0->E'->E->E''->0 the long exact cohomology sequence gives (dim,ht) additive. For O(d/h) with d>=0: H^0 has (dim,ht)=(d,h) and H^1=0; for slope<0: H^0=0 and H^1 realizes the dual. The category of Banach-Colmez spaces is abelian, and (dim,ht) is the unique additive Euler-characteristic invariant; the FF curve's classification of bundles by HN slopes makes every such cohomology a finite-dim BC space. These are the geometric building blocks of shtuka cohomology and the Fargues-Fontaine/Fargues-Scholze machine.
+; Bridge: genesis_fargues_fontaine (BC spaces ARE the cohomology H^i(X_FF, E) of vector bundles on the FF curve; the O(lambda) slope classification determines dim/ht via HN slopes) + genesis_local_shtuka (the cohomology of the modification/legs data of a shtuka is computed by BC spaces; dim/ht = the numerical invariants of the p-adic Hodge modification) + genesis_sheaf_cohomology (BC dimension theory is the additive Euler characteristic of the long exact cohomology sequence, i.e. sheaf cohomology of bundles on X_FF).
+(= (banach-colmez-space $E) (cohomology (vector-bundle (fargues-fontaine-curve $F)) $E))
+(= (invariants (banach-colmez-space $E)) (pair (dimension $E) (height $E)))
+(= (additive (short-exact $E-prime $E $E-double-prime)) (sum (invariants $E-prime) (invariants $E-double-prime)))
+(= (invariants (h0 (o (slope $d $h)))) (pair $d $h))
+(= (h1 (o (slope $d $h))) (zero))
+(= (category (banach-colmez)) (abelian))
+(= (shtuka-cohomology $s) (banach-colmez-space (legs-modification $s)))

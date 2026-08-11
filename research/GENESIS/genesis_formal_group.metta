@@ -1,0 +1,11 @@
+; DOMAIN: formal-group-laws [CLOSED, derived 2026-07-24]
+; Claim: A (1-dim, commutative) formal group law over a ring R is a power series F(x,y) in R[[x,y]] with F(x,0)=x, F(x,y)=F(y,x), and F(F(x,y),z)=F(x,F(y,z)). Lazard's theorem: the universal FGL lives over the Lazard ring L=Z[x_1,x_2,...], and L is a polynomial ring on countably many generators; moreover L ≅ pi_*(MU) (Quillen). A complex orientation of a ring spectrum E determines an FGL via the E-theory Euler class of tensor products of line bundles: e(L1⊗L2)=F(e(L1),e(L2)); MU is universal complex-oriented, so complex orientations of E <=> ring maps L=pi_*MU -> pi_*E. Over F_p-algebras FGLs have a height invariant (p-series [p]_F(x)=v_n x^{p^n}+... ); Honda FGLs are the height-n standard models, classifying the height stratification underlying chromatic homotopy (Morava K/E-theories).
+; Structure: (F(x,0)=x identity) (F(x,y)=F(y,x) commutative) (F(F(x,y),z)=F(x,F(y,z)) associative) (Lazard ring L universal, L=pi_*MU Quillen) (complex orientation <=> ring map pi_*MU->pi_*E <=> FGL on E) (height via [p]_F(x); Honda FGL standard height-n).
+; Result: the additive/multiplicative/elliptic layering of cohomology theories is governed by a single algebro-geometric object — the moduli of formal groups — with MU as the universal carrier and height as the organizing chromatic invariant.
+; Bridge: genesis_thom_spectrum (MU universal complex-oriented spectrum; complex orientation <=> Thom class) + genesis_cobordism (Lazard ring L=pi_*MU=complex bordism ring, Quillen) + genesis_k_theory (multiplicative FGL F(x,y)=x+y+bxy from the K-theory/Chern orientation) + genesis_chern_character (Euler/Chern class of line bundles feeding e(L1⊗L2)=F(e(L1),e(L2))).
+(= (fgl-identity $F $x) (equal ($F $x 0) $x))
+(= (fgl-commutative $F $x $y) (equal ($F $x $y) ($F $y $x)))
+(= (fgl-associative $F $x $y $z) (equal ($F ($F $x $y) $z) ($F $x ($F $y $z))))
+(= (lazard-ring) (stable-homotopy-ring (thom-spectrum U)))
+(= (complex-orientation-fgl $E) (ring-map (lazard-ring) (stable-homotopy-ring $E)))
+(= (fgl-height $F $p $n) (leading-term (p-series $F $p) (power $x (power $p $n))))

@@ -1,0 +1,11 @@
+; DOMAIN: shimura-taniyama-modularity [CLOSED, derived 2026-07-25]
+; Claim: The Modularity Theorem (Shimura-Taniyama-Weil conjecture, proved by Wiles, Taylor-Wiles, and Breuil-Conrad-Diamond-Taylor) states that every elliptic curve E over Q is modular: there exists a weight-2 newform f of level N=conductor(E) such that L(E,s)=L(f,s), equivalently the Galois representation rho_{E,p} on the p-adic Tate module is isomorphic to the representation rho_{f,p} attached to f. Proof engine: the R=T theorem identifying a universal deformation ring R of the mod-p Galois representation with a Hecke algebra T, via the Taylor-Wiles patching / numerical criterion and Ribet's level-lowering, reducing modularity to a deformation-theoretic identity. This bridges CM (CM elliptic curves are automatically modular via Hecke characters) to the automorphic/L-function program and famously yields Fermat's Last Theorem via the Frey curve.
+; Bridge: genesis_complex_multiplication (CM elliptic curves are the first modular cases — their L-functions are Hecke L-functions of the imaginary quadratic field, exhibiting modularity concretely before the general Wiles proof) + genesis_galois_theory (modularity is an isomorphism of Galois representations rho_{E,p}=rho_{f,p}, and the R=T method deforms residual Galois representations) + genesis_dirichlet (L(E,s)=L(f,s) places elliptic L-functions in the automorphic L-function framework generalizing Dirichlet L-functions).
+(= (elliptic-curve-Q $E) (elliptic-curve (base-field Q)))
+(= (conductor $E) (level-of-newform $E))
+(= (galois-rep $E $p) (tate-module-rep $E $p))
+(= (modular $E) (exists (weight-2-newform $f (conductor $E)) (equal (l-function $E) (l-function $f))))
+(= (modularity-theorem) (forall (elliptic-curve-Q $E) (modular $E)))
+(= (r-equals-t) (iso (deformation-ring (residual-rep $E $p)) (hecke-algebra (conductor $E))))
+(= (proves (modularity-theorem) (r-equals-t)) (via taylor-wiles-patching ribet-level-lowering))
+(= (implies (modularity-theorem) (frey-curve)) (fermat-last-theorem))

@@ -1,0 +1,20 @@
+;; GENESIS artifact #266 - Distribution Theory
+;; Domain - functional-analysis / PDE / harmonic-analysis
+;; Bridges - genesis_sobolev_spaces, genesis_functional_analysis, genesis_harmonic_analysis, genesis_fourier_transform, genesis_elliptic_regularity
+(= (test_function $phi) (and (smooth $phi) (compact_support $phi)))
+(= (distribution $T $phi) (and (linear_functional $T) (continuous $T) (forall $phi (test_function $phi))))
+(= (regular_distribution $f $phi) (and (locally_integrable $f) (== ($T_f $phi) (integral $R ($f $phi $x)))))
+(= (dirac_delta $delta $phi) (and (distribution $delta $phi) (== ($delta $phi) ($phi 0))))
+(= (distributional_derivative $T $D_T $phi) (and (distribution $T $phi) (== ($D_T $phi) (- ($T (partial_deriv $phi))))))
+(= (distribution_multiplication $T $f $phi) (and (distribution $T $phi) (smooth $f) (== ($f_T $phi) ($T (lambda $x (* $f $phi $x))))))
+(= (tempered_distribution $T $phi) (and (distribution $T $phi) (schwartz_space $phi) (continuous $T (seminorm_family $phi))))
+(= (fourier_transform_distribution $T $FT $phi) (and (tempered_distribution $T $phi) (== ($FT $T $phi) ($T (fourier_transform $phi)))))
+(= (convolution_distribution $S $T $phi) (and (distribution $S $phi) (distribution $T $phi) (compact_support $S) (== ($S_star_T $phi) (integral $R ($S (translated $T $phi))))))
+(= (fundamental_solution $E $L $phi) (and (linear_PDE $L) (distribution $E $phi) (== ($L $E) (dirac_delta $delta $phi))))
+(= (support_of_distribution $T $supp) (and (distribution $T $phi) (== $supp (complement (union (open_sets $U) (forall $phi (compact_support_in $phi $U) (== ($T $phi) 0)))))))
+(= (singular_support $T $sing_spp) (and (distribution $T $phi) (== $sing_spp (complement (union (open_sets $U) (smooth_on $T $U))))))
+(= (wavefront_set $T $WF) (and (distribution $T $phi) (== $WF (subset (cotangent_bundle $T_star $X)) (closed_conic_subset $WF))))
+(= (malgrange_ehrenpreis $L $E) (and (linear_PDE $L) (constant_coefficients $L) (exists $E (fundamental_solution $E $L $phi))))
+(= (schwartz_kernel_theorem $K $A) (and (linear_operator $A) (continuous $A) (exists $K (distribution $K $phi) (== ($A $u $v) ($K ($u tensor $v))))))
+(= (malgrange_ehrenpreis $L $E) (and (linear_PDE $L) (constant_coefficients $L) (exists $E (fundamental_solution $E $L $phi))))
+(= (schwartz_kernel_theorem $K $A) (and (linear_operator $A) (continuous $A) (exists $K (distribution $K $phi) (== ($A $u $v) ($K ($u tensor $v))))))

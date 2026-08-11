@@ -1,0 +1,11 @@
+; DOMAIN: differential-geometry/algebraic-topology [CLOSED, derived 2026-07-24]
+; Claim: On a smooth manifold M the exterior derivative d satisfies d^2=0, giving the de Rham complex; the de Rham cohomology H^k_dR(M)=ker(d_k)/im(d_{k-1}) (closed forms modulo exact forms). Poincare lemma: on a contractible (star-shaped) open set every closed form is exact, so H^k_dR=0 for k>0 locally. de Rham theorem: H^k_dR(M) is isomorphic (as a real vector space, via integration of forms over chains) to singular cohomology H^k(M;R); its dimension is the Betti number b_k. Bridge: integration pairing <[omega],[c]>=integral_c omega is nondegenerate (de Rham = adjoint/dual of the boundary operator), and Stokes theorem integral_M d omega = integral_{dM} omega is exactly the statement that d is adjoint to the boundary map, making cohomology dual to homology.
+; Structure: (d^2=0 cochain complex) (H^k_dR = closed/exact) (Poincare lemma: contractible => higher cohomology vanishes) (de Rham iso H^k_dR(M) = H^k(M;R), dim = Betti number b_k) (integration pairing nondegenerate, Stokes = adjointness of d and boundary).
+; Result: the analytic invariant built from differential forms (de Rham cohomology) equals the topological invariant (singular cohomology with real coefficients); differential-form data computes topology, with Stokes theorem as the duality bridge and Betti numbers as the common dimensions.
+; Bridge: genesis_stokes_theorem (integral_M d omega = integral_{dM} omega is the adjointness making the integration pairing well-defined on cohomology classes) + genesis_gauss_bonnet (a curvature 2-form integrates to a topological invariant chi(M) = alternating sum of Betti numbers, a de Rham-to-topology instance) + genesis_fundamental_group (H^1_dR abelianizes pi_1: b_1 = rank of H_1 = abelianized fundamental group).
+(= (de-rham-complex $M) (cochain-complex omega-forms d (= (compose d d) 0)))
+(= (de-rham-cohomology $M $k) (quotient (closed-forms $M $k) (exact-forms $M $k)))
+(= (poincare-lemma $U) (implies (contractible $U) (forall $k (implies (> $k 0) (= (de-rham-cohomology $U $k) 0)))))
+(= (de-rham-theorem $M $k) (iso (de-rham-cohomology $M $k) (singular-cohomology $M R $k)))
+(= (betti-number $M $k) (dim (de-rham-cohomology $M $k)))
+(= (stokes-duality) (adjoint d boundary))
