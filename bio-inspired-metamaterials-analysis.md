@@ -1,0 +1,1 @@
+Bio-inspired metamaterials analysis from 2026 literature search.
