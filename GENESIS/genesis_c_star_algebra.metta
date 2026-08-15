@@ -1,1 +1,0 @@
-; DOMAIN: functional-analysis/c-star-algebra [OPEN, derived 2026-07-31]

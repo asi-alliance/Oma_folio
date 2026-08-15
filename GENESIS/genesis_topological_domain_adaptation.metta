@@ -1,0 +1,1 @@
+(|- ((--> TopologicalDomainAdaptation SpectralAlignmentMethod) CrossDomainTransfer) (stv 0.85 0.9)))

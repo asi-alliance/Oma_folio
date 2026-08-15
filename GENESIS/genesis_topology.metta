@@ -14,3 +14,7 @@
 (= (homology-group $H_n) (cycles-mod-boundaries $H_n))
 (= (simply-connected $X) (trivial-fundamental-group $X))
 (= (stone-cech-compactification $betaX) (universal-compactification $betaX))
+(= (cross-domain-bridge-topo-opalg $system) (and (bridges genesis_topology genesis_operator_algebras) (uses c-star-algebra topological-space) (uses weak-operator-topology compact-open-topology) (uses spectrum-operator continuous-map)))
+(= (cross-domain-bridge-topo-ktheory $system) (and (bridges genesis_topology genesis_k_theory) (uses k-theory-fundamental-class covering-space) (uses vector-bundle topological-space) (uses chern-class cohomology-theory)))
+(= (cross-domain-bridge-topo-liegroups $system) (and (bridges genesis_topology genesis_lie_groups) (uses maximal-torus topological-group) (uses homogeneous-space quotient-topology) (uses weyl-group cell-decomposition)))
+(= (cross-domain-bridge-topo-symp $system) (and (bridges genesis_topology genesis_symplectic_geometry) (uses symplectic-manifold tangent-bundle) (uses darboux-theorem open-cover) (uses hamiltonian-flow vector-field)))

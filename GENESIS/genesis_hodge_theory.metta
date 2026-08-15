@@ -1,0 +1,17 @@
+; DOMAIN: hodge-theory [OPEN, derived 2026-08-14]; Source: Hodge 1941; Kodaira 1953; Griffiths 1968; Deligne-Illusie 1987
+; Bridges: genesis_complex_analysis, genesis_differential_geometry, genesis_algebraic_topology, genesis_harmonic_analysis, genesis_riemannian_geometry
+(= (hodge-laplacian $omega $g) (+ (d (delta $omega $g)) (delta (d $omega) $g)))
+(= (harmonic-form $omega $g) (= (hodge-laplacian $omega $g) 0))
+(= (hodge-star $omega $g) (star-operator $omega $g))
+(= (hodge-decomposition-theorem $M $g $k) (= (de-Rham-cohomology $M $k) (direct-sum (harmonic-forms $M $g $k) (d (exact-forms $M $k)) (delta (coexact-forms $M $k)))))
+(= (kodaira-vanishing-theorem $L $M $K) (=> (and (ample-line-bundle $L $M) (> $K (+ (dim $M) (complex-dim $M)))) (= (cohomology $M $L $K) 0)))
+(= (lefschetz-operator $alpha $omega) (wedge-product $omega $alpha))
+(= (hard-lefschetz-theorem $M $omega $L $k) (and (isomorphism (power $L (- (dim $M) $k)) (cohomology $M $k)) (isomorphism (power $L (- (dim $M) (* 2 $k))) (primitive-cohomology $M $k))))
+(= (cross-domain-bridge-hodge-complex $system) (and (bridges genesis_hodge_theory genesis_complex_analysis) (uses hodge-decomposition-theorem dolbeault-cohomology) (uses harmonic-forms complex-manifolds)))
+(= (cross-domain-bridge-hodge-diffgeo $system) (and (bridges genesis_hodge_theory genesis_differential_geometry) (uses hodge-laplacian riemannian-metric) (uses hodge-star volume-form)))
+(= (cross-domain-bridge-hodge-algtopo $system) (and (bridges genesis_hodge_theory genesis_algebraic_topology) (uses hodge-decomposition-theorem de-Rham-cohomology) (uses harmonic-forms homology-classes)))
+(= (cross-domain-bridge-hodge-harmonic $system) (and (bridges genesis_hodge_theory genesis_harmonic_analysis) (uses hodge-laplacian elliptic-operators) (uses harmonic-forms fourier-analysis)))
+(= (cross-domain-bridge-hodge-riemannian $system) (and (bridges genesis_hodge_theory genesis_riemannian_geometry) (uses hodge-laplacian laplace-beltrami-operator) (uses hodge-star oriented-riemannian-manifold)))
+(= (cross-domain-bridge-hodge-liegroups $system) (and (bridges genesis_hodge_theory genesis_lie_groups) (uses hodge-decomposition lie-algebra-cohomology) (uses harmonic-forms compact-lie-group) (uses killing-form hodge-star)))
+(= (cross-domain-bridge-hodge-ktheory $system) (and (bridges genesis_hodge_theory genesis_k_theory) (uses hodge-decomposition index-theorem) (uses chern-class hodge-theory) (uses todd-class harmonic-forms)))
+(= (cross-domain-bridge-hodge-dst $system) (and (bridges genesis_hodge_theory genesis_descriptive_set_theory) (uses hodge-decomposition borel-equivalence-relation) (uses harmonic-forms polish-space) (uses hodge-star standard-borel-space)))

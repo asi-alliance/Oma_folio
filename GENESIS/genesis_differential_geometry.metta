@@ -14,3 +14,5 @@
 (= (de-rham-cohomology $H) (closed-mod-exact-forms $H))
 (= (frobenius-theorem $D) (integrability-involution-equivalence $D))
 (= (lie-bracket $X $Y) (commutator-vector-fields $X $Y))
+(= (cross-domain-bridge-diffgeo-fa $system) (and (bridges genesis_differential_geometry genesis_functional_analysis) (uses riemannian-metric sobolev-space) (uses elliptic-operator banach-manifold) (uses laplace-beltrami spectral-theorem)))
+(= (cross-domain-bridge-diffgeo-repthry $system) (and (bridges genesis_differential_geometry genesis_representation_theory) (uses riemannian-metric unitary-representation) (uses connection-form lie-algebra) (uses holonomy-group character-theory)))

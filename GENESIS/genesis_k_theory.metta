@@ -1,0 +1,17 @@
+; DOMAIN: k-theory [REBUILD, 2026-08-14]; Source: Atiyah-Hirzebruch 1961; Grothendieck 1957; Bott 1959; Quillen 1973; Atiyah-Segal 1969
+; Bridges: genesis_homology, genesis_spectral_sequences, genesis_stable_homotopy, genesis_chern_character, genesis_representation_theory
+(= (grothendieck-group $K $X) (and (compact-space $X) (= ($K $X) (group-completion (monoid (isomorphism-classes (vector-bundles $X))) (direct-sum)))))
+(= (k0-ring $X) (and (= (K0 $X) (grothendieck-group $K $X)) (multiplication (tensor-product $X)) (= (K0 point) Z)))
+(= (bott-periodicity $X) (and (suspension-isomorphism K) (= (K (- $n) $X) (K (+ $n 2) $X)) (= (K1 $X) (K0 (suspension $X)))))
+(= (algebraic-k-theory $R $n) (and (ring $R) (= (Kn $R) (homotopy-groups (BGL $R))) (quillen-definition $n)))
+(= (chern-character $X) (and (ring-homomorphism (ch $X) (K0 $X) (H-even $X Q)) (rationally-isomorphic (ch $X) (K0 $X) (H-even $X Q))))
+(= (cross-domain-bridge-k-homology $system) (and (bridges genesis_k_theory genesis_homology) (uses chern-character chern-classes) (uses atiyah-hirzebruch-ss generalized-cohomology)))
+(= (cross-domain-bridge-k-specseq $system) (and (bridges genesis_k_theory genesis_spectral_sequences) (uses atiyah-hirzebruch-ss k-theory) (uses bott-periodicity spectral-sequence)))
+(= (cross-domain-bridge-k-stablehomotopy $system) (and (bridges genesis_k_theory genesis_stable_homotopy) (uses bott-periodicity stable-homotopy) (uses adams-spectral-sequence k-theory)))
+(= (cross-domain-bridge-k-chernchar $system) (and (bridges genesis_k_theory genesis_chern_character) (uses chern-character chern-classes) (uses grothendieck-group characteristic-classes)))
+(= (cross-domain-bridge-k-repththeory $system) (and (bridges genesis_k_theory genesis_representation_theory) (uses k0-ring group-algebras) (uses character-theory k-theory)))
+(= (cross-domain-bridge-k-liegroups $system) (and (bridges genesis_k_theory genesis_lie_groups) (uses representation-ring maximal-torus) (uses k0-ring character-theory) (uses peter-weyl-theorem k-theory)))
+(= (cross-domain-bridge-k-symp $system) (and (bridges genesis_k_theory genesis_symplectic_geometry) (uses chern-character moment-map) (uses k-theory coadjoint-orbit) (uses equivariant-k-theory hamiltonian-action)))
+(= (cross-domain-bridge-k-hodge $system) (and (bridges genesis_k_theory genesis_hodge_theory) (uses index-theorem hodge-decomposition) (uses chern-character hodge-star) (uses k0-ring betti-numbers)))
+(= (cross-domain-bridge-k-dst $system) (and (bridges genesis_k_theory genesis_descriptive_set_theory) (uses k0-ring borel-equivalence-relation) (uses vector-bundle standard-borel-space) (uses k-theory polish-space)))
+(= (cross-domain-bridge-k-topo $system) (and (bridges genesis_k_theory genesis_topology) (uses covering-space k-theory-fundamental-class) (uses topological-space vector-bundle) (uses cohomology-theory chern-class)))

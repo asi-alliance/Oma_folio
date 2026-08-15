@@ -1,0 +1,16 @@
+; DOMAIN: knot-theory [OPEN, derived 2026-08-14]; Source: Reidemeister 1927; Alexander 1928; Jones 1984; HOMFLY 1985; Markov 1935; Seifert 1934; Kauffman 1987
+; Bridges: genesis_topology, genesis_algebraic_topology, genesis_group_theory, genesis_riemannian_geometry
+(= (knot $K) (and (smooth-embedding $K (interval 0 1) R3) (= (eval $K 0) (eval $K 1))))
+(= (ambient-isotopy $K1 $K2) (exists (isotopy $F $R3) (and (= (eval $F 0) identity) (= (image (eval $F 1) $K1) $K2))))
+(= (reidemeister-moves $K1 $K2) (exists (finite-sequence $moves) (and (ambient-isotopy $K1 $K2) (each $moves reidemeister-type))))
+(= (knot-invariant $I) (forall ($K1 $K2) (=> (ambient-isotopy $K1 $K2) (= (eval $I $K1) (eval $I $K2)))))
+(= (alexander-polynomial $K) (and (knot-invariant alexander-polynomial) (laurent-polynomial (alexander-conway $K))))
+(= (jones-polynomial $K) (and (knot-invariant jones-polynomial) (skein-relation jones-polynomial $K $Lplus $Lminus $L0 (= (- (eval jones $Lplus) (eval jones $Lminus)) (* (- (t ^ -1/2)) (eval jones $L0))))))
+(= (homfly-polynomial $K) (and (knot-invariant homfly-polynomial) (skein-relation homfly-polynomial $K $Lplus $Lminus $L0 (= (eval homfly $Lplus) (- (* l (eval homfly $L0)) (eval homfly $Lminus))))))
+(= (braid-group $Bn $n) (and (group $Bn) (generated-by $Bn (sigma $i)) (relations (braid-relation $i $j))))
+(= (seifert-surface $S $K) (and (orientable-surface $S) (boundary $S $K)))
+(= (markov-theorem $B1 $B2) (=> (and (braid $B1) (braid $B2)) (= (closure $B1) (closure $B2) (markov-move $B1 $B2))))
+(= (cross-domain-bridge-kt-topo $system) (and (bridges genesis_knot_theory genesis_topology) (uses ambient-isotopy isotopy) (uses reidemeister-moves topological-invariance)))
+(= (cross-domain-bridge-kt-algtopo $system) (and (bridges genesis_knot_theory genesis_algebraic_topology) (uses alexander-polynomial homology) (uses seifert-surface fundamental-group)))
+(= (cross-domain-bridge-kt-group $system) (and (bridges genesis_knot_theory genesis_group_theory) (uses braid-group group-presentation) (uses markov-theorem braid-equivalence)))
+(= (cross-domain-bridge-kt-riemannian $system) (and (bridges genesis_knot_theory genesis_riemannian_geometry) (uses seifert-surface genus) (uses jones-polynomial hyperbolic-volume)))

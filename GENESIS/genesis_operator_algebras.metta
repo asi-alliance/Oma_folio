@@ -1,1 +1,0 @@
-; DOMAIN: functional-analysis/operator-algebras [OPEN, derived 2026-08-02]

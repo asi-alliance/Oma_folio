@@ -1,0 +1,18 @@
+; DOMAIN: quantum-information-theory [OPEN, derived 2026-08-14]; Source: Holevo 1973; Schumacher 1995; Nielsen 1999; Knill-Laflamme 1997; Bennett et al 1993
+; Bridges: genesis_information_theory, genesis_linear_algebra, genesis_operator_algebras, genesis_coding_theory, genesis_c_star_algebra, genesis_von_neumann_algebra, genesis_probability
+(= (von-neumann-entropy $rho) (- (trace (* $rho (log2 $rho)))))
+(= (holevo-quantity $X $rho-set $p-set) (- (von-neumann-entropy (mixed-state $rho-set $p-set)) (sum (* $p-set (von-neumann-entropy $rho-set)))))
+(= (holevo-bound $X $rho-set $p-set $M) (<= (mutual-information $X $M) (holevo-quantity $X $rho-set $p-set)))
+(= (no-cloning-theorem) (not (exists (unitary $U) (forall (state $psi) (= (apply $U (tensor $psi (ancilla))) (tensor $psi $psi))))))
+(= (schmidt-decomposition $psi $A $B) (exists (orthonormal-basis $a-set $A) (exists (orthonormal-basis $b-set $B) (exists (schmidt-coefficients $s-set) (= $psi (sum (* $s-set (tensor $a-set $b-set))))))))
+(= (entangled-state $psi $A $B) (> (schmidt-rank $psi $A $B) 1))
+(= (schumacher-coding-theorem $source $rho $epsilon $R) (=> (and (memoryless $source) (= (von-neumann-entropy-rate $source) $R)) (and (exists (compression-scheme $C $epsilon) (rate $C $R)) (not (exists (compression-scheme $C-prime $epsilon) (rate $C-prime $R-prime) (< $R-prime $R))))))
+(= (knill-laflamme-condition $code $P-set $E-set) (forall ($i $j) (exists (scalar $c-ij) (= (* (adjoint $P-i) $E-set $P-j) (* $c-ij $identity)))))
+(= (quantum-channel $N $din $dout) (and (completely-positive $N) (trace-preserving $N)))
+(= (lloyd-shor-devetak-theorem $N) (= (quantum-capacity $N) (regularized-coherent-information $N)))
+(= (entanglement-monogamy $A $B $C $tauAB) (=> (pure-state $tauABC) (>= (concurrence $tauAB) (sum (concurrence $tauAC) (concurrence $tauBC)))))
+(= (kraus-representation $N $Kset) (and (= $N (lambda $rho (sum (* (adjoint $Kset) $rho $Kset)))) (trace-preservation-condition $Kset)))
+(= (coherent-information $N $rho) (- (von-neumann-entropy (apply $N $rho)) (von-neumann-entropy (environment-output $N $rho))))
+(= (quantum-teleportation-feasible $psi $A $B) (=> (maximally-entangled $A $B) (possible (transfer $psi $A $B) (classical-communication $A $B))))
+(= (cross-domain-bridge-qi-info $system) (and (bridges genesis_quantum_information genesis_information_theory) (uses von-neumann-entropy shannon-entropy) (uses holevo-bound channel-capacity)))
+(= (cross-domain-bridge-qi-linalg $system) (and (bridges genesis_quantum_information genesis_linear_algebra) (uses schmidt-decomposition svd) (uses unitary-eigen decomposition)))

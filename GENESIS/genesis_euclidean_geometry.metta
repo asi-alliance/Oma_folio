@@ -1,0 +1,1 @@
+(|- ((--> euclidean_geometry geometry_domain) (stv 1.0 0.9)))
