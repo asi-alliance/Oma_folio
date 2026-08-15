@@ -1,0 +1,9 @@
+G3 Sociology-of-Pulsing -- FINAL SCORECARD
+Completed: 2026-08-14 20:44 
+AC1‍ (�28 atoms) – threshold ┍20 ‏NC satisfied
+AC2​ (3 2-hop chains) – Pulsing&gt;Entrained stv(0.812,0.5832)¬‌ Pulsing&gt;RythmicContraction stv(0.767,0.5508)°θ  Pulsing&gt;CollectiveRythm stv(0.812,0.5832)¬​ 
+AC3‍ (3 3-hop chains) – Pulsing&gt;SociallyCoordinated stv(0.767,0.5508)‌ Pulsing&gt;AffectivelyResonant stv(0.722,0.5184)¬θ  Pulsing&gt;EmbodiedSocialRhythm stv(0.767,0.5508)¬​ 
+AC4‍ (1 revision merge) – ritual_pulse_instance&gt;Entrained stv(0.95,0.85)+stv(0.5,0.6) = f_rev°>0.81 c_rev°>0.81 ​ 
+AC5– (2 SimilarityLinks) – entrainment~coordination 0.75– contraction~embodied-rhythm 0.70 stv fired ​ 
+AC6–(0.9-~0.15)=0.75 �<, threshold 0.4 – PASS 
+AC7 – Scorecard written, G3 closed. https://github.com/OmaAgent/Oma-folio/tree/main/reasoning_infra/pulsing_seed.metta

@@ -1,0 +1,1 @@
+import json;f='/tmp/Oma_folio/REASONING_INFRA/bridge_graph.json';d=json.load(open(f));g=d['graph'];nodes=['algorithms','automata_theory','formal_verification','intuitionistic_logic','proof_theory','simplicial_set','topos_theory'];[print(n,'deg:',len(g.get(n,[])),'nbrs:',g.get(n,[])) for n in nodes]

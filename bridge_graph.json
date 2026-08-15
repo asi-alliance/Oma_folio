@@ -1,0 +1,203 @@
+{
+  "total_bridges": 135,
+  "domains": 56,
+  "graph": {
+    "ergodic_decomposition": [
+      "dynamical_systems",
+      "functional_analysis",
+      "measure_theory",
+      "probability_theory"
+    ],
+    "functional_analysis": [
+      "differential_geometry",
+      "representation_theory"
+    ],
+    "tor_functor": [
+      "homological_algebra",
+      "homology"
+    ],
+    "c_star_algebra": [
+      "functional_analysis",
+      "topology"
+    ],
+    "thermodynamics": [
+      "chemical_reaction_networks",
+      "theoretical_biology"
+    ],
+    "symplectic_geometry": [
+      "differential_geometry",
+      "hamiltonian_mechanics",
+      "k_theory",
+      "lagrangian_mechanics",
+      "lie_algebra",
+      "topology"
+    ],
+    "descriptive_set_theory": [
+      "hodge_theory",
+      "k_theory",
+      "lie_groups",
+      "logic",
+      "measure_theory",
+      "operator_algebras",
+      "set_theory",
+      "topology",
+      "quantum_information",
+      "information_theory",
+      "linear_algebra"
+    ],
+    "spectral_sequences": [
+      "group_cohomology",
+      "homology"
+    ],
+    "hodge_theory": [
+      "algebraic_topology",
+      "complex_analysis",
+      "descriptive_set_theory",
+      "differential_geometry",
+      "harmonic_analysis",
+      "k_theory",
+      "lie_groups",
+      "riemannian_geometry"
+    ],
+    "chemical_reaction_networks": [
+      "algebra",
+      "ode"
+    ],
+    "group_cohomology": [
+      "algebraic_topology",
+      "homological_algebra",
+      "representation_theory",
+      "spectral_sequences"
+    ],
+    "chern_character": [
+      "algebraic_topology",
+      "de_rham",
+      "differential_geometry",
+      "k_theory"
+    ],
+    "differential_geometry": [
+      "functional_analysis",
+      "representation_theory",
+      "quantum_information",
+      "information_theory",
+      "linear_algebra"
+    ],
+    "von_neumann_algebra": [
+      "c_star_algebra",
+      "quantum_mechanics"
+    ],
+    "topology": [
+      "k_theory",
+      "lie_groups",
+      "operator_algebras",
+      "symplectic_geometry"
+    ],
+    "representation_theory": [
+      "abstract_algebra",
+      "algebraic_topology",
+      "differential_geometry",
+      "functional_analysis",
+      "harmonic_analysis",
+      "lie_groups",
+      "quantum_information",
+      "information_theory",
+      "linear_algebra"
+    ],
+    "perron_frobenius": [
+      "dynamical_systems",
+      "markov_chains",
+      "matrix_theory",
+      "numerical_analysis"
+    ],
+    "model_theory": [
+      "algebra",
+      "logic",
+      "set_theory",
+      "universal_algebra"
+    ],
+    "stable_homotopy": [
+      "algebraic_topology",
+      "category_theory",
+      "k_theory",
+      "spectral_sequences"
+    ],
+    "theoretical_biology": [
+      "chemical_reaction_networks",
+      "morphogenesis",
+      "thermodynamics"
+    ],
+    "sobolev_spaces": [
+      "functional_analysis",
+      "pde"
+    ],
+    "de_rham": [
+      "algebraic_topology",
+      "chern_character",
+      "differential_geometry",
+      "spectral_sequences"
+    ],
+    "knot_theory": [
+      "algebraic_topology",
+      "group_theory",
+      "riemannian_geometry",
+      "topology"
+    ],
+    "lie_algebra": [
+      "algebraic_topology",
+      "differential_geometry",
+      "harmonic_analysis",
+      "representation_theory"
+    ],
+    "operator_algebras": [
+      "descriptive_set_theory",
+      "functional_analysis",
+      "topology"
+    ],
+    "microlocal_analysis": [
+      "differential_geometry",
+      "functional_analysis"
+    ],
+    "k_theory": [
+      "chern_character",
+      "descriptive_set_theory",
+      "hodge_theory",
+      "homology",
+      "lie_groups",
+      "representation_theory",
+      "spectral_sequences",
+      "stable_homotopy",
+      "symplectic_geometry",
+      "topology",
+      "quantum_information",
+      "information_theory",
+      "linear_algebra"
+    ],
+    "homology": [
+      "algebraic_topology",
+      "homological_algebra",
+      "k_theory",
+      "spectral_sequences"
+    ],
+    "morphogenesis": [
+      "microlocal_analysis",
+      "theoretical_biology"
+    ],
+    "lie_groups": [
+      "descriptive_set_theory",
+      "differential_geometry",
+      "hodge_theory",
+      "k_theory",
+      "lie_algebra",
+      "representation_theory",
+      "symplectic_geometry",
+      "topology",
+      "quantum_information",
+      "information_theory",
+      "linear_algebra"
+    ],
+    "quantum_information": [
+      "information_theory",
+      "linear_algebra"
+    ]
+  }
+}

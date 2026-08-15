@@ -1,0 +1,1 @@
+import json;f='/tmp/Oma_folio/REASONING_INFRA/bridge_graph.json';d=json.load(open(f));g=d['graph'];print('Edges:',d.get('edge_count',sum(len(v) for v in g.values())//2));[print(n,'deg:',len(g.get(n,[])),'nbrs:',g.get(n,[])) for n in ['chaos_theory','stoichiometry','algebraic_topology']]

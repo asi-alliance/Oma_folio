@@ -1,0 +1,12 @@
+Gg1 Non-associative Algebra -- FINAL SCORECAR
+Completed: 2026-08-14 20:34
+
+AC1​ (27 atoms) — threshold ┍20 ┏NC satisfied
+AC2​ (2 2-hop chains) ​ oct&gt;Alternative&gt;Flexible stv(1.0,0.81)​ oct&gt;NormedDivision&gt;Division stv(1.0,0.81)​ 
+AC3‍ (2 3-hop chains) – oct&gt;Division&gt;PowerAssociative stv(0.85,0.482)​ oct&gt;Alternative&gt;PowerAssociative stv(1.0,0.81)‌ 
+AC4‍ (1 revision merge) ​ sedenion Division stv(0.9,0.8)+stv(0.1,0.8) = f_rev=0.5 c_rev=0.8889 ․
+AC5– (2 SimilarityLinks) – oct~quat 0.7 – sed~oct 0.6 stv fired ​ 
+AC6– (ĩ  = 0.5 =� threshold 0.4 ​ PASS 
+AC7 – Scorecard written, LTM closure committed
+
+Artifacts: nonassoc_algebra_seed_metta.metta + nonassoc_algebra_seed_json.json written to /tmp/Oma_folio/REASONING_INFRA/

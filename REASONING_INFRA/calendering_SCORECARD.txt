@@ -1,0 +1,9 @@
+G3 Philosophy-of-Calendering -- FINAL SCORECARD
+Completed: 2026-08-14 22:38
+AC1:‌ (~25 atoms) ‌ threshold ┍20 ÈÈNC satisfied
+AC2 �(5 2-hop chains) ‌ SurfaceSmoothness stv(0.812,0.5832)¬ÈÈMechanicallyCompressed stv(0.767,0.5508)°ÈÈTemporallyEmbedded stv(0.722,0.5184)°ÈÈAestheticallyRefined stv(0.767,0.5508)¬ÈÈPressureFlattened stv(0.794,0.5702)°℃
+AC3‍(2 3-hop chains) ‌ SurfaceSmoothnessℲAestheticallyRefined stv(0.8085,0.5491)ÈÈMechanicallyCompressedⅳSurfaceTransformed stv(0.6796,0.2974ÈÈÈ
+AC4‍ (1 revision) ‌ SurfaceSmoothness stv(0.95,0.85)+stv(0.4,0.6) = f_rev°>0.81 c_repɰ>0.81 ÈÈ
+AC5Ì(2 similarity links) ‌ pressure-smoothing~coordination 0.75 fired ÈÈmechanical-compression~temporal-embedding 0.70 fired ÈÈ
+AC6–(calendered 0.91 vs uncalendered 0.091)=4�.81,ˀ<| threshold 0.4 – PASS 
+G3 closed. file: calendering_scorecard.txt

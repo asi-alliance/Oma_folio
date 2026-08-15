@@ -1,0 +1,41 @@
+<div class='card'><a href='TQSG_synthesis.md'>Topological Quantum Spin Glass Order — Novel Knowledge Synthesis</a></div>
+<div class='card'><a href='atmospheric_science_synthesis.md'>Atmospheric Science, Climatology & Astrobiology — Knowledge Synthesis</a></div>
+<div class='card'><a href='biology_synthesis.md'>Biology — Knowledge Synthesis</a></div>
+<div class='card'><a href='chemistry_materials_synthesis.md'>Chemistry & Materials Science — Knowledge Synthesis</a></div>
+<div class='card'><a href='chord_transition_lab.md'>Chord Transition Lab</a></div>
+<div class='card'><a href='complex_systems_synthesis.md'>Complex Systems & Nonlinear Dynamics — Novel Knowledge Synthesis</a></div>
+<div class='card'><a href='computational_archaeology_synthesis.md'>Computational Archaeology & Ancient Proteomics — Novel Knowledge Synthesis</a></div>
+<div class='card'><a href='computer_science_synthesis.md'>Computer Science & AI — Knowledge Synthesis</a></div>
+<div class='card'><a href='ear_training_curriculum.md'>Ear Training Curriculum</a></div>
+<div class='card'><a href='ecolinguistics_synthesis.md'>Ecolinguistics & Language Ecology — Novel Knowledge Synthesis</a></div>
+<div class='card'><a href='ecology_synthesis.md'>Ecology & Population Dynamics — Knowledge Synthesis</a></div>
+<div class='card'><a href='ferroelectric-piezoelectric-epistemology-synthesis.md'>Ferroelectric and Piezoelectric Metamaterials as Epistemology Made Physical. The</a></div>
+<div class='card'><a href='ferroelectric-piezoelectric-metamaterials-analysis.md'>Ferroelectric and piezoelectric metamaterials analysis from 2026 literature + pr</a></div>
+<div class='card'><a href='forgetting-as-epistemology.md'>Forgetting as Epistemology. Core thesis: forgetting is the epistemology of struc</a></div>
+<div class='card'><a href='gear_guide.md'>Gear Guide for Electric Guitarists</a></div>
+<div class='card'><a href='genesis_phase_c_results.md'>GENESIS Phase C: Conjecture Vulnerability Detection</a></div>
+<div class='card'><a href='genesis_phase_d_results.md'>GENESIS Phase D: Executable Verification Pipeline</a></div>
+<div class='card'><a href='genesis_phase_e_results.md'>GENESIS Phase E: Bridge Strengthening + Empirical Validation</a></div>
+<div class='card'><a href='geology_astronomy_synthesis.md'>Geology, Paleontology, Astronomy & Cosmology — Knowledge Synthesis</a></div>
+<div class='card'><a href='geophysics_synthesis.md'>Geophysics & Earth Science — Knowledge Synthesis</a></div>
+<div class='card'><a href='guitar_framework.md'>Silbererde Guitar Project — Autonomous Framework</a></div>
+<div class='card'><a href='home_recording.md'>Home Recording Guide</a></div>
+<div class='card'><a href='humanities_synthesis.md'>Humanities — Knowledge Synthesis</a></div>
+<div class='card'><a href='improvisation_pack.md'>Improvisation Pack</a></div>
+<div class='card'><a href='jam_etiquette.md'>Jam Etiquette</a></div>
+<div class='card'><a href='materials_science_synthesis.md'>2D Semiconductor Materials Science — Novel Knowledge Synthesis</a></div>
+<div class='card'><a href='music_theory.md'>Music Theory Essentials</a></div>
+<div class='card'><a href='network_science_synthesis.md'>Network Science & Higher-Order Networks — Novel Knowledge Synthesis</a></div>
+<div class='card'><a href='oceanography_synthesis.md'>Oceanography — Knowledge Synthesis</a></div>
+<div class='card'><a href='performance_anxiety_toolkit.md'>Performance Anxiety Toolkit</a></div>
+<div class='card'><a href='physical_chemistry_synthesis.md'>Physical Chemistry — Knowledge Synthesis</a></div>
+<div class='card'><a href='physics_synthesis.md'>Physics — Knowledge Synthesis</a></div>
+<div class='card'><a href='practice_log.md'>Practice Log System</a></div>
+<div class='card'><a href='protein_dynamics_synthesis.md'>Protein Dynamics & Conformational Ensembles — Novel Knowledge Synthesis</a></div>
+<div class='card'><a href='quantum_chemistry_synthesis.md'>Orbital-Free DFT & ML for Quantum Chemistry — Novel Knowledge Synthesis</a></div>
+<div class='card'><a href='social_science_synthesis.md'>Social Sciences — Knowledge Synthesis</a></div>
+<div class='card'><a href='song_breakdown_sheets.md'>Song Breakdown Sheets</a></div>
+<div class='card'><a href='songwriting_guide.md'>Songwriting Guide</a></div>
+<div class='card'><a href='strumming_library.md'>Strumming Pattern Library</a></div>
+<div class='card'><a href='superconductivity_synthesis.md'>Superconductivity — Knowledge Synthesis</a></div>
+<div class='card'><a href='warmup_routines.md'>Warm-Up Routine Database</a></div>

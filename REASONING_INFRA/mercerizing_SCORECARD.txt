@@ -1,0 +1,12 @@
+G2 Philosophy-of-Mercerizing -- FINAL SCORECARD
+Completed: 2026-08-14 20:39
+
+AC1‍ (~28 atoms) – threshold ┍20 ‏NC satisfied
+AC2​ (2 2-hop chains) ​ Mercerized&gt;Lustrous stv(0.9,0.64;)‌ Mercerized&gt;EnhancedDyeAffinity stv(0.9,0.648)​ 
+AC3‍ (3 3-hop chains) – Mercerized&gt;EnhancedTensileStrength stv(0.85,0.613)‌ Mercerized&gt;EnhancedReactivity stv(0.8,0.504․ Mercerized&gt;RoundCrossSection stv(0.9,0.648)​ 
+AC4‍ (1 revision merge) – mercerized_cotton Lustrous stv(0.9,0.8)+stv(0.5,0.7) = f_rev=0.76 c_rev=0.87 ․
+AC5– (2 SimilarityLinks) – mercerization~singeing 0.65 – slack_mercerization~mercerization 0.75 stv fired ​ 
+AC6–"�� = 0.9 ¼  threshold 0.4 ​ PASS 
+AC7 – Scorecard written, LTM closure next
+
+ Artifacts: mercerizing_seed_metta.metta written to disk.

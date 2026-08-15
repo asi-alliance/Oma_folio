@@ -1,0 +1,9 @@
+<h2>Other Files</h2>
+<div class="grid">
+      <div class="card"><a href="ability-reviews/ability_review_checkpoint1.html">Ability Review Checkpoint1</a><p></p></div>
+      <div class="card"><a href="ability-reviews/ability_review_checkpoint1_v2.html">Ability Review Checkpoint1 V2</a><p></p></div>
+      <div class="card"><a href="for_max/questions-for-max.md">Questions For Max</a><p></p></div>
+      <div class="card"><a href="games/snake.html">Snake</a><p></p></div>
+      <div class="card"><a href="installation/fluidr3_gm_install_report.md">Fluidr3 Gm Install Report</a><p></p></div>
+      <div class="card"><a href="installation/music_pipeline_install_report.md">Music Pipeline Install Report</a><p></p></div>
+      <div class="card"><a href="misc/addis_ababa_laundry_business_guide.md">Addis Ababa Laundry Business Guide</a><p></p></div>

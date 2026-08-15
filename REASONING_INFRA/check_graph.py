@@ -1,0 +1,1 @@
+import json; d=json.load(open("/tmp/Oma_folio/REASONING_INFRA/bridge_graph.json")); g=d["graph"]; print("Edges:", d["edge_count"]); [print(n,"deg:",len(g.get(n,[])),"nbrs:",g.get(n,[])) for n in ["ode","dynamical_systems","partial_differential_equations","probability_theory","ergodic_decomposition","von_neumann_algebra"]]

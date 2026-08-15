@@ -1,0 +1,1 @@
+# Silbererde Guitar Project — Autonomous Framework

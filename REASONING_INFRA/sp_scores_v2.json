@@ -1,0 +1,282 @@
+{
+  "information_theory": {
+    "degree": 1,
+    "norm_degree": 0.0556,
+    "structural_pressure": 0.3356
+  },
+  "chemical_reaction_networks": {
+    "degree": 4,
+    "norm_degree": 0.2222,
+    "structural_pressure": 0.4422
+  },
+  "de_rham": {
+    "degree": 5,
+    "norm_degree": 0.2778,
+    "structural_pressure": 0.4778
+  },
+  "set_theory": {
+    "degree": 2,
+    "norm_degree": 0.1111,
+    "structural_pressure": 0.3711
+  },
+  "theoretical_biology": {
+    "degree": 5,
+    "norm_degree": 0.2778,
+    "structural_pressure": 0.4778
+  },
+  "ode": {
+    "degree": 1,
+    "norm_degree": 0.0556,
+    "structural_pressure": 0.3356
+  },
+  "operator_algebras": {
+    "degree": 5,
+    "norm_degree": 0.2778,
+    "structural_pressure": 0.4778
+  },
+  "symplectic_geometry": {
+    "degree": 9,
+    "norm_degree": 0.5,
+    "structural_pressure": 0.62
+  },
+  "von_neumann_algebra": {
+    "degree": 2,
+    "norm_degree": 0.1111,
+    "structural_pressure": 0.3711
+  },
+  "thermodynamics": {
+    "degree": 3,
+    "norm_degree": 0.1667,
+    "structural_pressure": 0.4067
+  },
+  "pde": {
+    "degree": 1,
+    "norm_degree": 0.0556,
+    "structural_pressure": 0.3356
+  },
+  "markov_chains": {
+    "degree": 1,
+    "norm_degree": 0.0556,
+    "structural_pressure": 0.3356
+  },
+  "representation_theory": {
+    "degree": 12,
+    "norm_degree": 0.6667,
+    "structural_pressure": 0.6667
+  },
+  "riemannian_geometry": {
+    "degree": 2,
+    "norm_degree": 0.1111,
+    "structural_pressure": 0.3711
+  },
+  "microlocal_analysis": {
+    "degree": 3,
+    "norm_degree": 0.1667,
+    "structural_pressure": 0.4067
+  },
+  "lagrangian_mechanics": {
+    "degree": 1,
+    "norm_degree": 0.0556,
+    "structural_pressure": 0.3356
+  },
+  "linear_algebra": {
+    "degree": 1,
+    "norm_degree": 0.0556,
+    "structural_pressure": 0.3356
+  },
+  "differential_geometry": {
+    "degree": 11,
+    "norm_degree": 0.6111,
+    "structural_pressure": 0.6611
+  },
+  "c_star_algebra": {
+    "degree": 3,
+    "norm_degree": 0.1667,
+    "structural_pressure": 0.4067
+  },
+  "k_theory": {
+    "degree": 18,
+    "norm_degree": 1.0,
+    "structural_pressure": 0.7
+  },
+  "probability_theory": {
+    "degree": 1,
+    "norm_degree": 0.0556,
+    "structural_pressure": 0.3356
+  },
+  "model_theory": {
+    "degree": 4,
+    "norm_degree": 0.2222,
+    "structural_pressure": 0.4422
+  },
+  "hamiltonian_mechanics": {
+    "degree": 1,
+    "norm_degree": 0.0556,
+    "structural_pressure": 0.3356
+  },
+  "chern_character": {
+    "degree": 6,
+    "norm_degree": 0.3333,
+    "structural_pressure": 0.5133
+  },
+  "spectral_sequences": {
+    "degree": 7,
+    "norm_degree": 0.3889,
+    "structural_pressure": 0.5489
+  },
+  "sobolev_spaces": {
+    "degree": 2,
+    "norm_degree": 0.1111,
+    "structural_pressure": 0.3711
+  },
+  "harmonic_analysis": {
+    "degree": 3,
+    "norm_degree": 0.1667,
+    "structural_pressure": 0.4067
+  },
+  "tor_functor": {
+    "degree": 2,
+    "norm_degree": 0.1111,
+    "structural_pressure": 0.3711
+  },
+  "universal_algebra": {
+    "degree": 1,
+    "norm_degree": 0.0556,
+    "structural_pressure": 0.3356
+  },
+  "descriptive_set_theory": {
+    "degree": 12,
+    "norm_degree": 0.6667,
+    "structural_pressure": 0.6667
+  },
+  "stable_homotopy": {
+    "degree": 5,
+    "norm_degree": 0.2778,
+    "structural_pressure": 0.4778
+  },
+  "group_theory": {
+    "degree": 1,
+    "norm_degree": 0.0556,
+    "structural_pressure": 0.3356
+  },
+  "quantum_mechanics": {
+    "degree": 1,
+    "norm_degree": 0.0556,
+    "structural_pressure": 0.3356
+  },
+  "homology": {
+    "degree": 7,
+    "norm_degree": 0.3889,
+    "structural_pressure": 0.5489
+  },
+  "functional_analysis": {
+    "degree": 9,
+    "norm_degree": 0.5,
+    "structural_pressure": 0.62
+  },
+  "perron_frobenius": {
+    "degree": 4,
+    "norm_degree": 0.2222,
+    "structural_pressure": 0.4422
+  },
+  "dynamical_systems": {
+    "degree": 2,
+    "norm_degree": 0.1111,
+    "structural_pressure": 0.3711
+  },
+  "numerical_analysis": {
+    "degree": 1,
+    "norm_degree": 0.0556,
+    "structural_pressure": 0.3356
+  },
+  "matrix_theory": {
+    "degree": 1,
+    "norm_degree": 0.0556,
+    "structural_pressure": 0.3356
+  },
+  "algebraic_topology": {
+    "degree": 9,
+    "norm_degree": 0.5,
+    "structural_pressure": 0.62
+  },
+  "morphogenesis": {
+    "degree": 3,
+    "norm_degree": 0.1667,
+    "structural_pressure": 0.4067
+  },
+  "category_theory": {
+    "degree": 1,
+    "norm_degree": 0.0556,
+    "structural_pressure": 0.3356
+  },
+  "algebra": {
+    "degree": 2,
+    "norm_degree": 0.1111,
+    "structural_pressure": 0.3711
+  },
+  "quantum_information": {
+    "degree": 2,
+    "norm_degree": 0.1111,
+    "structural_pressure": 0.3711
+  },
+  "measure_theory": {
+    "degree": 2,
+    "norm_degree": 0.1111,
+    "structural_pressure": 0.3711
+  },
+  "homological_algebra": {
+    "degree": 3,
+    "norm_degree": 0.1667,
+    "structural_pressure": 0.4067
+  },
+  "knot_theory": {
+    "degree": 4,
+    "norm_degree": 0.2222,
+    "structural_pressure": 0.4422
+  },
+  "ergodic_decomposition": {
+    "degree": 4,
+    "norm_degree": 0.2222,
+    "structural_pressure": 0.4422
+  },
+  "abstract_algebra": {
+    "degree": 1,
+    "norm_degree": 0.0556,
+    "structural_pressure": 0.3356
+  },
+  "group_cohomology": {
+    "degree": 5,
+    "norm_degree": 0.2778,
+    "structural_pressure": 0.4778
+  },
+  "lie_algebra": {
+    "degree": 6,
+    "norm_degree": 0.3333,
+    "structural_pressure": 0.5133
+  },
+  "hodge_theory": {
+    "degree": 11,
+    "norm_degree": 0.6111,
+    "structural_pressure": 0.6611
+  },
+  "logic": {
+    "degree": 2,
+    "norm_degree": 0.1111,
+    "structural_pressure": 0.3711
+  },
+  "topology": {
+    "degree": 11,
+    "norm_degree": 0.6111,
+    "structural_pressure": 0.6611
+  },
+  "lie_groups": {
+    "degree": 13,
+    "norm_degree": 0.7222,
+    "structural_pressure": 0.6722
+  },
+  "complex_analysis": {
+    "degree": 1,
+    "norm_degree": 0.0556,
+    "structural_pressure": 0.3356
+  }
+}

@@ -1,0 +1,858 @@
+[
+  {
+    "node": "algorithms",
+    "structural_pressure": 0.7391,
+    "fragility": 0.85,
+    "conceptual_distance": 0.981,
+    "missing_connections": 0.981,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "automata_theory",
+    "structural_pressure": 0.7391,
+    "fragility": 0.85,
+    "conceptual_distance": 0.981,
+    "missing_connections": 0.981,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "formal_verification",
+    "structural_pressure": 0.7391,
+    "fragility": 0.85,
+    "conceptual_distance": 0.981,
+    "missing_connections": 0.981,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "intuitionistic_logic",
+    "structural_pressure": 0.7391,
+    "fragility": 0.85,
+    "conceptual_distance": 0.981,
+    "missing_connections": 0.981,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "proof_theory",
+    "structural_pressure": 0.7391,
+    "fragility": 0.85,
+    "conceptual_distance": 0.981,
+    "missing_connections": 0.981,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "simplicial_set",
+    "structural_pressure": 0.7391,
+    "fragility": 0.85,
+    "conceptual_distance": 0.981,
+    "missing_connections": 0.981,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "topos_theory",
+    "structural_pressure": 0.7391,
+    "fragility": 0.85,
+    "conceptual_distance": 0.981,
+    "missing_connections": 0.981,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "k_theory",
+    "structural_pressure": 0.5052,
+    "fragility": 0.78,
+    "conceptual_distance": 0.383,
+    "missing_connections": 0.682,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "hodge_theory",
+    "structural_pressure": 0.5007,
+    "fragility": 0.58,
+    "conceptual_distance": 0.57,
+    "missing_connections": 0.776,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "representation_theory",
+    "structural_pressure": 0.4969,
+    "fragility": 0.7,
+    "conceptual_distance": 0.439,
+    "missing_connections": 0.71,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "nonlinear_dynamics",
+    "structural_pressure": 0.4964,
+    "fragility": 0.25,
+    "conceptual_distance": 0.888,
+    "missing_connections": 0.935,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "operator_algebra",
+    "structural_pressure": 0.4964,
+    "fragility": 0.25,
+    "conceptual_distance": 0.888,
+    "missing_connections": 0.935,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "reaction_diffusion",
+    "structural_pressure": 0.4964,
+    "fragility": 0.25,
+    "conceptual_distance": 0.888,
+    "missing_connections": 0.935,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "simplicial_complex",
+    "structural_pressure": 0.4964,
+    "fragility": 0.25,
+    "conceptual_distance": 0.888,
+    "missing_connections": 0.935,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "analytic_number_theory",
+    "structural_pressure": 0.4898,
+    "fragility": 0.25,
+    "conceptual_distance": 0.869,
+    "missing_connections": 0.925,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "automata",
+    "structural_pressure": 0.4898,
+    "fragility": 0.25,
+    "conceptual_distance": 0.869,
+    "missing_connections": 0.925,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "formal_languages",
+    "structural_pressure": 0.4898,
+    "fragility": 0.25,
+    "conceptual_distance": 0.869,
+    "missing_connections": 0.925,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "hilbert_space",
+    "structural_pressure": 0.4898,
+    "fragility": 0.25,
+    "conceptual_distance": 0.869,
+    "missing_connections": 0.925,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "microlocal_analysis",
+    "structural_pressure": 0.4898,
+    "fragility": 0.25,
+    "conceptual_distance": 0.869,
+    "missing_connections": 0.925,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "ring_theory",
+    "structural_pressure": 0.4898,
+    "fragility": 0.25,
+    "conceptual_distance": 0.869,
+    "missing_connections": 0.925,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "theoretical_biology",
+    "structural_pressure": 0.4898,
+    "fragility": 0.25,
+    "conceptual_distance": 0.869,
+    "missing_connections": 0.925,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "lie_groups",
+    "structural_pressure": 0.488,
+    "fragility": 0.6,
+    "conceptual_distance": 0.514,
+    "missing_connections": 0.748,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "analytic_geometry",
+    "structural_pressure": 0.4833,
+    "fragility": 0.25,
+    "conceptual_distance": 0.85,
+    "missing_connections": 0.916,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "c_star_algebra",
+    "structural_pressure": 0.4833,
+    "fragility": 0.25,
+    "conceptual_distance": 0.85,
+    "missing_connections": 0.916,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "chemistry",
+    "structural_pressure": 0.4833,
+    "fragility": 0.25,
+    "conceptual_distance": 0.85,
+    "missing_connections": 0.916,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "complex_geometry",
+    "structural_pressure": 0.4833,
+    "fragility": 0.25,
+    "conceptual_distance": 0.85,
+    "missing_connections": 0.916,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "complexity_theory",
+    "structural_pressure": 0.4833,
+    "fragility": 0.25,
+    "conceptual_distance": 0.85,
+    "missing_connections": 0.916,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "ergodic_decomposition",
+    "structural_pressure": 0.4833,
+    "fragility": 0.25,
+    "conceptual_distance": 0.85,
+    "missing_connections": 0.916,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "group_theory",
+    "structural_pressure": 0.4833,
+    "fragility": 0.25,
+    "conceptual_distance": 0.85,
+    "missing_connections": 0.916,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "hamiltonian_mechanics",
+    "structural_pressure": 0.4833,
+    "fragility": 0.25,
+    "conceptual_distance": 0.85,
+    "missing_connections": 0.916,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "lagrangian_mechanics",
+    "structural_pressure": 0.4833,
+    "fragility": 0.25,
+    "conceptual_distance": 0.85,
+    "missing_connections": 0.916,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "mathematical_physics",
+    "structural_pressure": 0.4833,
+    "fragility": 0.25,
+    "conceptual_distance": 0.85,
+    "missing_connections": 0.916,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "module_theory",
+    "structural_pressure": 0.4833,
+    "fragility": 0.25,
+    "conceptual_distance": 0.85,
+    "missing_connections": 0.916,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "morphogenesis",
+    "structural_pressure": 0.4833,
+    "fragility": 0.25,
+    "conceptual_distance": 0.85,
+    "missing_connections": 0.916,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "sheaf_cohomology",
+    "structural_pressure": 0.4833,
+    "fragility": 0.25,
+    "conceptual_distance": 0.85,
+    "missing_connections": 0.916,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "tor_functor",
+    "structural_pressure": 0.4833,
+    "fragility": 0.25,
+    "conceptual_distance": 0.85,
+    "missing_connections": 0.916,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "von_neumann_algebra",
+    "structural_pressure": 0.4833,
+    "fragility": 0.25,
+    "conceptual_distance": 0.85,
+    "missing_connections": 0.916,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "abstract_algebra",
+    "structural_pressure": 0.4768,
+    "fragility": 0.25,
+    "conceptual_distance": 0.832,
+    "missing_connections": 0.907,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "algorithm",
+    "structural_pressure": 0.4768,
+    "fragility": 0.25,
+    "conceptual_distance": 0.832,
+    "missing_connections": 0.907,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "calculus",
+    "structural_pressure": 0.4768,
+    "fragility": 0.25,
+    "conceptual_distance": 0.832,
+    "missing_connections": 0.907,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "chaos_theory",
+    "structural_pressure": 0.4768,
+    "fragility": 0.25,
+    "conceptual_distance": 0.832,
+    "missing_connections": 0.907,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "chemical_reaction_networks",
+    "structural_pressure": 0.4768,
+    "fragility": 0.25,
+    "conceptual_distance": 0.832,
+    "missing_connections": 0.907,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "de_rham",
+    "structural_pressure": 0.4768,
+    "fragility": 0.25,
+    "conceptual_distance": 0.832,
+    "missing_connections": 0.907,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "fractal_geometry",
+    "structural_pressure": 0.4768,
+    "fragility": 0.25,
+    "conceptual_distance": 0.832,
+    "missing_connections": 0.907,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "infinity_category",
+    "structural_pressure": 0.4768,
+    "fragility": 0.25,
+    "conceptual_distance": 0.832,
+    "missing_connections": 0.907,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "lie_theory",
+    "structural_pressure": 0.4768,
+    "fragility": 0.25,
+    "conceptual_distance": 0.832,
+    "missing_connections": 0.907,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "model_category",
+    "structural_pressure": 0.4768,
+    "fragility": 0.25,
+    "conceptual_distance": 0.832,
+    "missing_connections": 0.907,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "ode",
+    "structural_pressure": 0.4768,
+    "fragility": 0.25,
+    "conceptual_distance": 0.832,
+    "missing_connections": 0.907,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "sobolev_spaces",
+    "structural_pressure": 0.4768,
+    "fragility": 0.25,
+    "conceptual_distance": 0.832,
+    "missing_connections": 0.907,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "stoichiometry",
+    "structural_pressure": 0.4768,
+    "fragility": 0.25,
+    "conceptual_distance": 0.832,
+    "missing_connections": 0.907,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "theoretical_physics",
+    "structural_pressure": 0.4768,
+    "fragility": 0.25,
+    "conceptual_distance": 0.832,
+    "missing_connections": 0.907,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "combinatorics",
+    "structural_pressure": 0.4702,
+    "fragility": 0.25,
+    "conceptual_distance": 0.813,
+    "missing_connections": 0.897,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "commutative_algebra",
+    "structural_pressure": 0.4702,
+    "fragility": 0.25,
+    "conceptual_distance": 0.813,
+    "missing_connections": 0.897,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "constructive_mathematics",
+    "structural_pressure": 0.4702,
+    "fragility": 0.25,
+    "conceptual_distance": 0.813,
+    "missing_connections": 0.897,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "ergodic_theory",
+    "structural_pressure": 0.4702,
+    "fragility": 0.25,
+    "conceptual_distance": 0.813,
+    "missing_connections": 0.897,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "euclidean_geometry",
+    "structural_pressure": 0.4702,
+    "fragility": 0.25,
+    "conceptual_distance": 0.813,
+    "missing_connections": 0.897,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "kinetics",
+    "structural_pressure": 0.4702,
+    "fragility": 0.25,
+    "conceptual_distance": 0.813,
+    "missing_connections": 0.897,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "knot_theory",
+    "structural_pressure": 0.4702,
+    "fragility": 0.25,
+    "conceptual_distance": 0.813,
+    "missing_connections": 0.897,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "lambda_calculus",
+    "structural_pressure": 0.4702,
+    "fragility": 0.25,
+    "conceptual_distance": 0.813,
+    "missing_connections": 0.897,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "motivic",
+    "structural_pressure": 0.4702,
+    "fragility": 0.25,
+    "conceptual_distance": 0.813,
+    "missing_connections": 0.897,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "type_theory",
+    "structural_pressure": 0.4702,
+    "fragility": 0.25,
+    "conceptual_distance": 0.813,
+    "missing_connections": 0.897,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "cobordism",
+    "structural_pressure": 0.4637,
+    "fragility": 0.25,
+    "conceptual_distance": 0.794,
+    "missing_connections": 0.888,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "computer_science",
+    "structural_pressure": 0.4637,
+    "fragility": 0.25,
+    "conceptual_distance": 0.794,
+    "missing_connections": 0.888,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "derived_category",
+    "structural_pressure": 0.4637,
+    "fragility": 0.25,
+    "conceptual_distance": 0.794,
+    "missing_connections": 0.888,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "differential_equations",
+    "structural_pressure": 0.4637,
+    "fragility": 0.25,
+    "conceptual_distance": 0.794,
+    "missing_connections": 0.888,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "geometry",
+    "structural_pressure": 0.4637,
+    "fragility": 0.25,
+    "conceptual_distance": 0.794,
+    "missing_connections": 0.888,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "manifold_theory",
+    "structural_pressure": 0.4637,
+    "fragility": 0.25,
+    "conceptual_distance": 0.794,
+    "missing_connections": 0.888,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "metric_spaces",
+    "structural_pressure": 0.4637,
+    "fragility": 0.25,
+    "conceptual_distance": 0.794,
+    "missing_connections": 0.888,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "real_analysis",
+    "structural_pressure": 0.4637,
+    "fragility": 0.25,
+    "conceptual_distance": 0.794,
+    "missing_connections": 0.888,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "statistical_mechanics",
+    "structural_pressure": 0.4637,
+    "fragility": 0.25,
+    "conceptual_distance": 0.794,
+    "missing_connections": 0.888,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "thermodynamics",
+    "structural_pressure": 0.4637,
+    "fragility": 0.25,
+    "conceptual_distance": 0.794,
+    "missing_connections": 0.888,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "differential_geometry",
+    "structural_pressure": 0.4572,
+    "fragility": 0.68,
+    "conceptual_distance": 0.346,
+    "missing_connections": 0.664,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "computation",
+    "structural_pressure": 0.4571,
+    "fragility": 0.25,
+    "conceptual_distance": 0.776,
+    "missing_connections": 0.879,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "homotopy_type_theory",
+    "structural_pressure": 0.4571,
+    "fragility": 0.25,
+    "conceptual_distance": 0.776,
+    "missing_connections": 0.879,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "numerical_analysis",
+    "structural_pressure": 0.4571,
+    "fragility": 0.25,
+    "conceptual_distance": 0.776,
+    "missing_connections": 0.879,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "quantum_mechanics",
+    "structural_pressure": 0.4571,
+    "fragility": 0.25,
+    "conceptual_distance": 0.776,
+    "missing_connections": 0.879,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "set_theory",
+    "structural_pressure": 0.4571,
+    "fragility": 0.25,
+    "conceptual_distance": 0.776,
+    "missing_connections": 0.879,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "algebraic_topology",
+    "structural_pressure": 0.4532,
+    "fragility": 0.65,
+    "conceptual_distance": 0.364,
+    "missing_connections": 0.673,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "graph_theory",
+    "structural_pressure": 0.4506,
+    "fragility": 0.25,
+    "conceptual_distance": 0.757,
+    "missing_connections": 0.869,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "group_cohomology",
+    "structural_pressure": 0.4506,
+    "fragility": 0.25,
+    "conceptual_distance": 0.757,
+    "missing_connections": 0.869,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "harmonic_analysis",
+    "structural_pressure": 0.4506,
+    "fragility": 0.25,
+    "conceptual_distance": 0.757,
+    "missing_connections": 0.869,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "homological_algebra",
+    "structural_pressure": 0.4506,
+    "fragility": 0.25,
+    "conceptual_distance": 0.757,
+    "missing_connections": 0.869,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "lie_algebra",
+    "structural_pressure": 0.4506,
+    "fragility": 0.25,
+    "conceptual_distance": 0.757,
+    "missing_connections": 0.869,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "probability_theory",
+    "structural_pressure": 0.4506,
+    "fragility": 0.25,
+    "conceptual_distance": 0.757,
+    "missing_connections": 0.869,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "quantum_information",
+    "structural_pressure": 0.4506,
+    "fragility": 0.25,
+    "conceptual_distance": 0.757,
+    "missing_connections": 0.869,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "spectral_sequences",
+    "structural_pressure": 0.4506,
+    "fragility": 0.25,
+    "conceptual_distance": 0.757,
+    "missing_connections": 0.869,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "analysis",
+    "structural_pressure": 0.444,
+    "fragility": 0.25,
+    "conceptual_distance": 0.738,
+    "missing_connections": 0.86,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "complex_analysis",
+    "structural_pressure": 0.444,
+    "fragility": 0.25,
+    "conceptual_distance": 0.738,
+    "missing_connections": 0.86,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "descriptive_set_theory",
+    "structural_pressure": 0.444,
+    "fragility": 0.25,
+    "conceptual_distance": 0.738,
+    "missing_connections": 0.86,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "chern_character",
+    "structural_pressure": 0.4375,
+    "fragility": 0.25,
+    "conceptual_distance": 0.72,
+    "missing_connections": 0.85,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "homology",
+    "structural_pressure": 0.4375,
+    "fragility": 0.25,
+    "conceptual_distance": 0.72,
+    "missing_connections": 0.85,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "measure_theory",
+    "structural_pressure": 0.4375,
+    "fragility": 0.25,
+    "conceptual_distance": 0.72,
+    "missing_connections": 0.85,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "number_theory",
+    "structural_pressure": 0.4375,
+    "fragility": 0.25,
+    "conceptual_distance": 0.72,
+    "missing_connections": 0.85,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "operator_algebras",
+    "structural_pressure": 0.4375,
+    "fragility": 0.25,
+    "conceptual_distance": 0.72,
+    "missing_connections": 0.85,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "algebra",
+    "structural_pressure": 0.4244,
+    "fragility": 0.25,
+    "conceptual_distance": 0.682,
+    "missing_connections": 0.832,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "dynamical_systems",
+    "structural_pressure": 0.4244,
+    "fragility": 0.25,
+    "conceptual_distance": 0.682,
+    "missing_connections": 0.832,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "linear_algebra",
+    "structural_pressure": 0.4244,
+    "fragility": 0.25,
+    "conceptual_distance": 0.682,
+    "missing_connections": 0.832,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "riemannian_geometry",
+    "structural_pressure": 0.4244,
+    "fragility": 0.25,
+    "conceptual_distance": 0.682,
+    "missing_connections": 0.832,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "stable_homotopy",
+    "structural_pressure": 0.4113,
+    "fragility": 0.25,
+    "conceptual_distance": 0.645,
+    "missing_connections": 0.813,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "symplectic_geometry",
+    "structural_pressure": 0.4113,
+    "fragility": 0.25,
+    "conceptual_distance": 0.645,
+    "missing_connections": 0.813,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "logic",
+    "structural_pressure": 0.4048,
+    "fragility": 0.25,
+    "conceptual_distance": 0.626,
+    "missing_connections": 0.804,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "partial_differential_equations",
+    "structural_pressure": 0.4048,
+    "fragility": 0.25,
+    "conceptual_distance": 0.626,
+    "missing_connections": 0.804,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "algebraic_geometry",
+    "structural_pressure": 0.3982,
+    "fragility": 0.25,
+    "conceptual_distance": 0.607,
+    "missing_connections": 0.794,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "category_theory",
+    "structural_pressure": 0.3982,
+    "fragility": 0.25,
+    "conceptual_distance": 0.607,
+    "missing_connections": 0.794,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "information_theory",
+    "structural_pressure": 0.3852,
+    "fragility": 0.25,
+    "conceptual_distance": 0.57,
+    "missing_connections": 0.776,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "functional_analysis",
+    "structural_pressure": 0.2936,
+    "fragility": 0.25,
+    "conceptual_distance": 0.308,
+    "missing_connections": 0.645,
+    "directionality_asymmetry": 0.0
+  },
+  {
+    "node": "topology",
+    "structural_pressure": 0.2478,
+    "fragility": 0.25,
+    "conceptual_distance": 0.178,
+    "missing_connections": 0.579,
+    "directionality_asymmetry": 0.0
+  }
+]

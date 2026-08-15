@@ -1,0 +1,1724 @@
+[
+  {
+    "source": "c_star_algebra",
+    "target": "differential_geometry",
+    "intermediary": "functional_analysis",
+    "hops": 2
+  },
+  {
+    "source": "c_star_algebra",
+    "target": "k_theory",
+    "intermediary": "topology",
+    "hops": 2
+  },
+  {
+    "source": "c_star_algebra",
+    "target": "lie_groups",
+    "intermediary": "topology",
+    "hops": 2
+  },
+  {
+    "source": "c_star_algebra",
+    "target": "operator_algebras",
+    "intermediary": "topology",
+    "hops": 2
+  },
+  {
+    "source": "c_star_algebra",
+    "target": "representation_theory",
+    "intermediary": "functional_analysis",
+    "hops": 2
+  },
+  {
+    "source": "c_star_algebra",
+    "target": "symplectic_geometry",
+    "intermediary": "topology",
+    "hops": 2
+  },
+  {
+    "source": "chern_character",
+    "target": "descriptive_set_theory",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "chern_character",
+    "target": "functional_analysis",
+    "intermediary": "differential_geometry",
+    "hops": 2
+  },
+  {
+    "source": "chern_character",
+    "target": "hodge_theory",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "chern_character",
+    "target": "homology",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "chern_character",
+    "target": "information_theory",
+    "intermediary": "differential_geometry",
+    "hops": 2
+  },
+  {
+    "source": "chern_character",
+    "target": "information_theory",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "chern_character",
+    "target": "lie_groups",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "chern_character",
+    "target": "linear_algebra",
+    "intermediary": "differential_geometry",
+    "hops": 2
+  },
+  {
+    "source": "chern_character",
+    "target": "linear_algebra",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "chern_character",
+    "target": "quantum_information",
+    "intermediary": "differential_geometry",
+    "hops": 2
+  },
+  {
+    "source": "chern_character",
+    "target": "quantum_information",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "chern_character",
+    "target": "representation_theory",
+    "intermediary": "differential_geometry",
+    "hops": 2
+  },
+  {
+    "source": "chern_character",
+    "target": "representation_theory",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "chern_character",
+    "target": "spectral_sequences",
+    "intermediary": "de_rham",
+    "hops": 2
+  },
+  {
+    "source": "chern_character",
+    "target": "spectral_sequences",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "chern_character",
+    "target": "stable_homotopy",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "chern_character",
+    "target": "symplectic_geometry",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "chern_character",
+    "target": "topology",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "de_rham",
+    "target": "functional_analysis",
+    "intermediary": "differential_geometry",
+    "hops": 2
+  },
+  {
+    "source": "de_rham",
+    "target": "group_cohomology",
+    "intermediary": "spectral_sequences",
+    "hops": 2
+  },
+  {
+    "source": "de_rham",
+    "target": "homology",
+    "intermediary": "spectral_sequences",
+    "hops": 2
+  },
+  {
+    "source": "de_rham",
+    "target": "information_theory",
+    "intermediary": "differential_geometry",
+    "hops": 2
+  },
+  {
+    "source": "de_rham",
+    "target": "k_theory",
+    "intermediary": "chern_character",
+    "hops": 2
+  },
+  {
+    "source": "de_rham",
+    "target": "linear_algebra",
+    "intermediary": "differential_geometry",
+    "hops": 2
+  },
+  {
+    "source": "de_rham",
+    "target": "quantum_information",
+    "intermediary": "differential_geometry",
+    "hops": 2
+  },
+  {
+    "source": "de_rham",
+    "target": "representation_theory",
+    "intermediary": "differential_geometry",
+    "hops": 2
+  },
+  {
+    "source": "descriptive_set_theory",
+    "target": "algebraic_topology",
+    "intermediary": "hodge_theory",
+    "hops": 2
+  },
+  {
+    "source": "descriptive_set_theory",
+    "target": "chern_character",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "descriptive_set_theory",
+    "target": "complex_analysis",
+    "intermediary": "hodge_theory",
+    "hops": 2
+  },
+  {
+    "source": "descriptive_set_theory",
+    "target": "differential_geometry",
+    "intermediary": "hodge_theory",
+    "hops": 2
+  },
+  {
+    "source": "descriptive_set_theory",
+    "target": "differential_geometry",
+    "intermediary": "lie_groups",
+    "hops": 2
+  },
+  {
+    "source": "descriptive_set_theory",
+    "target": "functional_analysis",
+    "intermediary": "operator_algebras",
+    "hops": 2
+  },
+  {
+    "source": "descriptive_set_theory",
+    "target": "harmonic_analysis",
+    "intermediary": "hodge_theory",
+    "hops": 2
+  },
+  {
+    "source": "descriptive_set_theory",
+    "target": "homology",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "descriptive_set_theory",
+    "target": "lie_algebra",
+    "intermediary": "lie_groups",
+    "hops": 2
+  },
+  {
+    "source": "descriptive_set_theory",
+    "target": "representation_theory",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "descriptive_set_theory",
+    "target": "representation_theory",
+    "intermediary": "lie_groups",
+    "hops": 2
+  },
+  {
+    "source": "descriptive_set_theory",
+    "target": "riemannian_geometry",
+    "intermediary": "hodge_theory",
+    "hops": 2
+  },
+  {
+    "source": "descriptive_set_theory",
+    "target": "spectral_sequences",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "descriptive_set_theory",
+    "target": "stable_homotopy",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "descriptive_set_theory",
+    "target": "symplectic_geometry",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "descriptive_set_theory",
+    "target": "symplectic_geometry",
+    "intermediary": "lie_groups",
+    "hops": 2
+  },
+  {
+    "source": "descriptive_set_theory",
+    "target": "symplectic_geometry",
+    "intermediary": "topology",
+    "hops": 2
+  },
+  {
+    "source": "differential_geometry",
+    "target": "abstract_algebra",
+    "intermediary": "representation_theory",
+    "hops": 2
+  },
+  {
+    "source": "differential_geometry",
+    "target": "algebraic_topology",
+    "intermediary": "representation_theory",
+    "hops": 2
+  },
+  {
+    "source": "differential_geometry",
+    "target": "harmonic_analysis",
+    "intermediary": "representation_theory",
+    "hops": 2
+  },
+  {
+    "source": "differential_geometry",
+    "target": "lie_groups",
+    "intermediary": "representation_theory",
+    "hops": 2
+  },
+  {
+    "source": "ergodic_decomposition",
+    "target": "differential_geometry",
+    "intermediary": "functional_analysis",
+    "hops": 2
+  },
+  {
+    "source": "ergodic_decomposition",
+    "target": "representation_theory",
+    "intermediary": "functional_analysis",
+    "hops": 2
+  },
+  {
+    "source": "functional_analysis",
+    "target": "abstract_algebra",
+    "intermediary": "representation_theory",
+    "hops": 2
+  },
+  {
+    "source": "functional_analysis",
+    "target": "algebraic_topology",
+    "intermediary": "representation_theory",
+    "hops": 2
+  },
+  {
+    "source": "functional_analysis",
+    "target": "harmonic_analysis",
+    "intermediary": "representation_theory",
+    "hops": 2
+  },
+  {
+    "source": "functional_analysis",
+    "target": "information_theory",
+    "intermediary": "differential_geometry",
+    "hops": 2
+  },
+  {
+    "source": "functional_analysis",
+    "target": "information_theory",
+    "intermediary": "representation_theory",
+    "hops": 2
+  },
+  {
+    "source": "functional_analysis",
+    "target": "lie_groups",
+    "intermediary": "representation_theory",
+    "hops": 2
+  },
+  {
+    "source": "functional_analysis",
+    "target": "linear_algebra",
+    "intermediary": "differential_geometry",
+    "hops": 2
+  },
+  {
+    "source": "functional_analysis",
+    "target": "linear_algebra",
+    "intermediary": "representation_theory",
+    "hops": 2
+  },
+  {
+    "source": "functional_analysis",
+    "target": "quantum_information",
+    "intermediary": "differential_geometry",
+    "hops": 2
+  },
+  {
+    "source": "functional_analysis",
+    "target": "quantum_information",
+    "intermediary": "representation_theory",
+    "hops": 2
+  },
+  {
+    "source": "group_cohomology",
+    "target": "abstract_algebra",
+    "intermediary": "representation_theory",
+    "hops": 2
+  },
+  {
+    "source": "group_cohomology",
+    "target": "differential_geometry",
+    "intermediary": "representation_theory",
+    "hops": 2
+  },
+  {
+    "source": "group_cohomology",
+    "target": "functional_analysis",
+    "intermediary": "representation_theory",
+    "hops": 2
+  },
+  {
+    "source": "group_cohomology",
+    "target": "harmonic_analysis",
+    "intermediary": "representation_theory",
+    "hops": 2
+  },
+  {
+    "source": "group_cohomology",
+    "target": "homology",
+    "intermediary": "spectral_sequences",
+    "hops": 2
+  },
+  {
+    "source": "group_cohomology",
+    "target": "information_theory",
+    "intermediary": "representation_theory",
+    "hops": 2
+  },
+  {
+    "source": "group_cohomology",
+    "target": "lie_groups",
+    "intermediary": "representation_theory",
+    "hops": 2
+  },
+  {
+    "source": "group_cohomology",
+    "target": "linear_algebra",
+    "intermediary": "representation_theory",
+    "hops": 2
+  },
+  {
+    "source": "group_cohomology",
+    "target": "quantum_information",
+    "intermediary": "representation_theory",
+    "hops": 2
+  },
+  {
+    "source": "hodge_theory",
+    "target": "chern_character",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "hodge_theory",
+    "target": "functional_analysis",
+    "intermediary": "differential_geometry",
+    "hops": 2
+  },
+  {
+    "source": "hodge_theory",
+    "target": "homology",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "hodge_theory",
+    "target": "information_theory",
+    "intermediary": "descriptive_set_theory",
+    "hops": 2
+  },
+  {
+    "source": "hodge_theory",
+    "target": "information_theory",
+    "intermediary": "differential_geometry",
+    "hops": 2
+  },
+  {
+    "source": "hodge_theory",
+    "target": "information_theory",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "hodge_theory",
+    "target": "information_theory",
+    "intermediary": "lie_groups",
+    "hops": 2
+  },
+  {
+    "source": "hodge_theory",
+    "target": "lie_algebra",
+    "intermediary": "lie_groups",
+    "hops": 2
+  },
+  {
+    "source": "hodge_theory",
+    "target": "linear_algebra",
+    "intermediary": "descriptive_set_theory",
+    "hops": 2
+  },
+  {
+    "source": "hodge_theory",
+    "target": "linear_algebra",
+    "intermediary": "differential_geometry",
+    "hops": 2
+  },
+  {
+    "source": "hodge_theory",
+    "target": "linear_algebra",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "hodge_theory",
+    "target": "linear_algebra",
+    "intermediary": "lie_groups",
+    "hops": 2
+  },
+  {
+    "source": "hodge_theory",
+    "target": "logic",
+    "intermediary": "descriptive_set_theory",
+    "hops": 2
+  },
+  {
+    "source": "hodge_theory",
+    "target": "measure_theory",
+    "intermediary": "descriptive_set_theory",
+    "hops": 2
+  },
+  {
+    "source": "hodge_theory",
+    "target": "operator_algebras",
+    "intermediary": "descriptive_set_theory",
+    "hops": 2
+  },
+  {
+    "source": "hodge_theory",
+    "target": "quantum_information",
+    "intermediary": "descriptive_set_theory",
+    "hops": 2
+  },
+  {
+    "source": "hodge_theory",
+    "target": "quantum_information",
+    "intermediary": "differential_geometry",
+    "hops": 2
+  },
+  {
+    "source": "hodge_theory",
+    "target": "quantum_information",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "hodge_theory",
+    "target": "quantum_information",
+    "intermediary": "lie_groups",
+    "hops": 2
+  },
+  {
+    "source": "hodge_theory",
+    "target": "representation_theory",
+    "intermediary": "differential_geometry",
+    "hops": 2
+  },
+  {
+    "source": "hodge_theory",
+    "target": "representation_theory",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "hodge_theory",
+    "target": "representation_theory",
+    "intermediary": "lie_groups",
+    "hops": 2
+  },
+  {
+    "source": "hodge_theory",
+    "target": "set_theory",
+    "intermediary": "descriptive_set_theory",
+    "hops": 2
+  },
+  {
+    "source": "hodge_theory",
+    "target": "spectral_sequences",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "hodge_theory",
+    "target": "stable_homotopy",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "hodge_theory",
+    "target": "symplectic_geometry",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "hodge_theory",
+    "target": "symplectic_geometry",
+    "intermediary": "lie_groups",
+    "hops": 2
+  },
+  {
+    "source": "hodge_theory",
+    "target": "topology",
+    "intermediary": "descriptive_set_theory",
+    "hops": 2
+  },
+  {
+    "source": "hodge_theory",
+    "target": "topology",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "hodge_theory",
+    "target": "topology",
+    "intermediary": "lie_groups",
+    "hops": 2
+  },
+  {
+    "source": "homology",
+    "target": "chern_character",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "homology",
+    "target": "descriptive_set_theory",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "homology",
+    "target": "group_cohomology",
+    "intermediary": "spectral_sequences",
+    "hops": 2
+  },
+  {
+    "source": "homology",
+    "target": "hodge_theory",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "homology",
+    "target": "information_theory",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "homology",
+    "target": "lie_groups",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "homology",
+    "target": "linear_algebra",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "homology",
+    "target": "quantum_information",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "homology",
+    "target": "representation_theory",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "homology",
+    "target": "stable_homotopy",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "homology",
+    "target": "symplectic_geometry",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "homology",
+    "target": "topology",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "k_theory",
+    "target": "abstract_algebra",
+    "intermediary": "representation_theory",
+    "hops": 2
+  },
+  {
+    "source": "k_theory",
+    "target": "algebraic_topology",
+    "intermediary": "chern_character",
+    "hops": 2
+  },
+  {
+    "source": "k_theory",
+    "target": "algebraic_topology",
+    "intermediary": "hodge_theory",
+    "hops": 2
+  },
+  {
+    "source": "k_theory",
+    "target": "algebraic_topology",
+    "intermediary": "homology",
+    "hops": 2
+  },
+  {
+    "source": "k_theory",
+    "target": "algebraic_topology",
+    "intermediary": "representation_theory",
+    "hops": 2
+  },
+  {
+    "source": "k_theory",
+    "target": "algebraic_topology",
+    "intermediary": "stable_homotopy",
+    "hops": 2
+  },
+  {
+    "source": "k_theory",
+    "target": "category_theory",
+    "intermediary": "stable_homotopy",
+    "hops": 2
+  },
+  {
+    "source": "k_theory",
+    "target": "complex_analysis",
+    "intermediary": "hodge_theory",
+    "hops": 2
+  },
+  {
+    "source": "k_theory",
+    "target": "de_rham",
+    "intermediary": "chern_character",
+    "hops": 2
+  },
+  {
+    "source": "k_theory",
+    "target": "differential_geometry",
+    "intermediary": "chern_character",
+    "hops": 2
+  },
+  {
+    "source": "k_theory",
+    "target": "differential_geometry",
+    "intermediary": "hodge_theory",
+    "hops": 2
+  },
+  {
+    "source": "k_theory",
+    "target": "differential_geometry",
+    "intermediary": "lie_groups",
+    "hops": 2
+  },
+  {
+    "source": "k_theory",
+    "target": "differential_geometry",
+    "intermediary": "representation_theory",
+    "hops": 2
+  },
+  {
+    "source": "k_theory",
+    "target": "differential_geometry",
+    "intermediary": "symplectic_geometry",
+    "hops": 2
+  },
+  {
+    "source": "k_theory",
+    "target": "functional_analysis",
+    "intermediary": "representation_theory",
+    "hops": 2
+  },
+  {
+    "source": "k_theory",
+    "target": "group_cohomology",
+    "intermediary": "spectral_sequences",
+    "hops": 2
+  },
+  {
+    "source": "k_theory",
+    "target": "hamiltonian_mechanics",
+    "intermediary": "symplectic_geometry",
+    "hops": 2
+  },
+  {
+    "source": "k_theory",
+    "target": "harmonic_analysis",
+    "intermediary": "hodge_theory",
+    "hops": 2
+  },
+  {
+    "source": "k_theory",
+    "target": "harmonic_analysis",
+    "intermediary": "representation_theory",
+    "hops": 2
+  },
+  {
+    "source": "k_theory",
+    "target": "homological_algebra",
+    "intermediary": "homology",
+    "hops": 2
+  },
+  {
+    "source": "k_theory",
+    "target": "lagrangian_mechanics",
+    "intermediary": "symplectic_geometry",
+    "hops": 2
+  },
+  {
+    "source": "k_theory",
+    "target": "lie_algebra",
+    "intermediary": "lie_groups",
+    "hops": 2
+  },
+  {
+    "source": "k_theory",
+    "target": "lie_algebra",
+    "intermediary": "symplectic_geometry",
+    "hops": 2
+  },
+  {
+    "source": "k_theory",
+    "target": "logic",
+    "intermediary": "descriptive_set_theory",
+    "hops": 2
+  },
+  {
+    "source": "k_theory",
+    "target": "measure_theory",
+    "intermediary": "descriptive_set_theory",
+    "hops": 2
+  },
+  {
+    "source": "k_theory",
+    "target": "operator_algebras",
+    "intermediary": "descriptive_set_theory",
+    "hops": 2
+  },
+  {
+    "source": "k_theory",
+    "target": "operator_algebras",
+    "intermediary": "topology",
+    "hops": 2
+  },
+  {
+    "source": "k_theory",
+    "target": "riemannian_geometry",
+    "intermediary": "hodge_theory",
+    "hops": 2
+  },
+  {
+    "source": "k_theory",
+    "target": "set_theory",
+    "intermediary": "descriptive_set_theory",
+    "hops": 2
+  },
+  {
+    "source": "knot_theory",
+    "target": "k_theory",
+    "intermediary": "topology",
+    "hops": 2
+  },
+  {
+    "source": "knot_theory",
+    "target": "lie_groups",
+    "intermediary": "topology",
+    "hops": 2
+  },
+  {
+    "source": "knot_theory",
+    "target": "operator_algebras",
+    "intermediary": "topology",
+    "hops": 2
+  },
+  {
+    "source": "knot_theory",
+    "target": "symplectic_geometry",
+    "intermediary": "topology",
+    "hops": 2
+  },
+  {
+    "source": "lie_algebra",
+    "target": "abstract_algebra",
+    "intermediary": "representation_theory",
+    "hops": 2
+  },
+  {
+    "source": "lie_algebra",
+    "target": "functional_analysis",
+    "intermediary": "differential_geometry",
+    "hops": 2
+  },
+  {
+    "source": "lie_algebra",
+    "target": "functional_analysis",
+    "intermediary": "representation_theory",
+    "hops": 2
+  },
+  {
+    "source": "lie_algebra",
+    "target": "information_theory",
+    "intermediary": "differential_geometry",
+    "hops": 2
+  },
+  {
+    "source": "lie_algebra",
+    "target": "information_theory",
+    "intermediary": "representation_theory",
+    "hops": 2
+  },
+  {
+    "source": "lie_algebra",
+    "target": "lie_groups",
+    "intermediary": "representation_theory",
+    "hops": 2
+  },
+  {
+    "source": "lie_algebra",
+    "target": "linear_algebra",
+    "intermediary": "differential_geometry",
+    "hops": 2
+  },
+  {
+    "source": "lie_algebra",
+    "target": "linear_algebra",
+    "intermediary": "representation_theory",
+    "hops": 2
+  },
+  {
+    "source": "lie_algebra",
+    "target": "quantum_information",
+    "intermediary": "differential_geometry",
+    "hops": 2
+  },
+  {
+    "source": "lie_algebra",
+    "target": "quantum_information",
+    "intermediary": "representation_theory",
+    "hops": 2
+  },
+  {
+    "source": "lie_groups",
+    "target": "abstract_algebra",
+    "intermediary": "representation_theory",
+    "hops": 2
+  },
+  {
+    "source": "lie_groups",
+    "target": "algebraic_topology",
+    "intermediary": "hodge_theory",
+    "hops": 2
+  },
+  {
+    "source": "lie_groups",
+    "target": "algebraic_topology",
+    "intermediary": "lie_algebra",
+    "hops": 2
+  },
+  {
+    "source": "lie_groups",
+    "target": "algebraic_topology",
+    "intermediary": "representation_theory",
+    "hops": 2
+  },
+  {
+    "source": "lie_groups",
+    "target": "chern_character",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "lie_groups",
+    "target": "complex_analysis",
+    "intermediary": "hodge_theory",
+    "hops": 2
+  },
+  {
+    "source": "lie_groups",
+    "target": "functional_analysis",
+    "intermediary": "differential_geometry",
+    "hops": 2
+  },
+  {
+    "source": "lie_groups",
+    "target": "functional_analysis",
+    "intermediary": "representation_theory",
+    "hops": 2
+  },
+  {
+    "source": "lie_groups",
+    "target": "hamiltonian_mechanics",
+    "intermediary": "symplectic_geometry",
+    "hops": 2
+  },
+  {
+    "source": "lie_groups",
+    "target": "harmonic_analysis",
+    "intermediary": "hodge_theory",
+    "hops": 2
+  },
+  {
+    "source": "lie_groups",
+    "target": "harmonic_analysis",
+    "intermediary": "lie_algebra",
+    "hops": 2
+  },
+  {
+    "source": "lie_groups",
+    "target": "harmonic_analysis",
+    "intermediary": "representation_theory",
+    "hops": 2
+  },
+  {
+    "source": "lie_groups",
+    "target": "homology",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "lie_groups",
+    "target": "lagrangian_mechanics",
+    "intermediary": "symplectic_geometry",
+    "hops": 2
+  },
+  {
+    "source": "lie_groups",
+    "target": "logic",
+    "intermediary": "descriptive_set_theory",
+    "hops": 2
+  },
+  {
+    "source": "lie_groups",
+    "target": "measure_theory",
+    "intermediary": "descriptive_set_theory",
+    "hops": 2
+  },
+  {
+    "source": "lie_groups",
+    "target": "operator_algebras",
+    "intermediary": "descriptive_set_theory",
+    "hops": 2
+  },
+  {
+    "source": "lie_groups",
+    "target": "operator_algebras",
+    "intermediary": "topology",
+    "hops": 2
+  },
+  {
+    "source": "lie_groups",
+    "target": "riemannian_geometry",
+    "intermediary": "hodge_theory",
+    "hops": 2
+  },
+  {
+    "source": "lie_groups",
+    "target": "set_theory",
+    "intermediary": "descriptive_set_theory",
+    "hops": 2
+  },
+  {
+    "source": "lie_groups",
+    "target": "spectral_sequences",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "lie_groups",
+    "target": "stable_homotopy",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "microlocal_analysis",
+    "target": "information_theory",
+    "intermediary": "differential_geometry",
+    "hops": 2
+  },
+  {
+    "source": "microlocal_analysis",
+    "target": "linear_algebra",
+    "intermediary": "differential_geometry",
+    "hops": 2
+  },
+  {
+    "source": "microlocal_analysis",
+    "target": "quantum_information",
+    "intermediary": "differential_geometry",
+    "hops": 2
+  },
+  {
+    "source": "microlocal_analysis",
+    "target": "representation_theory",
+    "intermediary": "differential_geometry",
+    "hops": 2
+  },
+  {
+    "source": "microlocal_analysis",
+    "target": "representation_theory",
+    "intermediary": "functional_analysis",
+    "hops": 2
+  },
+  {
+    "source": "morphogenesis",
+    "target": "chemical_reaction_networks",
+    "intermediary": "theoretical_biology",
+    "hops": 2
+  },
+  {
+    "source": "morphogenesis",
+    "target": "differential_geometry",
+    "intermediary": "microlocal_analysis",
+    "hops": 2
+  },
+  {
+    "source": "morphogenesis",
+    "target": "functional_analysis",
+    "intermediary": "microlocal_analysis",
+    "hops": 2
+  },
+  {
+    "source": "morphogenesis",
+    "target": "thermodynamics",
+    "intermediary": "theoretical_biology",
+    "hops": 2
+  },
+  {
+    "source": "operator_algebras",
+    "target": "differential_geometry",
+    "intermediary": "functional_analysis",
+    "hops": 2
+  },
+  {
+    "source": "operator_algebras",
+    "target": "hodge_theory",
+    "intermediary": "descriptive_set_theory",
+    "hops": 2
+  },
+  {
+    "source": "operator_algebras",
+    "target": "information_theory",
+    "intermediary": "descriptive_set_theory",
+    "hops": 2
+  },
+  {
+    "source": "operator_algebras",
+    "target": "k_theory",
+    "intermediary": "descriptive_set_theory",
+    "hops": 2
+  },
+  {
+    "source": "operator_algebras",
+    "target": "k_theory",
+    "intermediary": "topology",
+    "hops": 2
+  },
+  {
+    "source": "operator_algebras",
+    "target": "lie_groups",
+    "intermediary": "descriptive_set_theory",
+    "hops": 2
+  },
+  {
+    "source": "operator_algebras",
+    "target": "lie_groups",
+    "intermediary": "topology",
+    "hops": 2
+  },
+  {
+    "source": "operator_algebras",
+    "target": "linear_algebra",
+    "intermediary": "descriptive_set_theory",
+    "hops": 2
+  },
+  {
+    "source": "operator_algebras",
+    "target": "logic",
+    "intermediary": "descriptive_set_theory",
+    "hops": 2
+  },
+  {
+    "source": "operator_algebras",
+    "target": "measure_theory",
+    "intermediary": "descriptive_set_theory",
+    "hops": 2
+  },
+  {
+    "source": "operator_algebras",
+    "target": "quantum_information",
+    "intermediary": "descriptive_set_theory",
+    "hops": 2
+  },
+  {
+    "source": "operator_algebras",
+    "target": "representation_theory",
+    "intermediary": "functional_analysis",
+    "hops": 2
+  },
+  {
+    "source": "operator_algebras",
+    "target": "set_theory",
+    "intermediary": "descriptive_set_theory",
+    "hops": 2
+  },
+  {
+    "source": "operator_algebras",
+    "target": "symplectic_geometry",
+    "intermediary": "topology",
+    "hops": 2
+  },
+  {
+    "source": "representation_theory",
+    "target": "descriptive_set_theory",
+    "intermediary": "lie_groups",
+    "hops": 2
+  },
+  {
+    "source": "representation_theory",
+    "target": "hodge_theory",
+    "intermediary": "lie_groups",
+    "hops": 2
+  },
+  {
+    "source": "representation_theory",
+    "target": "k_theory",
+    "intermediary": "lie_groups",
+    "hops": 2
+  },
+  {
+    "source": "representation_theory",
+    "target": "lie_algebra",
+    "intermediary": "lie_groups",
+    "hops": 2
+  },
+  {
+    "source": "representation_theory",
+    "target": "symplectic_geometry",
+    "intermediary": "lie_groups",
+    "hops": 2
+  },
+  {
+    "source": "representation_theory",
+    "target": "topology",
+    "intermediary": "lie_groups",
+    "hops": 2
+  },
+  {
+    "source": "sobolev_spaces",
+    "target": "differential_geometry",
+    "intermediary": "functional_analysis",
+    "hops": 2
+  },
+  {
+    "source": "sobolev_spaces",
+    "target": "representation_theory",
+    "intermediary": "functional_analysis",
+    "hops": 2
+  },
+  {
+    "source": "spectral_sequences",
+    "target": "algebraic_topology",
+    "intermediary": "group_cohomology",
+    "hops": 2
+  },
+  {
+    "source": "spectral_sequences",
+    "target": "algebraic_topology",
+    "intermediary": "homology",
+    "hops": 2
+  },
+  {
+    "source": "spectral_sequences",
+    "target": "homological_algebra",
+    "intermediary": "group_cohomology",
+    "hops": 2
+  },
+  {
+    "source": "spectral_sequences",
+    "target": "homological_algebra",
+    "intermediary": "homology",
+    "hops": 2
+  },
+  {
+    "source": "spectral_sequences",
+    "target": "k_theory",
+    "intermediary": "homology",
+    "hops": 2
+  },
+  {
+    "source": "spectral_sequences",
+    "target": "representation_theory",
+    "intermediary": "group_cohomology",
+    "hops": 2
+  },
+  {
+    "source": "stable_homotopy",
+    "target": "chern_character",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "stable_homotopy",
+    "target": "descriptive_set_theory",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "stable_homotopy",
+    "target": "group_cohomology",
+    "intermediary": "spectral_sequences",
+    "hops": 2
+  },
+  {
+    "source": "stable_homotopy",
+    "target": "hodge_theory",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "stable_homotopy",
+    "target": "homology",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "stable_homotopy",
+    "target": "homology",
+    "intermediary": "spectral_sequences",
+    "hops": 2
+  },
+  {
+    "source": "stable_homotopy",
+    "target": "information_theory",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "stable_homotopy",
+    "target": "lie_groups",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "stable_homotopy",
+    "target": "linear_algebra",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "stable_homotopy",
+    "target": "quantum_information",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "stable_homotopy",
+    "target": "representation_theory",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "stable_homotopy",
+    "target": "symplectic_geometry",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "stable_homotopy",
+    "target": "topology",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "symplectic_geometry",
+    "target": "algebraic_topology",
+    "intermediary": "lie_algebra",
+    "hops": 2
+  },
+  {
+    "source": "symplectic_geometry",
+    "target": "chern_character",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "symplectic_geometry",
+    "target": "descriptive_set_theory",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "symplectic_geometry",
+    "target": "functional_analysis",
+    "intermediary": "differential_geometry",
+    "hops": 2
+  },
+  {
+    "source": "symplectic_geometry",
+    "target": "harmonic_analysis",
+    "intermediary": "lie_algebra",
+    "hops": 2
+  },
+  {
+    "source": "symplectic_geometry",
+    "target": "hodge_theory",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "symplectic_geometry",
+    "target": "homology",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "symplectic_geometry",
+    "target": "information_theory",
+    "intermediary": "differential_geometry",
+    "hops": 2
+  },
+  {
+    "source": "symplectic_geometry",
+    "target": "information_theory",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "symplectic_geometry",
+    "target": "lie_groups",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "symplectic_geometry",
+    "target": "lie_groups",
+    "intermediary": "topology",
+    "hops": 2
+  },
+  {
+    "source": "symplectic_geometry",
+    "target": "linear_algebra",
+    "intermediary": "differential_geometry",
+    "hops": 2
+  },
+  {
+    "source": "symplectic_geometry",
+    "target": "linear_algebra",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "symplectic_geometry",
+    "target": "operator_algebras",
+    "intermediary": "topology",
+    "hops": 2
+  },
+  {
+    "source": "symplectic_geometry",
+    "target": "quantum_information",
+    "intermediary": "differential_geometry",
+    "hops": 2
+  },
+  {
+    "source": "symplectic_geometry",
+    "target": "quantum_information",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "symplectic_geometry",
+    "target": "representation_theory",
+    "intermediary": "differential_geometry",
+    "hops": 2
+  },
+  {
+    "source": "symplectic_geometry",
+    "target": "representation_theory",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "symplectic_geometry",
+    "target": "representation_theory",
+    "intermediary": "lie_algebra",
+    "hops": 2
+  },
+  {
+    "source": "symplectic_geometry",
+    "target": "spectral_sequences",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "symplectic_geometry",
+    "target": "stable_homotopy",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "theoretical_biology",
+    "target": "algebra",
+    "intermediary": "chemical_reaction_networks",
+    "hops": 2
+  },
+  {
+    "source": "theoretical_biology",
+    "target": "microlocal_analysis",
+    "intermediary": "morphogenesis",
+    "hops": 2
+  },
+  {
+    "source": "theoretical_biology",
+    "target": "ode",
+    "intermediary": "chemical_reaction_networks",
+    "hops": 2
+  },
+  {
+    "source": "thermodynamics",
+    "target": "algebra",
+    "intermediary": "chemical_reaction_networks",
+    "hops": 2
+  },
+  {
+    "source": "thermodynamics",
+    "target": "morphogenesis",
+    "intermediary": "theoretical_biology",
+    "hops": 2
+  },
+  {
+    "source": "thermodynamics",
+    "target": "ode",
+    "intermediary": "chemical_reaction_networks",
+    "hops": 2
+  },
+  {
+    "source": "topology",
+    "target": "chern_character",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "topology",
+    "target": "descriptive_set_theory",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "topology",
+    "target": "descriptive_set_theory",
+    "intermediary": "lie_groups",
+    "hops": 2
+  },
+  {
+    "source": "topology",
+    "target": "descriptive_set_theory",
+    "intermediary": "operator_algebras",
+    "hops": 2
+  },
+  {
+    "source": "topology",
+    "target": "differential_geometry",
+    "intermediary": "lie_groups",
+    "hops": 2
+  },
+  {
+    "source": "topology",
+    "target": "differential_geometry",
+    "intermediary": "symplectic_geometry",
+    "hops": 2
+  },
+  {
+    "source": "topology",
+    "target": "functional_analysis",
+    "intermediary": "operator_algebras",
+    "hops": 2
+  },
+  {
+    "source": "topology",
+    "target": "hamiltonian_mechanics",
+    "intermediary": "symplectic_geometry",
+    "hops": 2
+  },
+  {
+    "source": "topology",
+    "target": "hodge_theory",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "topology",
+    "target": "hodge_theory",
+    "intermediary": "lie_groups",
+    "hops": 2
+  },
+  {
+    "source": "topology",
+    "target": "homology",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "topology",
+    "target": "information_theory",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "topology",
+    "target": "information_theory",
+    "intermediary": "lie_groups",
+    "hops": 2
+  },
+  {
+    "source": "topology",
+    "target": "lagrangian_mechanics",
+    "intermediary": "symplectic_geometry",
+    "hops": 2
+  },
+  {
+    "source": "topology",
+    "target": "lie_algebra",
+    "intermediary": "lie_groups",
+    "hops": 2
+  },
+  {
+    "source": "topology",
+    "target": "lie_algebra",
+    "intermediary": "symplectic_geometry",
+    "hops": 2
+  },
+  {
+    "source": "topology",
+    "target": "linear_algebra",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "topology",
+    "target": "linear_algebra",
+    "intermediary": "lie_groups",
+    "hops": 2
+  },
+  {
+    "source": "topology",
+    "target": "quantum_information",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "topology",
+    "target": "quantum_information",
+    "intermediary": "lie_groups",
+    "hops": 2
+  },
+  {
+    "source": "topology",
+    "target": "representation_theory",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "topology",
+    "target": "representation_theory",
+    "intermediary": "lie_groups",
+    "hops": 2
+  },
+  {
+    "source": "topology",
+    "target": "spectral_sequences",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "topology",
+    "target": "stable_homotopy",
+    "intermediary": "k_theory",
+    "hops": 2
+  },
+  {
+    "source": "tor_functor",
+    "target": "algebraic_topology",
+    "intermediary": "homology",
+    "hops": 2
+  },
+  {
+    "source": "tor_functor",
+    "target": "k_theory",
+    "intermediary": "homology",
+    "hops": 2
+  },
+  {
+    "source": "tor_functor",
+    "target": "spectral_sequences",
+    "intermediary": "homology",
+    "hops": 2
+  },
+  {
+    "source": "von_neumann_algebra",
+    "target": "functional_analysis",
+    "intermediary": "c_star_algebra",
+    "hops": 2
+  },
+  {
+    "source": "von_neumann_algebra",
+    "target": "topology",
+    "intermediary": "c_star_algebra",
+    "hops": 2
+  }
+]

@@ -1,0 +1,202 @@
+[
+  {
+    "from": "k_theory",
+    "to": "quantum_information",
+    "bridge_score": 0.8142,
+    "sp_component": 0.5355,
+    "novelty": 1.0,
+    "graph_distance": 1.0
+  },
+  {
+    "from": "lie_groups",
+    "to": "quantum_information",
+    "bridge_score": 0.8087,
+    "sp_component": 0.5216,
+    "novelty": 1.0,
+    "graph_distance": 1.0
+  },
+  {
+    "from": "descriptive_set_theory",
+    "to": "quantum_information",
+    "bridge_score": 0.8076,
+    "sp_component": 0.5189,
+    "novelty": 1.0,
+    "graph_distance": 1.0
+  },
+  {
+    "from": "quantum_information",
+    "to": "representation_theory",
+    "bridge_score": 0.8076,
+    "sp_component": 0.5189,
+    "novelty": 1.0,
+    "graph_distance": 1.0
+  },
+  {
+    "from": "information_theory",
+    "to": "k_theory",
+    "bridge_score": 0.8071,
+    "sp_component": 0.5178,
+    "novelty": 1.0,
+    "graph_distance": 1.0
+  },
+  {
+    "from": "k_theory",
+    "to": "linear_algebra",
+    "bridge_score": 0.8071,
+    "sp_component": 0.5178,
+    "novelty": 1.0,
+    "graph_distance": 1.0
+  },
+  {
+    "from": "differential_geometry",
+    "to": "quantum_information",
+    "bridge_score": 0.8064,
+    "sp_component": 0.5161,
+    "novelty": 1.0,
+    "graph_distance": 1.0
+  },
+  {
+    "from": "hodge_theory",
+    "to": "quantum_information",
+    "bridge_score": 0.8064,
+    "sp_component": 0.5161,
+    "novelty": 1.0,
+    "graph_distance": 1.0
+  },
+  {
+    "from": "quantum_information",
+    "to": "topology",
+    "bridge_score": 0.8064,
+    "sp_component": 0.5161,
+    "novelty": 1.0,
+    "graph_distance": 1.0
+  },
+  {
+    "from": "information_theory",
+    "to": "lie_groups",
+    "bridge_score": 0.8016,
+    "sp_component": 0.5039,
+    "novelty": 1.0,
+    "graph_distance": 1.0
+  },
+  {
+    "from": "lie_groups",
+    "to": "linear_algebra",
+    "bridge_score": 0.8016,
+    "sp_component": 0.5039,
+    "novelty": 1.0,
+    "graph_distance": 1.0
+  },
+  {
+    "from": "descriptive_set_theory",
+    "to": "information_theory",
+    "bridge_score": 0.8005,
+    "sp_component": 0.5011,
+    "novelty": 1.0,
+    "graph_distance": 1.0
+  },
+  {
+    "from": "descriptive_set_theory",
+    "to": "linear_algebra",
+    "bridge_score": 0.8005,
+    "sp_component": 0.5011,
+    "novelty": 1.0,
+    "graph_distance": 1.0
+  },
+  {
+    "from": "information_theory",
+    "to": "representation_theory",
+    "bridge_score": 0.8005,
+    "sp_component": 0.5011,
+    "novelty": 1.0,
+    "graph_distance": 1.0
+  },
+  {
+    "from": "linear_algebra",
+    "to": "representation_theory",
+    "bridge_score": 0.8005,
+    "sp_component": 0.5011,
+    "novelty": 1.0,
+    "graph_distance": 1.0
+  },
+  {
+    "from": "differential_geometry",
+    "to": "information_theory",
+    "bridge_score": 0.7993,
+    "sp_component": 0.4984,
+    "novelty": 1.0,
+    "graph_distance": 1.0
+  },
+  {
+    "from": "differential_geometry",
+    "to": "linear_algebra",
+    "bridge_score": 0.7993,
+    "sp_component": 0.4984,
+    "novelty": 1.0,
+    "graph_distance": 1.0
+  },
+  {
+    "from": "hodge_theory",
+    "to": "information_theory",
+    "bridge_score": 0.7993,
+    "sp_component": 0.4984,
+    "novelty": 1.0,
+    "graph_distance": 1.0
+  },
+  {
+    "from": "hodge_theory",
+    "to": "linear_algebra",
+    "bridge_score": 0.7993,
+    "sp_component": 0.4984,
+    "novelty": 1.0,
+    "graph_distance": 1.0
+  },
+  {
+    "from": "information_theory",
+    "to": "topology",
+    "bridge_score": 0.7993,
+    "sp_component": 0.4984,
+    "novelty": 1.0,
+    "graph_distance": 1.0
+  },
+  {
+    "from": "linear_algebra",
+    "to": "topology",
+    "bridge_score": 0.7993,
+    "sp_component": 0.4984,
+    "novelty": 1.0,
+    "graph_distance": 1.0
+  },
+  {
+    "from": "algebraic_topology",
+    "to": "quantum_information",
+    "bridge_score": 0.7982,
+    "sp_component": 0.4955,
+    "novelty": 1.0,
+    "graph_distance": 1.0
+  },
+  {
+    "from": "functional_analysis",
+    "to": "quantum_information",
+    "bridge_score": 0.7982,
+    "sp_component": 0.4955,
+    "novelty": 1.0,
+    "graph_distance": 1.0
+  },
+  {
+    "from": "quantum_information",
+    "to": "symplectic_geometry",
+    "bridge_score": 0.7982,
+    "sp_component": 0.4955,
+    "novelty": 1.0,
+    "graph_distance": 1.0
+  },
+  {
+    "from": "algebraic_topology",
+    "to": "information_theory",
+    "bridge_score": 0.7911,
+    "sp_component": 0.4778,
+    "novelty": 1.0,
+    "graph_distance": 1.0
+  }
+]

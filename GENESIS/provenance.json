@@ -1,0 +1,632 @@
+[
+  {
+    "file": "genesis_abstract_algebra.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000abstract_algebra\u0000",
+    "mtime": "2026-08-01T03:29:29.078331"
+  },
+  {
+    "file": "genesis_adjunction.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000adjunction\u0000",
+    "mtime": "2026-07-31T23:54:19.650753"
+  },
+  {
+    "file": "genesis_algebraic_geometry.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000algebraic_geometry\u0000",
+    "mtime": "2026-08-01T01:55:27.205753"
+  },
+  {
+    "file": "genesis_algebraic_groups.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000algebraic_groups\u0000",
+    "mtime": "2026-08-01T03:43:37.073596"
+  },
+  {
+    "file": "genesis_algebraic_number_theory.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000algebraic_number_theory\u0000",
+    "mtime": "2026-08-01T03:40:52.541695"
+  },
+  {
+    "file": "genesis_algebraic_topology.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000algebraic_topology\u0000",
+    "mtime": "2026-08-01T03:23:39.818966"
+  },
+  {
+    "file": "genesis_algorithms.metta",
+    "exprs": 2,
+    "bridges": 0,
+    "category": "\u0000algorithms\u0000",
+    "mtime": "2026-08-15T07:02:06.341258"
+  },
+  {
+    "file": "genesis_analytic_number_theory.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000analytic_number_theory\u0000",
+    "mtime": "2026-08-01T03:43:20.873605"
+  },
+  {
+    "file": "genesis_automata_theory.metta",
+    "exprs": 2,
+    "bridges": 1,
+    "category": "\u0000automata_theory\u0000",
+    "mtime": "2026-08-15T07:03:06.181577"
+  },
+  {
+    "file": "genesis_c_star_algebra.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000c_star_algebra\u0000",
+    "mtime": "2026-08-15T07:15:15.571896"
+  },
+  {
+    "file": "genesis_category_theory.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000category_theory\u0000",
+    "mtime": "2026-08-01T03:20:39.151465"
+  },
+  {
+    "file": "genesis_chemical_reaction_networks.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000chemical_reaction_networks\u0000",
+    "mtime": "2026-08-15T07:15:15.583895"
+  },
+  {
+    "file": "genesis_chern_character.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000chern_character\u0000",
+    "mtime": "2026-08-15T07:15:15.591896"
+  },
+  {
+    "file": "genesis_coding_theory.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000coding_theory\u0000",
+    "mtime": "2026-08-01T03:36:29.345885"
+  },
+  {
+    "file": "genesis_combinatorics.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000combinatorics\u0000",
+    "mtime": "2026-08-01T03:22:26.707150"
+  },
+  {
+    "file": "genesis_commutative_algebra.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000commutative_algebra\u0000",
+    "mtime": "2026-08-01T03:40:35.021707"
+  },
+  {
+    "file": "genesis_complex_analysis.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000complex_analysis\u0000",
+    "mtime": "2026-08-01T03:34:38.609982"
+  },
+  {
+    "file": "genesis_control_theory.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000control_theory\u0000",
+    "mtime": "2026-08-01T03:05:48.762788"
+  },
+  {
+    "file": "genesis_de_rham.metta",
+    "exprs": 0,
+    "bridges": 8,
+    "category": "\u0000de_rham\u0000",
+    "mtime": "2026-08-14T07:51:08.749079"
+  },
+  {
+    "file": "genesis_descriptive_set_theory.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000descriptive_set_theory\u0000",
+    "mtime": "2026-08-15T07:15:47.879959"
+  },
+  {
+    "file": "genesis_differential_geometry.metta",
+    "exprs": 0,
+    "bridges": 4,
+    "category": "\u0000differential_geometry\u0000",
+    "mtime": "2026-08-14T11:08:22.553046"
+  },
+  {
+    "file": "genesis_differential_topology.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000differential_topology\u0000",
+    "mtime": "2026-08-01T03:23:16.451023"
+  },
+  {
+    "file": "genesis_discrete_math.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000discrete_math\u0000",
+    "mtime": "2026-08-01T03:42:02.185652"
+  },
+  {
+    "file": "genesis_displayed_obstruction_theory.metta",
+    "exprs": 2,
+    "bridges": 1,
+    "category": "\u0000displayed_obstruction_theory\u0000",
+    "mtime": "2026-08-15T07:10:09.487177"
+  },
+  {
+    "file": "genesis_distribution_theory.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000distribution_theory\u0000",
+    "mtime": "2026-08-01T00:02:25.306939"
+  },
+  {
+    "file": "genesis_dynamical_systems.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000dynamical_systems\u0000",
+    "mtime": "2026-08-01T03:35:09.853953"
+  },
+  {
+    "file": "genesis_ergodic_decomposition.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000ergodic_decomposition\u0000",
+    "mtime": "2026-08-15T07:15:15.667896"
+  },
+  {
+    "file": "genesis_euclidean_geometry.metta",
+    "exprs": 1,
+    "bridges": 0,
+    "category": "\u0000euclidean_geometry\u0000",
+    "mtime": "2026-08-15T06:52:58.056205"
+  },
+  {
+    "file": "genesis_ext_functor.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000ext_functor\u0000",
+    "mtime": "2026-07-31T23:46:41.204318"
+  },
+  {
+    "file": "genesis_fiber_bundle.metta",
+    "exprs": 25,
+    "bridges": 0,
+    "category": "\u0000fiber_bundle\u0000",
+    "mtime": "2026-07-31T23:19:33.113048"
+  },
+  {
+    "file": "genesis_formal_verification.metta",
+    "exprs": 2,
+    "bridges": 1,
+    "category": "\u0000formal_verification\u0000",
+    "mtime": "2026-08-15T07:03:53.893811"
+  },
+  {
+    "file": "genesis_functional_analysis.metta",
+    "exprs": 0,
+    "bridges": 4,
+    "category": "\u0000functional_analysis\u0000",
+    "mtime": "2026-08-14T10:58:25.106197"
+  },
+  {
+    "file": "genesis_galois_cohomology.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000galois_cohomology\u0000",
+    "mtime": "2026-07-31T23:57:16.532764"
+  },
+  {
+    "file": "genesis_game_theory.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000game_theory\u0000",
+    "mtime": "2026-08-01T03:36:57.589863"
+  },
+  {
+    "file": "genesis_graph_theory.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000graph_theory\u0000",
+    "mtime": "2026-08-01T03:22:53.963079"
+  },
+  {
+    "file": "genesis_group_cohomology.metta",
+    "exprs": 0,
+    "bridges": 8,
+    "category": "\u0000group_cohomology\u0000",
+    "mtime": "2026-08-14T08:01:32.707843"
+  },
+  {
+    "file": "genesis_harmonic_analysis.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000harmonic_analysis\u0000",
+    "mtime": "2026-08-01T03:38:07.281809"
+  },
+  {
+    "file": "genesis_hodge_theory.metta",
+    "exprs": 0,
+    "bridges": 16,
+    "category": "\u0000hodge_theory\u0000",
+    "mtime": "2026-08-14T10:18:04.226447"
+  },
+  {
+    "file": "genesis_homological_algebra.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000homological_algebra\u0000",
+    "mtime": "2026-08-01T03:41:04.729687"
+  },
+  {
+    "file": "genesis_homology.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000homology\u0000",
+    "mtime": "2026-08-15T07:15:15.675896"
+  },
+  {
+    "file": "genesis_information_theory.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000information_theory\u0000",
+    "mtime": "2026-08-01T03:32:33.730106"
+  },
+  {
+    "file": "genesis_intuitionistic_logic.metta",
+    "exprs": 2,
+    "bridges": 1,
+    "category": "\u0000intuitionistic_logic\u0000",
+    "mtime": "2026-08-15T07:04:39.310018"
+  },
+  {
+    "file": "genesis_k_theory.metta",
+    "exprs": 0,
+    "bridges": 20,
+    "category": "\u0000k_theory\u0000",
+    "mtime": "2026-08-14T09:37:40.744815"
+  },
+  {
+    "file": "genesis_knot_theory.metta",
+    "exprs": 0,
+    "bridges": 8,
+    "category": "\u0000knot_theory\u0000",
+    "mtime": "2026-08-14T07:10:27.991476"
+  },
+  {
+    "file": "genesis_lie_algebra.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000lie_algebra\u0000",
+    "mtime": "2026-08-15T07:15:15.603896"
+  },
+  {
+    "file": "genesis_lie_groups.metta",
+    "exprs": 0,
+    "bridges": 18,
+    "category": "\u0000lie_groups\u0000",
+    "mtime": "2026-08-14T10:08:11.195061"
+  },
+  {
+    "file": "genesis_linear_algebra.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000linear_algebra\u0000",
+    "mtime": "2026-08-01T03:30:33.802246"
+  },
+  {
+    "file": "genesis_logic.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000logic\u0000",
+    "mtime": "2026-08-01T03:32:02.926140"
+  },
+  {
+    "file": "genesis_measure_theory.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000measure_theory\u0000",
+    "mtime": "2026-08-01T03:21:21.823333"
+  },
+  {
+    "file": "genesis_microlocal_analysis.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000microlocal_analysis\u0000",
+    "mtime": "2026-08-15T07:15:47.887959"
+  },
+  {
+    "file": "genesis_model_theory.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000model_theory\u0000",
+    "mtime": "2026-08-15T07:15:15.611896"
+  },
+  {
+    "file": "genesis_morphogenesis.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000morphogenesis\u0000",
+    "mtime": "2026-08-15T07:15:15.651896"
+  },
+  {
+    "file": "genesis_motivic_homotopy.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000motivic_homotopy\u0000",
+    "mtime": "2026-07-31T23:51:46.411243"
+  },
+  {
+    "file": "genesis_non_euclidean_geometry.metta",
+    "exprs": 4,
+    "bridges": 1,
+    "category": "\u0000non_euclidean_geometry\u0000",
+    "mtime": "2026-08-15T06:57:15.147168"
+  },
+  {
+    "file": "genesis_number_theory.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000number_theory\u0000",
+    "mtime": "2026-08-01T03:28:42.306398"
+  },
+  {
+    "file": "genesis_numerical_analysis.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000numerical_analysis\u0000",
+    "mtime": "2026-08-01T03:33:39.330038"
+  },
+  {
+    "file": "genesis_operator_algebras.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000operator_algebras\u0000",
+    "mtime": "2026-08-15T07:15:15.659896"
+  },
+  {
+    "file": "genesis_optimization.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000optimization\u0000",
+    "mtime": "2026-08-01T02:25:25.996536"
+  },
+  {
+    "file": "genesis_order_theory.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000order_theory\u0000",
+    "mtime": "2026-08-01T03:41:36.545668"
+  },
+  {
+    "file": "genesis_ordinary_differential_equations.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000ordinary_differential_equations\u0000",
+    "mtime": "2026-08-01T03:42:51.817622"
+  },
+  {
+    "file": "genesis_partial_differential_equations.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000partial_differential_equations\u0000",
+    "mtime": "2026-08-01T03:21:43.911269"
+  },
+  {
+    "file": "genesis_perron_frobenius.metta",
+    "exprs": 0,
+    "bridges": 8,
+    "category": "\u0000perron_frobenius\u0000",
+    "mtime": "2026-08-14T08:01:52.315808"
+  },
+  {
+    "file": "genesis_probability.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000probability\u0000",
+    "mtime": "2026-08-01T03:30:03.286285"
+  },
+  {
+    "file": "genesis_proof_theory.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000proof_theory\u0000",
+    "mtime": "2026-08-01T03:38:53.505775"
+  },
+  {
+    "file": "genesis_quantum_categorical_persistence.metta",
+    "exprs": 2,
+    "bridges": 1,
+    "category": "\u0000quantum_categorical_persistence\u0000",
+    "mtime": "2026-08-15T07:11:00.535315"
+  },
+  {
+    "file": "genesis_quantum_information.metta",
+    "exprs": 0,
+    "bridges": 4,
+    "category": "\u0000quantum_information\u0000",
+    "mtime": "2026-08-14T07:06:16.543758"
+  },
+  {
+    "file": "genesis_real_analysis.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000real_analysis\u0000",
+    "mtime": "2026-08-01T03:27:49.826479"
+  },
+  {
+    "file": "genesis_recursion_theory.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000recursion_theory\u0000",
+    "mtime": "2026-08-01T03:39:29.673750"
+  },
+  {
+    "file": "genesis_representation_theory.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000representation_theory\u0000",
+    "mtime": "2026-08-15T07:15:15.619896"
+  },
+  {
+    "file": "genesis_riemannian_geometry.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000riemannian_geometry\u0000",
+    "mtime": "2026-08-01T00:34:55.410882"
+  },
+  {
+    "file": "genesis_set_theory.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000set_theory\u0000",
+    "mtime": "2026-08-01T03:31:34.234173"
+  },
+  {
+    "file": "genesis_sheaf_theoretic_attention.metta",
+    "exprs": 3,
+    "bridges": 2,
+    "category": "\u0000sheaf_theoretic_attention\u0000",
+    "mtime": "2026-08-15T07:12:32.899544"
+  },
+  {
+    "file": "genesis_simplicial_set.metta",
+    "exprs": 2,
+    "bridges": 1,
+    "category": "\u0000simplicial_set\u0000",
+    "mtime": "2026-08-15T07:05:24.638211"
+  },
+  {
+    "file": "genesis_sobolev_spaces.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000sobolev_spaces\u0000",
+    "mtime": "2026-08-15T07:15:47.895959"
+  },
+  {
+    "file": "genesis_spectral_sequences.metta",
+    "exprs": 0,
+    "bridges": 4,
+    "category": "\u0000spectral_sequences\u0000",
+    "mtime": "2026-08-14T07:43:15.630383"
+  },
+  {
+    "file": "genesis_spectral_theory.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000spectral_theory\u0000",
+    "mtime": "2026-08-01T00:01:46.142738"
+  },
+  {
+    "file": "genesis_stable_homotopy.metta",
+    "exprs": 0,
+    "bridges": 8,
+    "category": "\u0000stable_homotopy\u0000",
+    "mtime": "2026-08-14T07:52:17.600924"
+  },
+  {
+    "file": "genesis_statistics.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000statistics\u0000",
+    "mtime": "2026-08-01T03:35:54.237915"
+  },
+  {
+    "file": "genesis_stochastic_processes.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000stochastic_processes\u0000",
+    "mtime": "2026-08-01T03:37:38.365831"
+  },
+  {
+    "file": "genesis_symplectic_geometry.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000symplectic_geometry\u0000",
+    "mtime": "2026-08-15T07:15:15.627896"
+  },
+  {
+    "file": "genesis_theoretical_biology.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000theoretical_biology\u0000",
+    "mtime": "2026-08-15T07:15:15.635896"
+  },
+  {
+    "file": "genesis_theoretical_physics.metta",
+    "exprs": 21,
+    "bridges": 6,
+    "category": "\u0000theoretical_physics\u0000",
+    "mtime": "2026-08-15T06:44:02.463087"
+  },
+  {
+    "file": "genesis_thermodynamic_information_geometry.metta",
+    "exprs": 2,
+    "bridges": 1,
+    "category": "\u0000thermodynamic_information_geometry\u0000",
+    "mtime": "2026-08-15T07:11:23.679375"
+  },
+  {
+    "file": "genesis_thermodynamics.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000thermodynamics\u0000",
+    "mtime": "2026-08-15T07:15:15.643896"
+  },
+  {
+    "file": "genesis_topology.metta",
+    "exprs": 0,
+    "bridges": 8,
+    "category": "\u0000topology\u0000",
+    "mtime": "2026-08-14T09:37:40.744815"
+  },
+  {
+    "file": "genesis_topos_theory.metta",
+    "exprs": 3,
+    "bridges": 1,
+    "category": "\u0000topos_theory\u0000",
+    "mtime": "2026-08-15T07:01:00.444870"
+  },
+  {
+    "file": "genesis_tor_functor.metta",
+    "exprs": 0,
+    "bridges": 4,
+    "category": "\u0000tor_functor\u0000",
+    "mtime": "2026-08-14T08:36:24.775768"
+  },
+  {
+    "file": "genesis_type_theory.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000type_theory\u0000",
+    "mtime": "2026-08-01T03:39:08.725765"
+  },
+  {
+    "file": "genesis_universal_algebra.metta",
+    "exprs": 0,
+    "bridges": 0,
+    "category": "\u0000universal_algebra\u0000",
+    "mtime": "2026-08-01T03:39:47.609738"
+  },
+  {
+    "file": "genesis_von_neumann_algebra.metta",
+    "exprs": 0,
+    "bridges": 4,
+    "category": "\u0000von_neumann_algebra\u0000",
+    "mtime": "2026-08-14T08:04:28.527537"
+  }
+]

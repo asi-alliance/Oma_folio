@@ -1,0 +1,65 @@
+{
+  "algebra_1_seed": {
+    "octonion": [
+      "NonAssociative",
+      "Alternative",
+      "Flexible",
+      "PowerAssociative",
+      "Division",
+      "NormedDivision",
+      "ZeroDivisorFree"
+    ],
+    "quaternion": [
+      "NonAssociative"
+    ],
+    "sedenion": [
+      "NonAssociative",
+      "NonAssociativeAlgebra",
+      "ZeroDivisors"
+    ],
+    "jordan_algebra": [
+      "Commutative",
+      "PowerAssociative"
+    ],
+    "real_algebra": [
+      "Associative",
+      "Commutative",
+      "Division",
+      "NormedDivision"
+    ],
+    "complex_algebra": [
+      "Commutative",
+      "Division",
+      "NormedDivision"
+    ]
+  },
+  "rules": [
+    {
+      "Implication": "Alternative->Flexible"
+    },
+    {
+      "Implication": "Alternative->PowerAssociative"
+    },
+    {
+      "Implication": "Division->PowerAssociative"
+    },
+    {
+      "Implication": "NormedDivision->Division"
+    },
+    {
+      "Implication": "NonAssociative->NonAssociativeAlgebra"
+    }
+  ],
+  "properties": {
+    "similarity": [
+      {
+        "octonion": "quaternion",
+        "score": 0.7
+      },
+      {
+        "sedenion": "octonion",
+        "score": 0.6
+      }
+    ]
+  }
+}

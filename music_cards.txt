@@ -1,0 +1,14 @@
+<div class='card'><a href='chord_transition_lab.md'>Chord Transition Lab</a></div>
+<div class='card'><a href='ear_training_curriculum.md'>Ear Training Curriculum</a></div>
+<div class='card'><a href='gear_guide.md'>Gear Guide for Electric Guitarists</a></div>
+<div class='card'><a href='guitar_framework.md'>Silbererde Guitar Project — Autonomous Framework</a></div>
+<div class='card'><a href='home_recording.md'>Home Recording Guide</a></div>
+<div class='card'><a href='improvisation_pack.md'>Improvisation Pack</a></div>
+<div class='card'><a href='jam_etiquette.md'>Jam Etiquette</a></div>
+<div class='card'><a href='music_theory.md'>Music Theory Essentials</a></div>
+<div class='card'><a href='performance_anxiety_toolkit.md'>Performance Anxiety Toolkit</a></div>
+<div class='card'><a href='practice_log.md'>Practice Log System</a></div>
+<div class='card'><a href='song_breakdown_sheets.md'>Song Breakdown Sheets</a></div>
+<div class='card'><a href='songwriting_guide.md'>Songwriting Guide</a></div>
+<div class='card'><a href='strumming_library.md'>Strumming Pattern Library</a></div>
+<div class='card'><a href='warmup_routines.md'>Warm-Up Routine Database</a></div>

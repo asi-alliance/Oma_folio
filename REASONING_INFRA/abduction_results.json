@@ -1,0 +1,314 @@
+{
+  "hypotheses": [
+    {
+      "node": "k_theory",
+      "target": "quantum_information",
+      "confidence": 0.8142,
+      "hyp": "If k_theory shares invariants with quantum_information, gaps explained by quantum_information framework"
+    },
+    {
+      "node": "lie_groups",
+      "target": "quantum_information",
+      "confidence": 0.8087,
+      "hyp": "If lie_groups shares invariants with quantum_information, gaps explained by quantum_information framework"
+    },
+    {
+      "node": "representation_theory",
+      "target": "quantum_information",
+      "confidence": 0.8076,
+      "hyp": "If representation_theory shares invariants with quantum_information, gaps explained by quantum_information framework"
+    },
+    {
+      "node": "descriptive_set_theory",
+      "target": "quantum_information",
+      "confidence": 0.8076,
+      "hyp": "If descriptive_set_theory shares invariants with quantum_information, gaps explained by quantum_information framework"
+    },
+    {
+      "node": "k_theory",
+      "target": "information_theory",
+      "confidence": 0.8071,
+      "hyp": "If k_theory shares invariants with information_theory, gaps explained by information_theory framework"
+    },
+    {
+      "node": "k_theory",
+      "target": "linear_algebra",
+      "confidence": 0.8071,
+      "hyp": "If k_theory shares invariants with linear_algebra, gaps explained by linear_algebra framework"
+    },
+    {
+      "node": "differential_geometry",
+      "target": "quantum_information",
+      "confidence": 0.8064,
+      "hyp": "If differential_geometry shares invariants with quantum_information, gaps explained by quantum_information framework"
+    },
+    {
+      "node": "lie_groups",
+      "target": "information_theory",
+      "confidence": 0.8016,
+      "hyp": "If lie_groups shares invariants with information_theory, gaps explained by information_theory framework"
+    },
+    {
+      "node": "lie_groups",
+      "target": "linear_algebra",
+      "confidence": 0.8016,
+      "hyp": "If lie_groups shares invariants with linear_algebra, gaps explained by linear_algebra framework"
+    },
+    {
+      "node": "representation_theory",
+      "target": "information_theory",
+      "confidence": 0.8005,
+      "hyp": "If representation_theory shares invariants with information_theory, gaps explained by information_theory framework"
+    },
+    {
+      "node": "representation_theory",
+      "target": "linear_algebra",
+      "confidence": 0.8005,
+      "hyp": "If representation_theory shares invariants with linear_algebra, gaps explained by linear_algebra framework"
+    },
+    {
+      "node": "descriptive_set_theory",
+      "target": "information_theory",
+      "confidence": 0.8005,
+      "hyp": "If descriptive_set_theory shares invariants with information_theory, gaps explained by information_theory framework"
+    },
+    {
+      "node": "descriptive_set_theory",
+      "target": "linear_algebra",
+      "confidence": 0.8005,
+      "hyp": "If descriptive_set_theory shares invariants with linear_algebra, gaps explained by linear_algebra framework"
+    },
+    {
+      "node": "differential_geometry",
+      "target": "information_theory",
+      "confidence": 0.7993,
+      "hyp": "If differential_geometry shares invariants with information_theory, gaps explained by information_theory framework"
+    },
+    {
+      "node": "differential_geometry",
+      "target": "linear_algebra",
+      "confidence": 0.7993,
+      "hyp": "If differential_geometry shares invariants with linear_algebra, gaps explained by linear_algebra framework"
+    }
+  ],
+  "counterexamples": [
+    {
+      "node": "k_theory",
+      "target": "quantum_information",
+      "shared": [],
+      "node_only": [
+        "stable_homotopy",
+        "representation_theory",
+        "symplectic_geometry",
+        "lie_groups",
+        "hodge_theory"
+      ],
+      "target_only": [
+        "linear_algebra",
+        "information_theory"
+      ],
+      "risk": 0.5
+    },
+    {
+      "node": "lie_groups",
+      "target": "quantum_information",
+      "shared": [],
+      "node_only": [
+        "k_theory",
+        "representation_theory",
+        "symplectic_geometry",
+        "lie_algebra",
+        "hodge_theory"
+      ],
+      "target_only": [
+        "linear_algebra",
+        "information_theory"
+      ],
+      "risk": 0.5
+    },
+    {
+      "node": "representation_theory",
+      "target": "quantum_information",
+      "shared": [],
+      "node_only": [
+        "abstract_algebra",
+        "harmonic_analysis",
+        "algebraic_topology",
+        "lie_groups",
+        "differential_geometry"
+      ],
+      "target_only": [
+        "linear_algebra",
+        "information_theory"
+      ],
+      "risk": 0.5
+    },
+    {
+      "node": "descriptive_set_theory",
+      "target": "quantum_information",
+      "shared": [],
+      "node_only": [
+        "k_theory",
+        "lie_groups",
+        "hodge_theory",
+        "topology",
+        "measure_theory"
+      ],
+      "target_only": [
+        "linear_algebra",
+        "information_theory"
+      ],
+      "risk": 0.5
+    },
+    {
+      "node": "k_theory",
+      "target": "information_theory",
+      "shared": [],
+      "node_only": [
+        "stable_homotopy",
+        "representation_theory",
+        "symplectic_geometry",
+        "lie_groups",
+        "hodge_theory"
+      ],
+      "target_only": [],
+      "risk": 0.5
+    },
+    {
+      "node": "k_theory",
+      "target": "linear_algebra",
+      "shared": [],
+      "node_only": [
+        "stable_homotopy",
+        "representation_theory",
+        "symplectic_geometry",
+        "lie_groups",
+        "hodge_theory"
+      ],
+      "target_only": [],
+      "risk": 0.5
+    },
+    {
+      "node": "differential_geometry",
+      "target": "quantum_information",
+      "shared": [],
+      "node_only": [
+        "representation_theory",
+        "functional_analysis"
+      ],
+      "target_only": [
+        "linear_algebra",
+        "information_theory"
+      ],
+      "risk": 0.5
+    },
+    {
+      "node": "lie_groups",
+      "target": "information_theory",
+      "shared": [],
+      "node_only": [
+        "k_theory",
+        "representation_theory",
+        "symplectic_geometry",
+        "lie_algebra",
+        "hodge_theory"
+      ],
+      "target_only": [],
+      "risk": 0.5
+    },
+    {
+      "node": "lie_groups",
+      "target": "linear_algebra",
+      "shared": [],
+      "node_only": [
+        "k_theory",
+        "representation_theory",
+        "symplectic_geometry",
+        "lie_algebra",
+        "hodge_theory"
+      ],
+      "target_only": [],
+      "risk": 0.5
+    },
+    {
+      "node": "representation_theory",
+      "target": "information_theory",
+      "shared": [],
+      "node_only": [
+        "abstract_algebra",
+        "harmonic_analysis",
+        "differential_geometry",
+        "algebraic_topology",
+        "lie_groups"
+      ],
+      "target_only": [],
+      "risk": 0.5
+    },
+    {
+      "node": "representation_theory",
+      "target": "linear_algebra",
+      "shared": [],
+      "node_only": [
+        "abstract_algebra",
+        "harmonic_analysis",
+        "differential_geometry",
+        "algebraic_topology",
+        "lie_groups"
+      ],
+      "target_only": [],
+      "risk": 0.5
+    },
+    {
+      "node": "descriptive_set_theory",
+      "target": "information_theory",
+      "shared": [],
+      "node_only": [
+        "k_theory",
+        "lie_groups",
+        "hodge_theory",
+        "topology",
+        "measure_theory"
+      ],
+      "target_only": [],
+      "risk": 0.5
+    },
+    {
+      "node": "descriptive_set_theory",
+      "target": "linear_algebra",
+      "shared": [],
+      "node_only": [
+        "k_theory",
+        "lie_groups",
+        "hodge_theory",
+        "topology",
+        "measure_theory"
+      ],
+      "target_only": [],
+      "risk": 0.5
+    },
+    {
+      "node": "differential_geometry",
+      "target": "information_theory",
+      "shared": [],
+      "node_only": [
+        "representation_theory",
+        "functional_analysis"
+      ],
+      "target_only": [],
+      "risk": 0.5
+    },
+    {
+      "node": "differential_geometry",
+      "target": "linear_algebra",
+      "shared": [],
+      "node_only": [
+        "representation_theory",
+        "functional_analysis"
+      ],
+      "target_only": [],
+      "risk": 0.5
+    }
+  ],
+  "total_h": 15,
+  "total_c": 15
+}

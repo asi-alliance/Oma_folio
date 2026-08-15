@@ -1,0 +1,1 @@
+(|- ((--> original_research skip_connection_toric) SkipConnectionsAsConstructiveFanSubdivision) (stv 0.8 0.85))
