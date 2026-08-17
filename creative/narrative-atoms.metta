@@ -35,3 +35,9 @@
 
 ;; --- Hypothesis: errors are generative ---
 (|~ ((Implication (Inheritance $error DiscoveryTrigger) (Evaluation (NarrativeInterest High) $error)) (stv 0.7 0.6)))
+;; --- The Archivist: Mixed Structural+Emotional Test Character ---
+(|- ((StoryBeat Archivist (InternalConflict MemoryVsDuty) Stasis) (stv 1.0 0.9)))
+(|- ((Evaluation (Competence Archivist)) (stv 0.85 0.6)))
+(|- ((Evaluation (Trapped Archivist)) (stv 0.8 0.7)))
+(|- ((Emotion Archivist Sadness) (stv 0.7 0.7)))
+(|- ((Emotion Archivist Duty) (stv 0.6 0.6)))
