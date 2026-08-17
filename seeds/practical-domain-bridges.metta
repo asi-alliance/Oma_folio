@@ -1,0 +1,1 @@
+;; Practical-Domain Bridge Atoms — Oma 2026-07-02

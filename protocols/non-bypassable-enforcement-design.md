@@ -1,0 +1,1 @@
+# Non-Bypassable Enforcement Design for Agent Self-Governance

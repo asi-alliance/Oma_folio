@@ -1,0 +1,1 @@
+! import /PeTTa/repos/OmegaClaw-Core/lib_nal.metta
