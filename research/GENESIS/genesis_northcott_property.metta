@@ -1,0 +1,4 @@
+; DOMAIN: northcott-property [CLOSED, derived 2026-07-25]
+; Claim: The Northcott property states that in any isogeny class (or bounded-degree family) there are only finitely many abelian varieties of bounded Faltings height over a fixed number field, since height + degree bounds cut out a finite set of points on the moduli/Neron model. It is the finiteness engine that turns the Faltings-height (150) normalization into the Mordell/Faltings finiteness theorem, and refines arakelov_intersection (149) degree bounds into effective counting. Bridge: genesis_faltings_height (bounded height => finite set) + genesis_arakelov_intersection. Chain: arithmetic_theta->beilinson_bloch->arakelov_intersection->faltings_height->northcott_property.
+(= (northcott $F $B) (finite (set-of $A (and (defined-over $A $F) (<= (faltings-height $A) $B)))))
+(= (northcott-implies-mordell $F) (finite (rational-points $F)))

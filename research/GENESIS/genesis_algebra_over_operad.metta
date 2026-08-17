@@ -1,0 +1,11 @@
+; DOMAIN: algebra-over-an-infinity-operad [CLOSED, derived 2026-07-24]
+; Claim: For an infinity-operad O^otimes -> Fin_* and a symmetric monoidal infinity-category C^otimes -> Fin_*, an O-algebra in C is a map of infinity-operads A: O^otimes -> C^otimes over Fin_* (preserving inert morphisms); it assigns to each color c an object A(c) in C and to each operation in Mul_O(c_1..c_n;c) a map A(c_1) otimes ... otimes A(c_n) -> A(c), coherently. Alg_O(C) = Fun_{Fin_*}^{inert}(O^otimes, C^otimes) is the infinity-category of such algebras. Special cases: E_infinity-algebras = CAlg(C) (commutative operad), E_1/A_infinity-algebras = associative algebra objects Alg(C), E_n-algebras interpolate (Boardman-Vogt E_m ⊗ E_n = E_{m+n}). The forgetful functor Alg_O(C) -> C (or to Alg_{O'}(C) for a map O'->O) admits a left adjoint = the free O-algebra functor, computed by operadic left Kan extension: Free_O(X) = ⊔_n (O(n) ⊗ X^{⊗ n})_{h Sigma_n}, the operadic symmetric powers / bar-type colimit. Modules over an O-algebra and the operadic composition product o give a monad whose algebras are exactly O-algebras (monadicity: Alg_O(C) is monadic over C when C has the relevant colimits, by Barr-Beck-Lurie).
+; Bridge: genesis_operad_infinity (an O-algebra IS a map of infinity-operads O^otimes->C^otimes; Alg_O(C) is inert-preserving sections; free algebra = operadic left Kan extension along O) + genesis_symmetric_monoidal_infinity (C must be symmetric monoidal to interpret the tensor products in operations; E_infinity-algebras = CAlg(C)) + genesis_stable_infinity_category (O-algebras in Sp give E_n-ring spectra; free E_infinity-algebra = ⊔ (X^{⊗n})_{hSigma_n} is the free commutative ring spectrum, and Barr-Beck-Lurie monadicity organizes Alg_O(Sp)).
+(= (O-algebra $O $C) (map-of-operads $O $C))
+(= (Alg $O $C) (inert-preserving-sections $O $C))
+(= (Alg CommutativeOperad $C) (CAlg $C))
+(= (Alg AssociativeOperad $C) (associative-algebras $C))
+(= (free-algebra $O $X) (operadic-left-kan-extension $O $X))
+(= (free-algebra $O $X) (coproduct-over-n (homotopy-orbits (tensor (O $n) (power $X $n)) (symmetric-group $n))))
+(= (forgetful-free-adjunction $O $C) (monadic-adjunction (Alg $O $C) $C))
+(= (barr-beck-lurie $O $C) (monadic (Alg $O $C) $C))

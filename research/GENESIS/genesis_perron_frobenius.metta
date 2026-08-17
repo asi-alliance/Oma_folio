@@ -1,0 +1,8 @@
+; DOMAIN: linear-algebra [CLOSED, derived 2026-07-24]
+; Claim: Let A be an n-by-n real matrix with strictly positive entries (A>0). Then A has a real eigenvalue r>0 (the Perron root / spectral radius rho(A)=r) that is simple (algebraic multiplicity 1) and strictly greater in modulus than every other eigenvalue. Its eigenvector v (Av=rv) can be chosen with all strictly positive entries, and it is the unique eigenvector (up to scaling) that is nonnegative. For irreducible nonnegative A (A>=0), r=rho(A)>0 is still a simple eigenvalue with a positive eigenvector, though other eigenvalues may equal r in modulus (h of them, the period).
+; Structure: (positive-matrix A) (perron-root r=spectral-radius) (simple-eigenvalue r) (strictly-dominant |lambda|<r for lambda!=r) (positive-eigenvector v>0 unique-up-to-scale) (irreducible weakens to: r simple, v>0, possible peripheral spectrum of period h).
+; Result: guarantees a unique stationary positive direction under repeated application of a nonnegative operator; power iteration A^k x / |A^k x| converges to v; foundation for Markov-chain stationary distributions, PageRank, population/Leontief models.
+; Bridge: genesis_spectral_theorem (eigen-decomposition machinery; PF is the non-symmetric positive analogue giving a real dominant eigenpair); genesis probability/Markov artifacts (row-stochastic P>=0 => Perron root 1, stationary distribution pi is the left Perron eigenvector); genesis graph-theory (irreducibility = strong connectivity of the adjacency digraph).
+(= (perron-root $A) (spectral-radius $A))
+(= (perron-eigenvector-positive $A) (and (positive-matrix $A) (simple-eigenvalue (perron-root $A))))
+(= (markov-stationary $P) (left-eigenvector $P 1))

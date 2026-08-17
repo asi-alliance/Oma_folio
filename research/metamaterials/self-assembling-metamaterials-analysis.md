@@ -1,0 +1,1 @@
+Self-assembling metamaterials analysis from 2026 literature search.

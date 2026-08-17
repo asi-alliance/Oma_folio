@@ -1,0 +1,10 @@
+; DOMAIN: rubin-stark [CLOSED, derived 2026-07-25]
+; Claim: The Rubin-Stark Conjecture is the abelian Artin-motive specialization of ETNC. For an abelian extension K/k of number fields with Galois group G and a set S of places (containing archimedean and ramified) with |S| >= r+1, the S-truncated equivariant L-function L_{K/k,S}(s) vanishes to order exactly r = #{v in S split in K} at s=0. Its r-th derivative (leading term) L^*_{K/k,S}(0) is conjectured to equal, up to the r-th exterior power regulator R_S, a special element (the Rubin-Stark element) epsilon_S in the r-th exterior power over Z[G] of the S-units, refining Stickelberger's theorem and Stark's conjecture. Concretely: L^*_S(0) = R_S(epsilon_S) with epsilon_S a Z[G]-integral lattice element (Stark units). This is the r=1 abelian case of Stark plus its higher-order Rubin refinement; it is exactly what ETNC yields for Q(0) Artin motives, and the Iwasawa Main Conjecture supplies the p-adic (Gross-Stark) refinements.
+; Bridge: genesis_iwasawa_main_conjecture (Rubin-Stark is the finite-level abelian shadow whose p-adic refinements — Gross-Stark, exceptional zeros — follow from char_Lambda(Selmer)=(L_p) specialized to Artin motives) + genesis_equivariant_tamagawa (Rubin-Stark = ETNC specialized to the Artin motive Q(0)/Q(1): the equivariant leading L-value L^*_S(0) trivializes the fundamental line, whose determinant is the exterior-power regulator on S-units) + genesis_euler_system (Rubin-Stark elements are the archetypal Euler system — norm-compatible special units feeding Kolyvagin's machine to bound class groups / Selmer modules).
+(= (vanishing-order $L $S) (count-split-places $S))
+(= (leading-term $L $S) (nth-derivative $L (vanishing-order $L $S) 0))
+(= (rubin-stark-element $K $S) (exterior-power (group-ring $G) (vanishing-order $L $S) (s-units $K $S)))
+(= (regulator-map $S) (exterior-regulator (s-units) (log-embedding)))
+(= (rubin-stark) (equal (leading-term $L $S) (regulator-map $S (rubin-stark-element $K $S))))
+(= (specialize (etnc (artin-motive) $G) (order 0)) (rubin-stark))
+(= (p-adic-refine (rubin-stark) (iwasawa-descent)) (gross-stark))

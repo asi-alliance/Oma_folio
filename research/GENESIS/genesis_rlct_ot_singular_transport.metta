@@ -1,0 +1,1 @@
+(|- ((--> bridge RLCT optimal_transport) RLCTSingularTransportGeometry) (stv 0.9 0.9))(|- ((==> (--> SingularStatisticalManifold DegenerateFisherMetric) (--> OttoCalculus BreaksDown)) (stv 0.85 0.9)))

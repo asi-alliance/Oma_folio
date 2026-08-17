@@ -1,0 +1,10 @@
+; DOMAIN: k-theory/chern-character [CLOSED, derived 2026-07-24]
+; Claim: The Chern character ch: K^0(X) -> H^{even}(X;Q) is a ring homomorphism from complex topological K-theory to rational even cohomology, defined on a line bundle L by ch(L)=exp(c_1(L))=sum c_1(L)^k/k!, extended additively via the splitting principle so ch(E+F)=ch(E)+ch(F) and ch(E*F)=ch(E)ch(F). It induces an isomorphism K^0(X) tensor Q =~ prod_k H^{2k}(X;Q), i.e. rationally K-theory and even cohomology agree. For E of rank r with Chern roots x_i: ch(E)=sum_i exp(x_i)=r + c_1 + (c_1^2-2c_2)/2 + ... . Compatible with Bott periodicity and the Atiyah-Hirzebruch spectral sequence H^p(X;K^q(pt)) => K^{p+q}(X), whose rational collapse is exactly the Chern-character isomorphism.
+; Structure: (ch(L)=exp(c_1 L)) (ch additive on sums, multiplicative on tensor) (ch: K^0(X)⊗Q ≅ ⊕_k H^{2k}(X;Q) ring iso) (ch(E)=Σ exp(Chern roots), splitting principle) (Atiyah-Hirzebruch SS collapses rationally to ch).
+; Result: the Chern character is the precise bridge making K-theory a rational refinement of ordinary cohomology, and underlies Riemann-Roch (Todd-class twist) and the index theorem.
+; Bridge: genesis_k_theory (ch is the fundamental ring map out of K^0) + genesis_bott_periodicity (ch intertwines the period-2 K-theory with even cohomology) + genesis_spectral_sequence (Atiyah-Hirzebruch SS, rational collapse = ch iso) + genesis_homology (target is even singular/de Rham cohomology).
+(= (chern-character-line $L) (exp (first-chern-class $L)))
+(= (chern-additive $E $F) (equal (chern-character (sum $E $F)) (plus (chern-character $E) (chern-character $F))))
+(= (chern-multiplicative $E $F) (equal (chern-character (tensor $E $F)) (times (chern-character $E) (chern-character $F))))
+(= (chern-iso $X) (ring-isomorphism (tensor-Q (k-theory-0 $X)) (even-cohomology-Q $X)))
+(= (chern-splitting $E) (sum-over-chern-roots (exp $root)))

@@ -1,0 +1,10 @@
+; DOMAIN: complex-multiplication [CLOSED, derived 2026-07-25]
+; Claim: The theory of Complex Multiplication (CM) is the imaginary-quadratic solution to Hilbert's 12th problem (Kronecker Jugendtraum). For an imaginary quadratic field K with ring of integers O_K, an elliptic curve E/C with End(E)=O_K has j-invariant j(E) that is an algebraic integer generating the Hilbert class field H of K over K (H=K(j(E))), and the Galois action on {j-invariants of the h_K classes} realizes the class group Cl(K) via the Artin map (main theorem of CM, Shimura-Taniyama). Adjoining torsion / values of the Weber function h(E[n]) generates the full ray class fields, giving all abelian extensions of K explicitly by special values of modular/elliptic functions (analogue of Kronecker-Weber's roots of unity for Q). This is the elliptic/imaginary-quadratic counterpart of the Stark program's explicit units for real fields.
+; Bridge: genesis_stark_conjecture (CM gives the imaginary-quadratic analogue of Hilbert's 12th that Stark units solve over totally real fields; both realize explicit class field theory, CM via singular moduli/torsion, Stark via special units) + genesis_galois_theory (the main theorem of CM identifies Gal(H/K) with Cl(K) via the Artin reciprocity map, an explicit instance of the Galois correspondence) + genesis_dirichlet (class field theory over K organizes the abelian extensions and their L-functions / density, extending Dirichlet's characters to ray class characters of K).
+(= (cm-elliptic-curve $K) (elliptic-curve (end-ring $O_K)))
+(= (singular-modulus $K) (j-invariant (cm-elliptic-curve $K)))
+(= (hilbert-class-field $K) (adjoin $K (singular-modulus $K)))
+(= (cm-main-theorem $K) (iso (galois-group (hilbert-class-field $K) $K) (class-group $K)))
+(= (ray-class-field $K $n) (adjoin (hilbert-class-field $K) (weber-function (torsion (cm-elliptic-curve $K) $n))))
+(= (kronecker-jugendtraum $K) (generate (abelian-extensions $K) (special-values elliptic-modular)))
+(= (imaginary-quadratic-analogue (stark-conjecture)) (complex-multiplication))
