@@ -1,7 +1,0 @@
-; DOMAIN: bsd-conjecture [CLOSED, derived 2026-07-25]
-; Claim: The Birch and Swinnerton-Dyer conjecture asserts for an elliptic curve E/Q that the analytic rank equals the algebraic rank, ord_{s=1} L(E,s) = rank E(Q), and that the leading Taylor coefficient of L(E,s) at s=1 is lim_{s->1} L(E,s)/(s-1)^r = (Omega_E * Reg_E * prod_p c_p * #Sha(E/Q)) / (#E(Q)_tors)^2, where Omega_E is the real period, Reg_E the Neron-Tate regulator (determinant of the canonical height pairing on a Mordell-Weil basis), c_p the Tamagawa numbers, #Sha the (conjecturally finite, perfect-square) order of the Tate-Shafarevich group, and #E(Q)_tors the torsion order. It unifies the analytic object L(E,s) with the arithmetic invariants of E. Bridge: genesis_l_function_elliptic (supplies L(E,s), its analytic continuation and order of vanishing at s=1) + genesis_mordell_weil (supplies rank E(Q) and the finitely-generated group whose regulator enters the formula) + genesis_cassels_tate_pairing (supplies the perfect-square #Sha factor and its finiteness).
-(= (bsd-rank-part $E) (equal (order-vanishing (l-function $E) 1) (rank $E)))
-(= (bsd-leading $E $r) (limit (div (l-function $E) (pow (- $s 1) $r)) ($s 1)))
-(= (bsd-formula $E) (equal (bsd-leading $E (rank $E)) (div (mult (real-period $E) (regulator $E) (tamagawa-product $E) (order (sha-group $E))) (square (order (torsion $E))))))
-(= (regulator $E) (determinant (canonical-height-pairing (mordell-weil-basis $E))))
-(= (unifies $E) (bridge (analytic (l-function $E)) (arithmetic (mordell-weil $E) (sha-group $E))))

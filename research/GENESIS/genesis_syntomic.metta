@@ -1,8 +1,0 @@
-; DOMAIN: syntomic-cohomology [CLOSED, derived 2026-07-24]
-; Claim: Syntomic cohomology (Fontaine-Messing, refined by Nekovar-Niziol and Bhatt-Morrow-Scholze/Bhatt-Lurie prismatic F-gauges) is the p-adic analogue of Deligne-Beilinson cohomology: it is the homotopy fiber H^i_syn(X,n) = fib(Fil^n Frobenius-eigenspace) computing p-adic etale/motivic invariants. Prismatically, R Gamma_syn(X,Z_p(n)) = fib(can - phi/p^n : Fil^n_N Prism -> Prism) over the Nygaard filtration; it is the weight-n motivic-filtered piece of p-adic K-theory / TC. The syntomic regulator / Bloch-Kato exponential maps Galois cohomology H^1_f(K,V) (crystalline Selmer classes) to de Rham data, realizing p-adic Hodge theory as the coefficient theory. Bridges the FF/period-ring classification (H^1_f = crystalline extensions) to prismatic cohomology and K-theory.
-; Bridge: genesis_p_adic_hodge (syntomic H^1 = Bloch-Kato H^1_f built from B_cris exact sequence; crystalline Selmer classes = crystalline representations extensions) + genesis_prismatic_cohomology (syntomic = fiber of can-phi/p^n on Nygaard-filtered prismatic cohomology, F-gauge realization) + genesis_k_theory (syntomic Z_p(n) = weight-n graded of the motivic filtration on p-adic K-theory/TC).
-(= (syntomic $X $n) (fiber (minus (can) (frobenius-div (nygaard-filtration (prismatic $X)) $n))))
-(= (bloch-kato-h1f $K $V) (crystalline-extensions $V))
-(= (syntomic-regulator $X $n) (map (syntomic $X $n) (de-rham-data $X)))
-(= (motivic-graded (k-theory-p-adic $X) $n) (syntomic $X $n))
-(= (fontaine-messing $X $n) (syntomic $X $n))

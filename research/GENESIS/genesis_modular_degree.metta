@@ -1,7 +1,0 @@
-; DOMAIN: modular-degree [CLOSED, derived 2026-07-25]
-; Claim: For an elliptic curve E over Q of conductor N with modular parametrization phi: X_0(N)->E, the modular degree deg(phi)=m_E is the degree of this covering (minimal over the isogeny class taking the optimal/strong Weil curve). It bounds the congruence number r_E (largest integer such that the newform f is congruent mod r_E to a form in the orthogonal complement): m_E | r_E and they share prime factors, with r_E/m_E supported on primes of additive reduction (Agashe-Ribet-Stein). Related to the Manin constant c (phi^*omega_E = c f dq/q, c=1 conjecturally, =1 for optimal curves at good primes) via the Petersson norm: deg(phi) = (c^2 * <f,f>)/(deg-normalization). Modular degree controls congruences between eigenforms, the height of Heegner points, and appears in bounds on #Sha in the BSD formula (Sha divides m_E-type quantities via Kolyvagin). Bridge: genesis_modular_parametrization (deg of phi: X_0(N)->E) + genesis_heegner_points (m_E scales Gross-Zagier heights of y_K) + genesis_elliptic_curve (invariant differential omega_E, isogeny-class optimal curve).
-(= (modular-degree $E) (degree (modular-parametrization $E)))
-(= (congruence-number $E) (largest-r (congruent-newform-complement (newform $E))))
-(= (divides-congruence $E) (divides (modular-degree $E) (congruence-number $E)))
-(= (petersson-formula $E) (equal (modular-degree $E) (ratio (times (square (manin-constant $E)) (petersson-norm (newform $E))) (normalization $E))))
-(= (sha-bound $E) (controls (modular-degree $E) (order (sha $E))))

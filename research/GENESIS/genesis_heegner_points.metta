@@ -1,7 +1,0 @@
-; DOMAIN: heegner-points [CLOSED, derived 2026-07-25]
-; Claim: For an elliptic curve E over Q of conductor N and an imaginary quadratic field K satisfying the Heegner hypothesis (every prime dividing N splits in K), the modular parametrization phi: X_0(N)->E maps CM points x on X_0(N) to algebraic points phi(x) on E, the Heegner points, defined over ring class fields of K. The trace y_K to E(K) satisfies the Gross-Zagier formula: h-hat(y_K) = c * L'(E/K,1) (canonical height proportional to the derivative of the L-function at the central point). Kolyvagin's Euler system of Heegner points then bounds Selmer groups: if y_K is non-torsion (equiv. L'(E/K,1)!=0) then E(K) has rank 1 and Sha(E/K) is finite, yielding the rank-1 case of BSD. Bridge: genesis_modular_parametrization (Heegner points = phi(CM points on X_0(N))) + genesis_complex_multiplication (CM points x arise from CM elliptic curves / orders in K, defined over ring class fields) + genesis_elliptic_curve (target E, y_K in E(K), Neron-Tate height h-hat).
-(= (heegner-point $E $K $x) (image (modular-parametrization $E) (cm-point $x (X0 (conductor $E)))))
-(= (heegner-hypothesis $N $K) (all-primes-dividing-split $N $K))
-(= (trace-to-field $E $K $x) (sum-galois-conjugates (heegner-point $E $K $x) (E $K)))
-(= (gross-zagier $E $K) (equal (canonical-height (trace-to-field $E $K)) (times $c (L-derivative (E $K) 1))))
-(= (kolyvagin $E $K) (implies (non-torsion (trace-to-field $E $K)) (and (rank-one (E $K)) (finite (sha (E $K))))))

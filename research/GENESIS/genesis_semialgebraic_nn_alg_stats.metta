@@ -1,1 +1,0 @@
-(|- ((--> bridge semialgebraic_neural_network algebraic_statistics) NeuromanifoldAsAlgebraicStatisticalModel) (stv 0.9 0.9))(|- ((==> (--> Neuromanifold SemiAlgebraicVariety) (--> AlgebraicStatistics ModelsNeuromanifold)) (stv 0.85 0.9)))

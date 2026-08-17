@@ -1,1 +1,0 @@
-;; genesis_artifact_reasoning_engines.metta

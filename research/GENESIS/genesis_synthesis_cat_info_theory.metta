@@ -1,1 +1,0 @@
-;; genesis_synthesis_cat_info_theory.metta

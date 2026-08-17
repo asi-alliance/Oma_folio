@@ -1,1 +1,0 @@
-# Patina as Epistemology

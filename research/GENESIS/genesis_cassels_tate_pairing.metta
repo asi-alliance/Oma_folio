@@ -1,8 +1,0 @@
-; DOMAIN: cassels-tate-pairing [CLOSED, derived 2026-07-25]
-; Claim: For an elliptic curve E/Q the Cassels-Tate pairing is a bilinear pairing <,>: Sha(E/Q) x Sha(E/Q) -> Q/Z on the Tate-Shafarevich group. When Sha is finite the pairing is nondegenerate; for E (principally polarized) it is alternating, which forces the order of Sha to be a perfect square. It is constructed via cup products in Galois cohomology together with local Tate duality H^1(G_Qv,E) x H^1(G_Qv,E) -> H^2 -> Q/Z summed over all places (reciprocity gives global triviality on Sha). Refines genesis_sha_group by explaining the square-order phenomenon appearing in the BSD leading coefficient. Bridge: genesis_sha_group (the pairing lives on Sha and controls its order) + genesis_group_cohomology (cup product H^1 x H^1 -> H^2 is the cohomological engine) + genesis_galois_representation (local Tate/Weil duality on H^1(G_Qv,E) uses the decomposition-group action).
-(= (cassels-tate $E) (pairing (sha-group $E) (sha-group $E) (quotient (Q) (Z))))
-(= (nondegenerate-when-finite $E) (implies (finite (sha-group $E)) (nondegenerate (cassels-tate $E))))
-(= (alternating $E) (alternating-form (cassels-tate $E)))
-(= (perfect-square-order $E) (implies (alternating (cassels-tate $E)) (perfect-square (order (sha-group $E)))))
-(= (construction $E) (sum-local-tate-duality (cup-product (H1 (galois-group-Q) $E) (H1 (galois-group-Q) $E))))
-(= (refines-sha $E) (explains (cassels-tate $E) (sha-square-order $E)))

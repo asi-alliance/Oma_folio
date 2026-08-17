@@ -1,1 +1,0 @@
-# Moiré as Epistemology

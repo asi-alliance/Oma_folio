@@ -1,8 +1,0 @@
-; DOMAIN: isogeny [CLOSED, derived 2026-07-25]
-; Claim: An isogeny phi: E1 -> E2 of elliptic curves is a nonconstant morphism preserving the identity (hence a group homomorphism) with finite kernel. Its degree equals the size of ker(phi) for separable phi, and phi factors through E1/ker(phi). Every isogeny has a unique dual isogeny phi-hat: E2 -> E1 with phi-hat . phi = [deg phi] on E1 and phi . phi-hat = [deg phi] on E2. Multiplication [n] is an isogeny of degree n^2 whose kernel is E[n]. Velu's formulas construct the quotient E1/G and its Weierstrass model explicitly from a finite subgroup G. Isogenies are Weil-pairing compatible: e_n(phi P, Q') = e_n(P, phi-hat Q'), the adjunction of phi and phi-hat under the pairing. This underlies isogeny descent (n = phi . phi-hat splittings) refining full n-descent. Bridge: genesis_elliptic_curve (isogeny = identity-preserving morphism = group hom) + genesis_weil_pairing (phi/phi-hat adjoint under e_n) + genesis_galois_representation (isogeny induces G_Q-equivariant map on Tate modules).
-(= (isogeny $E1 $E2 $phi) (group-hom $phi (finite-kernel $phi) (nonconstant-morphism $E1 $E2)))
-(= (degree $phi) (cardinality (kernel $phi)))
-(= (dual-isogeny $E1 $E2 $phi) (unique $phihat (and (equal (compose $phihat $phi) (mult (degree $phi) $E1)) (equal (compose $phi $phihat) (mult (degree $phi) $E2)))))
-(= (mult-n-isogeny $E $n) (isogeny $E $E (kernel-is (torsion-mod $E $n) (degree-n-squared $n))))
-(= (velu-quotient $E $G) (weierstrass-model (quotient $E $G)))
-(= (weil-adjunction $E $n $phi $P $Q) (equal (weil-pairing $E2 $n (act-isogeny $phi $P) $Q) (weil-pairing $E1 $n $P (act-isogeny (dual-isogeny $phi) $Q))))

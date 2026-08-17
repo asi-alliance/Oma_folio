@@ -1,7 +1,0 @@
-; DOMAIN: measure-theory [CLOSED, derived 2026-07-24]
-; Claim: Let (X,A,mu) and (Y,B,nu) be sigma-finite measure spaces with product measure mu x nu on the product sigma-algebra. TONELLI: for f >= 0 measurable, the iterated integrals equal the double integral: integral_{XxY} f d(mu x nu) = integral_X (integral_Y f(x,y) dnu(y)) dmu(x) = integral_Y (integral_X f(x,y) dmu(x)) dnu(y), with no integrability hypothesis. FUBINI: for f integrable (integral |f| d(mu x nu) < infinity), the same equalities hold and the inner integrals are finite a.e. and integrable.
-; Structure: (sigma-finite mu nu) (product-measure mu x nu) (tonelli nonnegative: iterated=double always) (fubini integrable: iterated=double + a.e. finiteness) (counterexample: non-sigma-finite or non-integrable sign-changing f can break equality).
-; Result: multidimensional integration reduces to iterated one-dimensional integration; order of integration is interchangeable under nonnegativity (Tonelli) or absolute integrability (Fubini).
-; Bridge: genesis_central_limit_theorem convolution of densities uses product-measure/Fubini; genesis_heat_equation convolution K_t * f is a product-measure integral justified by Tonelli (kernel >= 0); complements genesis_dominated_convergence and genesis_radon_nikodym as core Lebesgue-integration machinery.
-(= (iterated-equals-double $f) (or (nonnegative-measurable $f) (product-integrable $f)))
-(= (fubini-swap (integral X (integral Y $f)) ) (integral Y (integral X $f)))

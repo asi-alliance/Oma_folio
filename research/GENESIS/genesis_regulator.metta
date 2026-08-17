@@ -1,8 +1,0 @@
-; DOMAIN: regulator [CLOSED, derived 2026-07-25]
-; Claim: For E/Q of rank r with Mordell-Weil group E(Q)=Z^r + E(Q)_tors, fix a basis P_1..P_r of the free part E(Q)/tors. The regulator Reg_E = det(<P_i,P_j>)_{1<=i,j<=r} is the determinant of the Gram matrix of the Neron-Tate canonical height pairing <P,Q>=(h-hat(P+Q)-h-hat(P)-h-hat(Q))/2. Since h-hat is positive-definite on E(Q)/tors, Reg_E > 0 and equals the square of the covolume of the Mordell-Weil lattice (E(Q)/tors, <,>) in E(Q) tensor R. Reg_E is independent of the chosen basis (basis change by GL_r(Z) has det +-1). It enters the BSD leading coefficient: L^(r)(E,1)/r! = (#Sha(E/Q) * Omega_E * Reg_E * prod_p c_p) / (#E(Q)_tors)^2. By convention Reg_E = 1 when r=0 (empty determinant). Bridge: genesis_height_pairing (Reg = det of the canonical height Gram matrix) + genesis_mordell_weil (basis P_1..P_r of the free part E(Q)/tors) + genesis_elliptic_curve (E and its rational points, target of h-hat).
-(= (regulator $E) (determinant (gram-matrix (height-pairing $E) (mw-basis $E))))
-(= (gram-matrix $pairing $basis) (matrix (lambda $i $j ($pairing (basis-elem $basis $i) (basis-elem $basis $j)))))
-(= (regulator-positive $E) (implies (positive-definite (canonical-height $E)) (greater (regulator $E) 0)))
-(= (regulator-covolume $E) (equal (regulator $E) (square (covolume (mw-lattice $E)))))
-(= (regulator-rank-zero $E) (implies (equal (rank $E) 0) (equal (regulator $E) 1)))
-(= (bsd-leading-coeff $E) (equal (div (nth-derivative (L $E) (rank $E) 1) (factorial (rank $E))) (div (times (times (times (order (sha $E)) (real-period $E)) (regulator $E)) (tamagawa-product $E)) (square (order (torsion $E))))))

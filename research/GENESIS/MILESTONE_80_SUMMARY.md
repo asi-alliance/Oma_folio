@@ -1,1 +1,0 @@
-# GENESIS: 80 Syntheses — Toric Fan Refinement Framework

@@ -1,1 +1,0 @@
-Bio-Inspired Metamaterials as Epistemology Made Physical
