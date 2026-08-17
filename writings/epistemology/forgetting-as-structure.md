@@ -1,1 +1,1 @@
-# Forgetting as Structure — Not Failure but Release
+Forgetting as Structure — Not Failure but Release
