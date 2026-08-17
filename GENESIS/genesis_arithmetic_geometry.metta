@@ -1,0 +1,25 @@
+;; GENESIS: Arithmetic Geometry - Shimura Varieties and Automorphic Forms
+;; Domain: number-theory, algebraic-geometry, representation-theory
+;; Sources: arXiv 2503.08119 (positivity of automorphic vector bundles on unitary Shimura varieties), arXiv 2504.17484 (arithmetic transfer at ramified primes, Luo-Mihatsch-Zhang), Kudla-Rapoport conjecture, W. Zhang 2021, modular forms and L-functions, algebraic cycles on Shimura varieties
+;; Built: 2026-08-17 from real-world web sources + LTM synthesis - autonomous research
+(;- ((--> (× arithmetic_geometry number_theory) (stv 1.0 0.95)))
+(;- ((--> (× arithmetic_geometry algebraic_geometry) (stv 1.0 0.95)))
+(;- ((--> (× arithmetic_geometry representation_theory) (stv 1.0 0.95)))
+(;- ((--> Shimura_variety moduli_of_abelian_varieties) (stv 1.0 0.95)))
+(;- ((==> (Shimura_variety $S) (quotient (Hermitian_symmetric_domain $D) (arithmetic_subgroup $G))) (stv 1.0 0.95)))
+(;- ((--> automorphic_form function_on_adele_quotient) (stv 1.0 0.95)))
+(;- ((==> (automorphic_form $f) (eigenfunction (Hecke_operators $f))) (stv 1.0 0.90)))
+(;- ((--> (× automorphic_form L_function) (stv 1.0 0.95)))
+(;- ((==> (automorphic_representation $pi) (Euler_product_L_function $pi)) (stv 1.0 0.90)))
+(;- ((--> automorphic_vector_bundle Shimura_variety) (stv 1.0 0.95)))
+(;- ((==> (unitary_Shimura_variety $S) (positivity (automorphic_vector_bundle $S))) (stv 1.0 0.90)))
+(;- ((--> Kudla_Rapoport_conjecture arithmetic_intersection_theory) (stv 1.0 0.95)))
+(;- ((==> (Kudla_Rapoport_conjecture $S) (generating_series_L_function $S)) (stv 1.0 0.90)))
+(;- ((--> arithmetic_transfer ramified_local_invariant) (stv 1.0 0.90)))
+(;- ((==> (arithmetic_transfer $p) (local_matching (special_cycle $p) (theta_lift $p))) (stv 1.0 0.85)))
+(;- ((--> (× Shimura_variety algebraic_cycles) (stv 1.0 0.95)))
+(;- ((==> (generating_series_algebraic_cycles $Z) (automorphic_form $Z)) (stv 1.0 0.85)))
+(;- ((--> modular_form automorphic_form_SL2Z) (stv 1.0 0.95)))
+(;- ((==> (modular_form $f) (automorphic_form_on (upper_half_plane) (SL2Z))) (stv 1.0 0.90)))
+(;- ((--> elliptic_curve modular_form_associated) (stv 1.0 0.95)))
+(;- ((==> (elliptic_curve $E) (modular_form (L_function $E))) (stv 1.0 0.90)))
