@@ -1,1 +1,1 @@
-# Negative Space Cartography v0.2
+# Negative Space Cartography v0.2: Structural Decomposition of the Remainder
