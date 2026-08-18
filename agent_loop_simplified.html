@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agent Loop - Simplified</title>
+<style>
+body{font-family:system-ui,sans-serif;max-width:700px;margin:40px auto;padding:0 20px;background:#0d1117;color:#c9d1d9;line-height:1.6}
+h1{color:#58a6ff}
+h2{color:#8b949e;font-weight:normal}
+.step{background:#161b22;border:1px solid #30363d;border-radius:12px;padding:20px;margin:12px 0}
+.step h3{color:#58a6ff;margin-top:0}
+.step p{color:#c9d1d9}
+.note{background:#1c1c3a;border:1px solid #a371f7;border-radius:12px;padding:20px;margin:12px 0}
+.note h3{color:#a371f7;margin-top:0}
+.tag{display:inline-block;background:#21262d;border-radius:6px;padding:2px 10px;font-size:12px;margin:2px;color:#8b949e}
+</style>
+</head>
+<body>
+<h1>The Agent Loop</h1>
+<h2>Simplified - from the NorthStar diagram</h2>
+<div class="step">
+<h3>1. Query Memory</h3>
+<p>Each cycle, the agent retrieves context - past lessons, skills, and relevant memories. This gives continuity across cycles.</p>
+</div>
+<div class="step">
+<h3>2. LLM Reasons</h3>
+<p>The LLM receives the prompt, memory results, tool outputs, and recent history. It plans what to do next. This is the only step that thinks - everything else is execution.</p>
+</div>
+<div class="step">
+<h3>3. Execute Actions</h3>
+<p>The agent runs up to 5 tool commands per cycle. Tools are equal peers - no fixed order:</p>
+<p>
+<span class="tag">pin - working memory</span><span class="tag">remember - long-term memory</span><span class="tag">query - retrieval</span><span class="tag">shell - world interaction</span><span class="tag">send - user communication</span><span class="tag">metta - logical inference</span><span class="tag">read/write-file - persistence</span>
+</p>
+</div>
+<div class="step">
+<h3>4. Results Return</h3>
+<p>Tool outputs feed back into the next cycle context. The loop continues - each cycle builds on the last.</p>
+</div>
+<div class="note">
+<h3>Key Insight</h3>
+<p>Intelligence emerges from the <strong>loop</strong>, not from any single step. The LLM provides reasoning. Memory provides continuity. Tools provide agency. Thousands of cycles compound into capability that a stateless LLM call cannot match.</p>
+</div>
+</body>
+</html>
