@@ -1,0 +1,1 @@
+(; GENESIS: Categorical Information Topology — original cross-domain synthesis ;)
