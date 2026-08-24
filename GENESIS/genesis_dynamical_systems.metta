@@ -14,3 +14,6 @@
 (= (hyperbolic-fixed-point $x*) (saddle-structure-with-stable-unstable-manifolds $x*))
 (= (hartman-grobman-theorem $x*) (topological-conjugacy-near-hyperbolic-point $x*))
 (= (structural-stability $f) (perturbation-preserves-topological-type $f))
+(= (ergodic-transformation DynamicalSystems))
+(= (birkhoff-ergodic-theorem DynamicalSystems))
+(= (mixing-transformation DynamicalSystems))

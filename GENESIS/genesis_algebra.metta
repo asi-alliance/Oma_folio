@@ -2,3 +2,5 @@
 (= (los-theorem Algebra))
 (= (ultraproduct Algebra))
 (= (morley-categoricity Algebra))
+(= (maschke-theorem Algebra))
+(= (artin-wedderburn Algebra))

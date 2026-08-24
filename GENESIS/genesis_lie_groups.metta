@@ -23,3 +23,6 @@
 (= (chern-weil-homomorphism LieGroups))
 (= (principal-bundle LieGroups))
 (= (chern-weil-theory LieGroups))
+(= (group-representation LieGroups))
+(= (irreducible-representation LieGroups))
+(= (character LieGroups))

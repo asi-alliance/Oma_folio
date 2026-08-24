@@ -14,3 +14,6 @@
 (= (tempered-distribution $T) (continuous-linear-functional-on-schwartz-space $T))
 (= (uncertainty-principle $f) (time-frequency-support-tradeoff $f))
 (= (paley-wiener-theorem $f) (support-and-analyticity-linked $f))
+(= (group-representation HarmonicAnalysis))
+(= (irreducible-representation HarmonicAnalysis))
+(= (peter-weyl-theorem HarmonicAnalysis))

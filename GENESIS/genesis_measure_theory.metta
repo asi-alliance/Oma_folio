@@ -17,3 +17,6 @@
 (= (borel-hierarchy MeasureTheory))
 (= (analytic-set MeasureTheory))
 (= (polish-space MeasureTheory))
+(= (measure-preserving-transformation MeasureTheory))
+(= (ergodic-transformation MeasureTheory))
+(= (birkhoff-ergodic-theorem MeasureTheory))
