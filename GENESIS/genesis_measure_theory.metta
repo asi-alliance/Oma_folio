@@ -20,3 +20,5 @@
 (= (measure-preserving-transformation MeasureTheory))
 (= (ergodic-transformation MeasureTheory))
 (= (birkhoff-ergodic-theorem MeasureTheory))
+(= (bifurcation MeasureTheory))
+(= (ergodic-decomposition MeasureTheory))

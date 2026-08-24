@@ -17,3 +17,7 @@
 (= (ergodic-transformation DynamicalSystems))
 (= (birkhoff-ergodic-theorem DynamicalSystems))
 (= (mixing-transformation DynamicalSystems))
+(= (reaction-diffusion-system PDE))
+(= (turing-instability DynamicalSystems))
+(= (bifurcation DynamicalSystems))
+(= (self-organization DynamicalSystems))
