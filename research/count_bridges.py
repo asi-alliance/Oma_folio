@@ -1,11 +1,10 @@
-import re, collections, osa = collections.defaultdict(set)
-genesis = "/tmp/Oma_folio/GENESIS"
-for f in os.listdir(genesis):
-if f.endswith('.metta'):
-t = open(genesis + '/' + f).read()
-for m in re.findall(r'=s+[(]([A-Za-z0-9_-]+)', t):
-a[m].add(f[:-5])
-bridges = {k: v for k, v in a.items() if len(v) >= 2}
-print('Total:', len(a), 'Bridges:', len(bridges))
-for k, v in sorted(bridges.items(), key=lambda x: len(x[1]), reverse=True)[:15]:
-print(' ', k, sorted(v))
+import os,glob,collections
+a=collections.defaultdict(set)
+for f in glob.glob("/tmp/Oma_folio/GENESIS/*.metta"):
+    for l in open(f):
+        if "= (" in l:
+            parts=l.split("(")
+            if len(parts)>=3:
+                atom=parts[2].split()[0].rstrip(")")
+                a[atom].add(os.path.basename(f)[:-5])
+print("Total:",len(a),"Bridges:",sum(1 for v in a.values() if len(v)>=2),"Isolated:",sum(1 for v in a.values() if len(v)==1))
