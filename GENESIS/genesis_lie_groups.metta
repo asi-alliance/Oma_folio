@@ -20,3 +20,6 @@
 (= (cross-domain-bridge-lg-hodge $system) (and (bridges genesis_lie_groups genesis_hodge_theory) (uses lie-algebra-cohomology hodge-decomposition) (uses compact-lie-group harmonic-forms) (uses weyl-group hodge-riemannian)))
 (= (cross-domain-bridge-lg-topo $system) (and (bridges genesis_lie_groups genesis_topology) (uses topological-group maximal-torus) (uses quotient-topology homogeneous-space) (uses cell-decomposition weyl-group)))
 (= (cross-domain-bridge-lg-dst $system) (and (bridges genesis_lie_groups genesis_descriptive_set_theory) (uses compact-lie-group borel-equivalence-relation) (uses lie-algebra polish-space) (uses adjoint-orbit standard-borel-space)))
+(= (chern-weil-homomorphism LieGroups))
+(= (principal-bundle LieGroups))
+(= (chern-weil-theory LieGroups))

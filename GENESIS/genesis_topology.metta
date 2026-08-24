@@ -24,3 +24,7 @@
 (= (borel-hierarchy MeasureTheory))
 (= (analytic-set SetTheory))
 (= (polish-space SetTheory))
+(= (chern-character Topology))
+(= (chern-class Topology))
+(= (chern-weil-theory Topology))
+(= (pontryagin-class Topology))

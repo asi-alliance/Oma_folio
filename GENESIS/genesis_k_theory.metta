@@ -17,3 +17,8 @@
 (= (cross-domain-bridge-k-topo $system) (and (bridges genesis_k_theory genesis_topology) (uses covering-space k-theory-fundamental-class) (uses topological-space vector-bundle) (uses cohomology-theory chern-class)))
 (= (c-star-algebra KTheory))
 (= (gns-construction KTheory))
+(= (chern-character KTheory))
+(= (chern-class KTheory))
+(= (adams-operations KTheory))
+(= (chern-character OperatorAlgebras))
+(= (karoubi-chern-character OperatorAlgebras))

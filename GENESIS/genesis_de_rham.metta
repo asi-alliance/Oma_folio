@@ -26,3 +26,6 @@
 (|- ((--> Gauss-Bonnet-theorem de_rham_cohomology) (stv 1.0 0.9)))
 (|- ((--> Morse-theory de_rham_cohomology) (stv 1.0 0.9)))
 (|- ((--> spectral-sequence-de-rham de_rham_cohomology) (stv 1.0 0.9)))
+(= (chern-character DeRham))
+(= (chern-weil-theory DeRham))
+(= (curvature-form DeRham))
