@@ -1,0 +1,1 @@
+# Fan Architecture: Recursive Closure + Original Synthesis
