@@ -14,3 +14,6 @@
 (= (fatou-lemma $f_n) (integral-liminf-leq-liminf-integral $f_n))
 (= (sigma-finite-measure $mu) (countable-cover-finite-measure $mu))
 (= (regular-measure $mu) (inner-regularity-compact-sets $mu))
+(= (borel-hierarchy MeasureTheory))
+(= (analytic-set MeasureTheory))
+(= (polish-space MeasureTheory))
