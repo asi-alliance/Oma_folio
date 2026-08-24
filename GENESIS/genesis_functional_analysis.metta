@@ -16,3 +16,5 @@
 (= (fredholm-operator $T) (finite-dimensional-kernel-and-cokernel $T))
 (= (cross-domain-bridge-fa-diffgeo $system) (and (bridges genesis_functional_analysis genesis_differential_geometry) (uses sobolev-space riemannian-metric) (uses banach-manifold elliptic-operator) (uses spectral-theorem laplace-beltrami)))
 (= (cross-domain-bridge-fa-repthry $system) (and (bridges genesis_functional_analysis genesis_representation_theory) (uses banach-algebra group-algebra) (uses spectral-theorem character-theory) (uses gelfand-pair peter-weyl)))
+(= (gns-construction FunctionalAnalysis))
+(= (gelfand-transform FunctionalAnalysis))

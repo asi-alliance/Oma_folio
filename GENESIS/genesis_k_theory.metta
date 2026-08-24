@@ -15,3 +15,5 @@
 (= (cross-domain-bridge-k-hodge $system) (and (bridges genesis_k_theory genesis_hodge_theory) (uses index-theorem hodge-decomposition) (uses chern-character hodge-star) (uses k0-ring betti-numbers)))
 (= (cross-domain-bridge-k-dst $system) (and (bridges genesis_k_theory genesis_descriptive_set_theory) (uses k0-ring borel-equivalence-relation) (uses vector-bundle standard-borel-space) (uses k-theory polish-space)))
 (= (cross-domain-bridge-k-topo $system) (and (bridges genesis_k_theory genesis_topology) (uses covering-space k-theory-fundamental-class) (uses topological-space vector-bundle) (uses cohomology-theory chern-class)))
+(= (c-star-algebra KTheory))
+(= (gns-construction KTheory))

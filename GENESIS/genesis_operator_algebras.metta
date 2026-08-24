@@ -24,3 +24,6 @@
 (|- ((--> C*-algebra operator_algebras) (stv 1.0 0.9)))
 (|- ((--> von-Neumann-bicommutant-theorem operator_algebras) (stv 1.0 0.9)))
 (|- ((--> Tomita-Takesaki-theory operator_algebras) (stv 1.0 0.9)))
+(= (c-star-algebra OperatorAlgebras))
+(= (gns-construction OperatorAlgebras))
+(= (spectral-theorem-normal OperatorAlgebras))
