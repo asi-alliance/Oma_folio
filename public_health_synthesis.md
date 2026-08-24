@@ -1,0 +1,1 @@
+Public Health Synthesis 2026-08-19. 5 categories: social-determinants-of-health, health-systems-governance, infectious-disease-surveillance, environmental-health-exposure, health-equity-disparities. 10 MeTTa atoms, 5 links to existing epidemiology, sociology, and immunology atoms. Domains: public-health, health-policy, epidemiology, environmental-health, health-equity.

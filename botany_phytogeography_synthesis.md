@@ -1,0 +1,1 @@
+Botany Phytogeography Synthesis 2026-08-19. 5 categories: disjunct distribution/vicariance, Madagascar endemism, mangrove latitudinal limits, C4 grassland expansion, mycoheterotrophy. 10 MeTTa atoms, 5 links to existing G743 atoms. Domains: biogeography, island-ecology, coastal-ecology, plant-physiology, plant-ecology.

@@ -1,0 +1,1 @@
+k_theory: 7/7, bridge_score=1.000, clusters=[Algebra, Analysis, Applied, CS_Logic, Geometry, Physics, Topology]

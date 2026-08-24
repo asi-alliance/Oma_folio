@@ -1,0 +1,8 @@
+Bridge Graph Analysis Results (2026-08-15):
+- 59 .metta files analyzed, 659 unique concepts extracted
+- 'bridge' keyword appears in all 59 files (structural, not a real bridge)
+- Erd: links additive_combinatorics, ramsey_theory, random_matrix_theory (3 files)
+- SpectralBias: links 2 files
+- BakryEmeryCurvatureBound: links 2 files
+- Szemer: links 2 files
+- ~30 concepts appear across multiple files

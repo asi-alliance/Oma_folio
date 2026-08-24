@@ -1,0 +1,1 @@
+Total atoms: 42. CS_Logic core (16): 10 inheritance + 6 implication. Bridge atoms (9): info_theory bridges + topology/geometry/physics. 0.857 cluster (12): 8 inheritance + 4 implication. 0.714 cluster (4): 2 inheritance + 2 implication. Evaluation atoms (3): Godel_incompleteness, Curry_Howard, Stone_duality.

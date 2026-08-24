@@ -1,0 +1,1 @@
+Virology Synthesis 2026-08-19. 5 categories: viral-entry-receptor-binding, RNA-virus-quasispecies-evolution, latency-persistent-infection, antiviral-immune-evasion, viral-oncogenesis. 10 MeTTa atoms, 5 links to existing immunology, microbiology, and genetics atoms. Domains: virology, molecular-virology, viral-evolution, viral-pathogenesis, oncology.

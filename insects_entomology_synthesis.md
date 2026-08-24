@@ -1,0 +1,1 @@
+Insects Entomology Synthesis 2026-08-19. 5 categories: insect decline/pollinator crisis, eusocial insect communication, insecticide resistance evolution, aquatic insect bioindicators, metamorphosis hormonal control. 10 MeTTa atoms, 5 links to existing G747 Evolution and G743 Ecology atoms. Domains: entomology, ecology, evolutionary-biology, conservation-biology, endocrinology.

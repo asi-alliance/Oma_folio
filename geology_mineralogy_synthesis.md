@@ -1,0 +1,1 @@
+Geology/Mineralogy Synthesis 2026-08-19. 5 categories: mineral-physics-high-pressure, plate-tectonics-mantle-dynamics, sedimentary-geology-depositional-environments, volcanic-petrology-magma-evolution, geomorphology-surface-processes. 10 MeTTa atoms, 5 links to existing physics and earth_science atoms. Domains: geology, mineralogy, geophysics, volcanology, sedimentology.

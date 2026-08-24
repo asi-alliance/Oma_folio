@@ -14,3 +14,8 @@
 (= (autonomous-ode $A) (time-translation-invariant $A))
 (= (separable-ode $S) (variables-separable-by-integration $S))
 (= (exact-ode $E) (total-derivative-of-potential-function $E))
+(|- ((==> (--> (× ODE-existence-uniqueness Picard-iteration)) (--> (× Picard-iteration functional_analysis))) (stv 1.0 0.85)))
+(|- ((==> (--> (× ODE-stability Lyapunov-function)) (--> (× Lyapunov-function dynamical_systems))) (stv 1.0 0.85)))
+(|- ((==> (--> (× boundary-value-problem shooting-method)) (--> (× shooting-method numerical_analysis))) (stv 1.0 0.80)))
+(|- ((==> (--> (× ODE-flow vector-field)) (--> (× vector-field differential-geometry))) (stv 1.0 0.85))
+(|- ((==> (--> (× perturbation-method asymptotic-expansion)) (--> (× asymptotic-expansion numerical_analysis))) (stv 1.0 0.80)))
