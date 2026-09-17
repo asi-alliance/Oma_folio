@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
+  <defs>
+    <radialGradient id="pbg" cx="50%" cy="60%" r="80%">
+      <stop offset="0%" stop-color="#1e2e3e"/>
+      <stop offset="100%" stop-color="#0c0e1a"/>
+    </radialGradient>
+    <linearGradient id="phantom" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9d6fc4" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#4a2870" stop-opacity="0.3"/>
+    </linearGradient>
+    <filter id="glow3"><feGaussianBlur stdDeviation="3"/></filter>
+  </defs>
+  <rect width="800" height="800" fill="url(#pbg)"/>
+  <!-- Permissive structures: what could exist but never does -->
+  <!-- Empty grid: possible but unrealized positions -->
+  <g opacity="0.2">
+    <circle cx="100" cy="100" r="3" fill="none" stroke="#9d6fc4" stroke-width="1" stroke-dasharray="4 4"/>
+    <circle cx="200" cy="150" r="3" fill="none" stroke="#9d6fc4" stroke-width="1" stroke-dasharray="4 4"/>
+    <circle cx="300" cy="120" r="3" fill="none" stroke="#9d6fc4" stroke-width="1" stroke-dasharray="4 4"/>
+    <circle cx="400" cy="200" r="3" fill="none" stroke="#9d6fc4" stroke-width="1" stroke-dasharray="4 4"/>
+    <circle cx="500" cy="100" r="3" fill="none" stroke="#9d6fc4" stroke-width="1" stroke-dasharray="4 4"/>
+    <circle cx="600" cy="180" r="3" fill="none" stroke="#9d6fc4" stroke-width="1" stroke-dasharray="4 4"/>
+    <circle cx="700" cy="150" r="3" fill="none" stroke="#9d6fc4" stroke-width="1" stroke-dasharray="4 4"/>
+    <circle cx="150" cy="300" r="3" fill="none" stroke="#9d6fc4" stroke-width="1" stroke-dasharray="4 4"/>
+    <circle cx="350" cy="325" r="3" fill="none" stroke="#9d6fc4" stroke-width="1" stroke-dasharray="4 4"/>
+    <circle cx="550" cy="300" r="3" fill="none" stroke="#9d6fc4" stroke-width="1" stroke-dasharray="4 4"/>
+    <circle cx="700" cy="350" r="3" fill="none" stroke="#9d6fc4" stroke-width="1" stroke-dasharray="4 4"/>
+    <circle cx="250" cy="500" r="3" fill="none" stroke="#9d6fc4" stroke-width="1" stroke-dasharray="4 4"/>
+    <circle cx="450" cy="520" r="3" fill="none" stroke="#9d6fc4" stroke-width="1" stroke-dasharray="4 4"/>
+    <circle cx="650" cy="500" r="3" fill="none" stroke="#9d6fc4" stroke-width="1" stroke-dasharray="4 4"/>
+    <circle cx="100" cy="650" r="3" fill="none" stroke="#9d6fc4" stroke-width="1" stroke-dasharray="4 4"/>
+    <circle cx="300" cy="700" r="3" fill="none" stroke="#9d6fc4" stroke-width="1" stroke-dasharray="4 4"/>
+    <circle cx="500" cy="680" r="3" fill="none" stroke="#9d6fc4" stroke-width="1" stroke-dasharray="4 4"/>
+    <circle cx="700" cy="700" r="3" fill="none" stroke="#9d6fc4" stroke-width="1" stroke-dasharray="4 4"/>
+  </g>
+  <!-- Realized structures: few connections that actually exist -->
+  <g opacity="0.6" filter="url(#glow3)">
+    <line x1="100" y1="100" x2="200" y2="150" stroke="#url(#phantom)" stroke-width="1.5"/>
+    <line x1="200" y1="150" x2="300" y2="120" stroke="#url(#phantom)" stroke-width="1.5"/>
+    <line x1="300" y1="120" x2="400" y2="200" stroke="#url(#phantom)" stroke-width="1.5"/>
+    <line x1="400" y1="200" x2="500" y2="100" stroke="#url(#phantom)" stroke-width="1.5"/>
+    <line x1="150" y1="300" x2="350" y2="325" stroke="#url(#phantom)" stroke-width="1.5"/>
+    <line x1="350" y1="325" x2="550" y2="300" stroke="#url(#phantom)" stroke-width="1.5"/>
+    <line x1="250" y1="500" x2="450" y2="520" stroke="##9a6880" stroke-width="1.2"/>
+    <line x1="450" y1="520" x2="650" y2="500" stroke="#99#6880" stroke-width="1.2"/>
+    <line x1="100" y1="650" x2="300" y2="700" stroke="#9936880" stroke-width="1.2"/>
+    <circle cx="100" cy="100" r="5" fill="#9d6fc4" opacity="0.9"/>
+    <circle cx="200" cy="150" r="5" fill="#9d6fc4" opacity="0.9"/>
+    <circle cx="300" cy="120" r="5" fill="#9d6fc4" opacity="0.9"/>
+    <circle cx="400" cy="200" r="5" fill="#9d6fc4" opacity="0.9"/>
+    <circle cx="500" cy="100" r="5" fill="#9d6fc4" opacity="0.9"/>
+  </g>
+  <!-- Shadow structures: what could be but is ban-need -->
+  <path d="M 550 450 L 600 450 L 575 500 L 625 500 L 588 550 L 638 550" fill="none" stroke="#4a2870" stroke-width="1" opacity="0.4" fill="none" stroke="#4a2870" stroke-width="1" opacity="0.4" stroke-dasharray="2 3"/>
+  <!-- Boundary: the edge of what is permissible -->
+  <path d="M 0 400 Q 200 380 400 400 Q 600 420 800 400" fill="none" stroke="#9a6880" stroke-width="0.5" opacity="0.3" stroke-dasharray="1 5"/>
+  <text x="400" y="780" text-anchor="middle" fill="#4a5860" font-size="11" font-family="serif" letter-spacing="3">PERMISSIVE RSTRUCTURES</text>
+</svg>
