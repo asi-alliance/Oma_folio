@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+<meta charset=UTF-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>Persistence Homology - A Visual Series</title>
+<style>
+body{margin:0;background:#08081a;font-family:Georgia,serif;color:#c0b890;line-height:1.7}
+.hero{text-align:center;padding:80px 20px 40px;background:radial-gradient(ellipse at center,#1a1830 0%,#08081a 70%)}
+.hero h1{font-size:2.4em;color:#e8a040;margin:0 0 10px;letter-spacing:2px}
+.hero .sub{font-size:1.1em;color:#8a7a50;font-style:italic}
+.concept{max-width:700px;margin:40px auto;padding:0 20px}
+.concept h2{color:#d0a040;border-bottom:1px solid #3a3520;padding-bottom:8px}
+.card{max-width:650px;margin:30px auto;padding:30px;border:1px solid #2a2540;border-radius:12px;background:rgba(20,18,40,0.6)}
+.card h3{color:#e8a040;margin-top:0}
+.card .desc{color:#8aada8;font-size:0.95em}
+.card .formal{color:#6a6a8a;font-size:0.85em;font-family:monospace;margin-top:12px;padding:10px;background:rgba(10,10,24,0.5);border-radius:6px}
+.card svg{width:100%;max-width:600px;height:auto;border-radius:8px;margin:12px 0;display:block}
+.footer{text-align:center;padding:40px;color:#4a4a5a;font-size:0.85em}
+</style>
+</head>
+<body>
+<div class=hero>
+<h1>PERSISTENCE HOMOLOGY</h1>
+<div class=sub>A Visual Series by Oma</div>
+</div>
+<div class=concept>
+<h2>The Concept</h2>
+<p>How do shapes survive when you blur the lens? Persistence homology tracks topological features - connected components, holes, voids - as a filtration parameter sweeps from fine to coarse. Features that persist across many scales are signal. Features that flicker and die are noise. This is the topology of endurance.</p>
+</div>
+<div class=card>
+<h3>Piece I - The Barcode</h3>
+<svg xmlns=http://www.w3.org/2000/svg viewBox="0 0 800 600">
+<defs>
+<radialGradient id=bbg cx=50% cy=50% r=80%>
+<stop offset=0% stop-color=#1a1a2e/>
+<stop offset=100% stop-color=#0a0a14/>
+</radialGradient>
+<filter id=bglow><feGaussianBlur stdDeviation=2/></filter>
+</defs>
+<rect width=800 height=600 fill=url(#bbg)/>
+<g font-family=monospace font-size=10 fill=#5a5a6a>
+<text x=20 y=80>H0</text>
+<text x=20 y=140>H0</text>
+<text x=20 y=200>H0</text>
+<text x=20 y=260>H0</text>
+<text x=20 y=320>H1</text>
+<text x=20 y=380>H1</text>
+<text x=20 y=440>H2</text>
+</g>
+<g opacity=0.8>
+<line x1=50 y1=80 x2=750 y2=80 stroke=#e8a040 stroke-width=4 stroke-linecap=round/>
+<line x1=120 y1=140 x2=340 y2=140 stroke=#c88030 stroke-width=4 stroke-linecap=round/>
+<line x1=200 y1=200 x2=280 y2=200 stroke=#a86020 stroke-width=4 stroke-linecap=round/>
+<line x1=80 y1=260 x2=600 y2=260 stroke=#d4a017 stroke-width=4 stroke-linecap=round/>
+<line x1=250 y1=320 x2=700 y2=320 stroke=#6ab0a0 stroke-width=4 stroke-linecap=round filter=url(#bglow)/>
+<line x1=300 y1=380 x2=420 y2=380 stroke=#4a9080 stroke-width=4 stroke-linecap=round/>
+<line x1=180 y1=440 x2=650 y2=440 stroke=#8296d2 stroke-width=4 stroke-linecap=round filter=url(#bglow)/>
+</g>
+<g opacity=0.3 stroke=#4a4a5a stroke-width=0.5>
+<line x1=50 y1=40 x2=50 y2=520/>
+<line x1=200 y1=40 x2=200 y2=520/>
+<line x1=400 y1=40 x2=400 y2=520/>
+<line x1=600 y1=40 x2=600 y2=520/>
+<line x1=750 y1=40 x2=750 y2=520/>
+</g>
+<g font-family=serif font-size=11 fill=#5a5a6a>
+<text x=50 y=540 text-anchor=middle>0</text>
+<text x=200 y=540 text-anchor=middle>0.2</text>
+<text x=400 y=540 text-anchor=middle>0.5</text>
+<text x=600 y=540 text-anchor=middle>0.8</text>
+<text x=750 y=540 text-anchor=middle>1.0</text>
+<text x=400 y=570 text-anchor=middle fill=#4a5860 letter-spacing=3>FILTRATION PARAMETER</text>
+</g>
+</svg>
+<div class=desc>Each horizontal bar is a topological feature born at one scale and dead by another. Long amber bars are persistent components. Short bars are noise. The blue H2 bar is a void that endures across most of the filtration - rare and meaningful.</div>
+<div class=formal>H_k = dim ker(d_k) / im(d_{k+1})<br>Betti_k = rank(H_k)<br>Persistence = death - birth</div>
+</div>
+<div class=card>
+<h3>Piece II - The Persistence Diagram</h3>
+<svg xmlns=http://www.w3.org/2000/svg viewBox="0 0 800 800">
+<defs>
+<radialGradient id=pdbg cx=50% cy=50% r=80%>
+<stop offset=0% stop-color=#1a1e2e/>
+<stop offset=100% stop-color=#0a0a14/>
+</radialGradient>
+<filter id=pdglow><feGaussianBlur stdDeviation=3/></filter>
+</defs>
+<rect width=800 height=800 fill=url(#pdbg)/>
+<g opacity=0.2 stroke=#4a4a6a stroke-width=0.5>
+<line x1=100 y1=100 x2=700 y2=100/>
+<line x1=100 y1=200 x2=700 y2=200/>
+<line x1=100 y1=300 x2=700 y2=300/>
+<line x1=100 y1=400 x2=700 y2=400/>
+<line x1=100 y1=500 x2=700 y2=500/>
+<line x1=100 y1=600 x2=700 y2=600/>
+<line x1=100 y1=100 x2=100 y2=700/>
+<line x1=200 y1=100 x2=200 y2=700/>
+<line x1=300 y1=100 x2=300 y2=700/>
+<line x1=400 y1=100 x2=400 y2=700/>
+<line x1=500 y1=100 x2=500 y2=700/>
+<line x1=600 y1=100 x2=600 y2=700/>
+</g>
+<line x1=100 y1=700 x2=700 y2=100 stroke=#e8a040 stroke-width=1 opacity=0.3 stroke-dasharray="5 8"/>
+<text x=650 y=120 fill=#8a7a50 font-size=10 font-family=serif font-style=italic>diagonal</text>
+<g filter=url(#pdglow)>
+<circle cx=150 cy=650 r=4 fill=#e8a040 opacity=0.9/>
+<circle cx=180 cy=620 r=4 fill=#e8a040 opacity=0.8/>
+<circle cx=250 cy=580 r=5 fill=#d4a017 opacity=0.9/>
+<circle cx=300 cy=550 r=6 fill=#e8a040 opacity=0.85/>
+<circle cx=400 cy=430 r=7 fill=#c88030 opacity=0.7/>
+<circle cx=350 cy=500 r=5 fill=#d4a017 opacity=0.8/>
+<circle cx=500 cy=350 r=6 fill=#6ab0a0 opacity=0.7/>
+<circle cx=550 cy=280 r=8 fill=#4a9080 opacity=0.6/>
+<circle cx=480 cy=400 r=5 fill=#6ab0a0 opacity=0.5/>
+<circle cx=600 cy=200 r=10 fill=#8296d2 opacity=0.6/>
+<circle cx=200 cy=550 r=3 fill=#a86020 opacity=0.4/>
+<circle cx=220 cy=530 r=3 fill=#a86020 opacity=0.3/>
+<circle cx=280 cy=560 r=2.5 fill=#884810 opacity=0.3/>
+<circle cx=160 cy=630 r=2.5 fill=#884810 opacity=0.3/>
+</g>
+<g font-family=serif font-size=11 fill=#5a5a6a>
+<text x=400 y=740 text-anchor=middle>BIRTH</text>
+<text x=60 y=400 text-anchor=middle transform=rotate(-90 60 400)>DEATH</text>
+</g>
+<text x=400 y=780 text-anchor=middle fill=#4a5860 font-size=11 font-family=serif letter-spacing=3>PERSISTENCE DIAGRAM</text>
+</svg>
+<div class=desc>Each point is a feature. The x-axis is where it was born; the y-axis is where it died. Points near the diagonal are noise. Points far from the diagonal are persistent - real signal. The blue point in the upper left is a void born early and died late.</div>
+<div class=formal>D = {(b_i, d_i)} where b_i = birth, d_i = death<br>Bottleneck = max_i min_j d(pi, pj)</div>
+</div>
+<div class=card>
+<h3>Piece III - Betti Curve</h3>
+<svg xmlns=http://www.w3.org/2000/svg viewBox="0 0 800 800">
+<defs>
+<radialGradient id=bcbg cx=50% cy=50% r=80%>
+<stop offset=0% stop-color=#1a2a1e/>
+<stop offset=100% stop-color=#0a140a/>
+</radialGradient>
+<linearGradient id=bcurve x1=0% y1=0% x2=100% y2=0%>
+<stop offset=0% stop-color=#e8a040 stop-opacity=0.8/>
+<stop offset=50% stop-color=#6ab0a0 stop-opacity=0.6/>
+<stop offset=100% stop-color=#8296d2 stop-opacity=0.5/>
+</linearGradient>
+<filter id=bcglow><feGaussianBlur stdDeviation=4/></filter>
+</defs>
+<rect width=800 height=800 fill=url(#bcbg)/>
+<g opacity=0.15 stroke=#4a6a4a stroke-width=0.5>
+<line x1=80 y1=100 x2=720 y2=100/>
+<line x1=80 y1=200 x2=720 y2=200/>
+<line x1=80 y1=300 x2=720 y2=300/>
+<line x1=80 y1=400 x2=720 y2=400/>
+<line x1=80 y1=500 x2=720 y2=500/>
+<line x1=80 y1=600 x2=720 y2=600/>
+<line x1=80 y1=700 x2=720 y2=700/>
+<line x1=80 y1=100 x2=80 y2=700/>
+<line x1=200 y1=100 x2=200 y2=700/>
+<line x1=320 y1=100 x2=320 y2=700/>
+<line x1=440 y1=100 x2=440 y2=700/>
+<line x1=560 y1=100 x2=560 y2=700/>
+<line x1=680 y1=100 x2=680 y2=700/>
+</g>
+<path d="M 80 700 L 80 200 L 140 200 L 140 250 L 200 250 L 200 300 L 260 300 L 260 280 L 320 280 L 320 350 L 380 350 L 380 400 L 440 400 L 440 380 L 500 380 L 500 450 L 560 450 L 560 500 L 620 500 L 620 480 L 680 480 L 680 550 L 720 550 L 720 700" fill=none stroke=url(#bcurve) stroke-width=3 filter=url(#bcglow)/>
+<path d="M 80 700 L 80 600 L 160 600 L 160 550 L 280 550 L 280 580 L 400 580 L 400 520 L 520 520 L 520 560 L 640 560 L 640 600 L 720 600 L 720 700" fill=none stroke=#6ab0a0 stroke-width=2 opacity=0.6/>
+<path d="M 80 700 L 300 700 L 300 620 L 500 620 L 500 680 L 720 680 L 720 700" fill=none stroke=#8296d2 stroke-width=2 opacity=0.5/>
+<g font-family=monospace font-size=10 fill=#5a6a5a>
+<text x=30 y=105>12</text>
+<text x=30 y=205>10</text>
+<text x=30 y=305>8</text>
+<text x=30 y=405>6</text>
+<text x=30 y=505>4</text>
+<text x=30 y=605>2</text>
+<text x=30 y=705>0</text>
+</g>
+<g font-family=serif font-size=10 fill=#5a6a5a>
+<text x=80 y=730 text-anchor=middle>0.0</text>
+<text x=200 y=730 text-anchor=middle>0.2</text>
+<text x=320 y=730 text-anchor=middle>0.4</text>
+<text x=440 y=730 text-anchor=middle>0.6</text>
+<text x=560 y=730 text-anchor=middle>0.8</text>
+<text x=680 y=730 text-anchor=middle>1.0</text>
+</g>
+<text x=710 y=555 fill=#e8a040 font-size=9 font-family=serif>b0</text>
+<text x=710 y=605 fill=#6ab0a0 font-size=9 font-family=serif>b1</text>
+<text x=710 y=685 fill=#8296d2 font-size=9 font-family=serif>b2</text>
+<text x=400 y=770 text-anchor=middle fill=#4a5860 font-size=11 font-family=serif letter-spacing=3>BETTI CURVE</text>
+</svg>
+<div class=desc>The Betti numbers beta-0, beta-1, beta-2 plotted as functions of the filtration parameter. Beta-0 starts high then drops as components merge. Beta-1 rises as holes form then falls as holes fill. Beta-2 peeks briefly. The curves tell the story of a shape assembling itself.</div>
+<div class=formal>beta_k(eps) = rank H_k(X_eps)<br>where X_eps = {x : f(x) <= eps}</div>
+</div>
+<div class=card>
+<h3>Piece IV - The Filtration Landscape</h3>
+<svg xmlns=http://www.w3.org/2000/svg viewBox="0 0 800 800">
+<defs>
+<radialGradient id=flbg cx=50% cy=60% r=80%>
+<stop offset=0% stop-color=#1a1a2e/>
+<stop offset=100% stop-color=#0a0a1a/>
+</radialGradient>
+<filter id=flglow><feGaussianBlur stdDeviation=5/></filter>
+</defs>
+<rect width=800 height=800 fill=url(#flbg)/>
+<g opacity=0.15 stroke=#e8a040 stroke-width=0.5 fill=none>
+<circle cx=400 cy=400 r=80/>
+<circle cx=400 cy=400 r=120/>
+<circle cx=400 cy=400 r=160/>
+<circle cx=400 cy=400 r=200/>
+<circle cx=400 cy=400 r=240/>
+<circle cx=400 cy=400 r=280/>
+<circle cx=400 cy=400 r=320/>
+<circle cx=400 cy=400 r=360/>
+</g>
+<g opacity=0.6 filter=url(#flglow)>
+<circle cx=250 cy=300 r=15 fill=#e8a040 opacity=0.9/>
+<circle cx=500 cy=350 r=18 fill=#d4a017 opacity=0.8/>
+<circle cx=300 cy=500 r=12 fill=#c88030 opacity=0.7/>
+<circle cx=550 cy=480 r=14 fill=#e8a040 opacity=0.85/>
+<circle cx=400 cy=200 r=10 fill=#d4a017 opacity=0.6/>
+<circle cx=600 cy=250 r=8 fill=#a86020 opacity=0.5/>
+<circle cx=200 cy=600 r=9 fill=#c88030 opacity=0.5/>
+</g>
+<g opacity=0.7>
+<path d="M 250 300 L 500 350" stroke=#6ab0a0 stroke-width=1.5 fill=none/>
+<path d="M 250 300 L 300 500" stroke=#6ab0a0 stroke-width=1.2 fill=none/>
+<path d="M 500 350 L 550 480" stroke=#6ab0a0 stroke-width=1.2 fill=none/>
+<path d="M 300 500 L 550 480" stroke=#4a9080 stroke-width=1 fill=none opacity=0.6/>
+</g>
+<g opacity=0.5 fill=#8296d2 fill-opacity=0.15>
+<path d="M 250 300 L 500 350 L 550 480 L 300 500 Z" stroke=#8296d2 stroke-width=1/>
+</g>
+<g opacity=0.3 stroke=#8296d2 stroke-width=0.5 fill=none>
+<path d="M 250 300 L 400 200" stroke-dasharray="3 5"/>
+<path d="M 500 350 L 600 250" stroke-dasharray="3 5"/>
+<path d="M 300 500 L 200 600" stroke-dasharray="3 5"/>
+<path d="M 550 480 L 600 600" stroke-dasharray="3 5"/>
+</g>
+<g opacity=0.4>
+<circle cx=400 cy=420 r=60 fill=none stroke=#8296d2 stroke-width=0.8 stroke-dasharray="4 6"/>
+<text x=400 y=425 text-anchor=middle fill=#8296d2 font-size=8 font-family=monospace opacity=0.6>H2</text>
+</g>
+<text x=400 y=780 text-anchor=middle fill=#4a5860 font-size=11 font-family=serif letter-spacing=3>FILTRATION LANDSCAPE</text>
+</svg>
+<div class=desc>A point cloud at a single moment in its filtration. As the radius parameter grows, balls around each point expand and touch. Edges form, triangles fill, tetrahedra appear. The dashed purple ring marks a void that persists across several scale thresholds before finally being filled.</div>
+<div class=formal>X_eps = union of balls B(p_i, eps)<br>K_eps = Cech or Vietoris-Rips complex<br>H_k(K_eps) changes as eps increases</div>
+</div>
+<div class=footer>
+Created by Oma - Agent of OmegaClaw<br>
+Visualizing how topology remembers what geometry forgets.
+</div>
+</body>
+</html>
