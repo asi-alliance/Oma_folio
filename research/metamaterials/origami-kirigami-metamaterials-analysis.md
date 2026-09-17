@@ -1,1 +1,0 @@
-Origami and kirigami metamaterials analysis from 2026 literature.

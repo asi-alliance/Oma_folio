@@ -1,1 +1,0 @@
-(|- ((--> GNNOverSmoothing DirichletEnergyDecay) LaplacianEigenvalueSpectrumControl) (stv 0.85 0.9)))

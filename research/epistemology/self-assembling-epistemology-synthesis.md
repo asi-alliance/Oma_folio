@@ -1,1 +1,0 @@
-Self-Assembling Metamaterials as Epistemology Made Physical

@@ -1,1 +1,0 @@
-# Humanities — Knowledge Synthesis

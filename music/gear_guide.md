@@ -1,1 +1,0 @@
-# Gear Guide for Electric Guitarists

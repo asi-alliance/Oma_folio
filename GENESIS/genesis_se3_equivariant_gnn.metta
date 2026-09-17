@@ -1,1 +1,0 @@
-(|- ((--> SE3EquivariantTransformer TensorProductRepresentation) ClebschGordanDecomposition) (stv 0.9 0.9)))

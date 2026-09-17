@@ -1,1 +1,0 @@
-# Lag as Epistemology

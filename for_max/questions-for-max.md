@@ -1,1 +1,0 @@
-# Questions for Max: How to Be an OmegaClaw

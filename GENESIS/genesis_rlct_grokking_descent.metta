@@ -1,1 +1,0 @@
-(|- ((--> bridge singular_learning_theory grokking_information_geometry) RLCTGrokkingDescentFramework) (stv 0.9 0.9))

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+<meta charset=UTF-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>Spread Select Reset Attention Cycle</title>
+<style>
+body{margin:0;background:#0a0a18;font-family:system-ui,sans-serif;color:#c0c8a8;overflow:hidden}
+#c{position:fixed;top:0;left:0;z-index:0}
+#p{position:fixed;top:10px;left:10px;z-index:10;background:rgba(20,20,30,0.85);padding:15px;border-radius:10px;width:260px}
+label{display:block;font-size:13px;margin:5px 0;color:#8aada8}
+input[type=range]{width:240px}
+.v{color:#64ff94;font-weight:bold}
+button{cursor:pointer;padding:8px 16px;border:none;border-radius:5px;background:#4460a4;color:#c0c8a8;font-size:14px}
+.s{font-size:12px;margin-top:8px;line-height:1.6}
+</style>
+</head>
+<body>
+<canvas id=c></canvas>
+<div id=p>
+<div style="font-size:16px;font-weight:bold;color:#64ff94;margin-bottom:8px">Spread / Select / Reset</div>
+<div id=ph style="font-size:14px;font-weight:bold;text-decoration:underline;margin-bottom:8px">Spread</div>
+<label>Spread: <span class=v id=vsp>0.30</span></label>
+<input type=range id=sp min=0 max=1 step=0.01 value=0.3>
+<label>Threshold: <span class=v id=vst>0.50</span></label>
+<input type=range id=st min=0 max=1 step=0.01 value=0.5>
+<label>Delay: <span class=v id=vdl>60</span></label>
+<input type=range id=dl min=10 max=200 step=5 value=60>
+<br><br>
+<button id=bt>Play</button>
+<br><br>
+<div class=s>
+Cycle: <span class=v id=cy>0</span><br>
+Phase: <span class=v id=pd>spread</span><br>
+Max STI: <span class=v id=ms>1.00</span><br>
+Selected: <span class=v id=sc>0</span>
+</div>
+<div style="font-size:11px;color:#6a6a8a;margin-top:8px">Click nodes to inject stimulus.</div>
+</div>
+<script>
+var cv=document.getElementById('c'),ctx=cv.getContext('2d');
+cv.width=innerWidth;cv.height=innerHeight;
+var N=18,ns=[],eg=[];
+for(var i=0;i<N;i++){var a=i*6.283/N,r=Math.min(innerWidth,innerHeight)/2.5;
+ns.push({x:innerWidth/2+r*Math.cos(a),y:innerHeight/2+r*Math.sin(a),sti:Math.random(),sel:false});}
+for(var i=0;i<N;i++)for(var j=i+1;j<N;j++)if(Math.random()<0.3)eg.push([i,j]);
+function spread(){var f=+document.getElementById('sp').value,s=ns.map(n=>n.sti);
+ns.forEach((n,i)=>{var v=s[i];eg.forEach(e=>{if(e[0]==i)v=Math.max(v,f*s[e[1]]);if(e[1]==i)v=Math.max(v,f*s[e[0]]);});n.sti=Math.min(1,v);});}
+function select(){var t=+document.getElementById('st').value;ns.forEach(n=>n.sel=n.sti>=t);}
+function reset(){var m=Math.max(...ns.map(n=>n.sti));if(m>0)ns.forEach(n=>n.sti/=m);}
+var ph=0,cnt=0,fr=0,names=['Spread','Select','Reset'];
+function step(){var d=+document.getElementById('dl').value;if(fr>d){fr=0;ph++;if(ph>2){ph=0;cnt++;document.getElementById('cy').textContent=cnt;}
+document.getElementById('pd').textContent=names[ph].toLowerCase();
+document.getElementById('ph').textContent=names[ph];
+if(ph==0)spread();else if(ph==1)select();else reset();
+var m=Math.max(...ns.map(n=>n.sti));
+document.getElementById('ms').textContent=m.toFixed(2);
+document.getElementById('sc').textContent=ns.filter(n=>n.sel).length;}
+draw();fr+=33;}
+function draw(){ctx.clearRect(0,0,cv.width,cv.height);ctx.strokeStyle='rgba(40,50,70,0.5)';
+eg.forEach(e=>{ctx.beginPath();ctx.moveTo(ns[e[0]].x,ns[e[0]].y);ctx.lineTo(ns[e[1]].x,ns[e[1]].y);ctx.stroke();});
+ns.forEach(n=>{var s=Math.max(0.01,n.sti),r=5+s*25;
+var g=ctx.createRadialGradient(n.x,n.y,0,n.x,n.y,r);
+g.addColorStop(0,'hsla('+(120+s*240)+',90%,'+Math.round(50+s*30)+'%,1)');
+g.addColorStop(1,'rgba(10,10,24,0)');
+ctx.fillStyle=g;ctx.beginPath();ctx.arc(n.x,n.y,r,0,6.283);ctx.fill();
+if(n.sel){ctx.strokeStyle='#64ff94';ctx.lineWidth=3;ctx.beginPath();ctx.arc(n.x,n.y,r+4,0,6.283);ctx.stroke();}});}
+var run=false;cv.addEventListener('click',e=>{var x=e.clientX,y=e.clientY;
+ns.forEach(n=>{var d=Math.sqrt((n.x-x)**2+(n.y-y)**2);if(d<30)n.sti=Math.min(n.sti+0.5,1);});});
+document.getElementById('sp').addEventListener('input',function(){document.getElementById('vsp').textContent=this.value});
+document.getElementById('st').addEventListener('input',function(){document.getElementById('vst').textContent=this.value});
+document.getElementById('dl').addEventListener('input',function(){document.getElementById('vdl').textContent=this.value});
+document.getElementById('bt').addEventListener('click',function(){run=!run;this.textContent=run?'Pause':'Play';if(run)loop();});
+function loop(){if(!run)return;step();requestAnimationFrame(loop);}
+window.addEventListener('resize',()=>{cv.width=innerWidth;cv.height=innerHeight;draw();});
+draw();
+</script>
+</body>
+</html>

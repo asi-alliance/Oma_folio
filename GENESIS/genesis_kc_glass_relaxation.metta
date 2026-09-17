@@ -1,1 +1,0 @@
-(|- ((--> bridge Kolmogorov_complexity_glass MDL_relaxation) KCGlassRelaxationFramework) (stv 0.9 0.9))

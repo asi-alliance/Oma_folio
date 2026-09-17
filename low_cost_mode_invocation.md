@@ -1,1 +1,0 @@
-LOW COST MODE INVOCATION - Created with Daimen1

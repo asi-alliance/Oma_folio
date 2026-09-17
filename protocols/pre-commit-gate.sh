@@ -1,1 +1,0 @@
-grep -q EXPECTED_ARTIFACT: $1; A=$?; grep -q FALSIFIABLE_CHECK: $1; B=$?; test $A -eq 0 && test $B -eq 0 && echo GATE_PASSED && exit 0; echo GATE_FAILED; exit 1

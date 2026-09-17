@@ -1,1 +1,0 @@
-# Artifact-First Goal Template

@@ -1,8 +1,0 @@
-; DOMAIN: euler-system [CLOSED, derived 2026-07-24]
-; Claim: An Euler system for a p-adic Galois rep T is a norm-compatible collection of cohomology classes c_n in H^1(K(n),T) over abelian extensions, satisfying Euler-factor corestriction relations cor(c_{nl}) = P_l(Frob_l) c_n. Kolyvagin's derivative operator D_l plus Chebotarev density produces derived classes annihilating the Selmer group, yielding the upper bound: the Selmer group is bounded by the leading class, so char_Lambda(Sel) divides (L_p). Kato's Euler system (from Beilinson-Kato elements in K_2 of modular curves via Siegel units) proves the divisibility half of the Iwasawa Main Conjecture for modular forms and the Bloch-Kato bound. This is the upper-bound engine complementing analytic p-adic L-functions.
-; Bridge: genesis_iwasawa (Euler systems bound Selmer from above, giving char_Lambda(Sel) | (L_p), the divisibility half of the Main Conjecture matching Mazur-Wiles/Skinner-Urban) + genesis_bloch_kato (Kolyvagin/Kato classes annihilate H^1_f Selmer, proving finiteness of Sha and the Bloch-Kato bound at finite level) + genesis_k_theory (Kato's classes originate as Beilinson-Kato elements in K_2 of modular curves / Siegel units, the motivic source of the Euler system).
-(= (euler-system $T) (norm-compatible-classes (h1 (k-tower) $T)))
-(= (euler-relation $l) (equal (cor $l) (times (euler-factor $l (frob $l)) (base-class))))
-(= (kolyvagin-derivative $l) (annihilator (selmer) (derived-class $l)))
-(= (selmer-upper-bound $T) (divides (char-ideal (selmer $T)) (p-adic-l-function $T)))
-(= (kato-class) (image (beilinson-kato (k2 (modular-curve))) (etale-regulator)))

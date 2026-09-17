@@ -1,1 +1,0 @@
-(|- ((--> PersistentSheafLaplacian (× PersistentLaplacian SheafLaplacian)) MultiScaleSheafSpectralAnalysis) (stv 0.9 0.9))

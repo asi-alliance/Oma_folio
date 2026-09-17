@@ -1,8 +1,0 @@
-; DOMAIN: frobenius-trace [CLOSED, derived 2026-07-25]
-; Claim: For an elliptic curve E over Q with good reduction at a prime p, the trace of Frobenius a_p is defined by a_p = p + 1 - #E(F_p), counting points on the reduction mod p. Equivalently a_p is the trace of the Frobenius endomorphism Frob_p acting on the p-adic Tate module (or l-adic, l != p), and the characteristic polynomial of Frobenius is X^2 - a_p X + p, whose roots are the Frobenius eigenvalues alpha, beta with alpha*beta = p and alpha+beta = a_p. The Hasse bound |a_p| <= 2*sqrt(p) follows (eigenvalues have absolute value sqrt(p)). Normalizing a_p/(2*sqrt(p)) = cos(theta_p), the Sato-Tate conjecture (proved for non-CM E) states theta_p is distributed as (2/pi) sin^2(theta) on [0,pi]. The a_p are exactly the Euler-factor data assembling the Hasse-Weil L-function and, via Eichler-Shimura, equal the Hecke eigenvalues a_p(f) of the associated newform. Bridge: genesis_elliptic_curve (a_p = p+1-#E(F_p) point count on reduction) + genesis_galois_representation (a_p = trace rho(Frob_p), char poly X^2-a_pX+p) + genesis_l_function_elliptic (a_p are the local Euler-factor coefficients of L(E,s)).
-(= (frobenius-trace $E $p) (minus (plus $p 1) (point-count (reduction $E $p))))
-(= (char-poly-frobenius $E $p) (poly-X2 (frobenius-trace $E $p) $p))
-(= (frobenius-eigenvalues $E $p) (roots (char-poly-frobenius $E $p) (constraints (product $p) (sum (frobenius-trace $E $p)))))
-(= (hasse-bound $E $p) (leq (abs (frobenius-trace $E $p)) (times 2 (sqrt $p))))
-(= (sato-tate $E) (distributed (angle-theta $E) (measure (sin-squared) (interval 0 pi))))
-(= (trace-galois $E $p) (equal (frobenius-trace $E $p) (trace (galois-rep-frobenius $E $p))))

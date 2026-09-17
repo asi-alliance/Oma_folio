@@ -1,8 +1,0 @@
-; DOMAIN: harmonic-analysis [CLOSED, derived 2026-07-24]
-; Claim: For a Schwartz function f on R with Fourier transform f_hat(xi)=integral f(x)e^{-2*pi*i*x*xi}dx, the Poisson summation formula states sum_{n in Z} f(n) = sum_{k in Z} f_hat(k). More generally sum_{n} f(x+n) = sum_{k} f_hat(k) e^{2*pi*i*k*x} (periodization of f equals its Fourier series). For a full-rank lattice L in R^d with dual lattice L*, vol(R^d/L) * sum_{v in L} f(v) = sum_{w in L*} f_hat(w).
-; Structure: (schwartz f) (periodization P f x = sum_n f(x+n)) (P is 1-periodic; its Fourier coefficients are f_hat(k)) (evaluate at x=0 => sum f(n)=sum f_hat(k)) (lattice form uses covolume factor).
-; Result: exchanges a sum over a lattice for a sum over its dual; converts slowly-converging spatial sums into fast spectral sums; foundational identity linking discrete and continuous Fourier duality.
-; Bridge: genesis harmonic-analysis Fourier artifacts (Poisson is periodization = sampling dual of Fourier inversion); yields the theta-function transformation theta(1/t)=sqrt(t)*theta(t) from f=Gaussian (self-dual under Fourier), the seed of the functional equation of the Riemann zeta (number-theory bridge); genesis_fubini_tonelli (interchange justifying the sum-integral manipulation).
-(= (poisson-sum $f) (equal (lattice-sum $f) (dual-lattice-sum (fourier $f))))
-(= (periodization $f) (fourier-series-with-coeffs (fourier $f)))
-(= (theta-transform) (poisson-sum gaussian))

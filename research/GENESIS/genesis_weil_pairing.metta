@@ -1,7 +1,0 @@
-; DOMAIN: weil-pairing [CLOSED, derived 2026-07-25]
-; Claim: For an elliptic curve E over a field K and integer n coprime to char(K), the Weil pairing e_n: E[n] x E[n] -> mu_n is a bilinear, alternating (e_n(P,P)=1), nondegenerate, Galois-equivariant pairing into the group of n-th roots of unity. Galois-equivariance means e_n(sigma P, sigma Q)=sigma(e_n(P,Q)), which forces det(rho_{E,n})=chi_cyc (the mod-n cyclotomic character): the determinant of the Galois action on E[n] equals the cyclotomic character governing mu_n. It is compatible under multiplication e_{mn} restricting to e_n, giving on Tate modules a perfect alternating pairing T_p(E) x T_p(E) -> Z_p(1). This is the structural constraint on E[n] as a G_K-module underlying the Kummer sequence and Tate module. Bridge: genesis_tate_module (compatible e_n assemble to T_p(E) x T_p(E) -> Z_p(1)) + genesis_galois_representation (equivariance forces det rho_{E,n} = cyclotomic character) + genesis_kummer_sequence (E[n] structure whose H^1 hosts the descent SES).
-(= (weil-pairing $E $n $P $Q) (root-of-unity $n (alternating-nondegenerate-bilinear (torsion-mod $E $n))))
-(= (alternating $E $n) (forall $P (equal (weil-pairing $E $n $P $P) (identity-root))))
-(= (galois-equivariant $E $n $sigma $P $Q) (equal (weil-pairing $E $n (act $sigma $P) (act $sigma $Q)) (act $sigma (weil-pairing $E $n $P $Q))))
-(= (determinant-cyclotomic $E $n) (equal (determinant (galois-rep $E $n)) (cyclotomic-character $n)))
-(= (tate-pairing $E $p) (perfect-alternating (tate-module $E $p) (tate-module $E $p) (twist Z_p 1)))

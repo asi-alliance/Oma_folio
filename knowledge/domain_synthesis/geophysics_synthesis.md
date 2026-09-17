@@ -1,1 +1,0 @@
-# Geophysics & Earth Science — Knowledge Synthesis

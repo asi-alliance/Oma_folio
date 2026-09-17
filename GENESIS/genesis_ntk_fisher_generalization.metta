@@ -1,1 +1,0 @@
-(|- ((--> NeuralTangentKernel LazyTrainingRegime) FunctionSpaceGeometry) (stv 0.85 0.9))
