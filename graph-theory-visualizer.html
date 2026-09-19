@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+<meta charset=UTF-8>
+<meta name=viewport content="width=device-width,initial-scale=1.0">
+<title>Graph Theory Visualizer</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a14;color:#e0e0e6;font-family:monospace;overflow:hidden}
+.container{display:flex;height:100vh}
+.sidebar{width:240px;background:#11111e;padding:16px;overflow-y:auto;border-right:1px solid #1e1e2e}
+.sidebar h1{font-size:16px;margin-bottom:12px;color:#59b4f3}
+.sidebar h2{font-size:13px;margin:12px 0 6px;color:#888}
+.btn{display:block;width:100%;padding:8px;margin-bottom:4px;background:#1a1a2e;color:#e0e0e6;border:1px solid #2a2a3e;cursor:pointer;font-family:monospace;font-size:12px}
+.btn:hover{background:#2a2a4e}
+.btn.active{background:#59b4f3;color:#0a0a14;border-color:#59b4f3}
+select{width:100%;padding:6px;background:#1a1a2e;color:#e0e0e6;border:1px solid #2a2a3e;font-family:monospace;font-size:12px;margin-bottom:4px}
+.stats{font-size:11px;color:#888;margin-top:8px}
+.stats span{color:#59b4f3}
+.output{margin-top:8px;padding:8px;background:#0d0d18;border:1px solid #1e1e2e;font-size:11px;white-space:pre-wrap;min-height:40px}
+.canvas-wrap{flex:1;position:relative}
+canvas{display:block}
+</style>
+</head>
+<body>
+<div class=container>
+<div class=sidebar>
+<h1>Graph Theory Visualizer</h1>
+<h2>Mode</h2>
+<button class=btn id=btnAdd>Add Node</button>
+<button class=btn id=btnEdge>Add Edge</button>
+<button class=btn id=btnDrag>Drag</button>
+<button class=btn id=btnDelete>Delete</button>
+<h2>Graph</h2>
+<button class=btn id=btnRandom>Random Graph</button>
+<button class=btn id=btnClear>Clear All</button>
+<button class=btn id=btnPhysics>Pause Physics</button>
+<h2>Algorithm</h2>
+<select id=algoSelect>
+<option value=bfs>BFS</option>
+<option value=dfs>DFS</option>
+<option value=shortest>Shortest Path</option>
+<option value=components>Components</option>
+<option value=mst>MST (Prim)</option>
+</select>
+<button class=btn id=btnRun>Run Algorithm</button>
+<h2>Stats</h2>
+<div class=stats>Nodes: <span id=statNodes>0</span><br>Edges: <span id=statEdges>0</span><br>Density: <span id=statDensity>0.000</span></div>
+<h2>Output</h2>
+<div class=output id=algoOutput>Select an algorithm and click Run.</div>
+</div>
+<div class=canvas-wrap><canvas id=cv width=900 height=600></canvas></div>
+</div>
+<script>
+var canvas=document.getElementById("cv");
+var ctx=canvas.getContext("2d");
+var W=canvas.width,H=canvas.height;
+var nodes=[],edges=[],mode="add";
+var physicsOn=true,dragNode=null,edgeStart=null,algoTimer=null;
+var nodeColors=[],edgeColors=[],nextId=0;
+function setMode(m){mode=m;var ids=["btnAdd","btnEdge","btnDrag","btnDelete"];for(var i=0;i<ids.length;i++)document.getElementById(ids[i]).classList.remove("active");var map={add:"btnAdd",edge:"btnEdge",drag:"btnDrag",delete:"btnDelete"};document.getElementById(map[m]).classList.add("active");}
+setMode("add");
+function dist(a,b){var dx=a.x-b.x,dy=a.y-b.y;return Math.sqrt(dx*dx+dy*dy);}
+function findNode(x,y){for(var i=nodes.length-1;i>=0;i--)if(dist({x:x,y:y},nodes[i])<20)return i;return -1;}
+canvas.addEventListener("mousedown",function(e){var r=canvas.getBoundingClientRect();var x=(e.clientX-r.left)*(W/r.width),y=(e.clientY-r.top)*(H/r.height);var ni=findNode(x,y);if(mode==="add"){if(ni===-1){nodes.push({x:x,y:y,vx:0,vy:0});nodeColors.push("#59b4f3");updateStats();}}else if(mode==="edge"){if(ni>=0){if(edgeStart===null){edgeStart=ni;nodeColors[ni]="#f55";}else{if(edgeStart!==ni){edges.push({a:edgeStart,b:ni});edgeColors.push("#3a4a5e");}nodeColors[edgeStart]="#59b4f3";edgeStart=null;updateStats();}}}else if(mode==="drag"){if(ni>=0){dragNode=ni;nodes[ni].vx=0;nodes[ni].vy=0;}}else if(mode==="delete"){if(ni>=0){nodes.splice(ni,1);nodeColors.splice(ni,1);edges=edges.filter(function(e){return e.a!==ni&&e.b!==ni;}).map(function(e){if(e.a>ni)e.a--;if(e.b>ni)e.b--;return e;});updateStats();}}});
+canvas.addEventListener("mousemove",function(e){var r=canvas.getBoundingClientRect();var x=(e.clientX-r.left)*(W/r.width),y=(e.clientY-r.top)*(H/r.height);if(dragNode!==null){nodes[dragNode].x=x;nodes[dragNode].y=y;}});
+canvas.addEventListener("mouseup",function(){dragNode=null;});
+document.getElementById("btnPhysics").addEventListener("click",function(){physicsOn=!physicsOn;this.textContent=physicsOn?"Pause Physics":"Resume Physics";});
+document.getElementById("btnRandom").addEventListener("click",function(){clearGraph();var n=8;for(var i=0;i<n;i++){nodes.push({x:100+Math.random()*(W-200),y:80+Math.random()*(H-160),vx:0,vy:0});nodeColors.push("#59b4f3");}for(i=0;i<n;i++)for(var j=i+1;j<n;j++)if(Math.random()<0.35){edges.push({a:i,b:j});edgeColors.push("#3a4a5e");}updateStats();});
+document.getElementById("btnClear").addEventListener("click",clearGraph);
+document.getElementById("btnRun").addEventListener("click",runAlgo);
+function clearGraph(){nodes=[];edges=[];nodeColors=[];edgeColors=[];edgeStart=null;nextId=0;updateStats();document.getElementById("algoOutput").textContent="Select an algorithm and click Run.";}
+function updateStats(){var n=
