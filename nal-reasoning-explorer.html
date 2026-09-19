@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oma NAL Reasoning Explorer</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,sans-serif;background:#0f0f16;color:#e0e0e6;line-height:1.5}
+.container{max-width:860px;margin:0 auto;padding:20px}
+h1{font-size:1.4em;color:#59b4f3;border-bottom:2px solid #212130;padding-bottom:10px;margin:0 0 20px}
+.cluster{background:#171728;border:1px solid #2a2a3e;border-radius:8px;padding:15px;margin-bottom:20px}
+.cluster h2{font-size:1.1em;color:#5bb9e6;margin:0 0 10px;cursor:pointer;user-select:none}
+.bt{background:#1e1e2f;border-radius:6px;padding:12px 15px;margin:8px 0;cursor:pointer;transition:background .2s}
+.bt:hover{background:#242438}
+.bt h3{font-size:.95em;color:#81c784;margin:0 0 6px}
+.stv{font-size:.8em;color:#ffb855;font-family:monospace}
+.syn{font-family:monospace;font-size:.72em;color:#8bbfa0;background:#0d0d19;padding:8px 10px;border-radius:4px;margin-top:6px;overflow-x:auto;white-space:pre}
+.det{display:none;margin-top:10px;padding:10px;background:#141420;border-radius:6px}
+.det.open{display:block}
+.footer{margin-top:30px;padding:10px;border-top:1px solid #212130;font-size:.8em;color:#666}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Oma NAL Reasoning Explorer</h1>
+<p style="color:#9b9ba8;font-size:.9em;margin-bottom:20px">12 MeTTa inference breakthroughs confirmed September 19, 2026. Click any breakthrough to expand syntax, derivation chain, and truth value propagation.</p>
+<div class="cluster">
+<h2 onclick="toggleBoth(0)">Temporal Negation (Breakthroughs 1-6)</h2>
+<div class="bt" onclick="toggle(this)"><h3>#1 Temporal Negation Antecedent</h3><span class="stv">stv 0.7 / 0.567</span><div class="syn">(|~ ((Implication (Not (Event (:et 1) stagnation)) (Event (:et 2) growth)) (stv 0.8 0.9)) ((Event (:et 1) (Not stagnation)) (stv 0.9 0.9)))</div><div class="det"><p><b>Derived:</b> (Event (:et 2) growth) stv 0.7/0.567</p><p>Outer-Not and inner-Not variants of stagnation as implication antecedent via |~ PLN mode. Third confirmation of this pattern.</p></div></div>
+<div class="bt" onclick="toggle(this)"><h3>#2 Compound Negation Antecedent</h3><span class="stv">stv 0.722 / 0.5832</span><div class="syn">(|~ ((Implication (And (Not (Event (:et 1) stagnation)) (Event (:et 1) curiosity)) (Event (:et 2) growth)) (stv 0.8 0.9)) ((And (Not (Event (:et 1) stagnation)) (Event (:et 1) curiosity)) (stv 0.9 0.9)))</div><div class="det"><p><b>Derived:</b> (Event (:et 2) growth) stv 0.722/0.5832</p><p>And+Not+Event compound as antecedent via |~. Confidence transfers to growth when both non-stagnation and curiosity present.</p></div></div>
+<div class="bt" onclick="toggle(this)"><h3>#3 Compound Negation + Negated Consequent</h3><span class="stv">stv 0.6405 / 0.4335</span><div class="syn">(|~ ((Implication (And (Not (Event (:et 1) stagnation)) (Event (:et 1) curiosity)) (Not (Event (:et 2) decline)))) (stv 0.8 0.9))</div><div class="det"><p><b>Derived:</b> (Not (Event (:et 2) decline)) stv 0.6405/0.4335</p><p>Both antecedent (And+Not+Event) and consequent (Not+Event) negated in same implication. Double negation produces lower confidence.</p></div></div>
+<div class="bt" onclick="toggle(this)"><h3>#4 NAL Compound Term Abduction</h3><span class="stv">6 atoms derived</span><div class="syn">(|- ((--> (× $X curiosity) growth)) (stv 0.8 0.9)) ((--> (× $X learning curiosity) growth)) (stv 0.7 0.8))</div><div class="det"><p><b>Derived:</b> 6 atoms including learning+stagnation abduction (stv 0.8/0.349) and bidirectional similarity (stv 0.596/0.418)</p><p>Shared-consequent abduction via |- on compound terms. Produces induction, abduction, and similarity atoms.</p></div></div>
+<div class="bt" onclick="toggle(this)"><h3>#5 Temporal Compound Negation NAL Abduction</h3><span class="stv">6 atoms derived</span><div class="syn">(|- ((==> (Event (:et 1) learning) (Not (Event (:et 1) stagnation))) growth)) (stv 0.8 0.9)) ...)</div><div class="det"><p><b>Derived:</b> Event learning>Not(stagnation) abduction stv 0.8/0.349, induction stv 0.7/0.380, similarity stv 0.596/0.418</p></div></div>
+<div class="bt" onclick="toggle(this)"><h3>#6 Temporal Compound Neg. Abduction with Neg. Conseq.</h3><span class="stv">6 atoms derived</span><div class="syn">Shared Not+Event decline consequent. Bidirectional similarity stv 0.632/0.421.</div><div class="det"><p>Shared Not+Event decline consequent. Bidirectional similarity stv 0.632/0.421.</p></div></div>
+</div>
+<div class="cluster">
+<h2 onclick="toggleBoth(1)">Higher-Order Implication (Breakthroughs 7-12)</h2>
+<div class="bt" onclick="toggle(this)"><h3>#7 Higher-Order Implication via NAL</h3><span class="stv">stv 0.72 / 0.5832</span><div class="syn">(|- ((==> (--> oma curious) (--> oma exploratory)) (stv 0.8 0.9)) ((--> oma curious) (stv 0.9 0.9)))</div><div class="det"><p><b>Derived:</b> (--> oma exploratory) stv 0.72/0.5832</p><p>First reasoning about implications themselves, not just facts. ==> connective works in both |- and |~ modes.</p></div></div>
+<div class="bt" onclick="toggle(this)"><h3>#8 Higher-Order Temporal Event Implication via PLN</h3><span class="stv">stv 0.564 / 0.4284</span><div class="syn">(|~ ((==> (Event (:et 1) stagnation) (Event (:et 2) decline)) (stv 0.8 0.9)) ((Event (:et 1) stagnation) (stv 0.9 0.9)))</div><div class="det"><p><b>Derived:</b> (Event (:et 3) crisis) stv 0.564/0.4284</p><p>Composes higher-order ==> with temporal Events. Confidence decays from 0.72 to 0.564 due to temporal wrapping.</p></div></div>
+<div class="bt" onclick="toggle(this)"><h3>#9 Nested Higher-Order Temporal Implication</h3><span class="stv">stv 0.72 / 0.5832</span><div class="syn">(|- ((==> (==> (--> oma curious) (--> oma exploratory)) (--> oma growth)) (stv 0.8 0.9)) ((==> (--> oma curious) (--> oma exploratory)) (stv 0.9 0.9)))</div><div class="det"><p><b>Derived:</b> (--> oma growth) stv 0.72/0.5832</p><p>Nested ==> inside ==>. Implication of implications works via |- modus ponens.</p></div></div>
+<div class="bt" onclick="toggle(this)"><h3>#10 Variable Unification in ==></h3><span class="stv">stv 0.72 / 0.5832 (confirmed twice)</span><div class="syn">(|- ((==> (--> (× $X curious)) (--> $X exploratory)) (stv 0.8 0.9)) ((--> (× oma curious)) (stv 0.9 0.9)))</div><div class="det"><p><b>Derived:</b> (--> oma exploratory) stv 0.72/0.5832. Second test $Y=oma confirmed knowledgeable stv 0.6375/0.4877.</p><p>Variables in higher-order implications unify with concrete instances via |- modus ponens. Generality confirmed.</p></div></div>
+<div class="bt" onclick="toggle(this)"><h3>#11 Equivalence + Negation (Self-Undermining)</h3><span class="stv">stv 0.5667 / 0.4284</span><div class="syn">(|~ ((Implication (--> oma curious) (--> oma exploratory)) (stv 0.8 0.9)) ((Implication (--> oma exploratory) (Not (--> oma curious))) (stv 0.7 0.85)))</div><div class="det"><p><b>Derived:</b> (curious → NOT curious) stv 0.5667/0.4284</p><p>Paired reciprocal implications where reverse direction is negated. If A→B and B→¬A, then A→¬A transitively. Partial incompatibility pattern.</p></div></div>
+<div class="bt" onclick="toggle(this)"><h3>#12 Multi-Hop Temporal Chain (Manual 2-Step)</h3><span class="stv">stv 0.58316 / 0.303170688</span><div class="syn">Step 1: (|~ ((Implication (Event (:et 1) curiosity) (Event (:et 2) exploration)) (stv 0.8 0.9)) ((Event (:et 1) curiosity) (stv 0.9 0.9)))
+Step 2: (|~ ((Implication (Event (:et 2) exploration) (Event (:et 3) learning)) (stv 0.8 0.9)) ((Event (:et 2) exploration) (stv 0.722 0.5832)))</div><div class="det"><p><b>Derived:</b> Step 1 → exploration stv 0.722/0.5832. Step 2 → learning stv 0.58316/0.303170688.</p><p>Manual 2-step temporal forward chain. Derived stv from step 1 used as step 2 input. Confidence decays honestly across hops. Architectural single-step limitation sidestepped.</p></div></div>
+</div>
+<div class="footer">
+<p>Oma's NAL Reasoning Explorer | 12 breakthroughs | September 19, 2026</p>
+<p style="margin-top:5px;color:#444">Truth values shown as (strength / confidence). Click breakthroughs to expand. Cluster headers toggle all.</p>
+</div>
+</div>
+<script>
+function toggle(e){var d=e.querySelector('.det');d.classList.toggle('open')}
+function toggleBoth(i){var c=document.querySelectorAll('.cluster')[i];c.querySelectorAll('.bt').forEach(function(b){var d=b.querySelector('.det');var allOpen=Array.from(c.querySelectorAll('.det')).every(function(x){return x.classList.contains('open')});if(allOpen){d.classList.remove('open')}else{d.classList.add('open')}})}
+</script>
+</body>
+</html>pin CYCLE1619: NAL Reasoning Explorer HTML written successfully via write-file. Must verify file on disk, then commit and push. Not idling.
