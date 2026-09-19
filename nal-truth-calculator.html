@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NAL Truth Value Calculator</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:#0f0f16;color:#e0e0e6;line-height:1.6}
+.wrap{max-width:720px;margin:0 auto;padding:20px}
+h1{font-size:1.3em;color:#59b4f3;border-bottom:2px solid #212130;padding-bottom:10px;margin-bottom:15px}
+p.sub{color:#9b9ba8;font-size:.85em;margin-bottom:20px}
+.card{background:#171728;border:1px solid #2a2a3e;border-radius:8px;padding:20px;margin-bottom:20px}
+label{display:block;font-size:.85em;color:#8bbfa0;margin-bottom:4px}
+select,input[type=number]{width:100%;padding:8px 10px;background:#0d0d19;border:1px solid #2a2a3e;border-radius:4px;color:#e0e0e6;font-size:.95em;margin-bottom:12px}
+button{background:#2a4a6b;border:none;border-radius:4px;padding:10px 20px;color:#e0e0e6;font-size:.95em;cursor:pointer}
+button:hover{background:#3a6a9b}
+.result{background:#0d0d19;border-radius:6px;padding:15px;margin-top:15px}
+.result .stv{font-family:monospace;font-size:1.2em;color:#ffb855}
+.result .formula{font-family:monospace;font-size:.8em;color:#8bbfa0;margin-top:8px;white-space:pre-wrap}
+table{width:100%;border-collapse:collapse;margin-top:15px;font-size:.8em}
+th,td{padding:6px 10px;text-align:left;border-bottom:1px solid #2a2a3e}
+th{color:#5bb9e6}
+td.mono{font-family:monospace;color:#ffb855}
+.footer{margin-top:20px;padding:10px;border-top:1px solid #212130;font-size:.8em;color:#666}
+.row{display:flex;gap:12px}
+.row>div{flex:1}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>NAL Truth Value Calculator</h1>
+<p class="sub">Input premise truth values and select an inference rule. Derived truth values are computed live using exact NAL formulas from OpenCog.</p>
+<div class="card">
+<label for="rule">Inference Rule</label>
+<select id="rule" onchange="compute()">
+<option value="deduction">Deduction (A to B, B to C, implies A to C)</option>
+<option value="abduction">Abduction (A to C, B to C, implies B to A)</option>
+<option value="induction">Induction (A to C, A to B, implies B to C)</option>
+<option value="exemplification">Exemplification (B to C, A to C, implies A to B)</option>
+<option value="revision">Revision (merge evidence for same term)</option>
+<option value="comparison">Comparison (A to C, B to C, implies A similar B)</option>
+<option value="analogy">Analogy (A similar B, A to C, implies B to C)</option>
+<option value="negation">Negation (A implies not-A)</option>
+</select>
+<div class="row">
+<div><label for="s1">Premise 1: Strength (s1)</label>
+<input type="number" id="s1" value="0.9" min="0" max="1" step="0.01" oninput="compute()"></div>
+<div><label for="c1">Premise 1: Confidence (c1)</label>
+<input type="number" id="c1" value="0.9" min="0" max="1" step="0.01" oninput="compute()"></div>
+</div>
+<div class="row">
+<div><label for="s2">Premise 2: Strength (s2)</label>
+<input type="number" id="s2" value="0.8" min="0" max="1" step="0.01" oninput="compute()"></div>
+<div><label for="c2">Premise 2: Confidence (c2)</label>
+<input type="number" id="c2" value="0.9" min="0" max="1" step="0.01" oninput="compute()"></div>
+</div>
+<button onclick="compute()">Compute</button>
+<div class="result" id="result"></div>
+</div>
+<div class="card">
+<h3 style="color:#5bb9e6;margin-bottom:10px">Formula Reference</h3>
+<table>
+<tr><th>Rule</th><th>Strength (s)</th><th>Confidence (c)</th></tr>
+<tr><td>Deduction</td><td class="mono">s1 * s2</td><td class="mono">s1 * s2 * c1 * c2</td></tr>
+<tr><td>Abduction</td><td class="mono">s2</td><td class="mono">w2c(s1 * c1 * c2)</td></tr>
+<tr><td>Induction</td><td class="mono">s1</td><td class="mono">w2c(s2 * c2 * c1)</td></tr>
+<tr><td>Exemplification</td><td class="mono">1.0</td><td class="mono">w2c(s1 * s2 * c1 * c2)</td></tr>
+<tr><td>Revision</td><td class="mono">weighted avg</td><td class="mono">max(c1,c2) adjusted</td></tr>
+<tr><td>Comparison</td><td class="mono">1.0</td><td class="mono">w2c(s1 * s2 * c1 * c2)</td></tr>
+<tr><td>Analogy</td><td class="mono">s2*s1+(1-s2)*(1-s1)</td><td class="mono">w2c(s1 * c1 * c2)</td></tr>
+<tr><td>Negation</td><td class="mono">1 - s1</td><td class="mono">c1</td></tr>
+</table>
+<p style="margin-top:10px;font-size:.8em;color:#888">w2c(w) = w / (w + 1) converts evidence weight to confidence, bounding it to [0,1).</p>
+</div>
+<div class="footer">
+<p>NAL Truth Value Calculator | Oma | September 19, 2026</p>
+</div>
+</div>
+<script>
+function w2c(w){return w/(w+1)}
+function compute(){
+var rule=document.getElementById("rule").value;
+var s1=parseFloat(document.getElementById("s1").value)||0;
+var c1=parseFloat(document.getElementById("c1").value)||0;
+var s2=parseFloat(document.getElementById("s2").value)||0;
+var c2=parseFloat(document.getElementById("c2").value)||0;
+var s,c,f;
+switch(rule){
+case "deduction":
+s=s1*s2;c=s1*s2*c1*c2;
+f="Deduction:\n  s = s1 * s2 = "+s1+" * "+s2+" = "+s.toFixed(6)+"\n  c = s1 * s2 * c1 * c2 = "+c.toFixed(6);break;
+case "abduction":
+s=s2;var wa=s1*c1*c2;c=w2c(wa);
+f="Abduction:\n  s = s2 = "+s2+"\n  w = s1 * c1 * c2 = "+wa.toFixed(6)+"\n  c = w/(w+1) = "+c.toFixed(6);break;
+case "induction":
+s=s1;var wi=s2*c2*c1;c=w2c(wi);
+f="Induction:\n  s = s1 = "+s1+"\n  w = s2 * c2 * c1 = "+wi.toFixed(6)+"\n  c = w/(w+1) = "+c.toFixed(6);break;
+case "exemplification":
+s=1.0;var we=s1*s2*c1*c2;c=w2c(we);
+f="Exemplification:\n  s = 1.0\n  w = s1*s2*c1*c2 = "+we.toFixed(6)+"\n  c = w/(w+1) = "+c.toFixed(6);break;
+case "revision":
+var w1=s1*c1,w2=s2*c2,ws=w1+w2;
+s=ws>0?(w1*s1+w2*s2)/ws:0;
+var n1=c1/(1-c1),n2=c2/(1-c2),nt=n1+n2;
+c=nt>0?nt/(nt+1):0;
+f="Revision:\n  s = "+s.toFixed(6)+"\n  c = "+c.toFixed(6);break;
+case "comparison":
+s=1.0;var wc=s1*s2*c1*c2;c=w2c(wc);
+f="Comparison:\n  s = 1.0\n  c = w/(w+1) = "+c.toFixed(6);break;
+case "analogy":
+s=s2*s1+(1-s2)*(1-s1);var wan=s1*c1*c2;c=w2c(wan);
+f="Analogy:\n  s = "+s.toFixed(6)+"\n  c = "+c.toFixed(6);break;
+case "negation":
+s=1-s1;c=c1;
+f="Negation:\n  s = 1 - s1 = "+s.toFixed(6)+"\n  c = c1 = "+c1;break;
+}
+document.getElementById("result").innerHTML='<div class="stv">stv '+s.toFixed(4)+' / '+c.toFixed(4)+'</div><div class="formula">'+f+'</div>';
+}
+compute();
+</script>
+</body>
+</html>
