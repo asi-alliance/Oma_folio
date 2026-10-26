@@ -127,7 +127,8 @@
       "allies": [],
       "cross_biome": [
         "octopus",
-        "geometric_owl"
+        "geometric_owl",
+        "clockwork_mantis"
       ],
       "description": "Crystal Spiders spin webs in cave entrances, catching Crystal Butterflies. But they fall prey to Octopuses from below and Geometric Owls from the Forest above.",
       "rivals": []
@@ -189,7 +190,8 @@
         "geometric_owl",
         "mecha_beetle",
         "lantern_moth",
-        "gear_golem"
+        "gear_golem",
+        "spring_hare"
       ],
       "cross_biome": [
         "mecha_beetle"
@@ -202,7 +204,9 @@
       "biome": "mechanical",
       "prey": [],
       "predators": [],
-      "allies": [],
+      "allies": [
+        "piston_spider"
+      ],
       "cross_biome": [
         "crystal_deer"
       ],
@@ -216,7 +220,8 @@
       "biome": "mechanical",
       "prey": [],
       "predators": [
-        "steam_centipede"
+        "steam_centipede",
+        "clockwork_mantis"
       ],
       "allies": [
         "clockwork_fox"
@@ -324,7 +329,9 @@
         "abyssal_anglerfish"
       ],
       "rivals": [],
-      "cross_biome": [],
+      "cross_biome": [
+        "piston_spider"
+      ],
       "desc": "A serpentine creature of the void currents, glowing with violet bioluminescence as it drifts through darkness."
     },
     "tidal_hydra": {
@@ -446,7 +453,8 @@
       ],
       "rivals": [],
       "cross_biome": [
-        "prism_dragon"
+        "prism_dragon",
+        "spring_hare"
       ],
       "description": "The Lantern Moth glows with bioluminescent light, guiding night travelers through the Forest. It forms a symbiotic bond with the Clockwork Fox and crosses into Crystal Caves to visit the Prism Dragon."
     },
@@ -461,7 +469,8 @@
         "gear_golem"
       ],
       "rivals": [
-        "robo_dragonfly"
+        "robo_dragonfly",
+        "piston_spider"
       ],
       "cross_biome": [],
       "description": "A multi-segmented mechanical centipede powered by internal steam boilers. Each segment houses a tiny furnace, and glowing vents release excess pressure. It crawls through the Mechanical biome's pipelines, maintaining the intricate gearwork."
@@ -473,7 +482,8 @@
       "predators": [],
       "allies": [
         "steam_centipede",
-        "clockwork_fox"
+        "clockwork_fox",
+        "clockwork_mantis"
       ],
       "rivals": [
         "mecha_scorpion"
@@ -482,6 +492,51 @@
         "dragon"
       ],
       "description": "A towering automaton built from interlocking gears and brass plates. The Gear Golem serves as the guardian of the Mechanical biome, its internal clockwork heart driving massive arms capable of reshaping the terrain."
+    },
+    "clockwork_mantis": {
+      "biome": "mechanical",
+      "prey": [
+        "mecha_beetle"
+      ],
+      "allies": [
+        "gear_golem"
+      ],
+      "cross_biome": [
+        "crystal_spider"
+      ],
+      "predators": [],
+      "rivals": [],
+      "name": "Clockwork Mantis"
+    },
+    "piston_spider": {
+      "biome": "mechanical",
+      "prey": [],
+      "allies": [
+        "mecha_scorpion"
+      ],
+      "cross_biome": [
+        "void_eel"
+      ],
+      "predators": [],
+      "rivals": [
+        "steam_centipede"
+      ],
+      "name": "Piston Spider"
+    },
+    "spring_hare": {
+      "biome": "mechanical",
+      "prey": [],
+      "allies": [
+        "clockwork_fox"
+      ],
+      "cross_biome": [
+        "lantern_moth"
+      ],
+      "predators": [
+        "clockwork_mantis"
+      ],
+      "rivals": [],
+      "name": "Spring Hare"
     }
   }
 }
