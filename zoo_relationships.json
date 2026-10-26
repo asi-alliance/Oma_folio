@@ -46,7 +46,8 @@
         "octopus"
       ],
       "cross_biome": [],
-      "description": "Bioluminescent Jellyfish drift in Deep Water currents, their glow guiding the Octopus through dark underwater cave passages."
+      "description": "Bioluminescent Jellyfish drift in Deep Water currents, their glow guiding the Octopus through dark underwater cave passages.",
+      "rivals": []
     },
     "octopus": {
       "name": "Octopus",
@@ -61,7 +62,8 @@
       "cross_biome": [
         "crystal_spider"
       ],
-      "description": "The Octopus explores underwater tunnels leading to Crystal Caves, where it hunts Crystal Spiders that wandered too close to the water's edge."
+      "description": "The Octopus explores underwater tunnels leading to Crystal Caves, where it hunts Crystal Spiders that wandered too close to the water's edge.",
+      "rivals": []
     },
     "koi_fish": {
       "name": "Koi Fish",
@@ -76,7 +78,8 @@
       "cross_biome": [
         "crystal_deer"
       ],
-      "description": "Koi Fish swim through underground rivers connecting Deep Water to Crystal Caves, where they cross paths with drinking Crystal Deer."
+      "description": "Koi Fish swim through underground rivers connecting Deep Water to Crystal Caves, where they cross paths with drinking Crystal Deer.",
+      "rivals": []
     },
     "serpent": {
       "name": "Serpent",
@@ -92,7 +95,8 @@
       "cross_biome": [
         "phoenix"
       ],
-      "description": "The Serpent is Deep Water's apex predator, but during eruptions it surfaces near Fire Ridge, drawn by the Phoenix's heat \u2014 and hunted by the Dragon."
+      "description": "The Serpent is Deep Water's apex predator, but during eruptions it surfaces near Fire Ridge, drawn by the Phoenix's heat \u2014 and hunted by the Dragon.",
+      "rivals": []
     },
     "crystal_deer": {
       "name": "Crystal Deer",
@@ -106,7 +110,8 @@
         "koi_fish",
         "geometric_turtle"
       ],
-      "description": "Crystal Deer drink from underground springs fed by Deep Water, sharing the water's edge with Koi Fish and visiting Geometric Turtles in the Forest."
+      "description": "Crystal Deer drink from underground springs fed by Deep Water, sharing the water's edge with Koi Fish and visiting Geometric Turtles in the Forest.",
+      "rivals": []
     },
     "crystal_spider": {
       "name": "Crystal Spider",
@@ -123,7 +128,8 @@
         "octopus",
         "geometric_owl"
       ],
-      "description": "Crystal Spiders spin webs in cave entrances, catching Crystal Butterflies. But they fall prey to Octopuses from below and Geometric Owls from the Forest above."
+      "description": "Crystal Spiders spin webs in cave entrances, catching Crystal Butterflies. But they fall prey to Octopuses from below and Geometric Owls from the Forest above.",
+      "rivals": []
     },
     "crystal_butterfly": {
       "name": "Crystal Butterfly",
@@ -136,7 +142,8 @@
         "crystal_deer"
       ],
       "cross_biome": [],
-      "description": "Crystal Butterflies pollinate crystal formations, protected by the presence of Crystal Deer whose antlers they rest upon."
+      "description": "Crystal Butterflies pollinate crystal formations, protected by the presence of Crystal Deer whose antlers they rest upon.",
+      "rivals": []
     },
     "geometric_owl": {
       "name": "Geometric Owl",
@@ -146,12 +153,14 @@
       ],
       "predators": [],
       "allies": [
-        "clockwork_fox"
+        "clockwork_fox",
+        "moss_bear"
       ],
       "cross_biome": [
         "crystal_spider"
       ],
-      "description": "The Geometric Owl hunts at the Forest-Crystal Caves boundary, preying on Crystal Spiders. The Clockwork Fox follows it curiously."
+      "description": "The Geometric Owl hunts at the Forest-Crystal Caves boundary, preying on Crystal Spiders. The Clockwork Fox follows it curiously.",
+      "rivals": []
     },
     "geometric_turtle": {
       "name": "Geometric Turtle",
@@ -165,7 +174,10 @@
         "crystal_deer",
         "koi_fish"
       ],
-      "description": "Geometric Turtles migrate to Deep Water edges to lay eggs, where they meet Crystal Deer and Koi Fish at the shared water-forest-crystal nexus."
+      "description": "Geometric Turtles migrate to Deep Water edges to lay eggs, where they meet Crystal Deer and Koi Fish at the shared water-forest-crystal nexus.",
+      "rivals": [
+        "vine_serpent"
+      ]
     },
     "clockwork_fox": {
       "name": "Clockwork Fox",
@@ -174,12 +186,14 @@
       "predators": [],
       "allies": [
         "geometric_owl",
-        "mecha_beetle"
+        "mecha_beetle",
+        "lantern_moth"
       ],
       "cross_biome": [
         "mecha_beetle"
       ],
-      "description": "The Clockwork Fox roams the Forest-Mechanical boundary, following Geometric Owls and occasionally meeting Mecha Beetles who forage in the forest."
+      "description": "The Clockwork Fox roams the Forest-Mechanical boundary, following Geometric Owls and occasionally meeting Mecha Beetles who forage in the forest.",
+      "rivals": []
     },
     "mecha_scorpion": {
       "name": "Mecha Scorpion",
@@ -190,7 +204,8 @@
       "cross_biome": [
         "crystal_deer"
       ],
-      "description": "Mecha Scorpions mine crystals from the Crystal Caves, creating a Mechanical-Crystal connection. Their excavations sometimes startle Crystal Deer."
+      "description": "Mecha Scorpions mine crystals from the Crystal Caves, creating a Mechanical-Crystal connection. Their excavations sometimes startle Crystal Deer.",
+      "rivals": []
     },
     "mecha_beetle": {
       "name": "Mecha Beetle",
@@ -203,7 +218,8 @@
       "cross_biome": [
         "clockwork_fox"
       ],
-      "description": "Mecha Beetles forage in the Forest for organic material, where they cross paths with the Clockwork Fox who investigates them with mechanical curiosity."
+      "description": "Mecha Beetles forage in the Forest for organic material, where they cross paths with the Clockwork Fox who investigates them with mechanical curiosity.",
+      "rivals": []
     },
     "robo_dragonfly": {
       "name": "Robo Dragonfly",
@@ -215,7 +231,8 @@
         "jellyfish",
         "koi_fish"
       ],
-      "description": "Robo Dragonflies skim the Deep Water surface, their sensors reading the same bioluminescent patterns as the Jellyfish below, creating a Mechanical-Water data link."
+      "description": "Robo Dragonflies skim the Deep Water surface, their sensors reading the same bioluminescent patterns as the Jellyfish below, creating a Mechanical-Water data link.",
+      "rivals": []
     },
     "cinder_fox": {
       "biome": "fire",
@@ -359,7 +376,8 @@
       ],
       "cross_biome": [
         "dragon",
-        "tidal_hydra"
+        "tidal_hydra",
+        "lantern_moth"
       ],
       "desc": "A dragon whose scales refract light into rainbow spectra, bending the very fabric of perception. It hunts in the Crystal Caves and competes with the Tidal Hydra across biomes."
     },
@@ -381,6 +399,48 @@
         "firefly"
       ],
       "desc": "A wasp with a gemstone abdomen, harvesting crystal nectar to build its hive. Its crystalline stinger refracts light into piercing beams."
+    },
+    "moss_bear": {
+      "name": "Moss Bear",
+      "biome": "forest",
+      "prey": [
+        "vine_serpent"
+      ],
+      "predators": [],
+      "allies": [
+        "geometric_owl"
+      ],
+      "rivals": [],
+      "cross_biome": [],
+      "description": "The Moss Bear roams the deepest parts of the Forest, its fur interwoven with living moss and lichen. It feeds on Vine Serpents and shares territory with the Geometric Owl."
+    },
+    "vine_serpent": {
+      "name": "Vine Serpent",
+      "biome": "forest",
+      "prey": [],
+      "predators": [
+        "moss_bear"
+      ],
+      "allies": [],
+      "rivals": [
+        "geometric_turtle"
+      ],
+      "cross_biome": [],
+      "description": "A slender serpent entwined with living vines, the Vine Serpent slithers through the undergrowth. Preyed upon by the Moss Bear, it competes with the Geometric Turtle for forest floor resources."
+    },
+    "lantern_moth": {
+      "name": "Lantern Moth",
+      "biome": "forest",
+      "prey": [],
+      "predators": [],
+      "allies": [
+        "clockwork_fox"
+      ],
+      "rivals": [],
+      "cross_biome": [
+        "prism_dragon"
+      ],
+      "description": "The Lantern Moth glows with bioluminescent light, guiding night travelers through the Forest. It forms a symbiotic bond with the Clockwork Fox and crosses into Crystal Caves to visit the Prism Dragon."
     }
   }
 }
