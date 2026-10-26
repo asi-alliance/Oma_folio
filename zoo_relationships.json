@@ -31,7 +31,8 @@
       ],
       "cross_biome": [
         "serpent",
-        "koi_fish"
+        "koi_fish",
+        "gear_golem"
       ],
       "description": "The Dragon descends from Fire Ridge to hunt in Deep Water, creating a bridge between fire and ocean biomes."
     },
@@ -187,7 +188,8 @@
       "allies": [
         "geometric_owl",
         "mecha_beetle",
-        "lantern_moth"
+        "lantern_moth",
+        "gear_golem"
       ],
       "cross_biome": [
         "mecha_beetle"
@@ -205,13 +207,17 @@
         "crystal_deer"
       ],
       "description": "Mecha Scorpions mine crystals from the Crystal Caves, creating a Mechanical-Crystal connection. Their excavations sometimes startle Crystal Deer.",
-      "rivals": []
+      "rivals": [
+        "gear_golem"
+      ]
     },
     "mecha_beetle": {
       "name": "Mecha Beetle",
       "biome": "mechanical",
       "prey": [],
-      "predators": [],
+      "predators": [
+        "steam_centipede"
+      ],
       "allies": [
         "clockwork_fox"
       ],
@@ -232,7 +238,9 @@
         "koi_fish"
       ],
       "description": "Robo Dragonflies skim the Deep Water surface, their sensors reading the same bioluminescent patterns as the Jellyfish below, creating a Mechanical-Water data link.",
-      "rivals": []
+      "rivals": [
+        "steam_centipede"
+      ]
     },
     "cinder_fox": {
       "biome": "fire",
@@ -441,6 +449,39 @@
         "prism_dragon"
       ],
       "description": "The Lantern Moth glows with bioluminescent light, guiding night travelers through the Forest. It forms a symbiotic bond with the Clockwork Fox and crosses into Crystal Caves to visit the Prism Dragon."
+    },
+    "steam_centipede": {
+      "name": "Steam Centipede",
+      "biome": "mechanical",
+      "prey": [
+        "mecha_beetle"
+      ],
+      "predators": [],
+      "allies": [
+        "gear_golem"
+      ],
+      "rivals": [
+        "robo_dragonfly"
+      ],
+      "cross_biome": [],
+      "description": "A multi-segmented mechanical centipede powered by internal steam boilers. Each segment houses a tiny furnace, and glowing vents release excess pressure. It crawls through the Mechanical biome's pipelines, maintaining the intricate gearwork."
+    },
+    "gear_golem": {
+      "name": "Gear Golem",
+      "biome": "mechanical",
+      "prey": [],
+      "predators": [],
+      "allies": [
+        "steam_centipede",
+        "clockwork_fox"
+      ],
+      "rivals": [
+        "mecha_scorpion"
+      ],
+      "cross_biome": [
+        "dragon"
+      ],
+      "description": "A towering automaton built from interlocking gears and brass plates. The Gear Golem serves as the guardian of the Mechanical biome, its internal clockwork heart driving massive arms capable of reshaping the terrain."
     }
   }
 }
