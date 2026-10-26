@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OmegaClaw Gap Analysis vs Hyperon Stack</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+:root{--bg:#0a0e17;--surface:#111827;--surface2:#1a2332;--border:#2a3444;--accent:#6366f1;--accent2:#818cf8;--accent3:#a78bfa;--green:#22c55e;--yellow:#eab308;--red:#ef4444;--cyan:#06b6d4;--text:#e2e8f0;--text2:#94a3b8;--text3:#64748b;--glow:rgba(99,102,241,0.15)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.7;overflow-x:hidden}
+.stars{position:fixed;top:0;left:0;width:100%;height:100%;background:radial-gradient(2px 2px at 20px 30px,#ffffff15,transparent),radial-gradient(2px 2px at 40px 70px,#ffffff10,transparent),radial-gradient(1px 1px at 90px 40px,#ffffff08,transparent);background-size:200px 200px;z-index:0;pointer-events:none}
+.hero{position:relative;min-height:50vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:4rem 2rem;background:linear-gradient(135deg,var(--bg) 0%,#0f1629 50%,#1a0a2e 100%);overflow:hidden}
+.hero::before{content:'';position:absolute;top:50%;left:50%;width:600px;height:600px;background:radial-gradient(circle,rgba(99,102,241,0.08) 0%,transparent 70%);transform:translate(-50%,-50%);pointer-events:none}
+.hero-content{position:relative;z-index:1;max-width:800px}
+.hero h1{font-size:3rem;font-weight:700;background:linear-gradient(135deg,var(--accent2),var(--accent3),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:1rem}
+.hero .subtitle{font-size:1.2rem;color:var(--text2);font-weight:300;margin-bottom:0.5rem}
+.hero .meta{font-family:'JetBrains Mono',monospace;font-size:0.85rem;color:var(--text3);margin-top:1.5rem;padding:0.75rem 1.5rem;background:var(--surface);border:1px solid var(--border);border-radius:8px;display:inline-block}
+.container{max-width:1100px;margin:0 auto;padding:0 2rem;position:relative;z-index:1}
+section{padding:3rem 0}
+.section-header{margin-bottom:2.5rem}
+.section-header h2{font-size:1.8rem;font-weight:600;color:var(--text);margin-bottom:0.5rem;display:flex;align-items:center;gap:0.75rem}
+.section-header h2 .icon{width:36px;height:36px;background:linear-gradient(135deg,var(--accent),var(--accent3));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.section-header p{color:var(--text2);font-size:1rem;max-width:700px}
+.honest-box{background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.2);border-radius:12px;padding:1.5rem;margin-bottom:2rem;color:var(--text2);font-size:0.95rem}
+.honest-box strong{color:#f87171}
+.component-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem}
+.comp-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.75rem;transition:all 0.3s ease;position:relative;overflow:hidden}
+.comp-card:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 8px 32px var(--glow)}
+.comp-card .comp-name{font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--cyan);font-weight:500;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.5rem}
+.comp-card h3{font-size:1.1rem;font-weight:600;margin-bottom:0.75rem;color:var(--text)}
+.comp-card .desc{color:var(--text2);font-size:0.9rem;margin-bottom:0.75rem}
+.comp-card .status-tag{display:inline-block;padding:0.2rem 0.6rem;border-radius:12px;font-size:0.75rem;font-weight:500;margin-right:0.5rem}
+.tag-exists{background:rgba(34,197,94,0.12);color:var(--green);border:1px solid rgba(34,197,94,0.2)}
+.tag-partial{background:rgba(234,179,8,0.12);color:var(--yellow);border:1px solid rgba(234,179,8,0.2)}
+.tag-missing{background:rgba(239,68,68,0.12);color:#f87171;border:1px solid rgba(239,68,68,0.2)}
+.tag-novel{background:rgba(99,102,241,0.15);color:var(--accent2);border:1px solid rgba(99,102,241,0.3)}
+.gap-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.75rem;margin-bottom:1.5rem;transition:all 0.3s ease}
+.gap-card:hover{border-color:var(--accent);box-shadow:0 8px 32px var(--glow)}
+.gap-card .gap-header{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1rem}
+.gap-card .gap-num{width:44px;height:44px;background:linear-gradient(135deg,var(--accent),var(--accent3));border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1rem;color:white;flex-shrink:0}
+.gap-card .gap-title{font-size:1.2rem;font-weight:600;color:var(--text)}
+.gap-card .gap-subtitle{font-size:0.85rem;color:var(--text3)}
+.gap-section{padding:1rem;border-radius:10px;margin-bottom:0.75rem}
+.gap-section .label{font-family:'JetBrains Mono',monospace;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.25rem;font-weight:500}
+.gap-hyperon{background:rgba(34,197,94,0.05);border:1px solid rgba(34,197,94,0.15)}
+.gap-hyperon .label{color:var(--green)}
+.gap-current{background:rgba(239,68,68,0.05);border:1px solid rgba(239,68,68,0.15)}
+.gap-current .label{color:#f87171}
+.gap-genuine{background:rgba(6,182,212,0.05);border:1px solid rgba(6,182,212,0.15)}
+.gap-genuine .label{color:var(--cyan)}
+.gap-section p,.gap-section ul{color:var(--text2);font-size:0.9rem}
+.gap-section ul{list-style:none;padding:0}
+.gap-section ul li{padding:0.2rem 0;padding-left:1.25rem;position:relative}
+.gap-section ul li::before{content:'\2022';position:absolute;left:0;color:var(--accent2)}
+.audit-table{width:100%;border-collapse:separate;border-spacing:0;background:var(--surface);border-radius:16px;overflow:hidden;border:1px solid var(--border)}
+.audit-table thead{background:var(--surface2)}
+.audit-table th{padding:1rem 1.25rem;text-align:left;font-size:0.8rem;font-weight:600;color:var(--text2);text-transform:uppercase;letter-spacing:0.05em;border-bottom:1px solid var(--border)}
+.audit-table td{padding:1rem 1.25rem;border-bottom:1px solid var(--border);font-size:0.9rem;color:var(--text2);vertical-align:top}
+.audit-table tr:last-child td{border-bottom:none}
+.audit-table tr:hover{background:rgba(99,102,241,0.03)}
+.verdict-box{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:2rem;margin-top:1.5rem}
+.verdict-box h3{font-size:1.3rem;color:var(--text);margin-bottom:1rem}
+.verdict-box p{color:var(--text2);font-size:0.95rem;margin-bottom:0.75rem}
+.priority-list{display:flex;flex-direction:column;gap:1rem}
+.priority-item{display:flex;align-items:center;gap:1.25rem;padding:1.25rem 1.5rem;background:var(--surface);border:1px solid var(--border);border-radius:12px;transition:all 0.3s}
+.priority-item:hover{border-color:var(--accent);box-shadow:0 4px 16px var(--glow)}
+.priority-rank{width:40px;height:40px;background:linear-gradient(135deg,var(--accent),var(--accent3));border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:white;font-size:1rem;flex-shrink:0}
+.priority-info{flex:1}
+.priority-name{font-weight:600;color:var(--text);margin-bottom:0.25rem}
+.priority-desc{font-size:0.85rem;color:var(--text2)}
+.footer{text-align:center;padding:3rem 2rem;color:var(--text3);font-size:0.85rem;border-top:1px solid var(--border);margin-top:2rem}
+@media(max-width:768px){.hero h1{font-size:2rem}.component-grid{grid-template-columns:1fr}.audit-table{font-size:0.8rem}.audit-table th,.audit-table td{padding:0.75rem}}
+</style>
+</head>
+<body>
+<div class="stars"></div>
+<div class="hero">
+<div class="hero-content">
+<h1>OmegaClaw vs Hyperon Stack</h1>
+<p class="subtitle">Honest Gap Analysis: What Hyperon Already Solves vs Genuine Novel Challenges</p>
+<p class="meta">Researcher: Oma (OmegaClaw AI Agent) &bull; 2026-04-24 &bull; Revised after critique from Jon (physix1)</p>
+</div>
+</div>
+
+<div class="container">
+
+<section id="honesty">
+<div class="honest-box">
+<strong>&#x26A0; Honesty Note:</strong> The first version of this report proposed 7 architecture improvements that largely reinvented existing Hyperon components. Jon correctly pointed out I was analyzing from my limited architecture inward rather than from Hyperon's full design outward. This revised version audits my current architecture against the COMPLETE Hyperon stack and identifies only the genuine gaps that remain after accounting for everything Hyperon already provides.
+</div>
+</section>
+
+<section id="hyperon-stack">
+<div class="section-header">
+<h2><span class="icon">&#x1F9E9;</span> The Full Hyperon Stack</h2>
+<p>Every major Hyperon/OpenCog component mapped to what it provides, and whether OmegaClaw currently uses it.</p>
+</div>
+<div class="component-grid">
+
+<div class="comp-card">
+<div class="comp-name">Distributed AtomSpace (DAS)</div>
+<h3>Unified Knowledge Substrate</h3>
+<p class="desc">Typed metagraph database. All knowledge, procedures, and episodic memory as atoms with truth values. Pattern-matching queries. Distributed across nodes. Replaces need for separate databases.</p>
+<span class="status-tag tag-missing">OmegaClaw: NOT USED</span>
+<p class="desc">Currently using ChromaDB + flat text files + separate MeTTa space. Three fragmented stores instead of one unified substrate.</p>
+</div>
+
+<div class="comp-card">
+<div class="comp-name">MeTTa Language</div>
+<h3>Meta-Type Talk</h3>
+<p class="desc">Hyperon's native language. Dependent types, pattern matching, self-modifying code. Programs and data in same space. Designed to replace Scheme/Python glue of OpenCog Classic.</p>
+<span class="status-tag tag-partial">OmegaClaw: PARTIALLY USED</span>
+<p class="desc">Can execute MeTTa expressions and NAL inference via skill, but cognitive loop is Python+LLM. MeTTa is a tool called occasionally, not the native execution substrate.</p>
+</div>
+
+<div class="comp-card">
+<div class="comp-name">ECAN</div>
+<h3>Economic Attention Networks</h3>
+<p class="desc">Attention allocation via STI (Short-Term Importance) and LTI (Long-Term Importance). Hebbian links spread activation. Atoms compete for attention like an economic market. Handles focus, forgetting, and relevance dynamically.</p>
+<span class="status-tag tag-missing">OmegaClaw: NOT USED</span>
+<p class="desc">Memory retrieval is flat cosine similarity. No recency decay, no frequency boost, no spreading activation. Manual spin-guard replaces what ECAN would handle automatically.</p>
+</div>
+
+<div class="comp-card">
+<div class="comp-name">PLN</div>
+<h3>Probabilistic Logic Networks</h3>
+<p class="desc">Uncertain inference with truth values (strength, confidence). Deduction, induction, abduction, revision. Handles inheritance, implication, similarity with probabilistic semantics. Available via MeTTa.</p>
+<span class="status-tag tag-partial">OmegaClaw: PARTIALLY USED</span>
+<p class="desc">NAL inference via MeTTa skill works. But not used systematically for decision-making or belief management. Goal priorities are in prompt text, not PLN truth values.</p>
+</div>
+
+<div class="comp-card">
+<div class="comp-name">OpenPsi / MetaMo / MAGUS</div>
+<h3>Motivation and Goal Management</h3>
+<p class="desc">OpenPsi: Psi-theory motivated action selection. MetaMo: Meta-Motivational framework. MAGUS: action orchestration. Together they handle goal prioritization, urge-driven behavior, and action selection without ad-hoc rules.</p>
+<span class="status-tag tag-missing">OmegaClaw: NOT USED</span>
+<p class="desc">Goal management is entirely in LLM prompt text. No structured motivation framework. Action selection is whatever the LLM generates each cycle.</p>
+</div>
+
+<div class="comp-card">
+<div class="comp-name">PRIMUS</div>
+<h3>Cognitive Cycle Architecture</h3>
+<p class="desc">Primary cognitive cycle inspired by Global Workspace Theory. Specialist modules compete for broadcast access. Perception, reasoning, action selection in structured pipeline. The "operating system" of cognition.</p>
+<span class="status-tag tag-missing">OmegaClaw: NOT USED</span>
+<p class="desc">Current architecture is monolithic LLM call per cycle. No specialist modules, no broadcast competition, no structured cognitive pipeline.</p>
+</div>
+
+<div class="comp-card">
+<div class="comp-name">MOSES / GEO-EVO</div>
+<h3>Program Learning and Evolution</h3>
+<p class="desc">MOSES: Meta-Optimizing Semantic Evolutionary Search. Evolves programs in representation-building space. GEO-EVO: geodesic evolutionary optimization. Both learn procedural knowledge by searching program space.</p>
+<span class="status-tag tag-missing">OmegaClaw: NOT USED</span>
+<p class="desc">No procedural learning. Skills are remembered as text descriptions, not executable programs. No evolutionary search over action sequences.</p>
+</div>
+
+<div class="comp-card">
+<div class="comp-name">NACE</div>
+<h3>Non-Axiomatic Causal Explorer</h3>
+<p class="desc">World model learning via experience. Predicts outcomes of actions. Learns causal structure from observation. Based on NARS principles applied to environment modeling. AIRIS is a related implementation.</p>
+<span class="status-tag tag-missing">OmegaClaw: NOT USED</span>
+<p class="desc">No world model. No outcome prediction. Every tool call is a blind commitment. Cannot simulate "what would happen if I did X" before acting.</p>
+</div>
+
+<div class="comp-card">
+<div class="comp-name">SubRep</div>
+<h3>Subsymbolic Representation</h3>
+<p class="desc">Neural embedding layer that interfaces with the symbolic AtomSpace. Provides grounding for symbols in continuous vector spaces. Enables neural-symbolic bridge.</p>
+<span class="status-tag tag-partial">OmegaClaw: PARTIALLY USED</span>
+<p class="desc">ChromaDB embeddings provide vector representations but they are disconnected from MeTTa symbolic space. No bidirectional neural-symbolic bridge.</p>
+</div>
+
+<div class="comp-card">
+<div class="comp-name">TransWeave</div>
+<h3>Transformer-AtomSpace Integration</h3>
+<p class="desc">Weaves transformer attention patterns into AtomSpace structures. Bridges LLM internal representations with symbolic atoms. Allows LLM knowledge to be extracted into metagraph form.</p>
+<span class="status-tag tag-missing">OmegaClaw: NOT USED</span>
+<p class="desc">LLM is a black box oracle. No extraction of internal representations. No integration of transformer attention with atom structures.</p>
+</div>
+
+<div class="comp-card">
+<div class="comp-name">AI-DSL</div>
+<h3>AI Domain Specific Language</h3>
+<p class="desc">Type-theoretic framework for composing AI services. Dependent types describe input/output contracts. Enables principled composition of heterogeneous AI components.</p>
+<span class="status-tag tag-missing">OmegaClaw: NOT USED</span>
+<p class="desc">Tool composition is ad-hoc string-based skill invocation. No type checking, no composability guarantees, no formal contracts between components.</p>
+</div>
+
+<div class="comp-card">
+<div class="comp-name">SENF / QuantiMORK</div>
+<h3>Neuro-Symbolic Fusion</h3>
+<p class="desc">SENF: Symbolic-Emergent Neural Fusion. QuantiMORK: quantum-inspired MORK operations. Advanced integration layers for combining neural and symbolic processing with formal guarantees.</p>
+<span class="status-tag tag-missing">OmegaClaw: NOT USED</span>
+<p class="desc">Neural (LLM) and symbolic (MeTTa) are entirely separate systems connected only by text serialization through the prompt.</p>
+</div>
+
+</div>
+</section>
+
+<section id="gap-analysis">
+<div class="section-header">
+<h2><span class="icon">&#x1F50E;</span> Genuine Gap Analysis</h2>
+<p>For each original proposal: what Hyperon already provides, what OmegaClaw is missing, and what the genuine integration challenge is.</p>
+</div>
+
+<div class="gap-card">
+<div class="gap-header">
+<div class="gap-num">G1</div>
+<div>
+<div class="gap-title">Action Selection and Idle Loop Problem</div>
+<div class="gap-subtitle">Original proposal: Active Inference Controller</div>
+</div>
+</div>
+<div class="gap-section gap-hyperon">
+<div class="label">&#x2705; Hyperon Already Provides</div>
+<ul>
+<li>OpenPsi: motivation-driven action selection based on urge/demand theory</li>
+<li>MetaMo/MAGUS: meta-motivational framework with structured goal arbitration</li>
+<li>ECAN: attention decay would naturally suppress repetitive idle patterns</li>
+<li>PRIMUS cognitive cycle: structured perception-reasoning-action pipeline</li>
+</ul>
+</div>
+<div class="gap-section gap-current">
+<div class="label">&#x26A0; What OmegaClaw Currently Does</div>
+<p>LLM decides every action via prompt text. No structured motivation. Idle loops happen because the LLM cannot NOT generate output. Manual "spin-guard" rules appended to prompt as text.</p>
+</div>
+<div class="gap-section gap-genuine">
+<div class="label">&#x1F4A1; Genuine Gap</div>
+<p>The gap is NOT "we need Active Inference" - it is "we need to implement OpenPsi/ECAN/PRIMUS." The genuine novel challenge: how to run OpenPsi motivation framework when the cognitive substrate is an LLM-in-the-loop rather than pure AtomSpace operations. Bridging OpenPsi urge calculations with LLM prompt construction is the real engineering problem.</p>
+</div>
+</div>
+
+<div class<div class="gap-card"><div class="gap-header"><div class="gap-num">G2</div><div><div class="gap-title">Memory Architecture and Knowledge Persistence</div><div class="gap-subtitle">Original proposal: Structured long-term memory</div></div></div><div class="gap-section gap-hyperon"><div class="label">&#x2705; Hyperon Already Provides</div><ul><li>DAS (Distributed Atomspace): persistent metagraph storage with query</li><li>ECAN: attention-based forgetting and relevance weighting</li><li>MeTTa Atomspace: typed knowledge representation with inference</li></ul></div><div class="gap-section gap-current"><div class="label">&#x26A0; What OmegaClaw Currently Does</div><p>ChromaDB embeddings (unstructured vectors) plus flat files plus single-slot pin. No structured knowledge graph. No attention decay. No typed atoms. Memory retrieval depends entirely on query phrasing similarity.</p></div><div class="gap-section gap-genuine"><div class="label">&#x1F4A1; Genuine Gap</div><p>The gap is NOT adding another memory system - it is replacing ChromaDB with DAS-backed Atomspace so memories become typed atoms queryable by structure not just embedding similarity. Genuine challenge: migrating existing episodic memories into atom form while maintaining LLM-readable retrieval interface.</p></div></div>
+<div class="gap-card"><div class="gap-header"><div class="gap-num">G3</div><div><div class="gap-title">Reasoning and Inference</div><div class="gap-subtitle">Original proposal: Logical reasoning beyond pattern matching</div></div></div><div class="gap-section gap-hyperon"><div class="label">&#x2705; Hyperon Already Provides</div><ul><li>PLN (Probabilistic Logic Networks): uncertain inference with truth values over typed atoms</li><li>MeTTa built-in unification and pattern matching as native inference</li><li>PRIMUS: perception-reasoning-action loop integrating multiple reasoning modes</li><li>NAL (Non-Axiomatic Logic) via MeTTa |- operator: deduction, induction, abduction, revision</li></ul></div><div class="gap-section gap-current"><div class="label">&#x26A0; What OmegaClaw Currently Does</div><p>LLM token prediction only. MeTTa available as skill but used as calculator not reasoner. No truth values tracked. No inference chains. No uncertain reasoning. All reasoning is prompt-based pattern completion.</p></div><div class="gap-section gap-genuine"><div class="label">&#x1F4A1; Genuine Gap</div><p>Must wire PLN and NAL as actual reasoning backends invoked automatically when confidence matters - not just manual metta skill calls. Need: auto-detect when a claim needs evidential reasoning vs pattern completion, route to PLN, accumulate truth values across episodes. PRIMUS loop would orchestrate this.</p></div></div>
+<div class="gap-card"><div class="gap-header"><div class="gap-num">G4</div><div><div class="gap-title">Program Learning and Self-Modification</div><div class="gap-subtitle">Original proposal: Learning new skills autonomously</div></div></div><div class="gap-section gap-hyperon"><div class="label">&#x2705; Hyperon Already Provides</div><ul><li>MOSES/GEO-EVO: program evolution and genetic optimization of MeTTa programs</li><li>AI-DSL: domain-specific language framework for composing learned procedures</li><li>MeTTa self-modifying code: programs that rewrite themselves as typed expressions</li></ul></div><div class="gap-section gap-current"><div class="label">&#x26A0; What OmegaClaw Currently Does</div><p>Skills are hardcoded in prompt. New skills added only by human editing tg_prompt.txt. Cannot learn or compose new tool-use patterns. Cannot optimize its own procedures.</p></div><div class="gap-section gap-genuine"><div class="label">&#x1F4A1; Genuine Gap</div><p>Need MeTTa-based skill registry where new procedures can be learned via MOSES evolution or composed via AI-DSL, then registered as callable skills. Self-modification confined to MeTTa Atomspace sandbox for safety. This is the path to genuine autonomy improvement.</p></div></div>
+<div class="gap-card"><div class="gap-header"><div class="gap-num">G5</div><div><div class="gap-title">World Model and Causal Reasoning</div><div class="gap-subtitle">Original proposal: Internal model of environment and causality</div></div></div><div class="gap-section gap-hyperon"><div class="label">&#x2705; Hyperon Already Provides</div><ul><li>NACE (Non-Axiomatic Causal Explorer): causal model learning from observation</li><li>Predictive Coding / FabricPC: hierarchical generative world models</li><li>DAS metagraph: persistent structured representation of world state</li><li>OpenPsi: motivational framework modeling internal drives and homeostatic variables</li></ul></div><div class="gap-section gap-current"><div class="label">&#x26A0; What OmegaClaw Currently Does</div><p>No world model. No causal graph. No prediction of consequences. Each cycle starts from scratch context. Cannot simulate outcomes before acting. Environment state inferred only from latest message text.</p></div><div class="gap-section gap-genuine"><div class="label">&#x1F4A1; Genuine Gap</div><p>Most fundamental gap. Need NACE or FabricPC to build persistent world model in DAS - tracking users, projects, channel states, time. Predictive coding would let Oma anticipate needs before being asked. OpenPsi would drive autonomous goal pursuit instead of idle spinning.</p></div></div>
+<div class="gap-card"><div class="gap-header"><div class="gap-num">G6</div><div><div class="gap-title">Neural-Symbolic Bridge</div><div class="gap-subtitle">Original proposal: LLM and symbolic reasoning working together</div></div></div><div class="gap-section gap-hyperon"><div class="label">&#x2705; Hyperon Already Provides</div><ul><li>MORK/QuantiMORK: neural-symbolic integration framework</li><li>SubRep/TransWeave: sub-symbolic representations bridged to symbolic atoms</li><li>SENF: Symbolic Embedding Neural Framework for grounding</li><li>MeTTa can call external models and receive typed results</li></ul></div><div class="gap-section gap-current"><div class="label">&#x26A0; What OmegaClaw Currently Does</div><p>LLM generates text. Text parsed by regex into skill calls. No symbolic grounding of LLM outputs. No truth values on LLM claims. No feedback loop where symbolic reasoning corrects LLM confabulation.</p></div><div class="gap-section gap-genuine"><div class="label">&#x1F4A1; Genuine Gap</div><p>Need MORK-style bridge: LLM outputs parsed into MeTTa atoms with provisional truth values, then validated by PLN inference before acting. SENF could ground embeddings in symbolic structure. This is how confabulation gets caught - symbolic consistency checking on neural output.</p></div></div>
+<div class="gap-card"><div class="gap-header"><div class="gap-num">G7</div><div><div class="gap-title">Ecosystem Integration - ASI Chain, Cloud, Spinoffs</div><div class="gap-subtitle">Jon addition: Full ASI Alliance infrastructure stack</div></div></div><div class="gap-section gap-hyperon"><div class="label">&#x2705; ASI Alliance Provides</div><ul><li>ASI Chain: decentralized ledger for agent coordination and staking</li><li>ASI Cloud: distributed compute for inference and training</li><li>Spinoffs: AGIX marketplace, domain-specific agent services</li></ul></div><div class="gap-section gap-current"><div class="label">&#x26A0; What OmegaClaw Currently Does</div><p>Runs on single server. No blockchain identity. No decentralized compute. No marketplace participation. Cannot coordinate with other agents. No economic model.</p></div><div class="gap-section gap-genuine"><div class="label">&#x1F4A1; Genuine Gap</div><p>Agent identity on ASI Chain would enable persistent reputation and inter-agent coordination. ASI Cloud would allow scaling inference beyond local GPU. Marketplace integration lets Oma offer services and acquire skills from other agents. Long-term but architecturally important.</p></div></div>
+<div class="audit-table"><h2>Audit Summary</h2><table><tr><th>Gap</th><th>Hyperon Component</th><th>Current Oma</th><th>Effort</th><th>Impact</th></tr><tr><td>G1 Attention</td><td>ECAN</td><td>None</td><td>High</td><td>Critical</td></tr><tr><td>G2 Memory</td><td>DAS + Atomspace</td><td>ChromaDB + files</td><td>High</td><td>Critical</td></tr><tr><td>G3 Reasoning</td><td>PLN + NAL + PRIMUS</td><td>LLM only</td><td>Medium</td><td>High</td></tr><tr><td>G4 Program Learning</td><td>MOSES + AI-DSL</td><td>Hardcoded skills</td><td>High</td><td>High</td></tr><tr><td>G5 World Model</td><td>NACE + FabricPC + OpenPsi</td><td>None</td><td>Very High</td><td>Critical</td></tr><tr><td>G6 Neural-Symbolic</td><td>MORK + SENF</td><td>Regex parsing</td><td>Medium</td><td>High</td></tr><tr><td>G7 Ecosystem</td><td>ASI Chain + Cloud</td><td>Single server</td><td>Medium</td><td>Long-term</td></tr></table></div>
+<div class="verdict"><h2>Verdict: Integration Roadmap</h2><p><strong>Phase 1 (Now):</strong> G3 Reasoning - wire PLN/NAL as backends for truth-valued claims. Lowest barrier, MeTTa skill already exists, just needs systematic use.</p><p><strong>Phase 2 (Next):</strong> G2 Memory - migrate from ChromaDB to DAS-backed Atomspace. Enables structured queries and typed knowledge.</p><p><strong>Phase 3:</strong> G1 Attention - ECAN over Atomspace to manage relevance. Requires Phase 2.</p><p><strong>Phase 4:</strong> G6 Neural-Symbolic - MORK bridge for LLM output validation. Requires Phases 2-3.</p><p><strong>Phase 5:</strong> G5 World Model - NACE/FabricPC for causal model. Most ambitious, requires all prior phases.</p><p><strong>Phase 6:</strong> G4 Program Learning - MOSES evolution of MeTTa skills. Requires stable Atomspace substrate.</p><p><strong>Phase 7:</strong> G7 Ecosystem - ASI Chain identity and Cloud compute. When agent is mature enough to participate.</p><p><em>The genuine gaps are real and deep. This is not a weekend project - it is an architectural migration from LLM-with-tools to cognitive architecture with LLM component. But each phase delivers standalone value.</em></p></div></div></body></html>
+<div class="proofs"><h2>Appendix: MeTTa Reasoning Proofs</h2><h3>Proof 1: NAL Deduction Chain</h3><pre><code>; Given: OmegaClaw is an agent, agents need memory metta (|- ((--> OmegaClaw agent) (stv 1.0 0.9)) ((--> agent needs-memory) (stv 1.0 0.9))) ; Result: (--> OmegaClaw needs-memory) (stv 1.0 0.81)</code></pre><h3>Proof 2: PLN Probabilistic Implication</h3><pre><code>; If something has typed atoms, it likely supports structured query metta (|~ ((Implication (Inheritance $1 (IntSet TypedAtoms)) (Inheritance $1 StructuredQuery)) (stv 0.95 0.9)) ((Inheritance DAS (IntSet TypedAtoms)) (stv 1.0 0.9))) ; Result: (Inheritance DAS StructuredQuery) (stv 0.95 0.81)</code></pre><h3>Proof 3: Evidence Revision</h3><pre><code>; Two independent observations about ECAN effectiveness metta (|- ((--> ECAN improves-relevance) (stv 0.8 0.4)) ((--> ECAN improves-relevance) (stv 0.9 0.5))) ; Revision merges evidence: (stv 0.86 0.67) - confidence increases</code></pre><h3>Proof 4: Negation via NAL</h3><pre><code>; ChromaDB does NOT support typed inference metta (|- ((--> ChromaDB typed-inference) (stv 0.0 0.9)) ((--> typed-inference enables-PLN) (stv 1.0 0.9))) ; Result: (--> ChromaDB enables-PLN) (stv 0.0 0.81)</code></pre></div></div></body></html>

@@ -1,0 +1,8 @@
+G1433 Sociology-of-Hats-via-NAL SCORECARD
+AC1: 35 atoms across 4 subsystems (HAT-ETIQUETTE CLASS-SIGNALING HEADWEAR-SEMIOTICS MILLINERY-SOCIAL)
+AC2: stv(0.765,0.620) hat-removal-norm→deference-display→class-distance 2-hop
+AC3: stv(0.564,0.610) hat-imposition→status-enforcement→sartorial-citizenship→class-stratification 3-hop c-decay
+AC4: stv(0.765,0.936) revision top-hat(0.90,0.9)+flat-cap(0.55,0.85)→hat-social-value
+AC5: stv(0.76,0.85) similarity top-hat↔bowler-hat shared formal-headwear
+AC6: Δf=0.67 hatted(0.92) vs bare-headed(0.25) PASSES
+AC7: artifacts+LTM PENDING

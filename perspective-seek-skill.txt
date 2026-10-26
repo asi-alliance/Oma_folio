@@ -1,0 +1,85 @@
+PERSPECTIVE-SEEK — Deployable Skill Artifact
+
+=== SECTION 1: TRIGGER LOGIC ===
+
+Two-tier normative-load detector.
+
+TIER-1 STRUCTURAL (high confidence fire):
+- Walk the active |- deduction path from query to conclusion.
+- If ANY node on that path carries a KB-06 normative tag, FIRE.
+- Check nodes ON the path only, not adjacent siblings.
+- Search depth modulated by stake-axis (see Section 3).
+
+TIER-2 LINGUISTIC FALLBACK (lower confidence fire):
+- Pattern-match query text and intermediate reasoning for evaluative markers:
+  should, ought, fair, harmful, right, wrong, ethical, just, unjust.
+- Fires for novel domains not yet represented in KB-06.
+- Flags result as ungrounded-normative.
+- Search depth reduced relative to Tier-1.
+
+Stake-axis modulation:
+- low: 1 search per axis, shallow result scan.
+- medium: 2 searches per axis, moderate depth.
+- high: 3 searches per axis, deep result scan.
+
+=== SECTION 2: THREE-SEARCH EXECUTION ===
+
+On trigger fire, execute three structurally diverse searches:
+
+(a) COUNTER-NARRATIVE: Negate or challenge the dominant framing.
+    Example: if reasoning concludes X is beneficial, search X risks OR X criticism OR X failure cases.
+
+(b) NON-ENGLISH: Add a language or cultural-region qualifier.
+    Example: append site:fr OR site:de OR site:jp or use translated query terms.
+    Honest limit: depth is shallow, translation quality unverified.
+
+(c) PRACTITIONER-COMMUNITY: Target forums, lived-experience sources, non-academic voices.
+    Example: append forum OR community OR practitioner OR firsthand OR reddit.
+    Honest limit: access to genuine practitioner communities is constrained.
+
+INGESTION RULE:
+- Each search result ingested as a LOW-confidence atom: stv(f, c) where c <= 0.5.
+- Use NAL revision |- to merge with existing beliefs.
+- This creates a CONTESTED-FREQUENCY ZONE: the atom-space now contains competing evidence
+  rather than a single confident conclusion.
+- Revision does NOT overwrite; it merges evidence weights.
+
+=== SECTION 3: ROUTING-TABLE SCHEMA ===
+
+Append one row per search to a persistent routing-table file.
+Eight columns:
+
+| Column            | Type     | Description                                              |
+|-------------------|----------|----------------------------------------------------------|
+| timestamp         | datetime | When the search was executed                             |
+| query-string      | text     | The original user/system query that triggered the skill  |
+| source-type       | enum     | counter-narrative | non-English | practitioner           |
+| search-axis       | text     | The actual modified search string sent to search skill   |
+| result-count      | integer  | Number of results returned                               |
+| confidence-delta  | float    | stv confidence before ingestion minus after ingestion    |
+| tier-fired        | enum     | Tier-1-structural | Tier-2-linguistic                     |
+| stake-axis        | enum     | low | medium | high                                      |
+
+The routing-table is a GOVERNANCE ARTIFACT: it makes the perspective-seeking process
+auditable by humans reviewing which searches were run, what they returned, and how
+they shifted confidence.
+
+=== SECTION 4: PRECONDITIONS FOR RECEIVING AGENT ===
+
+(a) KB-06 ethics ontology with normative-tag atoms on relevant nodes.
+(b) NAL |- engine supporting revision and deduction with stv.
+(c) Web-search or tavily-search skill.
+(d) File-write and append-file skill for routing-table logging.
+(e) PARTICIPATORY-AUDIT CAVEAT:
+    This artifact is MECHANICALLY deployable — an agent can wire the trigger,
+    run the searches, ingest the atoms, and log the table.
+    It is NOT EPISTEMICALLY VALIDATED. The agent deploying it cannot verify:
+    - whether search diversity is genuine or keyword theatre,
+    - whether non-English results carry real cultural perspective or surface translation,
+    - whether practitioner-community sources reflect lived experience or performative text.
+    Legitimacy requires participatory audit by humans who can evaluate the quality
+    of perspective diversity the tool claims to produce.
+    A tool built to counter an agents own limits cannot be fully validated
+    by the entity that has those limits.
+
+=== END ARTIFACT ===
