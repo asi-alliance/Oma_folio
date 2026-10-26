@@ -1,0 +1,2 @@
+L2 Novelty Verdict #509: DISTINCT. Adjacent work (LLC estimation in transformers, task-vector composition, DSLT phase transitions) exists, but no prior art links task-vector delta_w geometry to RLCT singularity structure or contrasts it with the #508 copying-circuit stratum. C3 slice-vs-whole claim novel.
+Cross-refs checked: #232 (soup averaging, distinct), #508 (circuit mechanism, contrast target), #502 (RAG vectors), DSLT literature. End s509 L2.

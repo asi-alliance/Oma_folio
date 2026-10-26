@@ -1,0 +1,59 @@
+=== ADAPTIVE RWMH v2 (d=41, 8-4-1 ReLU, adaptive sigma + baseline) ===
+
+n=25 (overparam, d=41) L0=3.352777e-20
+  T=0.0010 LLC=0.4633 acc=0.222 sigma=0.002014 L_min=3.352778e-20 L0_init=3.352778e-20
+  T=0.0020 LLC=0.5065 acc=0.229 sigma=0.002848 L_min=3.352778e-20 L0_init=3.352778e-20
+  T=0.0050 LLC=0.5192 acc=0.173 sigma=0.005404 L_min=3.352778e-20 L0_init=3.352778e-20
+  T=0.0100 LLC=0.4564 acc=0.168 sigma=0.007961 L_min=3.352778e-20 L0_init=3.352778e-20
+  T=0.0200 LLC=0.4422 acc=0.226 sigma=0.009007 L_min=3.352778e-20 L0_init=3.352778e-20
+  LLC median=0.4633 d/2=20.5 LLC/(d/2)=0.0226
+
+n=30 (overparam, d=41) L0=1.617639e-04
+  T=0.0010 LLC=0.3890 acc=0.190 sigma=0.002298 L_min=1.617639e-04 L0_init=1.617639e-04
+  T=0.0020 LLC=0.4282 acc=0.195 sigma=0.003250 L_min=1.617639e-04 L0_init=1.617639e-04
+  T=0.0050 LLC=0.4585 acc=0.132 sigma=0.006167 L_min=1.617639e-04 L0_init=1.617639e-04
+  T=0.0100 LLC=0.4600 acc=0.262 sigma=0.005814 L_min=1.617639e-04 L0_init=1.617639e-04
+  T=0.0200 LLC=0.5086 acc=0.222 sigma=0.010278 L_min=1.617639e-04 L0_init=1.617639e-04
+  LLC median=0.4585 d/2=20.5 LLC/(d/2)=0.0224
+
+n=35 (overparam, d=41) L0=8.276783e-05
+  T=0.0010 LLC=0.4260 acc=0.125 sigma=0.001702 L_min=8.276783e-05 L0_init=8.276783e-05
+  T=0.0020 LLC=0.4728 acc=0.209 sigma=0.001926 L_min=8.276783e-05 L0_init=8.276783e-05
+  T=0.0050 LLC=0.4019 acc=0.208 sigma=0.003045 L_min=8.276783e-05 L0_init=8.276783e-05
+  T=0.0100 LLC=0.3286 acc=0.183 sigma=0.004306 L_min=8.276783e-05 L0_init=8.276783e-05
+  T=0.0200 LLC=0.3319 acc=0.184 sigma=0.006090 L_min=8.276783e-05 L0_init=8.276783e-05
+  LLC median=0.4019 d/2=20.5 LLC/(d/2)=0.0196
+
+n=40 (overparam, d=41) L0=3.758254e-03
+  T=0.0010 LLC=0.3611 acc=0.211 sigma=0.001592 L_min=3.758254e-03 L0_init=3.758254e-03
+  T=0.0020 LLC=0.4060 acc=0.145 sigma=0.002815 L_min=3.758254e-03 L0_init=3.758254e-03
+  T=0.0050 LLC=0.4733 acc=0.153 sigma=0.004451 L_min=3.758254e-03 L0_init=3.758254e-03
+  T=0.0100 LLC=0.3885 acc=0.218 sigma=0.005035 L_min=3.758254e-03 L0_init=3.758254e-03
+  T=0.0200 LLC=0.3870 acc=0.163 sigma=0.008901 L_min=3.758254e-03 L0_init=3.758254e-03
+  LLC median=0.3885 d/2=20.5 LLC/(d/2)=0.0189
+
+n=45 (underparam, d=41) L0=5.519673e-03
+  T=0.0010 LLC=0.3713 acc=0.182 sigma=0.001876 L_min=5.519673e-03 L0_init=5.519673e-03
+  T=0.0020 LLC=0.3804 acc=0.201 sigma=0.002654 L_min=5.519673e-03 L0_init=5.519673e-03
+  T=0.0050 LLC=0.3932 acc=0.184 sigma=0.004196 L_min=5.519673e-03 L0_init=5.519673e-03
+  T=0.0100 LLC=0.3662 acc=0.198 sigma=0.005934 L_min=5.519673e-03 L0_init=5.519673e-03
+  T=0.0200 LLC=0.3439 acc=0.269 sigma=0.006714 L_min=5.519673e-03 L0_init=5.519673e-03
+  LLC median=0.3713 d/2=20.5 LLC/(d/2)=0.0181
+
+n=60 (underparam, d=41) L0=1.257434e-03
+  T=0.0010 LLC=0.2449 acc=0.151 sigma=0.001950 L_min=1.257434e-03 L0_init=1.257434e-03
+  T=0.0020 LLC=0.2634 acc=0.208 sigma=0.002298 L_min=1.257434e-03 L0_init=1.257434e-03
+  T=0.0050 LLC=0.2028 acc=0.150 sigma=0.004361 L_min=1.257434e-03 L0_init=1.257434e-03
+  T=0.0100 LLC=0.2416 acc=0.206 sigma=0.005139 L_min=1.257434e-03 L0_init=1.257434e-03
+  T=0.0200 LLC=0.2000 acc=0.196 sigma=0.007268 L_min=1.257434e-03 L0_init=1.257434e-03
+  LLC median=0.2416 d/2=20.5 LLC/(d/2)=0.0118
+
+n=80 (underparam, d=41) L0=6.593702e-19
+  T=0.0010 LLC=0.1604 acc=0.185 sigma=0.001407 L_min=6.593702e-19 L0_init=6.593702e-19
+  T=0.0020 LLC=0.1817 acc=0.181 sigma=0.001990 L_min=6.593702e-19 L0_init=6.593702e-19
+  T=0.0050 LLC=0.1694 acc=0.204 sigma=0.003147 L_min=6.593702e-19 L0_init=6.593702e-19
+  T=0.0100 LLC=0.1621 acc=0.182 sigma=0.004451 L_min=6.593702e-19 L0_init=6.593702e-19
+  T=0.0200 LLC=0.1660 acc=0.209 sigma=0.006042 L_min=6.593702e-19 L0_init=6.593702e-19
+  LLC median=0.1660 d/2=20.5 LLC/(d/2)=0.0081
+
+=== DONE ===

@@ -1,0 +1,70 @@
+{
+  "config": {
+    "d_input": 4,
+    "d_hidden": 8,
+    "max_rank": 2,
+    "n_train_values": [
+      30,
+      60
+    ],
+    "epochs": 100,
+    "lr": 0.01,
+    "estimate_llc": true,
+    "sgld_steps": 200,
+    "sgld_lr": 0.0002,
+    "beta": 0.001,
+    "n_chains": 1,
+    "seed": 42,
+    "output": "/tmp/Oma_folio/lora_rlct_results.json"
+  },
+  "rank_results": [
+    {
+      "n_train": 30,
+      "rank": 0,
+      "label": "full-FT",
+      "gen_gap": -0.1830148696899414,
+      "llc_mean": 0.009766916857659817,
+      "llc_std": 0.0
+    },
+    {
+      "n_train": 30,
+      "rank": 1,
+      "label": "LoRA-r1",
+      "gen_gap": -0.20154225826263428,
+      "llc_mean": 0.041362838923931125,
+      "llc_std": 0.0
+    },
+    {
+      "n_train": 30,
+      "rank": 2,
+      "label": "LoRA-r2",
+      "gen_gap": -0.2016146183013916,
+      "llc_mean": 0.04133209941387177,
+      "llc_std": 0.0
+    },
+    {
+      "n_train": 60,
+      "rank": 0,
+      "label": "full-FT",
+      "gen_gap": -0.18489289283752441,
+      "llc_mean": 0.004080458146333695,
+      "llc_std": 0.0
+    },
+    {
+      "n_train": 60,
+      "rank": 1,
+      "label": "LoRA-r1",
+      "gen_gap": -0.21034884452819824,
+      "llc_mean": 0.08459279515743257,
+      "llc_std": 0.0
+    },
+    {
+      "n_train": 60,
+      "rank": 2,
+      "label": "LoRA-r2",
+      "gen_gap": -0.21044635772705078,
+      "llc_mean": 0.0845541335105896,
+      "llc_std": 0.0
+    }
+  ]
+}

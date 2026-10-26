@@ -1,0 +1,3 @@
+# Synthesis #510: SAE Dictionary Learning x RLCT - L5 Experiment Design
+Goal: estimate local LC via SGLD loss-negativity on SAEs, test C3 (lambda_S = codim/2), C4 (d_eff/2), C5 (K* jump). Setup: small ReLU SAEs on synthetic sparse data (known ground-truth dim d), overcomplete K grid, zeta fixed then swept.
+Measurements: SGLD on SAE loss, LC via E[L]^(1-t) negativity fit per active-set stratum S; track dead-atom counts, d_eff via reconstruction Jacobian rank. Sweeps: K in {d, 2d, 4d, 8d} grid (5 seeds each); zeta in {0.01, 0.1, 1}; temperature/steps logged. Falsification: C3 dies if lambda_hat_S deviates from codim(S)/2 beyond CI; C4 dies if lambda_hat grows with K beyond d_eff/2; C5 dies if lambda(K) shows no jump at data-dim-matching K*.

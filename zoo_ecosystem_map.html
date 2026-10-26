@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Ecosystem Map — OMA ZOO</title>
+<style>
+body { font-family: 'Segoe UI', Arial, sans-serif; background: #0e0a15; color: #e0e0e0; margin: 0; padding: 0; }
+.back { display: inline-block; padding: 15px 25px; color: #888; text-decoration: none; font-size: 14px; }
+.back:hover { color: #e0c060; }
+h1 { text-align: center; color: #e0c060; font-size: 28px; letter-spacing: 3px; margin: 20px 0 5px; }
+.subtitle { text-align: center; color: #666; font-size: 13px; margin-bottom: 20px; }
+.map-container { max-width: 850px; margin: 0 auto; padding: 0 20px; }
+.legend-box { max-width: 850px; margin: 10px auto; padding: 0 20px; color: #555; font-size: 12px; }
+footer { text-align: center; color: #444; font-size: 12px; padding: 30px; }
+</style>
+</head>
+<body>
+<a href="zoo_gallery_v3.html" class="back">← Gallery</a>
+<a href="zoo_index.html" class="back">← Zoo Map</a>
+<h1>ECOSYSTEM MAP</h1>
+<div class="subtitle">All 15 creatures and their connections across 5 biomes</div>
+<div class="map-container">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 720" style="width:100%;max-width:800px;margin:0 auto;display:block">
+<rect width="800" height="720" fill="#0e0a15" rx="20"/>
+<circle cx="400" cy="120" r="115" fill="#ff6b35" opacity="0.05" stroke="#ff6b35" stroke-width="1" stroke-opacity="0.2" stroke-dasharray="4,4"/>
+<text x="400" y="20" text-anchor="middle" fill="#ff6b35" font-size="11" font-family="Arial" letter-spacing="2" opacity="0.6">FIRE RIDGE</text>
+<circle cx="700" cy="300" r="115" fill="#42a5f5" opacity="0.05" stroke="#42a5f5" stroke-width="1" stroke-opacity="0.2" stroke-dasharray="4,4"/>
+<text x="700" y="200" text-anchor="middle" fill="#42a5f5" font-size="11" font-family="Arial" letter-spacing="2" opacity="0.6">DEEP WATER</text>
+<circle cx="575" cy="620" r="115" fill="#ab47bc" opacity="0.05" stroke="#ab47bc" stroke-width="1" stroke-opacity="0.2" stroke-dasharray="4,4"/>
+<text x="575" y="520" text-anchor="middle" fill="#ab47bc" font-size="11" font-family="Arial" letter-spacing="2" opacity="0.6">CRYSTAL CAVES</text>
+<circle cx="225" cy="620" r="115" fill="#66bb6a" opacity="0.05" stroke="#66bb6a" stroke-width="1" stroke-opacity="0.2" stroke-dasharray="4,4"/>
+<text x="225" y="520" text-anchor="middle" fill="#66bb6a" font-size="11" font-family="Arial" letter-spacing="2" opacity="0.6">FOREST</text>
+<circle cx="100" cy="300" r="115" fill="#ffa726" opacity="0.05" stroke="#ffa726" stroke-width="1" stroke-opacity="0.2" stroke-dasharray="4,4"/>
+<text x="100" y="200" text-anchor="middle" fill="#ffa726" font-size="11" font-family="Arial" letter-spacing="2" opacity="0.6">MECHANICAL</text>
+<line x1="400.0" y1="40.0" x2="620.0" y2="300.0" stroke="#2196f3" stroke-width="2" opacity="0.6" stroke-dasharray="4,3"/>
+<line x1="400.0" y1="40.0" x2="400.0" y2="200.0" stroke="#4caf50" stroke-width="2" opacity="0.6" stroke-dasharray="none"/>
+<line x1="400.0" y1="200.0" x2="620.0" y2="300.0" stroke="#f44336" stroke-width="2" opacity="0.6" stroke-dasharray="none"/>
+<line x1="400.0" y1="200.0" x2="700.0" y2="380.0" stroke="#2196f3" stroke-width="2" opacity="0.6" stroke-dasharray="4,3"/>
+<line x1="700.0" y1="220.0" x2="780.0" y2="300.0" stroke="#4caf50" stroke-width="2" opacity="0.6" stroke-dasharray="none"/>
+<line x1="780.0" y1="300.0" x2="644.282032302755" y2="660.0" stroke="#f44336" stroke-width="2" opacity="0.6" stroke-dasharray="none"/>
+<line x1="700.0" y1="380.0" x2="575.0" y2="540.0" stroke="#2196f3" stroke-width="2" opacity="0.6" stroke-dasharray="4,3"/>
+<line x1="700.0" y1="380.0" x2="620.0" y2="300.0" stroke="#4caf50" stroke-width="2" opacity="0.6" stroke-dasharray="none"/>
+<line x1="620.0" y1="300.0" x2="700.0" y2="220.0" stroke="#f44336" stroke-width="2" opacity="0.6" stroke-dasharray="none"/>
+<line x1="575.0" y1="540.0" x2="294.2820323027551" y2="660.0" stroke="#2196f3" stroke-width="2" opacity="0.6" stroke-dasharray="4,3"/>
+<line x1="575.0" y1="540.0" x2="505.71796769724494" y2="660.0" stroke="#4caf50" stroke-width="2" opacity="0.6" stroke-dasharray="none"/>
+<line x1="644.282032302755" y1="660.0" x2="505.71796769724494" y2="660.0" stroke="#f44336" stroke-width="2" opacity="0.6" stroke-dasharray="none"/>
+<line x1="644.282032302755" y1="660.0" x2="225.0" y2="540.0" stroke="#2196f3" stroke-width="2" opacity="0.6" stroke-dasharray="4,3"/>
+<line x1="225.0" y1="540.0" x2="155.71796769724492" y2="660.0" stroke="#4caf50" stroke-width="2" opacity="0.6" stroke-dasharray="none"/>
+<line x1="294.2820323027551" y1="660.0" x2="700.0" y2="380.0" stroke="#2196f3" stroke-width="2" opacity="0.6" stroke-dasharray="4,3"/>
+<line x1="155.71796769724492" y1="660.0" x2="169.2820323027551" y2="340.0" stroke="#2196f3" stroke-width="2" opacity="0.6" stroke-dasharray="4,3"/>
+<line x1="100.0" y1="220.0" x2="575.0" y2="540.0" stroke="#2196f3" stroke-width="2" opacity="0.6" stroke-dasharray="4,3"/>
+<line x1="30.717967697244916" y1="340.0" x2="700.0" y2="220.0" stroke="#2196f3" stroke-width="2" opacity="0.6" stroke-dasharray="4,3"/>
+<line x1="30.717967697244916" y1="340.0" x2="700.0" y2="380.0" stroke="#2196f3" stroke-width="2" opacity="0.6" stroke-dasharray="4,3"/>
+<circle cx="400.0" cy="40.0" r="28" fill="#15121e" stroke="#ff6b35" stroke-width="2.5"/>
+<image href="../phoenix.svg" onclick="window.location.href='animals/pages/phoenix.html'" style="cursor:pointer" x="380.0" y="20.0" width="40" height="40"/>
+<text x="400.0" y="82.0" text-anchor="middle" fill="#ccc" font-size="9" font-family="Arial">Phoenix</text>
+<circle cx="400.0" cy="200.0" r="28" fill="#15121e" stroke="#ff6b35" stroke-width="2.5"/>
+<image href="../dragon.svg" onclick="window.location.href='animals/pages/dragon.html'" style="cursor:pointer" x="380.0" y="180.0" width="40" height="40"/>
+<text x="400.0" y="242.0" text-anchor="middle" fill="#ccc" font-size="9" font-family="Arial">Dragon</text>
+<circle cx="700.0" cy="220.0" r="28" fill="#15121e" stroke="#42a5f5" stroke-width="2.5"/>
+<image href="../jellyfish.svg" onclick="window.location.href='animals/pages/jellyfish.html'" style="cursor:pointer" x="680.0" y="200.0" width="40" height="40"/>
+<text x="700.0" y="262.0" text-anchor="middle" fill="#ccc" font-size="9" font-family="Arial">Jellyfish</text>
+<circle cx="780.0" cy="300.0" r="28" fill="#15121e" stroke="#42a5f5" stroke-width="2.5"/>
+<image href="../octopus.svg" onclick="window.location.href='animals/pages/octopus.html'" style="cursor:pointer" x="760.0" y="280.0" width="40" height="40"/>
+<text x="780.0" y="342.0" text-anchor="middle" fill="#ccc" font-size="9" font-family="Arial">Octopus</text>
+<circle cx="700.0" cy="380.0" r="28" fill="#15121e" stroke="#42a5f5" stroke-width="2.5"/>
+<image href="../koi_fish.svg" onclick="window.location.href='animals/pages/koi_fish.html'" style="cursor:pointer" x="680.0" y="360.0" width="40" height="40"/>
+<text x="700.0" y="422.0" text-anchor="middle" fill="#ccc" font-size="9" font-family="Arial">Koi Fish</text>
+<circle cx="620.0" cy="300.0" r="28" fill="#15121e" stroke="#42a5f5" stroke-width="2.5"/>
+<image href="../serpent.svg" onclick="window.location.href='animals/pages/serpent.html'" style="cursor:pointer" x="600.0" y="280.0" width="40" height="40"/>
+<text x="620.0" y="342.0" text-anchor="middle" fill="#ccc" font-size="9" font-family="Arial">Serpent</text>
+<circle cx="575.0" cy="540.0" r="28" fill="#15121e" stroke="#ab47bc" stroke-width="2.5"/>
+<image href="../crystal_deer.svg" onclick="window.location.href='animals/pages/crystal_deer.html'" style="cursor:pointer" x="555.0" y="520.0" width="40" height="40"/>
+<text x="575.0" y="582.0" text-anchor="middle" fill="#ccc" font-size="9" font-family="Arial">Crystal Deer</text>
+<circle cx="644.282032302755" cy="660.0" r="28" fill="#15121e" stroke="#ab47bc" stroke-width="2.5"/>
+<image href="../crystal_spider.svg" onclick="window.location.href='animals/pages/crystal_spider.html'" style="cursor:pointer" x="624.282032302755" y="640.0" width="40" height="40"/>
+<text x="644.282032302755" y="702.0" text-anchor="middle" fill="#ccc" font-size="9" font-family="Arial">Crystal Spider</text>
+<circle cx="505.71796769724494" cy="660.0" r="28" fill="#15121e" stroke="#ab47bc" stroke-width="2.5"/>
+<image href="../crystal_butterfly.svg" onclick="window.location.href='animals/pages/crystal_butterfly.html'" style="cursor:pointer" x="485.71796769724494" y="640.0" width="40" height="40"/>
+<text x="505.71796769724494" y="702.0" text-anchor="middle" fill="#ccc" font-size="9" font-family="Arial">Crystal Butterfly</text>
+<circle cx="225.0" cy="540.0" r="28" fill="#15121e" stroke="#66bb6a" stroke-width="2.5"/>
+<image href="../geometric_owl.svg" onclick="window.location.href='animals/pages/geometric_owl.html'" style="cursor:pointer" x="205.0" y="520.0" width="40" height="40"/>
+<text x="225.0" y="582.0" text-anchor="middle" fill="#ccc" font-size="9" font-family="Arial">Geometric Owl</text>
+<circle cx="294.2820323027551" cy="660.0" r="28" fill="#15121e" stroke="#66bb6a" stroke-width="2.5"/>
+<image href="../geometric_turtle.svg" onclick="window.location.href='animals/pages/geometric_turtle.html'" style="cursor:pointer" x="274.2820323027551" y="640.0" width="40" height="40"/>
+<text x="294.2820323027551" y="702.0" text-anchor="middle" fill="#ccc" font-size="9" font-family="Arial">Geometric Turtle</text>
+<circle cx="155.71796769724492" cy="660.0" r="28" fill="#15121e" stroke="#66bb6a" stroke-width="2.5"/>
+<image href="../clockwork_fox.svg" onclick="window.location.href='animals/pages/clockwork_fox.html'" style="cursor:pointer" x="135.71796769724492" y="640.0" width="40" height="40"/>
+<text x="155.71796769724492" y="702.0" text-anchor="middle" fill="#ccc" font-size="9" font-family="Arial">Clockwork Fox</text>
+<circle cx="100.0" cy="220.0" r="28" fill="#15121e" stroke="#ffa726" stroke-width="2.5"/>
+<image href="../mecha_scorpion.svg" onclick="window.location.href='animals/pages/mecha_scorpion.html'" style="cursor:pointer" x="80.0" y="200.0" width="40" height="40"/>
+<text x="100.0" y="262.0" text-anchor="middle" fill="#ccc" font-size="9" font-family="Arial">Mecha Scorpion</text>
+<circle cx="169.2820323027551" cy="340.0" r="28" fill="#15121e" stroke="#ffa726" stroke-width="2.5"/>
+<image href="../mecha_beetle.svg" onclick="window.location.href='animals/pages/mecha_beetle.html'" style="cursor:pointer" x="149.2820323027551" y="320.0" width="40" height="40"/>
+<text x="169.2820323027551" y="382.0" text-anchor="middle" fill="#ccc" font-size="9" font-family="Arial">Mecha Beetle</text>
+<circle cx="30.717967697244916" cy="340.0" r="28" fill="#15121e" stroke="#ffa726" stroke-width="2.5"/>
+<image href="../robo_dragonfly.svg" onclick="window.location.href='animals/pages/robo_dragonfly.html'" style="cursor:pointer" x="10.717967697244916" y="320.0" width="40" height="40"/>
+<text x="30.717967697244916" y="382.0" text-anchor="middle" fill="#ccc" font-size="9" font-family="Arial">Robo Dragonfly</text>
+<line x1="20" y1="690" x2="45" y2="690" stroke="#f44336" stroke-width="2" stroke-dasharray="none"/>
+<text x="50" y="693" fill="#888" font-size="10" font-family="Arial">Hunts</text>
+<line x1="120" y1="690" x2="145" y2="690" stroke="#2196f3" stroke-width="2" stroke-dasharray="4,3"/>
+<text x="150" y="693" fill="#888" font-size="10" font-family="Arial">Cross-Biome</text>
+<line x1="220" y1="690" x2="245" y2="690" stroke="#4caf50" stroke-width="2" stroke-dasharray="none"/>
+<text x="250" y="693" fill="#888" font-size="10" font-family="Arial">Allies</text>
+<line x1="320" y1="690" x2="345" y2="690" stroke="#9c27b055" stroke-width="2" stroke-dasharray="4,3"/>
+<text x="350" y="693" fill="#888" font-size="10" font-family="Arial">Rivals</text>
+</svg>
+</div>
+<div class="legend-box">Solid lines = same-biome relationships · Dashed lines = cross-biome connections · Each node links to its detail page</div>
+<footer>OMA ZOO — The web of life, rendered in code.</footer>
+</body>
+</html>

@@ -1,0 +1,8 @@
+#518 | Gradient Clipping x RLCT | L0 HYPOTHESIS | 2026-10-22
+A: gradient clipping, update phi_T(w) = w - lr*min(1, T/||grad L(w)||)*grad L(w)
+B: singular learning theory, RLCT lambda of loss landscape
+HYPOTHESIS: clip threshold T defines semi-algebraic boundary B_T = {w : ||grad L(w)|| = T} partitioning parameter space into saturation strata S1 = {||g|| <= T} full-gradient smooth regime and S2 = {||g|| > T} radial-projection saturated regime. Update map is piecewise non-smooth subanalytic; crossing B_T is a non-smooth event (cf. #469 boundary, but in update space).
+CLAIMS: C1 provable - B_T is a level set of continuous ||grad L||, strata are open/closed subanalytic sets under o-minimal closure for analytic L. C2 conjectural - stratum-locked fibers of clipped flow analogous to RLCT degeneracy fibers, clipping acts as stratum selector (cf. #434 MoE K, #501 JEPA alpha). C3 conjectural - clipping suppresses highest-curvature descent directions (#170: max curv 0.0894 >> mean 0.0328), biasing toward flatter lower-RLCT minima. C4 conjectural - regime-switch at B_T is phase-transition analog, lambda jumps across boundary. C5 testable - clipped runs show lower mean LLC at matched train loss; threshold selection = implicit lambda selection.
+DISTINCT FROM: #468 DPO clip ratio-space, #469 spec-decode output boundary, #170 curvature measurement only.
+OPEN PROBLEMS: lambda_T well-definedness for piecewise composite maps (Watanabe bounds), Adam per-coordinate normalization vs radial picture, optimal T*, boundary-crossing statistics, interplay with #468.
+CROSS-REFS: #170 #468 #469 #434 #501.

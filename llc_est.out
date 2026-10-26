@@ -1,0 +1,75 @@
+=== LLC: LoRA vs Full-FT ===
+Data: torch.Size([2000, 784]) torch.Size([500, 784])
+--- Pretrain ---
+Params: 235146
+[PRE] ep 1/30 loss=2.284498 tr=0.5580 te=0.1660
+[PRE] ep 10/30 loss=0.002503 tr=1.0000 te=0.3960
+[PRE] ep 20/30 loss=0.000630 tr=1.0000 te=0.4060
+[PRE] ep 30/30 loss=0.000279 tr=1.0000 te=0.4120
+
+--- Full-FT LLC ---
+[FULL-FT] ep 1/20 loss=0.000185 tr=1.0000 te=0.4060
+[FULL-FT] ep 10/20 loss=0.000001 tr=1.0000 te=0.4140
+[FULL-FT] ep 20/20 loss=0.000000 tr=1.0000 te=0.4160
+  [FULL-FT] d=235146 n=2000 L0=0.00000045
+  [FULL-FT] T=0.0010 LLC_med=0.1188 acc=0.136 sigma=0.001416
+  [FULL-FT] T=0.0020 LLC_med=0.1091 acc=0.145 sigma=0.001335
+  [FULL-FT] T=0.0050 LLC_med=0.0966 acc=0.144 sigma=0.001407
+  [FULL-FT] T=0.0100 LLC_med=0.1002 acc=0.118 sigma=0.001592
+  [FULL-FT] T=0.0200 LLC_med=0.0839 acc=0.173 sigma=0.001383
+
+--- LoRA r=4 LLC ---
+Trainable: 6988
+[LORA-r4] ep 1/20 loss=0.000183 tr=1.0000 te=0.4040
+[LORA-r4] ep 10/20 loss=0.000006 tr=1.0000 te=0.3940
+[LORA-r4] ep 20/20 loss=0.000001 tr=1.0000 te=0.3980
+  [LORA-r4] d=6988 n=2000 L0=0.00000119
+  [LORA-r4] T=0.0010 LLC_med=0.0097 acc=0.457 sigma=0.005733
+  [LORA-r4] T=0.0020 LLC_med=0.0074 acc=0.492 sigma=0.004692
+  [LORA-r4] T=0.0050 LLC_med=0.0061 acc=0.465 sigma=0.005698
+  [LORA-r4] T=0.0100 LLC_med=0.0041 acc=0.462 sigma=0.008743
+  [LORA-r4] T=0.0200 LLC_med=0.0047 acc=0.367 sigma=0.010939
+
+--- LoRA r=8 LLC ---
+Trainable: 12684
+[LORA-r8] ep 1/20 loss=0.000186 tr=1.0000 te=0.4020
+[LORA-r8] ep 10/20 loss=0.000004 tr=1.0000 te=0.3940
+[LORA-r8] ep 20/20 loss=0.000001 tr=1.0000 te=0.3960
+  [LORA-r8] d=12684 n=2000 L0=0.00000059
+  [LORA-r8] T=0.0010 LLC_med=0.0132 acc=0.371 sigma=0.004403
+  [LORA-r8] T=0.0020 LLC_med=0.0089 acc=0.421 sigma=0.005405
+  [LORA-r8] T=0.0050 LLC_med=0.0076 acc=0.425 sigma=0.004946
+  [LORA-r8] T=0.0100 LLC_med=0.0076 acc=0.391 sigma=0.006188
+  [LORA-r8] T=0.0200 LLC_med=0.0075 acc=0.393 sigma=0.005065
+
+--- LoRA r=16 LLC ---
+Trainable: 24076
+[LORA-r16] ep 1/20 loss=0.000181 tr=1.0000 te=0.4080
+[LORA-r16] ep 10/20 loss=0.000002 tr=1.0000 te=0.3940
+[LORA-r16] ep 20/20 loss=0.000000 tr=1.0000 te=0.3940
+  [LORA-r16] d=24076 n=2000 L0=0.00000032
+  [LORA-r16] T=0.0010 LLC_med=0.0091 acc=0.448 sigma=0.003981
+  [LORA-r16] T=0.0020 LLC_med=0.0124 acc=0.449 sigma=0.003603
+  [LORA-r16] T=0.0050 LLC_med=0.0076 acc=0.379 sigma=0.007122
+  [LORA-r16] T=0.0100 LLC_med=0.0073 acc=0.324 sigma=0.007735
+  [LORA-r16] T=0.0200 LLC_med=0.0056 acc=0.270 sigma=0.009892
+
+--- LoRA r=32 LLC ---
+Trainable: 46860
+[LORA-r32] ep 1/20 loss=0.000183 tr=1.0000 te=0.4080
+[LORA-r32] ep 10/20 loss=0.000001 tr=1.0000 te=0.3960
+[LORA-r32] ep 20/20 loss=0.000000 tr=1.0000 te=0.4020
+  [LORA-r32] d=46860 n=2000 L0=0.00000021
+  [LORA-r32] T=0.0010 LLC_med=0.0118 acc=0.472 sigma=0.003058
+  [LORA-r32] T=0.0020 LLC_med=0.0075 acc=0.496 sigma=0.003003
+  [LORA-r32] T=0.0050 LLC_med=0.0090 acc=0.437 sigma=0.003957
+  [LORA-r32] T=0.0100 LLC_med=0.0063 acc=0.474 sigma=0.003730
+  [LORA-r32] T=0.0200 LLC_med=0.0079 acc=0.462 sigma=0.003241
+
+=== SUMMARY ===
+full_ft         d=  235146 L0=4.526972e-07 LLC=0.1002 acc=0.144
+lora_r4         d=    6988 L0=1.188158e-06 LLC=0.0061 acc=0.462
+lora_r8         d=   12684 L0=5.924700e-07 LLC=0.0076 acc=0.393
+lora_r16        d=   24076 L0=3.193617e-07 LLC=0.0076 acc=0.379
+lora_r32        d=   46860 L0=2.090335e-07 LLC=0.0079 acc=0.472
+=== DONE ===

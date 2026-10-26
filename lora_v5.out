@@ -1,0 +1,91 @@
+=== Full Fine-Tuning ===
+L0=0.0000272040
+  T=0.0050 LLC=0.1649 acc=0.28 sigma=0.002976
+  T=0.0100 LLC=0.1775 acc=0.31 sigma=0.003886
+  T=0.0200 LLC=0.1750 acc=0.28 sigma=0.005550
+  T=0.0500 LLC=0.1504 acc=0.28 sigma=0.007706
+Full FT LLC: 0.1699, d=385
+
+=== LoRA rank=1 ===
+L0=0.0000000000, LoRA params=33
+  T=0.0050 LLC=0.0030 acc=0.29 sigma=0.029343
+  T=0.0100 LLC=0.0029 acc=0.32 sigma=0.015574
+  T=0.0200 LLC=0.0023 acc=0.30 sigma=0.020332
+  T=0.0500 LLC=0.0024 acc=0.32 sigma=0.027948
+LoRA r=1 LLC: 0.0027
+
+=== LoRA rank=2 ===
+L0=0.0000000000, LoRA params=66
+  T=0.0050 LLC=0.0048 acc=0.27 sigma=0.022032
+  T=0.0100 LLC=0.0053 acc=0.28 sigma=0.012293
+  T=0.0200 LLC=0.0048 acc=0.32 sigma=0.015574
+  T=0.0500 LLC=0.0040 acc=0.25 sigma=0.017353
+LoRA r=2 LLC: 0.0048
+
+=== LoRA rank=4 ===
+L0=0.0000000000, LoRA params=132
+  T=0.0050 LLC=0.0103 acc=0.24 sigma=0.018100
+  T=0.0100 LLC=0.0099 acc=0.30 sigma=0.011971
+  T=0.0200 LLC=0.0094 acc=0.27 sigma=0.012417
+  T=0.0500 LLC=0.0087 acc=0.32 sigma=0.013835
+LoRA r=4 LLC: 0.0096
+
+=== LoRA rank=8 ===
+L0=0.0000000000, LoRA params=264
+  T=0.0050 LLC=0.0213 acc=0.28 sigma=0.012545
+  T=0.0100 LLC=0.0160 acc=0.25 sigma=0.010339
+  T=0.0200 LLC=0.0203 acc=0.31 sigma=0.009899
+  T=0.0500 LLC=0.0199 acc=0.26 sigma=0.013338
+LoRA r=8 LLC: 0.0201
+
+=== LoRA rank=16 ===
+L0=0.0000000000, LoRA params=528
+  T=0.0050 LLC=0.0580 acc=0.29 sigma=0.008695
+  T=0.0100 LLC=0.0385 acc=0.35 sigma=0.007384
+  T=0.0200 LLC=0.0331 acc=0.31 sigma=0.008636
+  T=0.0500 LLC=0.0403 acc=0.30 sigma=0.010958
+LoRA r=16 LLC: 0.0394
+
+=== SUMMARY ===
+Full FT: LLC=0.1699 d=385
+LoRA r=1: LLC=0.0027 params=33
+LoRA r=2: LLC=0.0048 params=66
+LoRA r=4: LLC=0.0096 params=132
+LoRA r=8: LLC=0.0201 params=264
+LoRA r=16: LLC=0.0394 params=528
+{
+  "full_llc": 0.16993321812781992,
+  "full_d": 385,
+  "lora": [
+    {
+      "rank": 1,
+      "llc": 0.002665572465018119,
+      "n_params": 33,
+      "L0": 0.0
+    },
+    {
+      "rank": 2,
+      "llc": 0.004802527078422495,
+      "n_params": 66,
+      "L0": 0.0
+    },
+    {
+      "rank": 4,
+      "llc": 0.009637709506735821,
+      "n_params": 132,
+      "L0": 0.0
+    },
+    {
+      "rank": 8,
+      "llc": 0.020087519896866676,
+      "n_params": 264,
+      "L0": 0.0
+    },
+    {
+      "rank": 16,
+      "llc": 0.03938605101366799,
+      "n_params": 528,
+      "L0": 0.0
+    }
+  ]
+}

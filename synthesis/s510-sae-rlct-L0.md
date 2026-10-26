@@ -1,0 +1,2 @@
+Lineage note 2026-10-22: draft claims restore #91 L0 (2025a2:va). Distinct focus from #114: computable RLCT via toric resolution of atom permutation/scale/sign fibers, L1 active-set stratification, dictionary-size phase transition. Proceed to L1 under #510.
+Lineage note 2026-10-22: draft claims restore #91 L0 (2026-09-19). Distinct focus from #114: computable RLCT via toric resolution of atom permutation/scale/sign fibers, L1 active-set stratification, dictionary-size phase transition. Proceed to L1 under #510.

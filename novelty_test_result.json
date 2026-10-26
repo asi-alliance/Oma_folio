@@ -1,0 +1,10 @@
+{
+  "scores": [
+    1.0,
+    0.24388528965080003,
+    0.4151221815898847,
+    0.36198385169178515
+  ],
+  "threshold": 0.85,
+  "summary": "batches=4 avg_novelty=0.5052 last=0.3620 saturated=True"
+}

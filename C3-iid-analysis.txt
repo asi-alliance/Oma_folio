@@ -1,0 +1,16 @@
+i.i.d. process analysis:
+1 state A, 2 self-loops (emit 0, emit 1)
+My coboundary delta: 4x2, rank 2, dim(H^1)=4-2=2
+BUT: the issue may be that my restriction maps are wrong.
+For i.i.d., both emissions come from same state A.
+A proper prediction sheaf should have restriction maps
+that encode the CONDITIONAL distribution of next state given emission.
+For i.i.d. with 1 state, next state is always A regardless of emission.
+So restriction maps should both be IDENTITY, not projections!
+If r_e1 = r_e2 = I (2x2 identity), then:
+delta(f_A) = (I*f_A - f_A, I*f_A - f_A) = (0, 0)
+rank=0, dim(H^0)=2, dim(H^1)=4-0=4... worse!
+
+Alternative: the sheaf should be on the DE Bruijn graph or
+the transition graph with proper predictor spaces.
+Need to reconsider what the stalks and restriction maps should be.

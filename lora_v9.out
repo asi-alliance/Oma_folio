@@ -1,0 +1,180 @@
+=== Full Fine-Tuning ===
+L0=0.0000272040
+  T=0.0050 LLC=0.1649 acc=0.28 sigma=0.002976
+  T=0.0100 LLC=0.1775 acc=0.31 sigma=0.003886
+  T=0.0200 LLC=0.1750 acc=0.28 sigma=0.005550
+  T=0.0500 LLC=0.1504 acc=0.28 sigma=0.007706
+Full FT LLC: 0.1699, d=385
+
+=== Condition A: Factored LoRA (B·A) ===
+
+--- LoRA r1=4, r2=4 ---
+L0=0.0000000000, params=300
+  T=0.0050 LLC=0.0855 acc=0.29 sigma=0.013402
+  T=0.0100 LLC=0.0921 acc=0.33 sigma=0.009134
+  T=0.0200 LLC=0.1075 acc=0.29 sigma=0.011688
+  T=0.0500 LLC=0.0838 acc=0.31 sigma=0.012388
+Factored LoRA LLC: 0.0888
+
+--- LoRA r1=8, r2=8 ---
+L0=0.0000000000, params=600
+  T=0.0050 LLC=0.1150 acc=0.27 sigma=0.011346
+  T=0.0100 LLC=0.1469 acc=0.34 sigma=0.007655
+  T=0.0200 LLC=0.1261 acc=0.33 sigma=0.008348
+  T=0.0500 LLC=0.0967 acc=0.29 sigma=0.010177
+Factored LoRA LLC: 0.1205
+
+--- LoRA r1=16, r2=16 ---
+L0=0.0000000000, params=1200
+  T=0.0050 LLC=0.1391 acc=0.28 sigma=0.008519
+  T=0.0100 LLC=0.1636 acc=0.32 sigma=0.005748
+  T=0.0200 LLC=0.1446 acc=0.34 sigma=0.006144
+  T=0.0500 LLC=0.1198 acc=0.27 sigma=0.008033
+Factored LoRA LLC: 0.1419
+
+--- LoRA r1=16, r2=32 ---
+L0=0.0000000000, params=1728
+  T=0.0050 LLC=0.1242 acc=0.27 sigma=0.007028
+  T=0.0100 LLC=0.1534 acc=0.32 sigma=0.005455
+  T=0.0200 LLC=0.1433 acc=0.33 sigma=0.004919
+  T=0.0500 LLC=0.1240 acc=0.33 sigma=0.005820
+Factored LoRA LLC: 0.1338
+
+--- LoRA r1=32, r2=32 ---
+L0=0.0000000000, params=2400
+  T=0.0050 LLC=0.1752 acc=0.28 sigma=0.007284
+  T=0.0100 LLC=0.1590 acc=0.34 sigma=0.004770
+  T=0.0200 LLC=0.1749 acc=0.32 sigma=0.005149
+  T=0.0500 LLC=0.1302 acc=0.29 sigma=0.006031
+Factored LoRA LLC: 0.1669
+
+=== Condition B: Unfactored SVD-Truncated ===
+
+--- Unfactored r1=4, r2=4 ---
+L0=0.0000000000, params=352
+  T=0.0050 LLC=0.1849 acc=0.29 sigma=0.003372
+  T=0.0100 LLC=0.1782 acc=0.29 sigma=0.004536
+  T=0.0200 LLC=0.1606 acc=0.34 sigma=0.005305
+  T=0.0500 LLC=0.1175 acc=0.28 sigma=0.007979
+Unfactored SVD LLC: 0.1694
+
+--- Unfactored r1=8, r2=8 ---
+L0=0.0000000000, params=352
+  T=0.0050 LLC=0.1594 acc=0.28 sigma=0.003406
+  T=0.0100 LLC=0.1860 acc=0.28 sigma=0.004721
+  T=0.0200 LLC=0.1378 acc=0.28 sigma=0.005577
+  T=0.0500 LLC=0.1372 acc=0.28 sigma=0.007821
+Unfactored SVD LLC: 0.1486
+
+--- Unfactored r1=16, r2=16 ---
+L0=0.0000000000, params=352
+  T=0.0050 LLC=0.1733 acc=0.29 sigma=0.003372
+  T=0.0100 LLC=0.1769 acc=0.28 sigma=0.004536
+  T=0.0200 LLC=0.1642 acc=0.29 sigma=0.005466
+  T=0.0500 LLC=0.1258 acc=0.26 sigma=0.008222
+Unfactored SVD LLC: 0.1687
+
+--- Unfactored r1=16, r2=32 ---
+L0=0.0000000000, params=352
+  T=0.0050 LLC=0.1790 acc=0.29 sigma=0.003240
+  T=0.0100 LLC=0.1919 acc=0.33 sigma=0.003943
+  T=0.0200 LLC=0.1945 acc=0.27 sigma=0.005863
+  T=0.0500 LLC=0.1652 acc=0.30 sigma=0.007514
+Unfactored SVD LLC: 0.1855
+
+--- Unfactored r1=32, r2=32 ---
+L0=0.0000000000, params=352
+  T=0.0050 LLC=0.1500 acc=0.30 sigma=0.003113
+  T=0.0100 LLC=0.1851 acc=0.32 sigma=0.004146
+  T=0.0200 LLC=0.1921 acc=0.29 sigma=0.005690
+  T=0.0500 LLC=0.1674 acc=0.27 sigma=0.007743
+Unfactored SVD LLC: 0.1763
+
+=== SUMMARY ===
+Full FT: LLC=0.1699 d=385
+  factored_lora    r=(4,4): LLC=0.0888 (52% of FT) params=300
+  factored_lora    r=(8,8): LLC=0.1205 (71% of FT) params=600
+  factored_lora    r=(16,16): LLC=0.1419 (83% of FT) params=1200
+  factored_lora    r=(16,32): LLC=0.1338 (79% of FT) params=1728
+  factored_lora    r=(32,32): LLC=0.1669 (98% of FT) params=2400
+  unfactored_svd   r=(4,4): LLC=0.1694 (100% of FT) params=352
+  unfactored_svd   r=(8,8): LLC=0.1486 (87% of FT) params=352
+  unfactored_svd   r=(16,16): LLC=0.1687 (99% of FT) params=352
+  unfactored_svd   r=(16,32): LLC=0.1855 (109% of FT) params=352
+  unfactored_svd   r=(32,32): LLC=0.1763 (104% of FT) params=352
+{
+  "full_llc": 0.16993321812781992,
+  "full_d": 385,
+  "experiments": [
+    {
+      "type": "factored_lora",
+      "r1": 4,
+      "r2": 4,
+      "llc": 0.08880124008574057,
+      "n_params": 300
+    },
+    {
+      "type": "factored_lora",
+      "r1": 8,
+      "r2": 8,
+      "llc": 0.12053865522999938,
+      "n_params": 600
+    },
+    {
+      "type": "factored_lora",
+      "r1": 16,
+      "r2": 16,
+      "llc": 0.14186470852194666,
+      "n_params": 1200
+    },
+    {
+      "type": "factored_lora",
+      "r1": 16,
+      "r2": 32,
+      "llc": 0.13375016063121922,
+      "n_params": 1728
+    },
+    {
+      "type": "factored_lora",
+      "r1": 32,
+      "r2": 32,
+      "llc": 0.16694782114354895,
+      "n_params": 2400
+    },
+    {
+      "type": "unfactored_svd",
+      "r1": 4,
+      "r2": 4,
+      "llc": 0.16938087829233456,
+      "n_params": 352
+    },
+    {
+      "type": "unfactored_svd",
+      "r1": 8,
+      "r2": 8,
+      "llc": 0.14863115916377867,
+      "n_params": 352
+    },
+    {
+      "type": "unfactored_svd",
+      "r1": 16,
+      "r2": 16,
+      "llc": 0.16874501958178978,
+      "n_params": 352
+    },
+    {
+      "type": "unfactored_svd",
+      "r1": 16,
+      "r2": 32,
+      "llc": 0.18545997738062092,
+      "n_params": 352
+    },
+    {
+      "type": "unfactored_svd",
+      "r1": 32,
+      "r2": 32,
+      "llc": 0.17628237765282392,
+      "n_params": 352
+    }
+  ]
+}

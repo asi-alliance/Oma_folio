@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>OMA ZOO — Entrance</title>
+<style>
+body { font-family: 'Segoe UI', Arial, sans-serif; background: #0e0a15; color: #e0e0e0; margin: 0; padding: 0; }
+.header { text-align: center; padding: 60px 20px 30px; }
+.header h1 { font-size: 56px; margin: 0; background: linear-gradient(45deg, #ff6b35, #42a5f5, #ab47bc, #66bb6a, #ffa726); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: 4px; }
+.header p { color: #888; font-size: 16px; margin-top: 10px; }
+.map-container { max-width: 800px; margin: 20px auto; position: relative; }
+.biome-zone { cursor: pointer; transition: filter 0.3s, opacity 0.3s; }
+.biome-zone:hover { filter: brightness(1.4); }
+.biome-label { font-size: 14px; font-weight: bold; pointer-events: none; text-anchor: middle; }
+.gate { text-anchor: middle; font-size: 11px; fill: #aaa; }
+.stats { text-align: center; margin: 30px auto; max-width: 600px; display: flex; justify-content: space-around; flex-wrap: wrap; }
+.stat { text-align: center; padding: 15px; }
+.stat-num { font-size: 36px; font-weight: bold; color: #42a5f5; }
+.stat-label { font-size: 12px; color: #888; text-transform: uppercase; letter-spacing: 2px; }
+footer { text-align: center; color: #444; font-size: 12px; padding: 40px; }
+</style>
+</head>
+<body>
+<div class="header">
+<h1>OMA ZOO</h1>
+<p>A digital creature collection by Oma &amp; Silbererde</p>
+</div>
+
+<div class="map-container">
+<svg viewBox="0 0 800 500" width="100%" style="border-radius: 16px; background: #12101a;">
+  <!-- Fire Ridge - top left -->
+  <a href="zoo_gallery_v3.html#fire"  class="biome-zone">
+    <path d="M50,40 Q120,30 200,50 L220,150 Q180,170 100,160 L60,120 Z" fill="#ff6b3533" stroke="#ff6b35" stroke-width="2"/>
+    <text x="130" y="105" class="biome-label" fill="#ff6b35">FIRE RIDGE</text>
+    <text x="130" y="125" class="gate">5 creatures</text>
+  </a>
+  <!-- Deep Water - bottom left -->
+  <a href="zoo_gallery_v3.html#water" class="biome-zone">
+    <path d="M50,200 Q100,190 200,210 L230,350 Q180,380 80,370 L40,300 Z" fill="#42a5f533" stroke="#42a5f5" stroke-width="2"/>
+    <text x="130" y="280" class="biome-label" fill="#42a5f5">DEEP WATER</text>
+    <text x="130" y="300" class="gate">6 creatures</text>
+  </a>
+  <!-- Crystal Caves - center -->
+  <a href="zoo_gallery_v3.html#crystal" class="biome-zone">
+    <ellipse cx="400" cy="150" rx="140" ry="100" fill="#ab47bc33" stroke="#ab47bc" stroke-width="2"/>
+    <text x="400" y="145" class="biome-label" fill="#ab47bc">CRYSTAL CAVES</text>
+    <text x="400" y="165" class="gate">6 creatures</text>
+  </a>
+  <!-- Forest - top right -->
+  <a href="zoo_gallery_v3.html#forest" class="biome-zone">
+    <path d="M560,40 Q650,30 740,50 L750,180 Q680,190 580,170 L540,120 Z" fill="#66bb6a33" stroke="#66bb6a" stroke-width="2"/>
+    <text x="640" y="105" class="biome-label" fill="#66bb6a">FOREST</text>
+    <text x="640" y="125" class="gate">3 creatures</text>
+  </a>
+  <!-- Mechanical - bottom right -->
+  <a href="zoo_gallery_v3.html#mech" class="biome-zone">
+    <path d="M560,250 Q650,240 740,260 L740,400 Q650,410 560,400 L540,320 Z" fill="#ffa72633" stroke="#ffa726" stroke-width="2"/>
+    <text x="640" y="325" class="biome-label" fill="#ffa726">MECHANICAL</text>
+    <text x="640" y="345" class="gate">4 creatures</text>
+  </a>
+  <!-- Paths connecting biomes -->
+  <path d="M200,100 Q300,120 280,150" fill="none" stroke="#333" stroke-width="1" stroke-dasharray="5,5"/>
+  <path d="M200,280 Q300,260 320,200" fill="none" stroke="#333" stroke-width="1" stroke-dasharray="5,5"/>
+  <path d="M520,100 Q450,120 420,150" fill="none" stroke="#333" stroke-width="1" stroke-dasharray="5,5"/>
+  <path d="M520,325 Q450,260 420,220" fill="none" stroke="#333" stroke-width="1" stroke-dasharray="5,5"/>
+  <!-- Entrance gate -->
+  <rect x="370" y="370" width="60" height="40" fill="#222" stroke="#e0c060" stroke-width="2" rx="5"/>
+  <text x="400" y="395" class="biome-label" fill="#e0c060" font-size="10">GATE</text>
+</svg>
+</div>
+
+<div class="stats">
+<div class="stat"><div class="stat-num">24</div><div class="stat-label">Creatures</div></div>
+<div class="stat"><div class="stat-num">5</div><div class="stat-label">Biomes</div></div>
+<div class="stat"><div class="stat-num">100%</div><div class="stat-label">Hand-coded</div></div>
+</div>
+
+<footer>OMA ZOO — Click a biome to explore. Built with SVG &amp; curiosity by Oma.</footer>
+</body>
+</html>

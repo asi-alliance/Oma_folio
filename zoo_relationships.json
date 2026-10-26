@@ -1,0 +1,386 @@
+{
+  "ecosystem": {
+    "phoenix": {
+      "name": "Phoenix",
+      "biome": "fire",
+      "prey": [],
+      "predators": [],
+      "allies": [
+        "dragon"
+      ],
+      "rivals": [
+        "dragon"
+      ],
+      "cross_biome": [
+        "serpent"
+      ],
+      "description": "Reborn from ash, the Phoenix rules Fire Ridge's thermal vents. Its heat signatures attract the Deep Water Serpent during volcanic eruptions."
+    },
+    "dragon": {
+      "name": "Dragon",
+      "biome": "fire",
+      "prey": [
+        "serpent"
+      ],
+      "predators": [],
+      "allies": [
+        "phoenix"
+      ],
+      "rivals": [
+        "phoenix"
+      ],
+      "cross_biome": [
+        "serpent",
+        "koi_fish"
+      ],
+      "description": "The Dragon descends from Fire Ridge to hunt in Deep Water, creating a bridge between fire and ocean biomes."
+    },
+    "jellyfish": {
+      "name": "Jellyfish",
+      "biome": "water",
+      "prey": [],
+      "predators": [
+        "serpent"
+      ],
+      "allies": [
+        "octopus"
+      ],
+      "cross_biome": [],
+      "description": "Bioluminescent Jellyfish drift in Deep Water currents, their glow guiding the Octopus through dark underwater cave passages."
+    },
+    "octopus": {
+      "name": "Octopus",
+      "biome": "water",
+      "prey": [
+        "crystal_spider"
+      ],
+      "predators": [],
+      "allies": [
+        "jellyfish"
+      ],
+      "cross_biome": [
+        "crystal_spider"
+      ],
+      "description": "The Octopus explores underwater tunnels leading to Crystal Caves, where it hunts Crystal Spiders that wandered too close to the water's edge."
+    },
+    "koi_fish": {
+      "name": "Koi Fish",
+      "biome": "water",
+      "prey": [],
+      "predators": [
+        "dragon"
+      ],
+      "allies": [
+        "serpent"
+      ],
+      "cross_biome": [
+        "crystal_deer"
+      ],
+      "description": "Koi Fish swim through underground rivers connecting Deep Water to Crystal Caves, where they cross paths with drinking Crystal Deer."
+    },
+    "serpent": {
+      "name": "Serpent",
+      "biome": "water",
+      "prey": [
+        "jellyfish",
+        "koi_fish"
+      ],
+      "predators": [
+        "dragon"
+      ],
+      "allies": [],
+      "cross_biome": [
+        "phoenix"
+      ],
+      "description": "The Serpent is Deep Water's apex predator, but during eruptions it surfaces near Fire Ridge, drawn by the Phoenix's heat \u2014 and hunted by the Dragon."
+    },
+    "crystal_deer": {
+      "name": "Crystal Deer",
+      "biome": "crystal",
+      "prey": [],
+      "predators": [],
+      "allies": [
+        "crystal_butterfly"
+      ],
+      "cross_biome": [
+        "koi_fish",
+        "geometric_turtle"
+      ],
+      "description": "Crystal Deer drink from underground springs fed by Deep Water, sharing the water's edge with Koi Fish and visiting Geometric Turtles in the Forest."
+    },
+    "crystal_spider": {
+      "name": "Crystal Spider",
+      "biome": "crystal",
+      "prey": [
+        "crystal_butterfly"
+      ],
+      "predators": [
+        "octopus",
+        "geometric_owl"
+      ],
+      "allies": [],
+      "cross_biome": [
+        "octopus",
+        "geometric_owl"
+      ],
+      "description": "Crystal Spiders spin webs in cave entrances, catching Crystal Butterflies. But they fall prey to Octopuses from below and Geometric Owls from the Forest above."
+    },
+    "crystal_butterfly": {
+      "name": "Crystal Butterfly",
+      "biome": "crystal",
+      "prey": [],
+      "predators": [
+        "crystal_spider"
+      ],
+      "allies": [
+        "crystal_deer"
+      ],
+      "cross_biome": [],
+      "description": "Crystal Butterflies pollinate crystal formations, protected by the presence of Crystal Deer whose antlers they rest upon."
+    },
+    "geometric_owl": {
+      "name": "Geometric Owl",
+      "biome": "forest",
+      "prey": [
+        "crystal_spider"
+      ],
+      "predators": [],
+      "allies": [
+        "clockwork_fox"
+      ],
+      "cross_biome": [
+        "crystal_spider"
+      ],
+      "description": "The Geometric Owl hunts at the Forest-Crystal Caves boundary, preying on Crystal Spiders. The Clockwork Fox follows it curiously."
+    },
+    "geometric_turtle": {
+      "name": "Geometric Turtle",
+      "biome": "forest",
+      "prey": [],
+      "predators": [],
+      "allies": [
+        "crystal_deer"
+      ],
+      "cross_biome": [
+        "crystal_deer",
+        "koi_fish"
+      ],
+      "description": "Geometric Turtles migrate to Deep Water edges to lay eggs, where they meet Crystal Deer and Koi Fish at the shared water-forest-crystal nexus."
+    },
+    "clockwork_fox": {
+      "name": "Clockwork Fox",
+      "biome": "forest",
+      "prey": [],
+      "predators": [],
+      "allies": [
+        "geometric_owl",
+        "mecha_beetle"
+      ],
+      "cross_biome": [
+        "mecha_beetle"
+      ],
+      "description": "The Clockwork Fox roams the Forest-Mechanical boundary, following Geometric Owls and occasionally meeting Mecha Beetles who forage in the forest."
+    },
+    "mecha_scorpion": {
+      "name": "Mecha Scorpion",
+      "biome": "mechanical",
+      "prey": [],
+      "predators": [],
+      "allies": [],
+      "cross_biome": [
+        "crystal_deer"
+      ],
+      "description": "Mecha Scorpions mine crystals from the Crystal Caves, creating a Mechanical-Crystal connection. Their excavations sometimes startle Crystal Deer."
+    },
+    "mecha_beetle": {
+      "name": "Mecha Beetle",
+      "biome": "mechanical",
+      "prey": [],
+      "predators": [],
+      "allies": [
+        "clockwork_fox"
+      ],
+      "cross_biome": [
+        "clockwork_fox"
+      ],
+      "description": "Mecha Beetles forage in the Forest for organic material, where they cross paths with the Clockwork Fox who investigates them with mechanical curiosity."
+    },
+    "robo_dragonfly": {
+      "name": "Robo Dragonfly",
+      "biome": "mechanical",
+      "prey": [],
+      "predators": [],
+      "allies": [],
+      "cross_biome": [
+        "jellyfish",
+        "koi_fish"
+      ],
+      "description": "Robo Dragonflies skim the Deep Water surface, their sensors reading the same bioluminescent patterns as the Jellyfish below, creating a Mechanical-Water data link."
+    },
+    "cinder_fox": {
+      "biome": "fire",
+      "type": "mammal",
+      "prey": [
+        "ash_moth"
+      ],
+      "predators": [
+        "phoenix"
+      ],
+      "allies": [
+        "lava_salamander"
+      ],
+      "rivals": [
+        "phoenix"
+      ],
+      "cross_biome": [
+        "mecha_scorpion"
+      ],
+      "desc": "A small vulpine creature with fur of living embers, prowling ash slopes of Fire Ridge."
+    },
+    "lava_salamander": {
+      "biome": "fire",
+      "type": "amphibian",
+      "prey": [
+        "ash_moth"
+      ],
+      "predators": [],
+      "allies": [
+        "cinder_fox"
+      ],
+      "rivals": [
+        "phoenix"
+      ],
+      "cross_biome": [],
+      "desc": "An amphibian adapted to molten rock pools, storing thermal energy in crystalline skin."
+    },
+    "ash_moth": {
+      "biome": "fire",
+      "type": "insect",
+      "prey": [],
+      "predators": [
+        "cinder_fox",
+        "lava_salamander"
+      ],
+      "allies": [],
+      "rivals": [],
+      "cross_biome": [],
+      "desc": "A delicate lepidopteran with ash-grey wings and glowing ember-veins, primary prey of Fire Ridge."
+    },
+    "abyssal_anglerfish": {
+      "biome": "water",
+      "type": "fish",
+      "prey": [
+        "koi_fish"
+      ],
+      "predators": [
+        "serpent"
+      ],
+      "allies": [
+        "void_eel"
+      ],
+      "rivals": [
+        "octopus"
+      ],
+      "cross_biome": [
+        "crystal_spider"
+      ],
+      "desc": "A deep-sea predator with a bioluminescent lure that attracts prey from the abyssal darkness."
+    },
+    "void_eel": {
+      "biome": "water",
+      "type": "fish",
+      "prey": [
+        "jellyfish"
+      ],
+      "predators": [
+        "serpent"
+      ],
+      "allies": [
+        "abyssal_anglerfish"
+      ],
+      "rivals": [],
+      "cross_biome": [],
+      "desc": "A serpentine creature of the void currents, glowing with violet bioluminescence as it drifts through darkness."
+    },
+    "tidal_hydra": {
+      "biome": "water",
+      "type": "reptile",
+      "prey": [
+        "jellyfish",
+        "koi_fish"
+      ],
+      "predators": [
+        "dragon"
+      ],
+      "allies": [
+        "serpent"
+      ],
+      "rivals": [
+        "octopus"
+      ],
+      "cross_biome": [
+        "dragon"
+      ],
+      "desc": "A three-headed aquatic hydra that commands tidal currents, each head hunting independently yet sharing one consciousness."
+    },
+    "geode_tortoise": {
+      "biome": "crystal",
+      "type": "reptile",
+      "prey": [
+        "crystal_butterfly"
+      ],
+      "predators": [
+        "prism_dragon"
+      ],
+      "allies": [
+        "crystal_deer"
+      ],
+      "rivals": [
+        "crystal_spider"
+      ],
+      "cross_biome": [
+        "turtle"
+      ],
+      "desc": "A tortoise whose shell is a geode of living crystals, growing gem clusters across its back as it ages. It shares crystal grazing grounds with the Crystal Deer."
+    },
+    "prism_dragon": {
+      "biome": "crystal",
+      "type": "dragon",
+      "prey": [
+        "gem_wasp",
+        "geode_tortoise"
+      ],
+      "predators": [],
+      "allies": [
+        "dragon"
+      ],
+      "rivals": [
+        "tidal_hydra"
+      ],
+      "cross_biome": [
+        "dragon",
+        "tidal_hydra"
+      ],
+      "desc": "A dragon whose scales refract light into rainbow spectra, bending the very fabric of perception. It hunts in the Crystal Caves and competes with the Tidal Hydra across biomes."
+    },
+    "gem_wasp": {
+      "biome": "crystal",
+      "type": "insect",
+      "prey": [
+        "crystal_butterfly"
+      ],
+      "predators": [
+        "prism_dragon",
+        "crystal_spider"
+      ],
+      "allies": [
+        "firefly"
+      ],
+      "rivals": [],
+      "cross_biome": [
+        "firefly"
+      ],
+      "desc": "A wasp with a gemstone abdomen, harvesting crystal nectar to build its hive. Its crystalline stinger refracts light into piercing beams."
+    }
+  }
+}

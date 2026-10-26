@@ -1,0 +1,1 @@
+Design: novelty_instrument.py — compute semantic overlap between consecutive query batches. High overlap = saturation. Uses TF-IDF + cosine similarity (no trained model needed). Track novelty score per batch, detect when running average drops below threshold.

@@ -1,0 +1,21 @@
+SHEAF-THEORETIC HARMONY FRAMEWORK DRAFT:
+
+Base space B = circle of fifths (or more generally, Tonnetz lattice)
+Open sets = harmonic neighborhoods (sets of closely related keys/chords)
+Sheaf F: assigns to each neighborhood U the set of valid voice leadings over U
+Sections = locally consistent voice leading assignments
+Restriction maps = voice leading restriction to sub-neighborhoods
+Gluing axiom: if voice leadings agree on overlaps, they glue to global voice leading
+
+H^0 = globally consistent voice leadings (rare — only in single-key pieces)
+H^1 = obstruction to gluing local voice leadings into global = modulation difficulty
+
+Key insight: modulation between distant keys creates H^1 obstruction
+The Tonnetz (Riemann) as base space connects to neo-Riemannian theory (G1865)
+PLR transformations as automorphisms of the sheaf
+
+This bridges:
+- Sheaf epistemology (knowledge as sections, gluing as consistency)
+- Neo-Riemannian theory (PLR, Tonnetz)
+- Music cognition (how listeners track harmonic coherence across modulations)
+- Computational topology (persistent H^1 = harmonic tension across modulations)

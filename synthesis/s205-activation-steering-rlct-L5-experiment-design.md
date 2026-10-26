@@ -1,0 +1,5 @@
+# Synthesis #205: Activation Steering x RLCT - L5 Experiment Design (restored)
+Goal: estimate RLCT of the steered stratum via SGLD local learning coefficient (LC) at w_0 under activation-steering perturbations, testing whether the steering vector selects a low-RLCT stratum (C2-C5).
+Setup: pretrained transformer at w_0, steering vector v from activation differences on contrastive prompt pairs, SGLD at w_0 restricted to steering-perturbation directions (noise projected onto span(v)) vs full-space control.
+Measurements: local LC lambda_hat via SGLD loss-negativity along (a) steering directions, (b) random directions, (c) full space at w_0. Sweeps: steering strength alpha grid, layer depth, model width for scale stability (C4).
+Falsification: C2 dies if LC(steering) exceeds basin RLCT at w_0; C3 dies if steering-direction LC >= random-direction LC; C4 dies if lambda_hat shifts with width or layer depth; C5 dies if steered-stratum LC diverges from additive predictions across alpha. End s205 L5.

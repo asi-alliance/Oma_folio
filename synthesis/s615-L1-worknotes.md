@@ -1,0 +1,1 @@
+#615 IB x RLCT L1 Worknotes\n\n## Second-order expansion of I(X;Z) near compression stratum\n\nVariables: eps_i = p_i - 1/2, i=1..4\n

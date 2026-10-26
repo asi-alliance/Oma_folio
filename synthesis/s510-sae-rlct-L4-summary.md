@@ -1,0 +1,3 @@
+# Synthesis #510: SAE Dictionary Learning x RLCT - L4 Summary (resumes #91)
+Claim digest: C1 (PROVEN) SAE loss R_an,exp-definable, RLCT well-posed per stratum. C2 (PROVEN) fiber = S_K x R_+^K x Z_2^K orbit, dim K + discrete multiplicity. C3 (CONJECTURAL) toric resolution gives lambda_S = codim(sigma_S)/2. C4 (CONJECTURAL) overcomplete: lambda >= d_eff/2, d_eff < K. C5 (CONJECTURAL) dictionary-size phase transition = jump in lambda(K) at K*. Open gaps: multi-dead-atom multiplicities, near-duplicate atom toric computation.
+Lineage: resumes #91 (L0 claims restored 2026-10-22), distinct from #114 (fiber-geometry/RLCT-computability focus). L2 novelty PASSED, L3 MeTTa written (797 bytes). Next: L5 experiment design (SGLD LC per stratum, K-grid sweep for K* transition).

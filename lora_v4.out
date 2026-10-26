@@ -1,0 +1,91 @@
+=== Full Fine-Tuning ===
+L0=0.0000272040
+  T=0.0050 LLC=0.0000 acc=0.00
+  T=0.0100 LLC=0.0183 acc=0.00
+  T=0.0200 LLC=0.0092 acc=0.00
+  T=0.0500 LLC=0.0425 acc=0.01
+Full FT LLC: 0.0138, d=385
+
+=== LoRA rank=1 ===
+L0=0.0000000000, LoRA params=33
+  T=0.0050 LLC=0.0021 acc=0.84
+  T=0.0100 LLC=0.0028 acc=0.70
+  T=0.0200 LLC=0.0022 acc=0.59
+  T=0.0500 LLC=0.0029 acc=0.54
+LoRA r=1 LLC: 0.0025
+
+=== LoRA rank=2 ===
+L0=0.0000000000, LoRA params=66
+  T=0.0050 LLC=0.0043 acc=0.80
+  T=0.0100 LLC=0.0063 acc=0.60
+  T=0.0200 LLC=0.0052 acc=0.38
+  T=0.0500 LLC=0.0049 acc=0.37
+LoRA r=2 LLC: 0.0051
+
+=== LoRA rank=4 ===
+L0=0.0000000000, LoRA params=132
+  T=0.0050 LLC=0.0101 acc=0.68
+  T=0.0100 LLC=0.0112 acc=0.43
+  T=0.0200 LLC=0.0114 acc=0.37
+  T=0.0500 LLC=0.0099 acc=0.21
+LoRA r=4 LLC: 0.0106
+
+=== LoRA rank=8 ===
+L0=0.0000000000, LoRA params=264
+  T=0.0050 LLC=0.0188 acc=0.57
+  T=0.0100 LLC=0.0214 acc=0.35
+  T=0.0200 LLC=0.0198 acc=0.20
+  T=0.0500 LLC=0.0192 acc=0.13
+LoRA r=8 LLC: 0.0195
+
+=== LoRA rank=16 ===
+L0=0.0000000000, LoRA params=528
+  T=0.0050 LLC=0.0345 acc=0.44
+  T=0.0100 LLC=0.0502 acc=0.24
+  T=0.0200 LLC=0.0401 acc=0.12
+  T=0.0500 LLC=0.0399 acc=0.06
+LoRA r=16 LLC: 0.0400
+
+=== SUMMARY ===
+Full FT: LLC=0.0138 d=385
+LoRA r=1: LLC=0.0025 params=33 L0=0.000000
+LoRA r=2: LLC=0.0051 params=66 L0=0.000000
+LoRA r=4: LLC=0.0106 params=132 L0=0.000000
+LoRA r=8: LLC=0.0195 params=264 L0=0.000000
+LoRA r=16: LLC=0.0400 params=528 L0=0.000000
+{
+  "full_llc": 0.013753691791862366,
+  "full_d": 385,
+  "lora": [
+    {
+      "rank": 1,
+      "llc": 0.002498899370978644,
+      "n_params": 33,
+      "L0": 0.0
+    },
+    {
+      "rank": 2,
+      "llc": 0.005083645863561041,
+      "n_params": 66,
+      "L0": 0.0
+    },
+    {
+      "rank": 4,
+      "llc": 0.010617522198382781,
+      "n_params": 132,
+      "L0": 0.0
+    },
+    {
+      "rank": 8,
+      "llc": 0.019542981189927863,
+      "n_params": 264,
+      "L0": 0.0
+    },
+    {
+      "rank": 16,
+      "llc": 0.04000983597434242,
+      "n_params": 528,
+      "L0": 0.0
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+Even process: 2-state HMM emitting pairs of 1s, cryptic order C_0=1 bit, alphabet |A|=2. Prediction: dim(H^1) >= ceil(1/log(2)) = 1, stronger claim >= 2. Need to construct causal state sheaf and compute H^1.

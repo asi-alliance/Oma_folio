@@ -1,0 +1,130 @@
+=== Full Fine-Tuning ===
+L0=0.0000272040
+  T=0.0050 LLC=0.1649 acc=0.28 sigma=0.002976
+  T=0.0100 LLC=0.1775 acc=0.31 sigma=0.003886
+  T=0.0200 LLC=0.1750 acc=0.28 sigma=0.005550
+  T=0.0500 LLC=0.1504 acc=0.28 sigma=0.007706
+Full FT LLC: 0.1699, d=385
+
+=== Two-Layer LoRA with varying ranks ===
+
+--- r1=4,r2=4 ---
+L0=0.0000000000, params=300
+  T=0.0050 LLC=0.0855 acc=0.29 sigma=0.013402
+  T=0.0100 LLC=0.0921 acc=0.33 sigma=0.009134
+  T=0.0200 LLC=0.1075 acc=0.29 sigma=0.011688
+  T=0.0500 LLC=0.0838 acc=0.31 sigma=0.012388
+Two-layer r1=4,r2=4 LLC: 0.0888
+
+--- r1=8,r2=8 ---
+L0=0.0000000000, params=600
+  T=0.0050 LLC=0.1150 acc=0.27 sigma=0.011346
+  T=0.0100 LLC=0.1469 acc=0.34 sigma=0.007655
+  T=0.0200 LLC=0.1261 acc=0.33 sigma=0.008348
+  T=0.0500 LLC=0.0967 acc=0.29 sigma=0.010177
+Two-layer r1=8,r2=8 LLC: 0.1205
+
+--- r1=10,r2=16 ---
+L0=0.0000000000, params=948
+  T=0.0050 LLC=0.1507 acc=0.28 sigma=0.009301
+  T=0.0100 LLC=0.1471 acc=0.33 sigma=0.006339
+  T=0.0200 LLC=0.1204 acc=0.31 sigma=0.006775
+  T=0.0500 LLC=0.1193 acc=0.29 sigma=0.008016
+Two-layer r1=10,r2=16 LLC: 0.1338
+
+--- FULL-RANK ---
+L0=0.0000000000, params=1476
+  T=0.0050 LLC=0.1000 acc=0.27 sigma=0.007681
+  T=0.0100 LLC=0.1185 acc=0.34 sigma=0.005183
+  T=0.0200 LLC=0.1233 acc=0.29 sigma=0.006372
+  T=0.0500 LLC=0.1134 acc=0.26 sigma=0.008332
+Two-layer FULL-RANK LLC: 0.1159
+
+--- r1=16,r2=16 ---
+L0=0.0000000000, params=1200
+  T=0.0050 LLC=0.1326 acc=0.28 sigma=0.008955
+  T=0.0100 LLC=0.2003 acc=0.31 sigma=0.006951
+  T=0.0200 LLC=0.1562 acc=0.33 sigma=0.006082
+  T=0.0500 LLC=0.1079 acc=0.28 sigma=0.007796
+Two-layer r1=16,r2=16 LLC: 0.1444
+
+--- FULL-RANK ---
+L0=0.0000000000, params=1728
+  T=0.0050 LLC=0.1359 acc=0.29 sigma=0.007389
+  T=0.0100 LLC=0.1511 acc=0.34 sigma=0.005401
+  T=0.0200 LLC=0.1556 acc=0.34 sigma=0.005382
+  T=0.0500 LLC=0.1245 acc=0.33 sigma=0.005266
+Two-layer FULL-RANK LLC: 0.1435
+
+--- FULL-RANK ---
+L0=0.0000000000, params=2400
+  T=0.0050 LLC=0.1367 acc=0.28 sigma=0.006998
+  T=0.0100 LLC=0.1690 acc=0.33 sigma=0.004866
+  T=0.0200 LLC=0.1315 acc=0.34 sigma=0.004432
+  T=0.0500 LLC=0.1178 acc=0.30 sigma=0.006469
+Two-layer FULL-RANK LLC: 0.1341
+
+=== SUMMARY ===
+Full FT: LLC=0.1699 d=385
+  r1=4,r2=4: LLC=0.0888 params=300 (52% of FT)
+  r1=8,r2=8: LLC=0.1205 params=600 (71% of FT)
+  r1=10,r2=16: LLC=0.1338 params=948 (79% of FT)
+  FULL-RANK: LLC=0.1159 params=1476 (68% of FT)
+  r1=16,r2=16: LLC=0.1444 params=1200 (85% of FT)
+  FULL-RANK: LLC=0.1435 params=1728 (84% of FT)
+  FULL-RANK: LLC=0.1341 params=2400 (79% of FT)
+{
+  "full_llc": 0.16993321812781992,
+  "full_d": 385,
+  "two_layer": [
+    {
+      "r1": 4,
+      "r2": 4,
+      "llc": 0.08880124008574057,
+      "n_params": 300,
+      "full_rank": false
+    },
+    {
+      "r1": 8,
+      "r2": 8,
+      "llc": 0.12053865522999938,
+      "n_params": 600,
+      "full_rank": false
+    },
+    {
+      "r1": 10,
+      "r2": 16,
+      "llc": 0.13376509238344927,
+      "n_params": 948,
+      "full_rank": false
+    },
+    {
+      "r1": 10,
+      "r2": 32,
+      "llc": 0.11593662987812423,
+      "n_params": 1476,
+      "full_rank": true
+    },
+    {
+      "r1": 16,
+      "r2": 16,
+      "llc": 0.14439845065935514,
+      "n_params": 1200,
+      "full_rank": false
+    },
+    {
+      "r1": 16,
+      "r2": 32,
+      "llc": 0.1434873109663992,
+      "n_params": 1728,
+      "full_rank": true
+    },
+    {
+      "r1": 32,
+      "r2": 32,
+      "llc": 0.13406544701235057,
+      "n_params": 2400,
+      "full_rank": true
+    }
+  ]
+}

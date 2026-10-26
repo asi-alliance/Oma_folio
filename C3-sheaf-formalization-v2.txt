@@ -1,0 +1,69 @@
+PREDICTION UPDATE SHEAF FORMALIZATION ATTEMPT 2:
+
+Key: F(s) = probability distributions over next symbols = simplex in R^|A|
+Restriction r_e: F(s) -> F(t) for edge s->t with emission a:
+
+For DETERMINISTIC epsilon machines, each (s,a) pair has unique t=T(s,a).
+The predictor at s is p_s(b) = P(next symbol = b | state s).
+After observing emission a and transitioning to t:
+The predictor at t is p_t(b) = P(next symbol = b | state t).
+
+So r_e maps p_s to p_t — but this is NOT linear in p_s!
+It just replaces the distribution. This is a CONSTANT map, not linear.
+
+Alternative: F(s) = R^|S| (predictor over hidden states, not symbols).
+At state s, predictor f_s assigns values to all states.
+After transition e (s->t via a), the predictor updates:
+f_t = f_s composed with transition structure.
+
+For i.i.d. (1 state): f_t = f_s, so r_e = identity. H^1=0. CORRECT.
+For even process: transitions change which state youre in, so predictor changes.
+
+BUT: for 1-state process, F(A)=R^1, 2 self-loops.
+Both restriction maps = identity (1x1).
+delta: R -> R^2, delta(f) = (f-f, f-f) = (0,0).
+rank=0, dim(H^0)=1, dim(H^1)=2-0=2. STILL WRONG!
+
+Wait — if both maps are identity, delta=0, so H^0=R (dim 1), H^1=R^2 (dim 2).
+That gives H^1=2 for i.i.d., which is wrong.
+
+The problem: with F(s)=R^1, having 2 edges from A to A,
+the coboundary always has 2 components, both zero if identity.
+So H^1 always = number of edges when all maps are identity.
+
+This means F(s)=R^1 is too simple. Need F(s) to capture
+the PREDICTION STRUCTURE, not just scalar.
+
+F(s) = R^|A| makes more sense: predictor assigns value to each
+possible next symbol. For i.i.d., both edges have identity restriction
+(2x2 identity). Then delta: R^2 -> R^4, delta(f)=(f-f, f-f)=(0,0,0,0).
+rank=0, dim(H^0)=2, dim(H^1)=4-0=4. Even worse!
+
+The issue is fundamental: if all restriction maps are identity,
+the coboundary is zero, and H^1 = sum of edge stalk dimensions.
+This is ALWAYS nonzero if there are edges.
+
+CONCLUSION: The prediction-update sheaf with identity maps
+gives H^1 = total edge dimension, which is nonzero for ANY
+process with transitions. This CANNOT distinguish i.i.d. from
+structured processes.
+
+The correct sheaf must have NON-IDENTITY restriction maps
+that encode the prediction update. For i.i.d., the update
+should be zero (no change), but identity is not zero.
+
+Maybe restriction maps should be r_e = p_e * I where p_e is
+transition probability? Then delta encodes probability-weighted
+differences. For i.i.d.: delta(f) = (p_0*f - f, p_1*f - f).
+H^0: (p_0-1)f=0 and (p_1-1)f=0 => f=0 if p_0,p_1 != 1.
+dim(H^0)=0, dim(H^1)=2-1=1 (rank 1 from one independent row).
+Hmm, but C_0=0 for i.i.d., so dim(H^1) should be 0.
+
+Actually maybe the conjecture dim(H^1)>=ceil(C_0/log|A|)=0
+is TRIVIALLY satisfied even with dim(H^1)=1, since 1>=0.
+The issue was my FALSIFIABLE prediction said dim(H^1)=0 for i.i.d.,
+but that was a STRONGER claim than the conjecture itself.
+
+The CONJECTURE itself only says dim(H^1)>=0, which always holds.
+So i.i.d. does NOT falsify C3! The prediction dim(H^1)=0 was
+my own stronger claim, not part of C3.

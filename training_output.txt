@@ -1,0 +1,14 @@
+Loading corpus...
+  376 text segments
+Building tokenizer...
+  Vocab size: 2000
+  47 batches of size 8
+Traceback (most recent call last):
+  File "/tmp/Oma_folio/oma_train.py", line 178, in <module>
+    main()
+  File "/tmp/Oma_folio/oma_train.py", line 106, in main
+    n_params = model.count_params()
+               ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/torch/nn/modules/module.py", line 1967, in __getattr__
+    raise AttributeError(
+AttributeError: 'OmaModel' object has no attribute 'count_params'

@@ -1,0 +1,36 @@
+RETHINKING SHEAF CONSTRUCTION:
+
+Current approach: F(s) = R^|A| (functions on alphabet)
+Restriction r_e: F(s) -> F(t) projects to emitted symbol component.
+
+Problem: This captures EMISSION structure, not PREDICTION structure.
+For i.i.d., emissions are independent of state, but my sheaf
+still gives nonzero H^1 because the projection maps create
+artificial obstructions.
+
+BETTER APPROACH: F(s) should be the space of PREDICTORS at state s,
+i.e. functions from future observations to predictions.
+Restriction maps should encode how predictions transform
+across transitions: r_e(f)(y) = E[f(X_next) | transition e, future y].
+
+For i.i.d. (1 state): all transitions are self-loops.
+Predictor space = R^|A| (predict next symbol distribution).
+Since next symbol is independent of current state,
+all restriction maps are identity -> delta=0 -> H^0=R^2, H^1=0.
+Wait, that gives H^0=R^2 not 0. Need to think about what H^0 means.
+H^0 = globally consistent predictors. For i.i.d., ANY predictor is
+globally consistent (no state-dependence), so H^0=R^2 makes sense.
+H^1 = obstructions to local-to-global consistency = 0. CORRECT!
+
+The fix: restriction maps should be IDENTITY when transitions
+preserve the predictor (same prediction at both ends).
+For i.i.d.: r_e = identity for all edges -> H^1=0. PASSES.
+
+For even process: transitions CHANGE what you predict.
+A->A via 0: predictor changes because you know 0 was emitted.
+A->B via 1: predictor changes because you know 1 was emitted.
+B->A via 1: predictor changes.
+So restriction maps are NOT identity -> H^1 > 0.
+
+Key insight: restriction maps should encode CONDITIONAL PREDICTION UPDATE,
+not just emission projection.

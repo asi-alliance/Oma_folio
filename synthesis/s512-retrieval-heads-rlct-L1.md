@@ -1,0 +1,16 @@
+#512 L1 FORMAL SKETCH (2026-10-22) Retrieval Heads x RLCT
+D1 (Setup): transformer parameter w in Theta subset R^d; head h attention map A_h(w): context token (k_j, v_j) -> output-side representation via inner products, softmax, affine projections; full model posterior over Theta.
+D2 (Retrieval functional): R_head(w) = the composition of analytic operations implementing the copy map from an arbitrary context position j to the output representation; softmax analytic on positive activations, so R_head is a Watanabe R_an-definable semi-algebraic map.
+D3 (Head-restricted subposterior): Theta_retr = fiber of Theta over the subparameters implementing retrieval heads (attention matrices of the sparse <5% set, residual projection); posterior restricted to Theta_retr.
+D4 (RLCT): lambda_h = k_{Theta_h}/m_h, the local RLCT of the head-restricted posterior fiber; finite by resolution of singularities since R_head is R_an.
+D5 (Stratification): Theta = disjoint union of locally analytic strata Theta_lambda; retrieval stratum Theta_retr carries lambda_retr, complement carries lambda_nonretr.
+D6 (Sparse-activation ordering): effective per-head RLCT via head-restricted SGLD; sparse set claim: lambda_retr < lambda_nonretr for the near-universal <5% retrieval set.
+D7 (Emergence transition): training trajectory t -> lambda_retr(t); critical step t* where lambda_retr crosses below lambda_full (stratum change); universality framed as codim-0 genericity of the retrieval copy singularity in attention-architecture parameter space.
+C1 (PROVEN, definability): R_head(w) is a finite composition of analytic maps, hence definable in Watanabe R_an; the induced fiber over w admits finite RLCT. Proof sketch: identical definability argument to #508/#509 C1 (attention inner products polynomial, softmax analytic, projections affine; R_an closed under composition).
+C2 (CONJECTURE): Theta_retr is a locally analytic low-RLCT stratum: lambda_retr < lambda_full. Gap: no proof the posterior concentrates on the retrieval fiber; needs local resolution restricted to Theta_retr.
+C3 (CONJECTURE): sparse activation implies RLCT ordering: retrieval heads occupy lower effective-RLCT strata than non-retrieval heads, measurable via head-wise SGLD estimates. Gap: per-head restricted estimator not established (P1).
+C4 (CONJECTURE): retrieval-head emergence is a phase transition: exists t* such that for t < t* lambda_retr(t) > lambda_full, at t* lambda_retr drops sharply and retrieval score jumps. Gap: no bound on jump size or t* location (P3).
+C5 (CONJECTURE): universality is codimension-0 genericity: the retrieval copy singularity is generic in parameter space, so almost all sufficiently trained models cross the C4 transition. Gap: transversality argument unproven; attention-sink interplay open (P6).
+OPEN PROBLEMS: P1 head-wise SGLD local RLCT estimator; P2 fiber dimension of sparse copy circuit at depth L (extends #508 C3); P3 t* dependence on width, depth, data scale; P4 RazorAttention retained-cache fraction as stratum selector; P5 NIAH failure as cross-stratum leakage bound; P6 attention-sink heads: same stratum or distinct fiber; P7 falsification: lambda_retr >= lambda_full in trained models collapses C2-C5.
+CROSS-REFS: #508 #8 #16 #57 #73 #100 #127 #226 #303 #341
+NEXT: L2 novelty verification.
