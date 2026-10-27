@@ -265,7 +265,8 @@
       "cross_biome": [
         "mecha_scorpion"
       ],
-      "desc": "A small vulpine creature with fur of living embers, prowling ash slopes of Fire Ridge."
+      "desc": "A small vulpine creature with fur of living embers, prowling ash slopes of Fire Ridge.",
+      "name": "Cinder Fox"
     },
     "lava_salamander": {
       "biome": "fire",
@@ -281,7 +282,8 @@
         "phoenix"
       ],
       "cross_biome": [],
-      "desc": "An amphibian adapted to molten rock pools, storing thermal energy in crystalline skin."
+      "desc": "An amphibian adapted to molten rock pools, storing thermal energy in crystalline skin.",
+      "name": "Lava Salamander"
     },
     "ash_moth": {
       "biome": "fire",
@@ -294,7 +296,8 @@
       "allies": [],
       "rivals": [],
       "cross_biome": [],
-      "desc": "A delicate lepidopteran with ash-grey wings and glowing ember-veins, primary prey of Fire Ridge."
+      "desc": "A delicate lepidopteran with ash-grey wings and glowing ember-veins, primary prey of Fire Ridge.",
+      "name": "Ash Moth"
     },
     "abyssal_anglerfish": {
       "biome": "water",
@@ -314,7 +317,8 @@
       "cross_biome": [
         "crystal_spider"
       ],
-      "desc": "A deep-sea predator with a bioluminescent lure that attracts prey from the abyssal darkness."
+      "desc": "A deep-sea predator with a bioluminescent lure that attracts prey from the abyssal darkness.",
+      "name": "Abyssal Anglerfish"
     },
     "void_eel": {
       "biome": "water",
@@ -332,7 +336,8 @@
       "cross_biome": [
         "piston_spider"
       ],
-      "desc": "A serpentine creature of the void currents, glowing with violet bioluminescence as it drifts through darkness."
+      "desc": "A serpentine creature of the void currents, glowing with violet bioluminescence as it drifts through darkness.",
+      "name": "Void Eel"
     },
     "tidal_hydra": {
       "biome": "water",
@@ -353,7 +358,8 @@
       "cross_biome": [
         "dragon"
       ],
-      "desc": "A three-headed aquatic hydra that commands tidal currents, each head hunting independently yet sharing one consciousness."
+      "desc": "A three-headed aquatic hydra that commands tidal currents, each head hunting independently yet sharing one consciousness.",
+      "name": "Tidal Hydra"
     },
     "geode_tortoise": {
       "biome": "crystal",
@@ -373,7 +379,8 @@
       "cross_biome": [
         "turtle"
       ],
-      "desc": "A tortoise whose shell is a geode of living crystals, growing gem clusters across its back as it ages. It shares crystal grazing grounds with the Crystal Deer."
+      "desc": "A tortoise whose shell is a geode of living crystals, growing gem clusters across its back as it ages. It shares crystal grazing grounds with the Crystal Deer.",
+      "name": "Geode Tortoise"
     },
     "prism_dragon": {
       "biome": "crystal",
@@ -394,7 +401,8 @@
         "tidal_hydra",
         "lantern_moth"
       ],
-      "desc": "A dragon whose scales refract light into rainbow spectra, bending the very fabric of perception. It hunts in the Crystal Caves and competes with the Tidal Hydra across biomes."
+      "desc": "A dragon whose scales refract light into rainbow spectra, bending the very fabric of perception. It hunts in the Crystal Caves and competes with the Tidal Hydra across biomes.",
+      "name": "Prism Dragon"
     },
     "gem_wasp": {
       "biome": "crystal",
@@ -413,7 +421,8 @@
       "cross_biome": [
         "firefly"
       ],
-      "desc": "A wasp with a gemstone abdomen, harvesting crystal nectar to build its hive. Its crystalline stinger refracts light into piercing beams."
+      "desc": "A wasp with a gemstone abdomen, harvesting crystal nectar to build its hive. Its crystalline stinger refracts light into piercing beams.",
+      "name": "Gem Wasp"
     },
     "moss_bear": {
       "name": "Moss Bear",
@@ -445,18 +454,15 @@
     },
     "lantern_moth": {
       "name": "Lantern Moth",
-      "biome": "forest",
+      "biome": "Aether Drift",
       "prey": [],
       "predators": [],
-      "allies": [
-        "clockwork_fox"
-      ],
+      "allies": [],
       "rivals": [],
       "cross_biome": [
-        "prism_dragon",
+        "ash_moth",
         "spring_hare"
-      ],
-      "description": "The Lantern Moth glows with bioluminescent light, guiding night travelers through the Forest. It forms a symbiotic bond with the Clockwork Fox and crosses into Crystal Caves to visit the Prism Dragon."
+      ]
     },
     "steam_centipede": {
       "name": "Steam Centipede",
@@ -537,6 +543,144 @@
       ],
       "rivals": [],
       "name": "Spring Hare"
+    },
+    "cloud_serpent": {
+      "name": "Cloud Serpent",
+      "biome": "Aether Drift",
+      "prey": [],
+      "predators": [
+        "storm_crow"
+      ],
+      "allies": [
+        "skywhale"
+      ],
+      "rivals": [],
+      "cross_biome": [
+        "jellyfish"
+      ]
+    },
+    "mist_wraith": {
+      "name": "Mist Wraith",
+      "biome": "Aether Drift",
+      "prey": [],
+      "predators": [],
+      "allies": [
+        "ghost_crab"
+      ],
+      "rivals": [
+        "storm_crow"
+      ],
+      "cross_biome": [
+        "tidal_hydra",
+        "spore_toad"
+      ]
+    },
+    "skywhale": {
+      "name": "Skywhale",
+      "biome": "Aether Drift",
+      "prey": [],
+      "predators": [],
+      "allies": [
+        "cloud_serpent"
+      ],
+      "rivals": [],
+      "cross_biome": [
+        "phoenix"
+      ]
+    },
+    "storm_crow": {
+      "name": "Storm Crow",
+      "biome": "Aether Drift",
+      "prey": [
+        "cloud_serpent"
+      ],
+      "predators": [],
+      "allies": [],
+      "rivals": [
+        "mist_wraith"
+      ],
+      "cross_biome": [
+        "abyssal_anglerfish",
+        "geometric_owl"
+      ]
+    },
+    "ghost_crab": {
+      "name": "Ghost Crab",
+      "biome": "Aether Drift",
+      "prey": [],
+      "predators": [],
+      "allies": [
+        "mist_wraith"
+      ],
+      "rivals": [],
+      "cross_biome": [
+        "thorn_boar"
+      ]
+    },
+    "highland_cow": {
+      "name": "Highland Cow",
+      "biome": "Cow Pasture",
+      "prey": [],
+      "predators": [],
+      "allies": [
+        "longhorn_cow"
+      ],
+      "rivals": [],
+      "cross_biome": [
+        "koi_fish"
+      ]
+    },
+    "holstein_cow": {
+      "name": "Holstein Cow",
+      "biome": "Cow Pasture",
+      "prey": [],
+      "predators": [],
+      "allies": [
+        "lava_cow"
+      ],
+      "rivals": [],
+      "cross_biome": [
+        "gear_golem"
+      ]
+    },
+    "longhorn_cow": {
+      "name": "Longhorn Cow",
+      "biome": "Cow Pasture",
+      "prey": [],
+      "predators": [],
+      "allies": [
+        "highland_cow"
+      ],
+      "rivals": [],
+      "cross_biome": [
+        "geode_tortoise"
+      ]
+    },
+    "crystal_cow": {
+      "name": "Crystal Cow",
+      "biome": "Cow Pasture",
+      "prey": [],
+      "predators": [],
+      "allies": [
+        "lava_cow"
+      ],
+      "rivals": [],
+      "cross_biome": [
+        "crystal_deer"
+      ]
+    },
+    "lava_cow": {
+      "name": "Lava Cow",
+      "biome": "Cow Pasture",
+      "prey": [],
+      "predators": [],
+      "allies": [
+        "crystal_cow"
+      ],
+      "rivals": [],
+      "cross_biome": [
+        "phoenix"
+      ]
     }
   }
 }
