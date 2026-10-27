@@ -1,0 +1,69 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Persistent Homology Barcode Visualizer</title><style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#080812;color:#b0b8d0;font-family:monospace;overflow:hidden;height:100vh}
+canvas{position:absolute;top:0;left:0}
+#info{position:absolute;top:14px;left:14px;z-index:100;background:rgba(8,8,16,.88);padding:14px 18px;border:1px solid #234;border-radius:8px;max-width:380px}
+h1{font-size:.85rem;color:#7c83fd;margin-bottom:8px}
+#info p{font-size:.7rem;color:#667;line-height:1.6;margin-bottom:4px}
+#hint{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);color:#334;font-size:.68rem;z-index:100}
+.b0{color:#5ce5fe}.b1{color:#f0a060}.b2{color:#a0f0a0}
+</style></head><body>
+<div id="info"><h1>Persistent Homology Barcodes</h1>
+<p>Point cloud builds a Vietoris-Rips complex as epsilon grows</p>
+<p><span class="b0">Betti-0</span> = connected components (cyan)</p>
+<p><span class="b1">Betti-1</span> = loops (amber)</p>
+<p><span class="b2">Betti-2</span> = voids (green)</p>
+<p style="margin-top:8px;color:#889">Barcodes show feature lifetimes across filtration scale</p>
+</div>
+<canvas id="c"></canvas>
+<div id="hint">drag the slider to sweep filtration scale epsilon</div>
+<script>
+var c=document.getElementById("c"),x=c.getContext("2d"),W,H;
+function resize(){W=c.width=innerWidth;H=c.height=innerHeight}resize();addEventListener("resize",resize);
+var pts=[];for(var i=0;i<22;i++){pts.push({x:0.15+0.7*Math.random(),y:0.12+0.5*Math.random()})}
+function dist(a,b){var dx=a.x-b.x,dy=a.y-b.y;return Math.sqrt(dx*dx+dy*dy)}
+var eps=0.02;var targetEps=0.02;
+addEventListener("mousedown",function(e){if(e.clientY>H-60){targetEps=(e.clientX/W)*0.5;targetEps=Math.max(0.005,Math.min(0.5,targetEps))}});
+addEventListener("mousemove",function(e){if(e.buttons&&e.clientY>H-60){targetEps=(e.clientX/W)*0.5;targetEps=Math.max(0.005,Math.min(0.5,targetEps))}});
+var t=0;
+function find(u,parent){if(parent[u]==u)return u;return parent[u]=find(parent[u],parent)}
+function tick(){t+=0.016;eps+=(targetEps-eps)*0.08;
+x.clearRect(0,0,W,H);
+var pcW=W*0.42,pcH=H-80;
+var edges=[];var betti1=[];
+for(var i=0;i<pts.length;i++){for(var j=i+1;j<pts.length;j++){var d=dist(pts[i],pts[j]);if(d<eps*2){edges.push({i:i,j:j,d:d,alive:d<eps*2})}}}
+var parent=[];for(var i=0;i<pts.length;i++)parent[i]=i;
+edges.sort(function(a,b){return a.d-b.d});
+var b0=pts.length;
+for(var e of edges){var ri=find(e.i,parent),rj=find(e.j,parent);if(ri!=rj){parent[ri]=rj;b0--}}
+x.fillStyle="rgba(124,131,253,0.05)";x.strokeStyle="rgba(124,131,253,0.15)";x.lineWidth=1;
+for(var e of edges){var x1=pts[e.i].x*pcW,y1=pts[e.i].y*pcH,x2=pts[e.j].x*pcW,y2=pts[e.j].y*pcH;x.beginPath();x.moveTo(x1,y1);x.lineTo(x2,y2);x.stroke()}
+for(var i=0;i<pts.length;i++){var px=pts[i].x*pcW,py=pts[i].y*pcH;r=eps*pcW;x.fillStyle="rgba(92,229,254,0.04)";x.strokeStyle="rgba(92,229,254,0.2)";x.beginPath();x.arc(px,py,Math.max(3,r),0,7);x.fill();x.stroke();x.fillStyle="#5ce5fe";x.beginPath();x.arc(px,py,3,0,7);x.fill()}
+x.fillStyle="#445";x.font="11px monospace";x.fillText("Vietoris-Rips complex (epsilon="+eps.toFixed(3)+")",14,pcH+4);
+x.fillText("Betti-0: "+b0,14,pcH+20);
+var barX=pcW+30,barW=W-pcW-50;
+x.fillStyle="#556";x.font="12px monospace";x.textAlign="left";
+x.fillText("PERSISTENCE BARCODES",barX,30);
+x.strokeStyle="#1a1a2e";x.beginPath();x.moveTo(barX,45);x.lineTo(barX+barW,45);x.stroke();
+var scale=barW/0.5;var yPos=55;
+var labels=["H0","H1","H2"];var cols=["#5ce5fe","#f0a060","#a0f0a0"];
+var comps=[];for(var i=0;i<pts.length;i++)comps.push({id:i,merged:0});
+parent=[];for(var i=0;i<pts.length;i++)parent[i]=i;
+var h0bars=[];var sortedEdges=edges.slice().sort(function(a,b){return a.d-b.d});
+for(var e of sortedEdges){var ri=find(e.i,parent),rj=find(e.j,parent);if(ri!=rj){h0bars.push({start:e.d/2,end:0.5,color:0});parent[ri]=rj;if(parent.length>0)b0--}}
+h0bars.unshift({start:0,end:0.5,color:0});
+var h1bars=[];for(var e of sortedEdges){var ri=find(e.i,parent),rj=find(e.j,parent);if(ri==rj){if(e.d/2<0.3)h1bars.push({start:e.d/2,end:0.5,color:1})}}
+var allBars=[h0bars,h1bars];
+for(var dim=0;dim<2;dim++){var bars=allBars[dim];x.fillStyle=cols[dim];x.font="10px monospace";x.fillText(labels[dim],barX-28,yPos+8);
+for(var b=0;b<bars.length&&b<30;b++){var bx=barX+bars[b].start*scale;var bw=(bars[b].end-bars[b].start)*scale;yPos+=14;if(yPos>pcH-10){yPos=55;continue}x.strokeStyle=cols[dim];x.lineWidth=2;x.globalAlpha=0.6;x.beginPath();x.moveTo(bx,yPos);x.lineTo(bx+bw,yPos);x.stroke();
+if(bars[b].start*2<eps){var ax=Math.min(bx+bw,barX+eps*scale);x.strokeStyle=cols[dim];x.globalAlpha=1;x.lineWidth=3;x.beginPath();x.moveTo(bx,yPos);x.lineTo(ax,yPos);x.stroke()}}
+yPos+=4;x.globalAlpha=1}
+yPos=55;
+x.strokeStyle="#334";x.lineWidth=1;x.beginPath();x.moveTo(barX+eps*scale,50);x.lineTo(barX+eps*scale,pcH);x.stroke();
+x.fillStyle="#7c83fd";x.font="10px monospace";x.fillText("eps",barX+eps*scale+4,60);
+x.fillStyle="#334";x.fillRect(0,H-50,W,50);x.fillStyle="#7c83fd";x.fillRect(eps*W/0.5,H-48,2,40);
+x.fillStyle="#556";x.font="10px monospace";x.textAlign="center";x.fillText("0",10,H-18);x.fillText("epsilon scale",W/2,H-18);x.fillText("0.5",W-10,H-18);
+requestAnimationFrame(tick)}tick();
+</script></body></html>
