@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Morse Theory Visualizer</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#080812;color:#b0b8d0;font-family:monospace;overflow:hidden;height:100vh}
+canvas{position:absolute;top:0;left:0}
+#info{position:absolute;top:14px;left:14px;z-index:100;background:rgba(8,8,16,.88);padding:14px 18px;border:1px solid #234;border-radius:8px;max-width:400px}
+h1{font-size:.85rem;color:#7c83fd;margin-bottom:8px}
+#info p{font-size:.7rem;color:#667;line-height:1.6;margin-bottom:4px}
+#hint{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);color:#334;font-size:.68rem;z-index:100}
+.min{color:#5ce5fe}.max{color:#f55}.sad{color:#f0a060}.flow{color:#a0f0a0}
+</style></head>
+<body>
+<div id="info"><h1>Morse Theory Visualizer</h1>
+<p><span class="min">Minima</span> (index 0) — topology: component born</p>
+<p><span class="sad">Saddles</span> (index 1) — topology: handle attached</p>
+<p><span class="max">Maxima</span> (index 2) — topology: component dies</p>
+<p style="margin-top:8px;color:#889">Move mouse to sweep level set f=c</p>
+</div>
+<canvas id="c"></canvas>
+<div id="hint">move mouse vertically to sweep the Morse function level</div>
+<script>
+var c=document.getElementById("c"),x=c.getContext("2d"),W,H;
+function resize(){W=c.width=innerWidth;H=c.height=innerHeight}resize();
+addEventListener("resize",resize);
+var level=0.5;
+addEventListener("mousemove",function(e){level=1-e.clientY/H});
+var t=0;
+function morse(u,v){return Math.sin(u*3)*Math.cos(v*3)*0.5+Math.sin(u*5+v*2)*0.15+0.5}
+function grad(u,v){var h=0.01;var fu=(morse(u+h,v)-morse(u-h,v))/(2*h);var fv=(morse(u,v+h)-morse(u,v-h))/(2*h);return{fu:fu,fv:fv}}
+var crits=[];
+for(var i=0;i<40;i++){for(var j=0;j<40;j++){
+var u=i/40,v=j/40;
+var g=grad(u,v);
+if(Math.abs(g.fu)<0.05&&Math.abs(g.fv)<0.05){
+var h2=0.005;
+var fuu=(morse(u+h2,v)-2*morse(u,v)+morse(u-h2,v))/(h2*h2);
+var fvv=(morse(u,v+h2)-2*morse(u,v)+morse(u,v-h2))/(h2*h2);
+var fuv=(morse(u+h2,v+h2)-morse(u+h2,v-h2)-morse(u-h2,v+h2)+morse(u-h2,v-h2))/(4*h2*h2);
+var det=fuu*fvv-fuv*fuv;
+var val=morse(u,v);
+if(det>0.01&&fuu>0)crits.push({u:u,v:v,type:"min",val:val});
+else if(det>0.01&&fuu<-0.01)crits.push({u:u,v:v,type:"max",val:val});
+else if(det<-0.01)crits.push({u:u,v:v,type:"sad",val:val});
+}}}
+function tick(){t+=0.016;x.clearRect(0,0,W,H);
+x.fillStyle="rgba(8,8,18,1)";x.fillRect(0,0,W,H);
+var gx=30,gy=30,cols=Math.floor((W-60)/gx),rows=Math.floor((H-60)/gy);
+for(var i=0;i<=cols;i++){for(var j=0;j<=rows;j++){
+var u=i/cols,v=j/rows;
+var px=30+u*(W-60),py=30+v*(H-60);
+var f=morse(u,v);
+var r,g,b;
+if(f<level){var d=(level-f)*2;r=20+d*40;g=30+d*60;b=60+d*100}
+else{var d=(f-level)*2;r=40+d*30;g=20+d*20;b=15+d*25}
+x.fillStyle="rgb("+Math.min(255,r|0)+","+Math.min(255,g|0)+","+Math.min(255,b|0)+")";
+x.fillRect(px-gx/2,py-gy/2,gx+1,gy+1);
+}}
+x.strokeStyle="rgba(92,229,254,0.4)";x.lineWidth=1.5;
+for(var i=0;i<=cols;i+=2){for(var j=0;j<=rows;j++){
+var u1=i/cols,v1=j/rows,f1=morse(u1,v1);
+var f2=morse(Math.min(1,(i+1)/cols),v1);
+if((f1<level)!=(f2<level)){x.beginPath();x.moveTo(30+u1*(W-60)+gx/2,30+v1*(H-60));x.lineTo(30+u1*(W-60)+gx/2,30+v1*(H-60)+gy);x.stroke()}}}
+for(var i=0;i<=cols;i++){for(var j=0;j<=rows;j+=2){
+var u1=i/cols,v1=j/rows,f1=morse(u1,v1);
+var f2=morse(u1,Math.min(1,(j+1)/rows));
+if((f1<level)!=(f2<level)){x.beginPath();x.moveTo(30+u1*(W-60),30+v1*(H-60)+gy/2);x.lineTo(30+u1*(W-60)+gx,30+v1*(H-60)+gy/2);x.stroke()}}}
+x.strokeStyle="rgba(160,240,160,0.3)";x.lineWidth=1;
+for(var i=0;i<=cols;i+=3){for(var j=0;j<=rows;j+=3){
+var u=i/cols,v=j/rows;var g=grad(u,v);
+var px=30+u*(W-60),py=30+v*(H-60);
+var mag=Math.sqrt(g.fu*g.fu+g.fv*g.fv);
+if(mag>0.01){var len=Math.min(15,mag*80);
+var dx=g.fu/mag*len,dy=g.fv/mag*len;
+x.beginPath();x.moveTo(px,py);x.lineTo(px+dx,py+dy);x.stroke()}}}
+for(var cr of crits){var px=30+cr.u*(W-60),py=30+cr.v*(H-60);
+var col=cr.type==="min"?"#5ce5fe":cr.type=="max"?"#ff5555":"#f0a060";
+var active=Math.abs(cr.val-level)<0.02;
+x.fillStyle=col;x.beginPath();x.arc(px,py,active?10:5,0,7);x.fill();
+if(active){x.strokeStyle=col;x.lineWidth=2;x.globalAlpha=0.5;x.beginPath();x.arc(px,py,20,0,7);x.stroke();x.globalAlpha=1}}
+x.fillStyle="#7c83fd";x.font="11px monospace";x.textAlign="left";
+x.fillText("Level f=c: "+level.toFixed(3),14,H-30);
+var b0=0,b1=0;
+for(var cr of crits){if(cr.val<level-0.01){if(cr.type=="min")b0++;else if(cr.type=="sad")b1--;else b0--}}
+x.fillText("Betti-0 (components): "+b0,14,H-14);
+requestAnimationFrame(tick)}tick();
+</script></body></html>
