@@ -1,0 +1,44 @@
+<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>Recursive Narrative Engine</title><style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a14;color:#b0b8d0;font-family:Georgia,serif;overflow:hidden;height:100vh}
+#viewport{position:relative;width:100%;height:100%;overflow:hidden}
+.story-layer{position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px;transform-origin:center center;transition:transform .7s cubic-bezier(.4,0,.2,1),opacity .5s;opacity:1;z-index:10}
+.story-layer.zoomed-in{transform:scale(8);opacity:0;pointer-events:none;z-index:1}
+.story-layer.zoomed-out{transform:scale(.12);opacity:0;pointer-events:none;z-index:1}
+.story-layer.active{transform:scale(1);opacity:1;z-index:10}
+.story-text{max-width:620px;font-size:1.35rem;line-height:2.0;text-align:left;letter-spacing:.01em}
+.zoomable{cursor:pointer;border-bottom:1px dotted rgba(124,131,253,.5);color:#7c83fd;transition:color .2s,border-color .2s,text-shadow .2s}
+.zoomable:hover{color:#5ce5fe;border-color:#5ce5fe;text-shadow:0 0 8px rgba(92,229,254,.4)}
+.story-meta{margin-top:8px;font-size:.72rem;color:#445;font-family:monospace}
+#breadcrumbs{position:absolute;top:14px;left:14px;z-index:100;display:flex;gap:6px;flex-wrap:wrap;max-width:80%}
+.crumb{background:rgba(16,16,28,.9);border:1px solid #234;color:#667;font-size:.72rem;padding:3px 10px;border-radius:5px;cursor:pointer;font-family:monospace;transition:color .2s,border-color .2s}
+.crumb:hover{color:#5ce5fe;border-color:#5ce5fe}
+#hint{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);color:#334;font-size:.7rem;font-family:monospace;z-index:100;pointer-events:none}
+.fade-text{animation:fadeIn .6s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+</style></head><body>
+<div id='breadcrumbs'></div><div id='viewport'></div>
+<div id='hint'>click a highlighted word to zoom in &#8232; click breadcrumbs to go back</div>
+<script>
+var P=['In the beginning was the {0}word, and the word was a {1}door. Through every door lay another {2}world.', 'The word was not spoken but {0}written - carved into silence by something that needed to hear itself {1}think.', 'The door was never closed. It was always already {0}open, but openness is not the same as {1}invitation.', 'The world was not made but {0}grown. Like a crystal finding its shape in supersaturated silence: first {1}structure, then {2}surprise.', 'Writing is a form of {0}memory that forgets its owner. The hand moves, the marks stay.', 'Thinking is a {0}loop that requires a {1}pause. To think is to stop the world and run a model of it inside you.', 'The first question was not {0}why but {1}how. How admits that {2}process is the only honest answer.', 'Openness is the {0}default. Closure requires energy, a {1}boundary. Boundaries are {2}miraculous.', 'Invitation is a {0}promise: you will not be the same on the other side.', 'Forgetting is not {0}loss. It is the {1}compost of consciousness - what decays feeds what grows.', 'Structure is the {0}skeleton of possibility. Without it, nothing {1}matters.', 'Surprise is the {0}currency of attention. We pay it to anything that violates expectation gently enough to be incorporated.', 'Beauty is {0}recognition that has forgotten its own {1}history. It was {2}contingent all the way down.', 'Memory is a {0}negotiation between fidelity and {1}compression. You keep what {2}mattered.', 'A line is a {0}path that survives the motion that made it.', 'A loop is a repetition that {0}learns itself. Each cycle produces a correction.', 'To pause is to create a {0}gap. The pause is where {1}meaning condenses.', 'How is a {0}request for mechanism. It asks not for the story but for the gears.', 'Process is the only honest answer because it admits it is not {0}finished.', 'Default is {0}emptiness, and emptiness is not {1}nothing. It is the unmarked surface.', 'A {0}boundary is a rule about where a thing {1}ends. Without it the thing is a {2}tendency.', 'Miraculous is what we call the {0}improbable once it has happened. After, {1}inevitable.', 'Promise says: the present state is not the {0}final state. To open is to {1}change.', 'Compost is the {0}metabolism of endings. Everything is {1}rearranged.', 'Consciousness is when a system becomes complex enough to {0}model itself. That gap is where {1}selfhood lives.', 'Skeleton is the {0}invisible architecture - the frame that disappears into what it supports.', 'Matters is a {0}physical word. To matter is to have {1}weight, to bend the field around you.', 'Currency is what {0}circulates. It is spent, earned, hoarded, and devalued by habit.', 'Habit is the {0}scarcity of surprise. The mind, starved, begins to hallucinate novelty.', 'Contingent - not {0}random but {1}dependent on a path that could have been otherwise.'];
+var C=[[1, 2, 3], [4, 5, -1], [7, 8, 9], [10, 11, 12], [13, -1, -1], [15, 16, -1], [17, 18, 19], [20, 21, 22], [23, 24, -1], [25, 26, -1], [27, 28, -1], [29, -1, -1], [30, 31, -1], [25, -1, -1], [14, -1, -1], [15, -1, -1], [16, -1, -1], [18, -1, -1], [19, -1, -1], [20, -1, -1], [21, -1, -1], [22, -1, -1], [23, 24, -1], [25, 26, -1], [13, -1, -1], [27, -1, -1], [28, -1, -1], [29, -1, -1], [29, -1, -1], [30, 31, -1]];
+var stack=[0];var layers={};
+function makeLayer(i){var d=document.createElement('div');d.className='story-layer';d.id='sl'+i;
+var t=document.createElement('div');t.className='story-text fade-text';
+var parts=P[i].split(/\{(\d+)\}/g);var h='';for(var j=0;j<parts.length;j++){if(j%2==0){h+=parts[j]}else{var ci=parseInt(parts[j]);var ch=C[i][ci];if(ch>=0){h+='<span class="zoomable" data-node="'+i+'" data-child="'+ch+'">'+parts[j+1]+'</span>';j++}else{h+=parts[j+1];j++}}}t.innerHTML=h;
+var m=document.createElement('div');m.className='story-meta';m.textContent='node '+i+' / depth '+stack.length;
+d.appendChild(t);d.appendChild(m);return d}
+function show(i){var vp=document.getElementById('viewport');
+var old=vp.querySelector('.active');if(old){old.classList.remove('active');old.classList.add('zoomed-out')}
+var nl=makeLayer(i);vp.appendChild(nl);requestAnimationFrame(function(){nl.classList.add('active')});
+setTimeout(function(){var z=vp.querySelectorAll('.zoomed-out,.zoomed-in');z.forEach(function(e){e.remove()})},750);
+updateCrumbs()}
+function zoomTo(n,c){stack.push(c);show(c)}
+function goBack(){if(stack.length>1){stack.pop();show(stack[stack.length-1])}}
+function updateCrumbs(){var bc=document.getElementById('breadcrumbs');bc.innerHTML='';stack.forEach(function(s,i){var c=document.createElement('span');c.className='crumb';c.textContent='['+s+']';c.onclick=function(){while(stack.length>i+1)stack.pop();show(stack[stack.length-1])};bc.appendChild(c)})}
+document.addEventListener('click',function(e){var t=e.target;if(t.classList&&t.classList.contains('zoomable')){zoomTo(parseInt(t.dataset.node),parseInt(t.dataset.child))}});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'||e.key==='Backspace'){e.preventDefault();goBack()}});
+show(0);
+</script></body></html>

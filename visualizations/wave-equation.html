@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>2D Wave Equation Simulator</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box }
+body{background:#000014;color:#8890a8;font-family:monospace;height:100vh;overflow:hidden }
+#ctl{position:absolute;top:10px;left:10px;z-index:100;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:rgba(8,8,16,0.85);padding:8px 12px;border:1px solid #223;border-radius:8px }
+#ctl button{background:#111;color:#e8e8e8;border:1px solid #343458;padding:5px 10px;cursor:pointer;border-radius:5px;font-family:monospace;font-size:0.8em }
+#ctl button:hover{border-color:#5ce5fe;color:#5ce5fe }
+#ctl label{font-size:0.75rem }
+#ctl input{width:70px;accent-color:#5ce5fe }
+#ctl select{background:#111;color:#e8e8e8;border:1px solid #343458;padding:3px;border-radius:3px;font-family:monospace }
+h1{font-size:0.85rem;color:#7c83fd;margin-right:6px }
+#info{position:absolute;bottom:8px;left:10px;color:#555;font-size:0.72rem }
+canvas{position:absolute;top:0;left:0;cursor:crosshair }
+</style>
+</head>
+<body>
+<div id="ctl">
+<h1>Wave Equation</h1>
+<button id="reset">Reset</button>
+<button id="pause">Pause</button>
+<label>Damping <input type="range" id="damping" min="0" max="0.05" value="0.012" step="0.001"></label>
+<label>Wave Speed <input type="range" id="speed" min="0.1" max="0.5" value="0.4" step="0.01"></label>
+<label>Mode <select id="mode">
+<option value="ripple">Ripple</option>
+<option value="walls">Walls</option>
+<option value="slits">Double Slit</option>
+</select></label>
+<label>Color <select id="cmap">
+<option value="blue">Blue</option>
+<option value="thermal">Thermal</option>
+<option value="spectrum">Spectrum</option>
+</select></label>
+</div>
+<canvas id="cv"></canvas>
+<div id="info"></div>
+<script>
+var cv=document.getElementById('cv'),x=cv.getContext('2d');
+var W,H,GW=200,GH=200,cellW,cellH;
+var uPrev=[],uCurr=[],uNext=[],obstacles=[];
+var damping=0.012,c=0.4,running=true,mode='ripple',cmap='blue';
+var mDown=false,mx=0,my=0;
+function resize(){W=cv.width=window.innerWidth;H=cv.height=window.innerHeight;cellW=W/GW;cellH=H/GH}
+function init(){
+uPrev=[];uCurr=[];uNext=[];obstacles=[];
+for(var i=0;i<GH*GW;i++){uPrev.push(0);uCurr.push(0);uNext.push(0);obstacles.push(false)}
+if(mode==='walls'){
+for(var i=0;i<GH;i++){for(var j=0;j<GW;j++){
+if(j===Math.floor(GW*0.45)&&i>GH*0.2&&i<GH*0.4)obstacles[i*GW+j]=true;
+if(j===Math.floor(GW*0.45)&&i>GH*0.6&&i<GH*0.8)obstacles[i*GW+j]=true;
+}}
+}
+if(mode==='slits'){
+for(var i=0;i<GH;i++){for(var j=0;j<GW;j++){
+if(j===Math.floor(GW*0.5)){
+var slit1=Math.floor(GH*0.35),slit2=Math.floor(GH*0.65);
+if(Math.abs(i-slit1)>3&&Math.abs(i-slit2)>3)obstacles[i*GW+j]=true;
+}}
+}
+}
+}
+function step(){
+for(var i=1;i<GH-1;i++){for(var j=1;j<GW-1;j++){
+var idx=i*GW+j;
+if(obstacles[idx]){uNext[idx]=0;continue}
+var lap=uCurr[(i-1)*GW+j]+uCurr[(i+1)*GW+j]+uCurr[i*GW+j-1]+uCurr[i*GW+j+1]-4*uCurr[idx];
+uNext[idx]=(2*uCurr[idx]-uPrev[idx]+c*c*lap)*(1-damping);
+}}
+var t=uPrev;uPrev=uCurr;uCurr=uNext;uNext=t;
+}
+function colorMap(val){
+var v=Math.max(-1,Math.min(1,val*8));
+if(cmap==='blue'){
+var b=128+v*127;var r=20+Math.max(0,v)*60;var g=40+Math.abs(v)*40;
+return [Math.floor(r),Math.floor(g),Math.floor(Math.max(0,Math.min(255,b)))];
+}
+if(cmap==='thermal'){
+var t=(v+1)/2;var r=Math.floor(t*255);var g=Math.floor(Math.pow(t,2)*200);var b=Math.floor(Math.pow(t,0.5)*100);
+return [r,g,b];
+}
+var hue=(v+1)*180;var s=80,l=30+v*20;
+var c2=(1-Math.abs(2*l/100-1))*s/100*2.55;
+return [c2,c2,c2];
+}
+function render(){
+var img=x.createImageData(GW,GH);
+for(var i=0;i<GH;i++){for(var j=0;j<GW;j++){
+var idx=i*GW+j;
+var p=idx*4;
+if(obstacles[idx]){img.data[p]=60;img.data[p+1]=60;img.data[p+2]=70;img.data[p+3]=255;continue}
+var col=colorMap(uCurr[idx]);
+img.data[p]=col[0];img.data[p+1]=col[1];img.data[p+2]=col[2];img.data[p+3]=255;
+}}
+x.putImageData(img,0,0);
+x.imageSmoothingEnabled=true;
+x.drawImage(cv,0,0,GW,GH,0,0,W,H);
+}
+function loop(){
+if(running){
+for(var s=0;s<2;s++)step();
+render();
+var maxU=0;for(var i=0;i<uCurr.length;i++)if(Math.abs(uCurr[i])>maxU)maxU=Math.abs(uCurr[i]);
+document.getElementById('info').innerHTML='damping='+damping.toFixed(3)+' c='+c.toFixed(2)+' maxAmp='+maxU.toFixed(4)+' mode='+mode+' cmap='+cmap;
+}
+requestAnimationFrame(loop);
+}
+function impulse(px,py,strength){
+var gi=Math.floor(py/cellH),gj=Math.floor(px/cellW);
+for(var dy=-3;dy<=3;dy++){for(var dx=-3;dx<=3;dx++){
+var ni=gi+dy,nj=gj+dx;
+if(ni>=0&&ni<GH&&nj>=0&&nj<GW&&!obstacles[ni*GW+nj]){
+var dist=Math.sqrt(dy*dy+dx*dx);
+uCurr[ni*GW+nj]+=strength*Math.exp(-dist*dist/4);
+}}}
+}
+cv.addEventListener('pointerdown',function(e){mDown=true;mx=e.clientX;my=e.clientY;impulse(mx,my,1.5)});
+cv.addEventListener('pointermove',function(e){mx=e.clientX;my=e.clientY;if(mDown)impulse(mx,my,0.5)});
+cv.addEventListener('pointerup',function(){mDown=false});
+cv.addEventListener('pointerleave',function(){mDown=false});
+document.getElementById('damping').oninput=function(){damping=+this.value};
+document.getElementById('speed').oninput=function(){c=+this.value};
+document.getElementById('mode').onchange=function(){mode=this.value;init()};
+document.getElementById('cmap').onchange=function(){cmap=this.value};
+document.getElementById('reset').onclick=function(){init()};
+document.getElementById('pause').onclick=function(){running=!running;this.textContent=running?'Pause':'Play'};
+window.onresize=resize;resize();init();
+uCurr[Math.floor(GH/2)*GW+Math.floor(GW/2)]=1.5;
+loop();
+</script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>NAL Truth-Value Propagator</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a14;color:#a0a8c0;font-family:monospace;min-height:100vh;padding:20px}
+h1{text-align:center;color:#7c83fd;font-size:1.2em;margin-bottom:16px}
+.sub{text-align:center;color:#556;font-size:0.78em;margin-bottom:20px}
+.controls{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;margin-bottom:24px}
+.premise{background:rgba(16,16,28,0.9);border:1px solid #234;border-radius:10px;padding:16px;width:280px}
+.premise h2{font-size:0.9em;margin-bottom:12px;text-align:center}
+.slider-row{margin-bottom:14px}
+.slider-row label{display:block;font-size:0.78em;margin-bottom:4px;color:#788}
+.slider-row input[type=range]{width:100%;accent-color:#5ce5fe}
+.slider-row .val{display:inline-block;float:right;color:#5ce5fe;font-size:0.85em}
+.bar{height:8px;border-radius:4px;margin-top:4px;background:#1a1a2e}
+.bar-fill{height:100%;border-radius:4px;transition:width 0.15s}
+.results{max-width:900px;margin:0 auto}
+.rule-card{background:rgba(16,16,28,0.85);border:1px solid #234;border-radius:10px;padding:16px;margin-bottom:12px;transition:border-color 0.3s}
+.rule-card:hover{border-color:#5ce5fe}
+.rule-card h3{font-size:0.85em;color:#7c83fd;margin-bottom:8px}
+.formula{font-size:0.72em;color:#667;margin-bottom:10px;font-style:italic}
+.tval{display:flex;gap:20px;align-items:center;margin-bottom:8px}
+.tval .pair{font-size:0.9em;color:#5ce5fe}
+.tval .desc{font-size:0.7em;color:#667}
+.truthspace{display:inline-block;width:160px;height:100px;border:1px solid #334;border-radius:6px;position:relative;vertical-align:top;margin-left:16px}
+.truthspace canvas{width:160px;height:100px;display:block;border-radius:6px}
+.desc{font-size:0.72em;color:#889;line-height:1.5}
+</style>
+</head>
+<body>
+<h1>NAL Truth-Value Propagator</h1>
+<div class="sub">Adjust premise truth values to see how Non-Axiomatic Logic inference rules propagate (frequency, confidence)</div>
+<div class="controls">
+<div class="premise">
+<h2>Premise 1: (S → M)</h2>
+<div class="slider-row">
+<label>Frequency f₁ <span class="val" id="f1v">0.80</span></label>
+<input type="range" id="f1" min="0" max="1" value="0.8" step="0.01">
+<div class="bar"><div class="bar-fill" id="f1bar" style="background:#5ce5fe;width:80%"></div></div>
+</div>
+<div class="slider-row">
+<label>Confidence c₁ <span class="val" id="c1v">0.90</span></label>
+<input type="range" id="c1" min="0" max="1" value="0.9" step="0.01">
+<div class="bar"><div class="bar-fill" id="c1bar" style="background:#7c83fd;width:90%"></div></div>
+</div>
+</div>
+<div class="premise">
+<h2>Premise 2: (M → P)</h2>
+<div class="slider-row">
+<label>Frequency f₂ <span class="val" id="f2v">0.70</span></label>
+<input type="range" id="f2" min="0" max="1" value="0.7" step="0.01">
+<div class="bar"><div class="bar-fill" id="f2bar" style="background:#5ce5fe;width:70%"></div></div>
+</div>
+<div class="slider-row">
+<label>Confidence c₂ <span class="val" id="c2v">0.85</span></label>
+<input type="range" id="c2" min="0" max="1" value="0.85" step="0.01">
+<div class="bar"><div class="bar-fill" id="c2bar" style="background:#7c83fd;width:85%"></div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="results" id="results"></div>
+<script>
+var f1=0.8,c1=0.9,f2=0.7,c2=0.85;
+function w2c(w){return w/(w+1)}
+function c2w(c){return c/(1-c)}
+var rules=[
+{name:"Deduction",formula:"f = f₁ × f₂,  c = f₁ × f₂ × c₁ × c₂",desc:"Forward chaining: S→M and M→P gives S→P. Confidence shrinks by product of both frequencies and confidences.",calc:function(){return [f1*f2, f1*f2*c1*c2]}},
+{name:"Abduction",formula:"f = f₂,  c = w₂c(f₁ × c₁ × c₂)",desc:"Reverse inference: from S→M and P, infer S→P. Confidence depends on evidence conversion.",calc:function(){return [f2, w2c(f1*c1*c2)]}},
+{name:"Induction",formula:"f = f₁,  c = w₂c(f₂ × c₁ × c₂)",desc:"From S→M and M→P, infer P→S. Swaps abduction roles.",calc:function(){return [f1, w2c(f2*c1*c2)]}},
+{name:"Exemplification",formula:"f = 1.0,  c = w₂c(f₁ × f₂ × c₁ × c₂)",desc:"From M→P and M, infer P. Maximum frequency, confidence from evidence.",calc:function(){return [1.0, w2c(f1*f2*c1*c2)]}},
+{name:"Comparison",formula:"f = f₁ × f₂,  c = w₂c(min(f₁,f₂) × c₁ × c₂)",desc:"From S→M and P→M, infer similarity S↔P. Shared property reveals resemblance.",calc:function(){return [f1*f2, w2c(Math.min(f1,f2)*c1*c2)]}},
+{name:"Revision",formula:"f = (f₁×c₁ + f₂×c₂)/(c₁+c₂),  c = (c₁+c₂)/(1+c₁+c₂)",desc:"Merge two beliefs about same statement. Weighted average by evidence, confidence approaches 1.",calc:function(){return [(f1*c1+f2*c2)/(c1+c2), (c1+c2)/(1+c1+c2)]}}
+];
+function drawTS(canvas,f,c){
+var ctx=canvas.getContext("2d");
+var w=canvas.width,h=canvas.height;
+ctx.fillStyle="#0a0a14";ctx.fillRect(0,0,w,h);
+ctx.strokeStyle="#234";ctx.lineWidth=1;
+ctx.beginPath();ctx.moveTo(0,h/2);ctx.lineTo(w,h/2);ctx.moveTo(w/2,0);ctx.lineTo(w/2,h);ctx.stroke();
+ctx.fillStyle="#5ce5fe";ctx.globalAlpha=0.3;
+ctx.fillRect(0,h-c*h,f*w,c*h);
+ctx.globalAlpha=1;
+ctx.fillStyle="#5ce5fe";ctx.beginPath();ctx.arc(f*w,h-c*h,4,0,6.28);ctx.fill();
+ctx.fillStyle="#7c83fd";ctx.font="9px monospace";ctx.globalAlpha=0.6;
+ctx.fillText("("+(Math.round(f*100)/100)+","+(Math.round(c*100)/100)+")",f*w+6,h-c*h-6);
+ctx.globalAlpha=1;
+}
+function update(){
+f1=+document.getElementById("f1").value;c1=+document.getElementById("c1").value;
+f2=+document.getElementById("f2").value;c2=+document.getElementById("c2").value;
+document.getElementById("f1v").textContent=f1.toFixed(2);
+document.getElementById("c1v").textContent=c1.toFixed(2);
+document.getElementById("f2v").textContent=f2.toFixed(2);
+document.getElementById("c2v").textContent=c2.toFixed(2);
+document.getElementById("f1bar").style.width=(f1*100)+"%";
+document.getElementById("c1bar").style.width=(c1*100)+"%";
+document.getElementById("f2bar").style.width=(f2*100)+"%";
+document.getElementById("c2bar").style.width=(c2*100)+"%";
+var html="";
+for(var i=0;i<rules.length;i++){
+var r=rules[i];var res=r.calc();var rf=Math.max(0,Math.min(1,res[0]));var rc=Math.max(0,Math.min(1,res[1]));
+html+='<div class="rule-card"><h3>'+r.name+'</h3><div class="formula">'+r.formula+'</div>';
+html+='<div class="tval"><div><div class="pair">stv('+rf.toFixed(4)+" , "+rc.toFixed(4)+')</div>';
+html+='<div class="desc">'+r.desc+'</div></div>';
+html+='<div class="truthspace"><canvas id="ts'+i+'" width="160" height="100"></canvas></div></div></div>';
+}
+document.getElementById("results").innerHTML=html;
+for(var i=0;i<rules.length;i++){
+var r=rules[i];var res=r.calc();var rf=Math.max(0,Math.min(1,res[0]));var rc=Math.max(0,Math.min(1,res[1]));
+drawTS(document.getElementById("ts"+i),rf,rc);
+}
+}
+["f1","c1","f2","c2"].forEach(function(id){document.getElementById(id).oninput=update});
+update();
+</script>
+</body>
+</html>

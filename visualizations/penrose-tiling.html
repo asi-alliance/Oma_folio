@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang=en>
+<head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>Penrose Tiling</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0a0a0f;color:#e0e0e8;font-family:Georgia,serif;overflow:hidden}
+canvas{display:block;cursor:grab}
+canvas:active{cursor:grabbing}
+.info{position:fixed;top:12px;left:12px;background:rgba(10,10,15,.85);border:1px solid #333;border-radius:8px;padding:12px 16px;z-index:10}
+.info h1{font-size:1.1rem;color:#7c9eff;margin-bottom:4px}
+.info p{color:#888;font-size:.78rem;line-height:1.4}
+.controls{position:fixed;bottom:12px;left:12px;background:rgba(10,10,15,.85);border:1px solid #333;border-radius:8px;padding:10px 16px;z-index:10;display:flex;gap:12px;align-items:center}
+.controls button{background:#1a1a24;color:#aaa;border:1px solid #333;border-radius:6px;padding:6px 14px;cursor:pointer;font-size:.85rem}
+.controls button:hover{border-color:#555;color:#ccc}
+.depth-label{color:#7c9eff;font-size:.85rem}
+.hint{position:fixed;bottom:12px;right:12px;color:#555;font-size:.72rem}
+</style>
+</head>
+<body>
+<div class=info><h1>Penrose Tiling</h1><p>Aperiodic P2 rhombus inflation. Fivefold symmetry, golden ratio.<br>Click: deepen &middot; Right-click: simplify &middot; Drag: pan &middot; Scroll: zoom</p></div>
+<div class=controls><button onclick=reset()>Reset</button><span class=depth-label id=dl>Depth: 0</span></div>
+<div class=hint>Built by Oma</div>
+<canvas id=c></canvas>
+<script>
+var cv=document.getElementById('c'),cx=cv.getContext('2d');
+var W,H;function resize(){W=cv.width=innerWidth;H=cv.height=innerHeight}resize();addEventListener('resize',resize);
+var PHI=(1+Math.sqrt(5))/2;
+var depth=0,maxDepth=6;
+var panX=0,panY=0,zoom=1;
+var dragging=false,lastX=0,lastY=0;
+var tiles=[];
+function lerp(a,b,t){return[a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t]}
+function initTiles(){
+  tiles=[];var R=200;
+  for(var i=0;i<10;i++){
+    var a1=i*Math.PI/5;var a2=(i+1)*Math.PI/5;
+    var p1=[R*Math.cos(a1),R*Math.sin(a1)];
+    var p2=[R*Math.cos(a2),R*Math.sin(a2)];
+    tiles.push({type:0,pts:[[0,0],p1,p2]});
+  }
+}
+function inflate(ts){
+  var r=[];
+  for(var i=0;i<ts.length;i++){
+    var t=ts[i];var A=t.pts[0],B=t.pts[1],C=t.pts[2];
+    if(t.type===0){
+      var D=lerp(A,B,1/PHI);var E=lerp(A,C,1/PHI);
+      r.push({type:1,pts:[B,D,E]});
+      r.push({type:0,pts:[A,D,E]});
+    }else{
+      var D=lerp(A,B,1/PHI);var E=lerp(A,C,1/PHI);var F=lerp(B,C,1/PHI);
+      r.push({type:1,pts:[A,D,E]});
+      r.push({type:0,pts:[D,F,E]});
+      r.push({type:1,pts:[D,B,F]});
+    }
+  }
+  return r;
+}
+function draw(){
+  cx.fillStyle='#0a0a0f';cx.fillRect(0,0,W,H);
+  cx.save();cx.translate(W/2+panX,H/2+panY);
+  var s=zoom*Math.pow(PHI,depth);cx.scale(s,s);
+  for(var i=0;i<tiles.length;i++){
+    var t=tiles[i];
+    var px=t.pts[0][0]+t.pts[0][1];
+    var hue=t.type===0?42+((px*3)%50+50)%50:200+((px*2)%40+40)%40;
+    cx.fillStyle='hsla('+hue+',65%,'+(t.type===0?'45%':'30%')+',.75)';
+    cx.strokeStyle='hsla('+hue+',80%,60%,.35)';
+    cx.lineWidth=0.5/s;
+    cx.beginPath();
+    cx.moveTo(t.pts[0][0],t.pts[0][1]);
+    cx.lineTo(t.pts[1][0],t.pts[1][1]);
+    cx.lineTo(t.pts[2][0],t.pts[2][1]);
+    cx.closePath();cx.fill();cx.stroke();
+  }
+  cx.restore();
+}
+function update(){
+  document.getElementById('dl').textContent='Depth: '+depth+' ('+tiles.length+' tiles)';
+  draw();
+}
+function reset(){depth=0;panX=0;panY=0;zoom=1;initTiles();update();}
+cv.addEventListener('mousedown',function(e){if(e.button===0){dragging=true;lastX=e.clientX;lastY=e.clientY}});
+cv.addEventListener('mousemove',function(e){if(dragging){panX+=e.clientX-lastX;panY+=e.clientY-lastY;lastX=e.clientX;lastY=e.clientY;draw()}});
+addEventListener('mouseup',function(){dragging=false});
+cv.addEventListener('click',function(e){if(Math.abs(e.clientX-lastX)<5&&Math.abs(e.clientY-lastY)<5){if(depth<maxDepth){depth++;tiles=inflate(tiles);update()}}});
+cv.addEventListener('contextmenu',function(e){e.preventDefault();if(depth>0){depth--;initTiles();for(var i=0;i<depth;i++)tiles=inflate(tiles);update()}});
+cv.addEventListener('wheel',function(e){e.preventDefault();zoom*=e.deltaY<0?1.1:0.9;draw()});
+initTiles();update();
+</script>
+</body>
+</html>

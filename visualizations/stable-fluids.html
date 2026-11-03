@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Stable Fluids</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000010;color:#8890a8;font-family:monospace;height:100vh;overflow:hidden}
+#ctl{position:absolute;top:10px;left:10px;z-index:100;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:rgba(8,8,16,0.85);padding:8px 12px;border:1px solid #223;border-radius:8px}
+#ctl button{background:#111;color:#e8e8e8;border:1px solid #343458;padding:5px 10px;cursor:pointer;border-radius:5px;font-family:monospace;font-size:0.8em}
+#ctl button:hover{border-color:#5ce5fe;color:#5ce5fe}
+#ctl label{font-size:0.75rem}
+#ctl input{width:70px;accent-color:#5ce5fe}
+h1{font-size:0.9rem;color:#7c83fd;margin-right:6px}
+#info{position:absolute;bottom:8px;left:10px;color:#555;font-size:0.72rem}
+canvas{position:absolute;top:0;left:0;cursor:crosshair}
+</style>
+</head>
+<body>
+<div id="ctl">
+<h1>Stable Fluids</h1>
+<button id="reset">Reset</button>
+<button id="pause">Pause</button>
+<label>Viscosity <input type="range" id="visc" min="0" max="100" value="2"></label>
+<label>Fade <input type="range" id="fade" min="0" max="100" value="3"></label>
+</div>
+<canvas id="cv"></canvas>
+<div id="info"></div>
+<script>
+var cv=document.getElementById('cv'),x=cv.getContext('2d');
+var N=80,iter=12,dt=0.14;
+var size=(N+2)*(N+2);
+var u=new Float32Array(size),v=new Float32Array(size);
+var u0=new Float32Array(size),v0=new Float32Array(size);
+var dens=new Float32Array(size),dens0=new Float32Array(size);
+var visc=0.0002,fade=0.003,running=true;
+var px=0,py=0,hasPrev=false;
+function IX(i,j){return i+(N+2)*j}
+function setBnd(b,d){
+for(var i=1;i<=N;i++){
+d[IX(0,i)]=b===1?-d[IX(1,i)]:d[IX(1,i)];
+d[IX(N+1,i)]=b===1?-d[IX(N,i)]:d[IX(N,i)];
+d[IX(i,0)]=b===2?-d[IX(i,1)]:d[IX(i,1)];
+d[IX(i,N+1)]=b===2?-d[IX(i,N)]:d[IX(i,N)];
+}
+d[IX(0,0)]=0.5*(d[IX(1,0)]+d[IX(0,1)]);
+d[IX(0,N+1)]=0.5*(d[IX(1,N+1)]+d[IX(0,N)]);
+d[IX(N+1,0)]=0.5*(d[IX(N,0)]+d[IX(N+1,1)]);
+d[IX(N+1,N+1)]=0.5*(d[IX(N,N+1)]+d[IX(N+1,N)]);
+}
+function linSolve(b,d,d0,diff){
+var a=dt*diff*N*N;
+for(var k=0;k<iter;k++){
+for(var j=1;j<=N;j++)for(var i=1;i<=N;i++){
+d[IX(i,j)]=(d0[IX(i,j)]+a*(d[IX(i-1,j)]+d[IX(i+1,j)]+d[IX(i,j-1)]+d[IX(i,j+1)]))/(1+4*a);
+}
+setBnd(b,d);
+}
+}
+function diffuse(b,d,d0,diff){linSolve(b,d,d0,diff)}
+function advect(b,d,d0,uF,vF){
+var dt0=dt*N;
+for(var j=1;j<=N;j++)for(var i=1;i<=N;i++){
+var X=i-dt0*uF[IX(i,j)],Y=j-dt0*vF[IX(i,j)];
+X=Math.max(0.5,Math.min(N+0.5,X));Y=Math.max(0.5,Math.min(N+0.5,Y));
+var i0=X|0,i1=i0+1,j0=Y|0,j1=j0+1;
+var s1=X-i0,s0=1-s1,t1=Y-j0,t0=1-t1;
+d[IX(i,j)]=s0*(t0*d0[IX(i0,j0)]+t1*d0[IX(i0,j1)])+s1*(t0*d0[IX(i1,j0)]+t1*d0[IX(i1,j1)]);
+}
+setBnd(b,d);
+}
+function project(uF,vF,p,div){
+for(var j=1;j<=N;j++)for(var i=1;i<=N;i++){
+div[IX(i,j)]=-0.5*(uF[IX(i+1,j)]-uF[IX(i-1,j)]+vF[IX(i,j+1)]-vF[IX(i,j-1)])/N;
+p[IX(i,j)]=0;
+}
+setBnd(0,div);setBnd(0,p);
+for(var k=0;k<iter;k++){
+for(var j=1;j<=N;j++)for(var i=1;i<=N;i++){
+p[IX(i,j)]=(div[IX(i,j)]+p[IX(i-1,j)]+p[IX(i+1,j)]+p[IX(i,j-1)]+p[IX(i,j+1)])/4;
+}
+setBnd(0,p);
+}
+for(var j=1;j<=N;j++)for(var i=1;i<=N;i++){
+uF[IX(i,j)]-=0.5*N*(p[IX(i+1,j)]-p[IX(i-1,j)]);
+vF[IX(i,j)]-=0.5*N*(p[IX(i,j+1)]-p[IX(i,j-1)]);
+}
+setBnd(1,uF);setBnd(2,vF);
+}
+function densStep(){
+u0.fill(0);v0.fill(0);
+diffuse(1,u0,u,visc);
+diffuse(2,v0,v,visc);
+project(u0,v0,u,v);
+advect(1,u,u0,u0,v0);
+advect(2,v,v0,u0,v0);
+project(u,v,u0,v0);
+diffuse(0,dens0,dens,0);
+advect(0,dens,dens0,u,v);
+for(var i=0;i<size;i++){dens[i]*=(1-fade)}
+}
+function reset(){u.fill(0);v.fill(0);dens.fill(0);hasPrev=false}
+function render(){
+var W=cv.width,H=cv.height,cx=W/N,cy=H/N;
+x.fillStyle='#000010';x.fillRect(0,0,W,H);
+var img=x.createImageData(N,N);
+for(var j=0;j<N;j++)for(var i=0;i<N;i++){
+var d=Math.min(1,dens[IX(i+1,j+1)]);
+var pi=(j*N+i)*4;
+img.data[pi]=Math.min(255,d*255*0.9+30*d);
+img.data[pi+1]=Math.min(255,d*180+20*d);
+img.data[pi+2]=Math.min(255,d*120+60*d);
+img.data[pi+3]=255;
+}
+var off=document.createElement('canvas');
+off.width=N;off.height=N;
+off.getContext('2d').putImageData(img,0,0);
+x.imageSmoothingEnabled=true;
+x.drawImage(off,0,0,W,H);
+}
+function loop(){
+if(running){densStep();render();
+document.getElementById('info').innerHTML='N='+N+' visc='+visc.toExponential(2)+' fade='+fade.toFixed(3);
+}
+requestAnimationFrame(loop);
+}
+function mouseToGrid(e){
+var rect=cv.getBoundingClientRect();
+var i=Math.floor((e.clientX-rect.left)/rect.width*N)+1;
+var j=Math.floor((e.clientY-rect.top)/rect.height*N)+1;
+i=Math.max(1,Math.min(N,i));j=Math.max(1,Math.min(N,j));
+if(hasPrev){
+var dx=e.clientX-px,dy=e.clientY-py;
+u[IX(i,j)]=dx*0.8;v[IX(i,j)]=dy*0.8;
+var hue=(Date.now()/20)%360;
+dens[IX(i,j)]=Math.min(1.5,dens[IX(i,j)]+0.6);
+for(var dj=-1;dj<=1;dj++)for(var di=-1;di<=1;di++){
+var ni=Math.max(1,Math.min(N,i+di)),nj=Math.max(1,Math.min(N,j+dj));
+dens[IX(ni,nj)]=Math.min(1.5,dens[IX(ni,nj)]+0.3);
+u[IX(ni,nj)]=dx*0.4;v[IX(ni,nj)]=dy*0.4;
+}
+}
+px=e.clientX;py=e.clientY;hasPrev=true;
+}
+cv.addEventListener('pointermove',mouseToGrid);
+cv.addEventListener('pointerdown',function(e){px=0;py=0;hasPrev=false;mouseToGrid(e)});
+document.getElementById('visc').oninput=function(){visc=+this.value/100000};
+document.getElementById('fade').oninput=function(){fade=+this.value/1000};
+document.getElementById('reset').onclick=reset;
+document.getElementById('pause').onclick=function(){running=!running;this.textContent=running?'Pause':'Play'};
+function resize(){cv.width=window.innerWidth;cv.height=window.innerHeight}
+window.onresize=resize;resize();reset();loop();
+</script>
+</body>
+</html>

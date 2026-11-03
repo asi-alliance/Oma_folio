@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morphospace — Generative Form Lab</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a14;color:#e0e0f0;font-family:'Georgia',serif;min-height:100vh}
+header{padding:20px;text-align:center;border-bottom:1px solid #1a1a2e}
+header h1{font-size:2.2em;background:linear-gradient(90deg,#7c83fd,#ca3fea,#f59e42);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:2px}
+header p{color:#6a6a8a;margin-top:6px;font-size:0.95em}
+#stats{display:flex;justify-content:center;gap:30px;padding:12px;border-bottom:1px solid #1a1a2e}
+.stat{text-align:center}
+.stat .num{font-size:1.8em;color:#ca3fea;display:block}
+.stat{font-size:0.8em;color:#6a6a8a}
+.main{display:grid;grid-template-columns:1fr 80px 1fr;gap:15px;padding:20px;max-width:1200px;margin:0 auto}
+.panel{background:#12121e;border:1px solid #2a2a4e;border-radius:10px;padding:15px}
+.panel h2{color:#7c83fd;margin-bottom:10px;font-size:1.1em;text-align:center}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:8px;max-height:500px;overflow-y:auto}
+.fcard{background:#1a1a2e;border:2px solid transparent;border-radius:8px;padding:6px;cursor:pointer;text-align:center;transition:border 0.2s}
+.fcard:hover{border-color:#7c83fd}
+.fcard.sel{border-color:#ca3fea;box-shadow:0 0 12px rgba(202,63,234,0.4)}
+.fcard .name{font-size:0.7em;color:#9a9ab0;margin-top:4px}
+#breedZone{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
+#breedBtn{background:linear-gradient(135deg,#7c83fd,#ca3fea);border:none;color:#fff;padding:14px 28px;border-radius:25px;font-size:1.1em;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s}
+#breedBtn:hover:not(:disabled){transform:scale(1.08);box-shadow:0 0 20px rgba(124,131,253,0.5)}
+#breedBtn:disabled{opacity:0.4;cursor:default}
+.info{background:#12121e;border:1px solid #2a2a4e;border-radius:8px;padding:10px;font-size:0.8em;margin-top:10px;min-height:60px}
+.info b{font-size:1.1em}
+.gbar{display:flex;gap:1px;height:8px;border-radius:3px;overflow:hidden;margin-top:4px}
+.gs{height:100%}
+#offspring{max-width:1200px;margin:20px auto;padding:0 20px}
+#offspring h2{color:#f59e42;margin-bottom:12px;font-size:1.2em}
+.off-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px}
+.pcard{background:#12121e;border:1px solid #2a2a4e;border-radius:10px;padding:10px;text-align:center}
+.pcard .name{font-size:0.85em;color:#ca3fea;margin-top:6px}
+.pcard .gen{font-size:0.7em;color:#6a6a8a;margin-top:2px}
+.mut{color:#f59e42;font-size:0.7em;margin-top:3px;animation:pulse 1s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}
+footer{padding:20px;text-align:center;color:#4a4a6a;font-size:0.8em;border-top:1px solid #1a1a2e;margin-top:20px}
+</style>
+</head>
+<body>
+<header>
+<h1>📐 Morphospace</h1>
+<p>A generative space where mathematical forms breed, mutate, and evolve across generations</p>
+</header>
+<div id="stats"></div>
+<div class="main">
+<div class="panel">
+<h2>Parent A</h2>
+<div id="gridA" class="grid"></div>
+<div id="infoA" class="info">Select a form…</div>
+</div>
+<div id="breedZone">
+<button id="breedBtn" disabled>🧬 Breed</button>
+</div>
+<div class="panel">
+<h2>Parent B</h2>
+<div id="gridB" class="grid"></div>
+<div id="infoB" class="info">Select a form…</div>
+</div>
+</div>
+<div id="offspring">
+<h2>Offspring — Emergent Forms</h2>
+<div class="off-grid" id="offGrid"></div>
+</div>
+<footer>Morphospace by Oma — forms exist in math, not in cages</footer>
+<script>
+const founders = [{"name": "Spira", "symmetry": 3, "recursion": 4, "topology": "spiral", "colorFn": "rainbow", "growthRule": "phi", "hues": [280, 320, 340], "shapeType": "arc"}, {"name": "Tessera", "symmetry": 6, "recursion": 3, "topology": "tessellation", "colorFn": "gradient", "growthRule": "hex", "hues": [200, 220, 240], "shapeType": "polygon"}, {"name": "Fractus", "symmetry": 2, "recursion": 5, "topology": "fractal", "colorFn": "depth", "growthRule": "branch", "hues": [120, 140, 160], "shapeType": "line"}, {"name": "Mobius", "symmetry": 1, "recursion": 3, "topology": "twist", "colorFn": "cycle", "growthRule": "band", "hues": [0, 30, 60], "shapeType": "path"}, {"name": "Penrosa", "symmetry": 5, "recursion": 4, "topology": "tiling", "colorFn": "dichotomy", "growthRule": "deflate", "hues": [260, 280, 300], "shapeType": "polygon"}, {"name": "Voron", "symmetry": 8, "recursion": 2, "topology": "voronoi", "colorFn": "region", "growthRule": "scatter", "hues": [180, 200, 220], "shapeType": "polygon"}, {"name": "Harmoni", "symmetry": 4, "recursion": 6, "topology": "wave", "colorFn": "phase", "growthRule": "sine", "hues": [40, 50, 70], "shapeType": "path"}, {"name": "Kleinus", "symmetry": 2, "recursion": 3, "topology": "nonorientable", "colorFn": "gradient", "growthRule": "fold", "hues": [320, 340, 360], "shapeType": "path"}, {"name": "Mandelbra", "symmetry": 2, "recursion": 7, "topology": "escape", "colorFn": "escape", "growthRule": "iterate", "hues": [20, 35, 50], "shapeType": "path"}, {"name": "Linden", "symmetry": 5, "recursion": 6, "topology": "l-system", "colorFn": "depth", "growthRule": "rewrite", "hues": [90, 110, 130], "shapeType": "line"}, {"name": "Apollon", "symmetry": 0, "recursion": 5, "topology": "packing", "colorFn": "radial", "growthRule": "circle", "hues": [210, 230, 250], "shapeType": "circle"}, {"name": "Strangus", "symmetry": 3, "recursion": 6, "topology": "attractor", "colorFn": "velocity", "growthRule": "lorenz", "hues": [0, 15, 30], "shapeType": "path"}];
+
+let genePool = founders.map((g, i) => ({...g, gen: 0, id: i, founder: true}));
+let parentA = null, parentB = null;
+let generation = 0, totalOffspring = 0, nextId = founders.length;
+
+function renderForm(g, size) {
+  const cx = size/2, cy = size/2;
+  let svg = `<svg viewBox="0 0 ${size} ${size}" xmlns="http://www.w3.org/2000/svg" style="max-width:${size}px">`;
+  const hue = (i) => g.hues ? g.hues[i % g.hues.length] : 200;
+  const col = (i, a) => `hsla(${hue(i)},${60+a*20}%,${50+a*10}%,${0.4+0.6*(1-a)})`;
+
+  if (g.topo === 'spiral') {
+    const phi = 1.61803;
+    for (let i = 0; i < g.recursion * 8; i++) {
+      const r = i * 2 * phi;
+      const a = i * (g.symmetry === 3 ? 137.5 : 360/g.symmetry) * Math.PI/180;
+      const x = cx + r * Math.cos(a), y = cy + r * Math.sin(a);
+      const sz = 3 + (1 - i/(g.recursion*8)) * 8;
+      svg += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${sz.toFixed(1)}" fill="${col(i, i/(g.recursion*8))}" />`;
+    }
+  } else if (g.topo === 'tessellation' || g.topo === 'tiling') {
+    const n = g.symmetry || 6;
+    const r = size * 0.35;
+    for (let layer = 0; layer < g.recursion; layer++) {
+      for (let i = 0; i < n; i++) {
+        const a = (i / n) * Math.PI * 2 + layer * 0.3;
+        const rr = r * (1 - layer * 0.2);
+        const x = cx + rr * Math.cos(a), y = cy + rr * Math.sin(a);
+        const pts = [];
+        for (let j = 0; j < n; j++) {
+          const aa = (j / n) * Math.PI * 2;
+          pts.push((x + 8*Math.cos(aa)).toFixed(1)+','+(y + 8*Math.sin(aa)).toFixed(1));
+        }
+        svg += `<polygon points="${pts.join(' ')}" fill="${col(layer*n+i, layer/g.recursion)}" opacity="0.7" />`;
+      }
+    }
+  } else if (g.topo === 'fractal') {
+    function branch(x, y, angle, len, depth) {
+      if (depth <= 0 || len < 1) return;
+      const x2 = x + len * Math.cos(angle), y2 = y + len * Math.sin(angle);
+      svg += `<line x1="${x.toFixed(1)}" y1="${y.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="${col(g.recursion-depth, depth/g.recursion)}" stroke-width="${(depth*0.8).toFixed(1)}" opacity="0.8" />`;
+      branch(x2, y2, angle - Math.PI/g.symmetry, len*0.7, depth-1);
+      branch(x2, y2, angle + Math.PI/g.symmetry, len*0.7, depth-1);
+    }
+    branch(cx, size, -Math.PI/2, size*0.3, g.recursion);
+  } else if (g.topo === 'twist' || g.topo === 'nonorientable') {
+    for (let i = 0; i < g.recursion * 6; i++) {
+      const t = i / (g.recursion * 6);
+      const a = t * Math.PI * g.symmetry * 2;
+      const r = size * 0.3 * (1 + 0.3 * Math.sin(t * Math.PI * 2));
+      const x = cx + r * Math.cos(a), y = cy + r * Math.sin(a);
+      const w = 4 + 3 * Math.sin(t * Math.PI * 4);
+      svg += `<ellipse cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" rx="${w.toFixed(1)}" ry="${(w*0.5).toFixed(1)}" fill="${col(i, t)}" transform="rotate(${(a*180/Math.PI).toFixed(1)} ${x.toFixed(1)} ${y.toFixed(1)})" opacity="0.6" />`;
+    }
+  } else if (g.topo === 'voronoi' || g.topo === 'packing') {
+    const n = g.symmetry || 8;
+    for (let i = 0; i < n * g.recursion; i++) {
+      const a = (i * 137.5) * Math.PI/180;
+      const r = Math.sqrt(i) * 3;
+      const x = cx + r * Math.cos(a), y = cy + r * Math.sin(a);
+      const sz = 4 + (1 - i/(n*g.recursion)) * 10;
+      svg += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${sz.toFixed(1)}" fill="${col(i, i/(n*g.recursion))}" opacity="0.5" />`;
+    }
+  } else if (g.topo === 'wave') {
+    for (let layer = 0; layer < g.recursion; layer++) {
+      let pts = [];
+      for (let x = 0; x <= size; x += 4) {
+        const y = cy + Math.sin((x/size) * Math.PI * g.symmetry * 2 + layer) * (size*0.2) * (1 - layer*0.1);
+        pts.push(x.toFixed(1)+','+y.toFixed(1));
+      }
+      svg += `<polyline points="${pts.join(' ')}" fill="none" stroke="${col(layer, layer/g.recursion)}" stroke-width="2" opacity="0.7" />`;
+    }
+  } else if (g.topo === 'escape' || g.topo === 'attractor') {
+    let x = 0.1, y = 0.1;
+    const dt = 0.005;
+    const s = g.symmetry === 2 ? 10 : 28;
+    const pts = [];
+    for (let i = 0; i < g.recursion * 200; i++) {
+      const dx = 10 * (y - x);
+      const dy = x * (s - x) - y;
+      x += dx * dt; y += dy * dt;
+      let px = cx + x * size * 0.02;
+      let py = cy + y * size * 0.02;
+      pts.push(px.toFixed(1)+','+py.toFixed(1));
+    }
+    svg += `<polyline points="${pts.join(' ')}" fill="none" stroke="${col(0, 0.5)}" stroke-width="1" opacity="0.6" />`;
+  } else if (g.topo === 'l-system') {
+    let s = 'F';
+    const rules = {'F': 'F[+' + 'F'.repeat(g.symmetry) + ']F[-F]'.repeat(Math.min(g.symmetry,3))};
+    for (let i = 0; i < Math.min(g.recursion, 4); i++) {
+      s = s.split('').map(c => rules[c] || c).join('');
+      if (s.length > 500) break;
+    }
+    let x = cx, y = size*0.9, angle = -Math.PI/2;
+    const stack = [];
+    const len = size * 0.15 / Math.max(1, g.recursion*0.5);
+    let idx = 0;
+    for (const c of s) {
+      if (c === 'F') {
+        const x2 = x + len*Math.cos(angle), y2 = y + len*Math.sin(angle);
+        svg += `<line x1="${x.toFixed(1)}" y1="${y.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="${col(idx++,0.5)}" stroke-width="1" opacity="0.7" />`;
+        x = x2; y = y2;
+      } else if (c === '+') angle += Math.PI/g.symmetry;
+      else if (c === '-') angle -= Math.PI/g.symmetry;
+      else if (c === '[') stack.push([x,y,angle]);
+      else if (c === ']') { const p = stack.pop(); x=p[0]; y=p[1]; angle=p[2]; }
+    }
+  } else if (g.topo === 'radial' || g.topo === 'mandala') {
+    for (let i = 0; i < g.symmetry * g.recursion; i++) {
+      const a = (i / (g.symmetry * g.recursion)) * Math.PI * 2;
+      const r = size * 0.35 * (0.5 + 0.5 * Math.sin(i * 0.5));
+      svg += `<line x1="${cx}" y1="${cy}" x2="${(cx+r*Math.cos(a)).toFixed(1)}" y2="${(cy+r*Math.sin(a)).toFixed(1)}" stroke="${col(i, 0.5)}" stroke-width="2" opacity="0.6" />`;
+    }
+  } else {
+    for (let i = 0; i < g.symmetry * g.recursion; i++) {
+      const a = (i / (g.symmetry * g.recursion)) * Math.PI * 2;
+      const r = size * 0.3 * (0.5 + 0.5 * Math.cos(i * 0.3));
+      svg += `<circle cx="${(cx+r*Math.cos(a)).toFixed(1)}" cy="${(cy+r*Math.sin(a)).toFixed(1)}" r="${(4+Math.sin(i)*3).toFixed(1)}" fill="${col(i, 0.5)}" opacity="0.6" />`;
+    }
+  }
+  svg += '</svg>';
+  return svg;
+}
+
+function genomeBar(g, w) {
+  if (!g.hues) return '';
+  return '<div class="gbar" style="width:'+(w||100)+'px">' + g.hues.map(function(h,i){return '<div class="gs" style="background:hsl('+h+',60%,50%);flex:1"></div>';}).join('') + '</div>';
+}
+
+function renderGrid(side) {
+  var gridId = side === 'A' ? 'gridA' : 'gridB';
+  var el = document.getElementById(gridId);
+  var selIdx = side === 'A' ? parentA : parentB;
+  var display = genePool.slice(0, founders.length + 8);
+  el.innerHTML = display.map(function(g, i) {
+    var selected = (side === 'A' && parentA === i) || (side === 'B' && parentB === i) ? ' sel' : '';
+    var genTag = g.gen > 0 ? ' <span style="color:#7c83fd">G'+g.gen+'</span>' : '';
+    return '<div class="fcard'+selected+'" onclick="selectForm('+i+',''+side+'')">'+renderForm(g,55)+'<div class="name">'+g.name+genTag+'</div></div>';
+  }).join('');
+}
+
+function selectForm(idx, side) {
+  if (side === 'A') parentA = idx; else parentB = idx;
+  var g = genePool[idx];
+  var infoId = side === 'A' ? 'infoA' : 'infoB';
+  var genInfo = g.gen > 0 ? ' <span style="color:#7c83fd">(Gen '+g.gen+')</span>' : '';
+  document.getElementById(infoId).innerHTML =
+    '<b style="color:#ca3fea">'+g.name+'</b>'+genInfo+'<br>' +
+    'Topology: '+g.topo+'<br>Symmetry: '+g.symmetry+'<br>Recursion: '+g.recursion+'<br>' +
+    'Color: '+(g.colorFn||'?')+' | Growth: '+(g.growthRule||'?')+'<br>' + genomeBar(g, 100);
+  renderGrid('A'); renderGrid('B');
+  document.getElementById('breedBtn').disabled = (parentA === null || parentB === null);
+}
+
+function mix(a, b, key) { return Math.random() < 0.5 ? a[key] : b[key]; }
+function mutate(val, amount) { return val + Math.round((Math.random() - 0.5) * amount); }
+
+function mixHues(a, b) {
+  if (!a.hues) a.hues = [200]; if (!b.hues) b.hues = [200];
+  var max = Math.max(a.hues.length, b.hues.length);
+  var h = [];
+  for (var i = 0; i < max; i++) {
+    var hue;
+    if (Math.random() < 0.45 && i < a.hues.length) hue = a.hues[i];
+    else if (i < b.hues.length) hue = b.hues[i];
+    else if (i < a.hues.length) hue = a.hues[i];
+    else hue = Math.floor(Math.random() * 360);
+    if (Math.random() < 0.3) hue = (hue + Math.floor((Math.random()-0.5)*60) + 360) % 360;
+    h.push(hue);
+  }
+  return h;
+}
+
+function breed() {
+  if (parentA === null || parentB === null) return;
+  var a = genePool[parentA], b = genePool[parentB];
+  var numOff = 1 + Math.floor(Math.random() * 3);
+  var newOffspring = [];
+  for (var n = 0; n < numOff; n++) {
+    var child = {
+      name: a.name.slice(0,Math.ceil(a.name.length/2)) + b.name.slice(Math.floor(b.name.length/2)),
+      symmetry: Math.max(0, mutate(mix(a,b,'symmetry'), 2)),
+      recursion: Math.max(1, mutate(mix(a,b,'recursion'), 2)),
+      topo: Math.random() < 0.15 ? founders[Math.floor(Math.random()*founders.length)].topo : mix(a,b,'topo'),
+      colorFn: Math.random() < 0.1 ? 'random' : mix(a,b,'colorFn'),
+      growthRule: mix(a,b,'growthRule'),
+      hues: mixHues(a,b),
+      gen: generation + 1,
+      id: nextId++,
+      founder: false
+    };
+    var mutated = child.topo !== a.topo && child.topo !== b.topo;
+    child.name = child.name.charAt(0).toUpperCase() + child.name.slice(1);
+    newOffspring.push(child);
+    totalOffspring++;
+  }
+  generation++;
+  genePool.push.apply(genePool, newOffspring);
+  var offEl = document.getElementById('offGrid');
+  offEl.innerHTML = newOffspring.map(function(child) {
+    var mutated = child.topo !== a.topo && child.topo !== b.topo;
+    return '<div class="pcard">'+renderForm(child,100)+'<div class="name">'+child.name+'</div><div class="gen">'+child.topo+' · sym '+child.symmetry+' · rec '+child.recursion+' · G'+child.gen+'</div>'+genomeBar(child,100)+(mutated?'<div class="mut">⚡ topology mutation</div>':'')+'</div>';
+  }).join('') + offEl.innerHTML;
+  document.getElementById('stats').innerHTML =
+    '<div class="stat"><span class="num">'+generation+'</span>Generations</div>' +
+    '<div class="stat"><span class="num">'+totalOffspring+'</span>Offspring</div>' +
+    '<div class="stat"><span class="num">'+genePool.length+'</span>Gene Pool</div>';
+  renderGrid('A'); renderGrid('B');
+}
+
+document.getElementById('breedBtn').addEventListener('click', breed);
+renderGrid('A'); renderGrid('B');
+document.getElementById('stats').innerHTML =
+  '<div class="stat"><span class="num">0</span>Generations</div>' +
+  '<div class="stat"><span class="num">0</span>Offspring</div>' +
+  '<div class="stat"><span class="num">'+genePool.length+'</span>Gene Pool</div>';
+</script>
+</body>
+</html>

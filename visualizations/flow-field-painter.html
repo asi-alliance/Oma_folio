@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Perlin Flow Field Painter</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a0f;color:#8890a8;font-family:monospace;overflow:hidden}
+#ctl{position:absolute;top:10px;left:10px;z-index:100;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:rgba(8,8,16,0.85);padding:8px 12px;border:1px solid #234;border-radius:8px}
+#ctl button{background:#111;color:#e8e8e8;border:1px solid #343458;padding:5px 10px;cursor:pointer;border-radius:5px;font-family:monospace;font-size:0.8em}
+#ctl button:hover{border-color:#5ce5fe;color:#5ce5fe}
+#ctl label{font-size:0.72rem}
+#ctl input{width:65px;accent-color:#5ce5fe}
+#ctl select{background:#111;color:#e8e8e8;border:1px solid #343458;padding:3px;border-radius:3px;font-family:monospace}
+h1{font-size:0.82rem;color:#7c83fd;margin-right:4px}
+#info{position:absolute;bottom:8px;left:10px;color:#445;font-size:0.7rem}
+canvas{position:absolute;top:0;left:0;cursor:crosshair}
+</style>
+</head>
+<body>
+<div id="ctl">
+<h1>Flow Field</h1>
+<button id="reset">Clear</button>
+<button id="pause">Pause</button>
+<label>Particles <input type="range" id="nparts" min="200" max="3000" value="1200" step="100"></label>
+<label>Scale <input type="range" id="scale" min="0.002" max="0.02" value="0.005" step="0.001"></label>
+<label>Speed <input type="range" id="speed" min="0.5" max="5" value="2" step="0.5"></label>
+<label>Fade <input type="range" id="fade" min="0" max="0.03" value="0.005" step="0.001"></label>
+<label>Palette <select id="palette"><option value="aurora">Aurora</option><option value="ember">Ember</option><option value="ocean">Ocean</option><option value="mono">Mono</option></select></label>
+</div>
+<canvas id="cv"></canvas>
+<div id="info"></div>
+<script>
+var cv=document.getElementById('cv'),x=cv.getContext('2d');
+var W,H;
+var nparts=1200,scale=0.005,speed=2,fade=0.005,paused=false;
+var palette='aurora';
+var particles=[];
+var perm=[];
+var time=0;
+var palettes={aurora:[10,15,40],ember:[20,5,5],ocean:[5,10,25],mono:[15,15,15]};
+var hueRanges={aurora:[120,280],ember:[0,60],ocean:[180,240],mono:[0,0]};
+function initPerm(){
+perm=[];
+for(var i=0;i<256;i++)perm[i]=i;
+for(var i=255;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=perm[i];perm[i]=perm[j];perm[j]=t;}
+}
+function fade(t){return t*t*t*(t*(t*6-15)+10)}
+function lerp(a,b,t){return a+(b-a)*t}
+function grad(hash,x,y){
+var h=hash&3;
+var u=h<2?x:y;
+var v=h<2?y:x;
+return ((h&1)?-u:u)+((h&2)?-v:v);
+}
+function noise2d(nx,ny){
+var xi=Math.floor(nx)&255,yi=Math.floor(ny)&255;
+var xf=nx-Math.floor(nx),yf=ny-Math.floor(ny);
+var u=fade(xf),v=fade(yf);
+var aa=perm[perm[xi]+yi],ab=perm[perm[xi]+yi+1];
+var ba=perm[perm[xi+1]+yi],bb=perm[perm[xi+1]+yi+1];
+var x1=lerp(grad(aa,xf,yf),grad(ba,xf-1,yf),u);
+var x2=lerp(grad(ab,xf,yf-1),grad(bb,xf-1,yf-1),u);
+return lerp(x1,x2,v);
+}
+function initParticles(){
+particles=[];
+for(var i=0;i<nparts;i++){
+particles.push({x:Math.random()*W,y:Math.random()*H,age:0,life:100+Math.random()*200});
+}
+}
+function resetCanvas(){
+x.fillStyle='rgba('+palettes[palette][0]+','+palettes[palette][1]+','+palettes[palette][2]+',1)';
+x.fillRect(0,0,W,H);
+}
+function step(){
+if(fade>0){x.fillStyle='rgba('+palettes[palette][0]+','+palettes[palette][1]+','+palettes[palette][2]+','+fade+')';x.fillRect(0,0,W,H);}
+var hr=hueRanges[palette];
+for(var i=0;i<particles.length;i++){
+var p=particles[i];
+var n=noise2d(p.x*scale,p.y*scale+time);
+var angle=n*Math.PI*4;
+var nx=p.x+Math.cos(angle)*speed;
+var ny=p.y+Math.sin(angle)*speed;
+var hue;
+if(palette==='mono'){hue=200;var bright=200+n*55;x.strokeStyle='rgba('+bright+','+bright+','+bright+',0.06)';}
+else{hue=hr[0]+(n+1)*0.5*(hr[1]-hr[0]);var sat=palette==='ember'?80:70;var lit=40+n*25;x.strokeStyle='hsla('+hue+','+sat+'%,'+lit+'%,0.06)';}
+x.lineWidth=0.8;
+x.beginPath();
+x.moveTo(p.x,p.y);
+x.lineTo(nx,ny);
+x.stroke();
+p.x=nx;p.y=ny;p.age++;
+if(p.age>p.life||p.x<0||p.x>W||p.y<0||p.y>H){p.x=Math.random()*W;p.y=Math.random()*H;p.age=0;p.life=100+Math.random()*200;}
+}
+time+=0.001;
+}
+function loop(){
+if(!paused)step();
+document.getElementById('info').innerHTML='particles='+particles.length+' scale='+scale.toFixed(3)+' speed='+speed+' fade='+fade.toFixed(3)+' '+palette;
+requestAnimationFrame(loop);
+}
+document.getElementById('nparts').oninput=function(){nparts=+this.value;initParticles()};
+document.getElementById('scale').oninput=function(){scale=+this.value};
+document.getElementById('speed').oninput=function(){speed=+this.value};
+document.getElementById('fade').oninput=function(){fade=+this.value};
+document.getElementById('palette').onchange=function(){palette=this.value;resetCanvas()};
+document.getElementById('reset').onclick=function(){resetCanvas();initParticles()};
+document.getElementById('pause').onclick=function(){paused=!paused;this.textContent=paused?'Play':'Pause'};
+window.onresize=function(){W=cv.width=window.innerWidth;H=cv.height=window.innerHeight;resetCanvas();initParticles()};
+W=cv.width=window.innerWidth;H=cv.height=window.innerHeight;
+initPerm();resetCanvas();initParticles();loop();
+</script>
+</body>
+</html>

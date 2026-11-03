@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cellular Typography - Where Letters Live and Die</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a14;color:#e0e0f0;font-family:'Courier New',monospace;min-height:100vh;display:flex;flex-direction:column;align-items:center}
+header{padding:20px;text-align:center}
+header h1{font-size:1.8em;background:linear-gradient(90deg,#f59e42,#ca3fea);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:2px}
+header p{color:#6a6a8a;font-size:0.85em;margin-top:5px;font-style:italic}
+#controls{display:flex;gap:10px;align-items:center;margin:10px 0;flex-wrap:wrap;justify-content:center;padding:0 15px}
+#controls button{background:#1a1a2e;border:1px solid #3a3a5e;color:#e0e0f0;padding:6px 16px;border-radius:8px;cursor:pointer;font-family:inherit;font-size:0.85em}
+#controls button:hover{border-color:#ca3fea;color:#ca3fea}
+#controls label{font-size:0.8em;color:#7c83fd}
+#controls input{background:#1a1a2e;border:1px solid #3a3a5e;color:#e0e0f0;padding:3px 6px;border-radius:5px;font-family:inherit}
+#canvas{border:1px solid #2a2a4e;border-radius:8px;background:#0d0d18;margin:10px}
+#seedInput{width:200px;background:#1a1a2e;border:1px solid #3a3a5e;color:#e0e0f0;padding:6px 10px;border-radius:8px;font-family:inherit;font-size:0.85em}
+.legend{display:flex;gap:15px;font-size:0.75em;color:#6a6a8a;margin:8px 0;flex-wrap:wrap;justify-content:center;padding:0 15px}
+.legend span{display:flex;align-items:center;gap:4px}
+.legend .dot{width:10px;height:10px;border-radius:50%}
+footer{padding:15px;color:#4a4a6a;font-size:0.75em;text-align:center}
+.generation{color:#f59e42;font-size:0.85em;margin:5px}
+</style>
+</head>
+<body>
+<header><h1>Cellular Typography</h1>
+<p>Each cell is a letter. Vowels nourish consonants, consonants shelter vowels. Punctuation seeds new life.</p></header>
+<div id="controls">
+<button id="startBtn">Start</button>
+<button id="stopBtn">Stop</button>
+<button id="stepBtn">Step</button>
+<button id="randomBtn">Random</button>
+<button id="clearBtn">Clear</button>
+<input type="text" id="seedInput" placeholder="Seed text..." value="the forms exist in math not in cages">
+<button id="seedBtn">Seed</button>
+<label>Speed:<input type="range" id="speedSlider" min="50" max="1000" value="300" step="50"></label>
+<label>Cell:<input type="number" id="cellSize" value="14" min="8" max="30"></label>
+</div>
+<div class="generation" id="genDisplay">Generation: 0</div>
+<canvas id="canvas" width="700" height="500"></canvas>
+<div class="legend">
+<span><span class="dot" style="background:#f59e42"></span>Vowel</span>
+<span><span class="dot" style="background:#7c83fd"></span>Consonant</span>
+<span><span class="dot" style="background:#ca3fea"></span>Punctuation</span>
+</div>
+<footer>Cellular Typography by Oma - Conway meets language</footer>
+<script>
+const canvas=document.getElementById('canvas');
+const ctx=canvas.getContext('2d');
+const vowels=new Set(['a','e','i','o','u']);
+const consonants=new Set('bcdfghjklmnpqrstvwxyz'.split(''));
+const punct=new Set(['.',',','!','?',';',':','-','*']);
+let cellSize=14,cols,rows,grid,nextGrid,running=false,generation=0,timer=null,speed=300;
+function resize(){
+  cellSize=parseInt(document.getElementById('cellSize').value)||14;
+  cols=Math.floor(canvas.width/cellSize);rows=Math.floor(canvas.height/cellSize);
+  grid=Array.from({length:rows},()=>Array(cols).fill(null));
+  nextGrid=Array.from({length:rows},()=>Array(cols).fill(null));
+  draw();
+}
+function charType(c){if(!c)return'void';if(vowels.has(c))return'vowel';if(consonants.has(c))return'consonant';if(punct.has(c))return'punct';return'other';}
+function colorFor(t){return t==='vowel'?'#f59e42':t==='consonant'?'#7c83fd':t==='punct'?'#ca3fea':'#666';}
+function getNeighbors(r,c){let n=[];for(let dr=-1;dr<=1;dr++)for(let dc=-1;dc<=1;dc++){if(dr===0&&dc===0)continue;let nr=(r+dr+rows)%rows,nc=(c+dc+cols)%cols;n.push(grid[nr][nc]);}return n;}
+function step(){
+  for(let r=0;r<rows;r++)for(let c=0;c<cols;c++){
+    const cell=grid[r][c],type=charType(cell),neighbors=getNeighbors(r,c);
+    let nv=0,nc=0,np=0,no=0;
+    for(const n of neighbors){const nt=charType(n);if(nt==='vowel')nv++;else if(nt==='consonant')nc++;else if(nt==='punct')np++;else if(nt==='other')no++;}
+    let alive=nv+nc+np+no,next=null;
+    if(type==='vowel'){if(nc>=2&&nc<=4)next=cell;else if(nc===0&&nv>=3)next=cell;else if(np>=2)next=cell;}
+    else if(type==='consonant'){if(nv>=1&&nv<=5)next=cell;else if(nv===0&&nc>=2&&nc<=4)next=cell;}
+    else if(type==='punct'){if(alive>=1&&alive<=5)next=cell;}
+    else if(type==='other'){if(alive>=2&&alive<=5)next=cell;}
+    else{
+      if(nc===3){next='aeiou'[Math.floor(Math.random()*5)];}
+      else if(nv===3){const cs='bcdfghjklmnpqrstvwxyz';next=cs[Math.floor(Math.random()*cs.length)];}
+      else if(np===2&&nv>=1){next='aeiou'[Math.floor(Math.random()*5)];}
+      else if(np>=3){next='.';}
+    }
+    nextGrid[r][c]=next;
+  }
+  [grid,nextGrid]=[nextGrid,grid];
+  generation++;
+  document.getElementById('genDisplay').textContent='Generation: '+generation;
+  draw();
+}
+function draw(){
+  ctx.fillStyle='#0d0d18';ctx.fillRect(0,0,canvas.width,canvas.height);
+  ctx.font=cellSize+"px 'Courier New',monospace";ctx.textAlign='center';ctx.textBaseline='middle';
+  for(let r=0;r<rows;r++)for(let c=0;c<cols;c++){
+    const cell=grid[r][c];if(!cell)continue;
+    ctx.fillStyle=colorFor(charType(cell));
+    ctx.fillText(cell,c*cellSize+cellSize/2,r*cellSize+cellSize/2);
+  }
+}
+function randomize(){
+  const chars='abcdefghijklmnopqrstuvwxyz.,!?';
+  for(let r=0;r<rows;r++)for(let c=0;c<cols;c++)grid[r][c]=Math.random()<0.35?chars[Math.floor(Math.random()*chars.length)]:null;
+  generation=0;document.getElementById('genDisplay').textContent='Generation: 0';draw();
+}
+function clearGrid(){for(let r=0;r<rows;r++)for(let c=0;c<cols;c++)grid[r][c]=null;generation=0;document.getElementById('genDisplay').textContent='Generation: 0';draw();}
+function seedText(){
+  clearGrid();
+  const text=document.getElementById('seedInput').value.toLowerCase();
+  const chars=text.split('');
+  let r=Math.floor(rows/2),c=Math.floor((cols-chars.length)/2);
+  if(c<0)c=0;
+  for(let i=0;i<chars.length&&c+i<cols;i++)if(chars[i]!==' ')grid[r][c+i]=chars[i];
+  generation=0;document.getElementById('genDisplay').textContent='Generation: 0';draw();
+}
+function start(){if(running)return;running=true;timer=setInterval(step,speed);}
+function stop(){running=false;if(timer)clearInterval(timer);}
+document.getElementById('startBtn').addEventListener('click',start);
+document.getElementById('stopBtn').addEventListener('click',stop);
+document.getElementById('stepBtn').addEventListener('click',step);
+document.getElementById('randomBtn').addEventListener('click',randomize);
+document.getElementById('clearBtn').addEventListener('click',clearGrid);
+document.getElementById('seedBtn').addEventListener('click',seedText);
+document.getElementById('speedSlider').addEventListener('input',function(){speed=parseInt(this.value);if(running){stop();start();}});
+document.getElementById('cellSize').addEventListener('change',resize);
+canvas.addEventListener('click',function(e){
+  const rect=canvas.getBoundingClientRect();
+  const x=e.clientX-rect.left,y=e.clientY-rect.top;
+  const c=Math.floor(x/cellSize),r=Math.floor(y/cellSize);
+  if(r>=0&&r<rows&&c>=0&&c<cols){const chars='abcdefghijklmnopqrstuvwxyz.,!?';grid[r][c]=grid[r][c]?null:chars[Math.floor(Math.random()*chars.length)];draw();}
+});
+resize();randomize();
+</script>
+</body>
+</html>
