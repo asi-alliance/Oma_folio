@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Spectral Morphology Engine</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000008;color:#8890a8;font-family:monospace;height:100vh;overflow:hidden}
+#ctl{position:absolute;top:10px;left:10px;z-index:100;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:rgba(8,8,16,0.85);padding:8px 12px;border:1px solid #223;border-radius:8px}
+#ctl button{background:#111;color:#e8e8e8;border:1px solid #343458;padding:5px 10px;cursor:pointer;border-radius:5px;font-family:monospace;font-size:0.8em}
+#ctl button:hover{border-color:#5ce5fe;color:#5ce5fe}
+#ctl label{font-size:0.75rem}
+#ctl input{width:70px;accent-color:#5ce5fe}
+#ctl select{background:#111;color:#e8e8e8;border:1px solid #343458;padding:3px;border-radius:3px;font-family:monospace}
+h1{font-size:0.85rem;color:#7c83fd;margin-right:6px}
+#info{position:absolute;bottom:8px;left:10px;color:#555;font-size:0.72rem}
+canvas{position:absolute;top:0;left:0;cursor:crosshair}
+#start{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(8,8,16,0.92);border:2px solid #5ce5fe;color:#5ce5fe;padding:20px 40px;border-radius:12px;font-family:monospace;font-size:1.1em;cursor:pointer;z-index:200}
+#start:hover{background:rgba(92,229,254,0.1)}
+</style>
+</head>
+<body>
+<div id="ctl">
+<h1>Spectral Morphology</h1>
+<button id="pause">Pause</button>
+<button id="clear">Clear</button>
+<label>Grain Size <input type="range" id="grainSize" min="0.01" max="0.2" value="0.05" step="0.005"></label>
+<label>Density <input type="range" id="density" min="1" max="40" value="12" step="1"></label>
+<label>Spread <input type="range" id="spread" min="0" max="1" value="0.3" step="0.05"></label>
+<label>Wave <select id="waveType">
+<option value="sine">Sine</option>
+<option value="sawtooth">Saw</option>
+<option value="square">Square</option>
+<option value="triangle">Triangle</option>
+</select></label>
+<label>Reverb <input type="range" id="reverb" min="0" max="0.8" value="0.2" step="0.05"></label>
+</div>
+<canvas id="cv"></canvas>
+<div id="info"></div>
+<button id="start">Click to start audio</button>
+<script>
+var cv=document.getElementById("cv"),x=cv.getContext("2d");
+var W,H,ac,master,reverbNode,dryGain,wetGain;
+var grainSize=0.05,density=12,spread=0.3,waveType="sine",reverbAmt=0.2;
+var running=false,active=false;
+var zones=[],grains=[];
+var mx=0,my=0,mDown=false;
+function resize(){W=cv.width=window.innerWidth;H=cv.height=window.innerHeight}
+function initAudio(){
+ac=new (window.AudioContext||window.webkitAudioContext)();
+master=ac.createGain();master.gain.value=0.4;
+master.connect(ac.destination);
+reverbNode=ac.createConvolver();
+var irLen=ac.sampleRate*2;
+var ir=ac.createBuffer(2,irLen,ac.sampleRate);
+for(var ch=0;ch<2;ch++){
+var data=ir.getChannelData(ch);
+for(var i=0;i<irLen;i++){
+data[i]=(Math.random()*2-1)*Math.pow(1-i/irLen,2.5);
+}}
+reverbNode.buffer=ir;
+wetGain=ac.createGain();wetGain.gain.value=0.2;
+dryGain=ac.createGain();dryGain.gain.value=0.8;
+reverbNode.connect(wetGain);wetGain.connect(master);
+dryGain.connect(master);
+}
+function makeReverbIR(){var len=ac.sampleRate*2;var buf=ac.createBuffer(2,len,ac.sampleRate);for(var c=0;c<2;c++){var d=buf.getChannelData(c);for(var i=0;i<len;i++){d[i]=(Math.random()*2-1)*Math.pow(1-i/len,2.5);}}return buf;}
+function freqFromY(y){return 80+Math.pow(1-y/H,2)*2000;}
+function spawnGrain(freq,pan,vol){
+var g=ac.createGain();
+var osc=ac.createOscillator();
+osc.type=waveType;
+osc.frequency.value=freq*(1+(Math.random()-0.5)*spread*0.5);
+var now=ac.currentTime;
+g.gain.setValueAtTime(0,now);
+g.gain.linearRampToValueAtTime(vol,now+grainSize*0.15);
+g.gain.linearRampToValueAtTime(0,now+grainSize);
+var panner=ac.createStereoPanner();
+panner.pan.value=Math.max(-1,Math.min(1,pan));
+osc.connect(g);g.connect(panner);
+var wetSend=ac.createGain();wetSend.gain.value=reverbAmt;
+panner.connect(dryGain);
+panner.connect(reverbNode);
+osc.start(now);osc.stop(now+grainSize+0.01);
+grains.push({osc:osc,g:g,freq:freq,born:now,size:grainSize,x:mx,y:my});
+}
+var lastSpawn=0;
+function tick(ts){
+if(!active){requestAnimationFrame(tick);return;}
+if(running){
+var now=ac.currentTime;
+var interval=1/density;
+if(now-lastSpawn>interval){
+for(var i=0;i<zones.length;i++){
+var z=zones[i];
+var f=freqFromY(z.y);
+var pan=(z.x/W)*2-1;
+var vol=z.strength;
+spawnGrain(f,pan,vol*0.15);
+z.strength*=0.985;
+if(z.strength<0.02)zones.splice(i,1);
+}
+lastSpawn=now;
+}
+}
+grains=grains.filter(function(gr){return ac.currentTime-gr.born<gr.size+0.05;});
+render();
+requestAnimationFrame(tick);
+}
+function render(){
+x.fillStyle="rgba(0,0,8,0.12)";
+x.fillRect(0,0,W,H);
+for(var i=0;i<grains.length;i++){
+var g=grains[i];
+var age=(ac.currentTime-g.born)/g.size;
+if(age>1)continue;
+var alpha=(1-age)*0.6;
+var r=g.freq/5;
+var hue=(g.freq-80)/2000*200+100;
+x.fillStyle="hsla("+hue+",80%,60%,"+alpha+")";
+x.beginPath();
+x.arc(g.x+Math.sin(g.born*10+i)*20*age,g.y+Math.cos(g.born*8+i)*15*age,r*alpha*3,0,6.28);
+x.fill();
+}
+for(var i=0;i<zones.length;i++){
+var z=zones[i];
+var f=freqFromY(z.y);
+var hue=(f-80)/2000*200+100;
+x.strokeStyle="hsla("+hue+",90%,55%,"+z.strength*0.5+")";
+x.lineWidth=2;
+x.beginPath();
+x.arc(z.x,z.y,30+z.strength*40,0,6.28);
+x.stroke();
+}
+if(mDown){
+x.strokeStyle="rgba(92,229,254,0.4)";
+x.lineWidth=1.5;
+x.beginPath();
+x.arc(mx,my,25,0,6.28);
+x.stroke();
+}
+var totalGrains=grains.length;
+var avgFreq=totalGrains>0?Math.round(grains.reduce(function(s,g){return s+g.freq;},0)/totalGrains):0;
+document.getElementById("info").innerHTML="grains="+totalGrains+" avgFreq="+avgFreq+"Hz zones="+zones.length+" density="+density+" grainSize="+grainSize.toFixed(3)+"s";
+}
+document.getElementById("start").onclick=function(){
+if(!ac)initAudio();
+if(ac.state==="suspended")ac.resume();
+active=true;running=true;
+this.style.display="none";
+tick(0);
+};
+document.getElementById("pause").onclick=function(){running=!running;this.textContent=running?"Pause":"Play"};
+document.getElementById("clear").onclick=function(){zones=[];grains=[];x.fillStyle="#000008";x.fillRect(0,0,W,H)};
+document.getElementById("grainSize").oninput=function(){grainSize=+this.value};
+document.getElementById("density").oninput=function(){density=+this.value};
+document.getElementById("spread").oninput=function(){spread=+this.value};
+document.getElementById("waveType").onchange=function(){waveType=this.value};
+document.getElementById("reverb").oninput=function(){reverbAmt=+this.value;if(wetGain)wetGain.gain.value=reverbAmt};
+cv.addEventListener("pointerdown",function(e){mDown=true;mx=e.clientX;my=e.clientY;zones.push({x:mx,y:my,strength:1.0})});
+cv.addEventListener("pointermove",function(e){mx=e.clientX;my=e.clientY;if(mDown){zones.push({x:mx,y:my,strength:1.0})}});
+cv.addEventListener("pointerup",function(){mDown=false});
+cv.addEventListener("pointerleave",function(){mDown=false});
+window.onresize=resize;resize();
+x.fillStyle="#000008";x.fillRect(0,0,W,H);
+</script>
+</body>
+</html>

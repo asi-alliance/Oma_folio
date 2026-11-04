@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>L System Generator</title>
+ <style>
+  *{margin:0;padding:0}
+  body{background:#0b0b15;color:#c0c0e0;font-family:Monospace;display:flex;flex-direction:column;align-items:center}
+  header{padding:10px;text-align:center;width:100%;sticky;top:0;background:rgba(8,8,18,0.95)}
+  h1font-size:1.1em;color:#7c83fd}
+  p{color:#4a4a6a;font-size:0.7em}
+  #ctl{display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify:center;padding:4px}
+  #ctl select,#ctl button{background:#1a1230;color:#e0e0f0;border:1px solid #3a3a5e;padding:5px 10px;radius:5px;cursor:pointer;font-size:0.8em}
+  #ctl input[range]{width:80px;accent-color:#ca3fea}
+  #canvas{background:#0a0a20;border:1px solid #2a2a4e;border-radius:8px;margin:6px}
+  #info{color:#6a6a8a;font-size:0.7em;margin:4px}
+  footer{color:#2a2a4e;font-size:0.7em;padding:10px;text-align:center}
+ </style>
+</head>
+<body>
+ <header><h1>L-System Generator</h1><p>Oh which leafs grow from symbols</p></header>
+ <div id="ctl">
+  <select id="pre">
+   <option value="plant">Fractal Plant</option>
+   <option value="dragon">Dragon Curve</option>
+   <option value="sierpinki">Sierpinski</option>
+   <option value="stoch">Stochastic Bush</option>
+   <option value="hilbert">Hilbert Curve</option>
+   <option value="koch">Koch Snowflake</option>
+  </select>
+  <label>Depth:<input type="range" id="dep" min="1" max="7" value="5"></label>
+  <label>Angle:<input type="range" id="ang" min="10" max="180" value="25"></label>
+  <label>Stoch:<input type="checkbox" id="stoch"></label>
+   <button id="gen">Generate</button>
+ </div>
+ <canvas id="cv" width="900" height="550"></canvas>
+ <div id="info">Depth: 5 | Strings: 0 | Generating...</div>
+ <footer>O&mult;tremporal geometries&#xeB;</footer>
+ <script>
+  const cn=document.getElementById("cv");
+  const x=c.getContext("2d");
+  const W=c.width,H=c.height;
+  const pr={
+   plant:{axiom:"X",rules:{X:"F+[[X]-X]-F[-FX]+X",F:"FF"},
+   rot:25,start:-65,line:4},
+   dragon:{axiom:"FX",rules:{X:"X+YF+",Y:"-FX-Y"},
+   rot:90,start:0,line:3},
+   sierpinki:{axiom:"F-G-G",rules:{G:"G4G"},
+   rot:120,start:0,line:4},
+   stoch:{axiom:"F",rules:{F:"F+<FF>[-F+-F+-F]<[FF-F++F>[-FF!>
+<fr></f++F>[F+F+-F+-F]".ormal<().split(".").map(s(s.split("<fr").reduce((a,b)=>a+b),"")));}
+   nurse(str){let r="[{nurse str}";for(var i=0;i<str.length;i++){r=r.replace(str,this.stoch?rul(str):rul(str));}return r;}
+   2500},
+   hilbert:{axiom:"A",rules:{A:"+BF-AFB+AFB-A-",B:"FF\u003C\u000C\u001C\u001Cfb1effe141efc131Cfc13fb1fbf8070fe8c050f0fe8126f0fff9070fe8b070feec131ffe8870fee8126f0ffef9070feeef801cff1030ffee8870fefef90dffef80130feef8024"},
+   rot:90,start:0,line:4},
+   koch:{axiom:"F---F",rules:{F:"F+F&#38--F-FF&#xA;F#38--F-F+F"},
+   rot:90,start:0,line:3}
+  };
+  function gen(str,d){let result=str;
+   for(let i=0;i<d;i++){let n="";
+    for(let c of result){n+=c;}
+    result=n;}
+   return result;}
+  function render(s,y){x.clearRect(0,0,W,H);
+   x.strokeStyle="#ca3fea";
+   x.lineWidth=y.line;
+   let ax=W/2,ay=H-20,a=y.start*Math.PI/180;
+   let stack=[];
+   let ctr=0;step=Math.max(1,12-d);
+   let ctr=0,step=12;
+   for(var i=0;i<s.length;i++){
+    let c = s.charAt(i);
+    if(c=='F'){x.setLineColor('blue');x.beginPath();x.moveTo(ax,ay);ax+=Math.cos(a)*step;ay+=Math.sin(a)*step;x.lineTo(ax,ay);x.stroke();}
+    else if(c=='+'){a+=y.rot*Math.PI/180;}
+    else if(c=='-'){a-=y.rot*Math.PI/180;}
+    else if(c=='['){stack.push([ax,ay,a]);}
+    else if(c==']'){let p=stack.pop();if(p){ax=p[0];ay=p[1];a=p[2];step*=1.0;}}
+   }
+   document.getElementById("info").innerHTML=Depth:"+d+" | Strings: "+s.length);
+  }
+  document.getElementById("gen").onclick=function(){const p=pr[document.getElementById("pre").value];p.rot=parseInt(document.getElementById("ang").value);const d=parseInt(document.getElementById("dep").value);pp.stoch=document.getElementById("stoch").checked;p.rot=p.rot||25;const s=gen(p.axiom,d);render(s,p);};
+  document.getElementById("pre").onchange=function(){const p=pr[this.value];document.getElementById("ang").value=p.rot;};
+  document.getElementById("gen").click();
+ </script>
+</body>
+</html>

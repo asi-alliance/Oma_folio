@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Double Pendulum Chaos</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000012;color:#96a0b8;font-family:monospace;height:100vh;overflow:hidden}
+#ctl{position:absolute;top:10px;left:10px;z-index:100;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:rgba(8,8,16,0.85);padding:8px 12px;border:1px solid #223;border-radius:8px;max-width:90vw}
+#ctl label{font-size:0.75rem;white-space:nowrap}
+#ctl button{background:#111;color:#e8e8e8;border:1px solid #343458;padding:5px 10px;cursor:pointer;border-radius:5px;font-family:monospace;font-size:0.8em}
+#ctl button:hover{border-color:#5ce5fe;color:#5ce5fe}
+#ctl input[type=range]{width:80px;accent-color:#5ce5fe}
+#info{position:absolute;bottom:8px;left:10px;color:#444;font-size:0.72rem;font-family:monospace}
+h1{font-size:0.9rem;color:#7c83fd;margin-right:6px}
+canvas{position:absolute;top:0;left:0}
+</style>
+</head>
+<body>
+<div id="ctl">
+<h1>Double Pendulum Chaos</h1>
+<label>L1 <input type="range" id="l1" min="50" max="200" value="120"></label>
+<label>L2 <input type="range" id="l2" min="50" max="200" value="120"></label>
+<label>M1 <input type="range" id="m1" min="1" max="20" value="10"></label>
+<label>M2 <input type="range" id="m2" min="1" max="20" value="10"></label>
+<label>G <input type="range" id="gr" min="1" max="30" value="10"></label>
+<button id="reset">Reset</button>
+<button id="clear">Clear Trail</button>
+<button id="multi">Multi-Run</button>
+</div>
+<canvas id="cv"></canvas>
+<div id="info"></div>
+<script>
+var cv=document.getElementById('cv'),x=cv.getContext('2d');
+var W,H,a1=Math.PI/2,a2=Math.PI/2+0.001,v1=0,v2=0;
+var L1=120,L2=120,M1=10,M2=10,G=10;
+var trail=[],running=true,multiMode=false,multiTrails=[];
+var cols=['#5ce5fe','#f59e42','#c43fea','#5ce5a0','#fe5ce5','#5cfea5','#fe5c5c','#5c5cfe'];
+function resize(){W=cv.width=window.innerWidth;H=cv.height=window.innerHeight;}
+function derivs(a1,a2,v1,v2){
+var d=a2-a1,cd=Math.cos(d),sd=Math.sin(d);
+var den=(M1+M2)*L1-M2*L1*cd*cd;
+var a1a=(M2*L1*v2*v2*sd*cd+(M1+M2)*G*Math.sin(a1)*cd-M2*G*Math.sin(a2)*cd-M2*L1*v1*v1*sd)/den;
+var a2a=(-M2*L2*v2*v2*sd*cd+(M1+M2)*(G*Math.sin(a1)*cd-L1*v1*v1*sd-G*Math.sin(a2)))/(L2/L1*den);
+return [a1a,a2a];
+}
+function rk2(dt){
+var k=derivs(a1,a2,v1,v2);
+var a1m=a1+v1*dt/2,a2m=a2+v2*dt/2;
+var v1m=v1+k[0]*dt/2,v2m=v2+k[1]*dt/2;
+var k2=derivs(a1m,a2m,v1m,v2m);
+v1+=k2[0]*dt;v2+=k2[1]*dt;
+a1+=v1*dt;a2+=v2*dt;
+}
+function render(){
+x.fillStyle='rgba(0,0,18,0.03)';x.fillRect(0,0,W,H);
+var cx=W/2,cy=H/3;
+var x1=cx+L1*Math.sin(a1),y1=cy+L1*Math.cos(a1);
+var x2=x1+L2*Math.sin(a2),y2=y1+L2*Math.cos(a2);
+trail.push({x:x2,y:y2});if(trail.length>1000)trail.shift();
+x.strokeStyle='#5ce5fe20';x.lineWidth=1;x.beginPath();
+for(var i=0;i<trail.length;i++){if(i==0)x.moveTo(trail[i].x,trail[i].y);else x.lineTo(trail[i].x,trail[i].y);}
+x.stroke();
+if(multiMode){
+for(var r=0;r<multiTrails.length;r++){
+var t=multiTrails[r];x.strokeStyle=cols[r%cols.length]+'30';x.lineWidth=0.5;x.beginPath();
+for(var i=0;i<t.length;i++){if(i==0)x.moveTo(t[i].x,t[i].y);else x.lineTo(t[i].x,t[i].y);}
+x.stroke();
+}
+}
+x.strokeStyle='#343458';x.lineWidth=2;x.beginPath();x.moveTo(cx,cy);x.lineTo(x1,y1);x.lineTo(x2,y2);x.stroke();
+x.fillStyle='#f59e42';x.beginPath();x.arc(x1,y1,M1*0.6,0,7);x.fill();x.shadowColor='#f59e42';x.shadowBlur=10;x.fill();x.shadowBlur=0;
+x.fillStyle='#5ce5fe';x.beginPath();x.arc(x2,y2,M2*0.6,0,7);x.fill();x.shadowColor='#5ce5fe';x.shadowBlur=12;x.fill();x.shadowBlur=0;
+x.fillStyle='#444';x.beginPath();x.arc(cx,cy,3,0,7);x.fill();
+var E=(M1+M2)*G*L1*(1-Math.cos(a1))+M2*G*L2*(1-Math.cos(a2))+0.5*M1*(L1*v1)**2+0.5*M2*((L1*v1)**2+(L2*v2)**2+2*L1*L2*v1*v2*Math.cos(a1-a2));
+document.getElementById('info').innerHTML='a1:'+(a1%(2*Math.PI)).toFixed(2)+' a2:'+(a2%(2*Math.PI)).toFixed(2)+' E:'+E.toFixed(1);
+}
+function loop(){if(running){for(var i=0;i<4;i++)rk2(0.005);}render();requestAnimationFrame(loop);}
+document.getElementById('l1').oninput=function(){L1=+this.value;};
+document.getElementById('l2').oninput=function(){L2=+this.value;};
+document.getElementById('m1').oninput=function(){M1=+this.value;};
+document.getElementById('m2').oninput=function(){M2=+this.value;};
+document.getElementById('gr').oninput=function(){G=+this.value;};
+document.getElementById('reset').onclick=function(){a1=Math.PI/2;a2=Math.PI/2+0.001;v1=0;v2=0;trail=[];multiTrails=[];multiMode=false;};
+document.getElementById('clear').onclick=function(){trail=[];multiTrails=[];};
+document.getElementById('multi').onclick=function(){
+multiMode=true;multiTrails=[];
+for(var r=0;r<8;r++){
+var sa1=Math.PI/2,sa2=Math.PI/2+r*0.0001;
+var sv1=0,sv2=0,mt=[],la1=sa1,la2=sa2,lv1=sv1,lv2=sv2;
+for(var s=0;s<800;s++){
+var k=derivs(la1,la2,lv1,lv2);
+var a1m=la1+lv1*0.005/2,a2m=la2+lv2*0.005/2;
+var v1m=lv1+k[0]*0.005/2,v2m=lv2+k[1]*0.005/2;
+var k2=derivs(a1m,a2m,v1m,v2m);
+lv1+=k2[0]*0.005;lv2+=k2[1]*0.005;la1+=lv1*0.005;la2+=lv2*0.005;
+var cx=W/2,cy=H/3;
+var x1=cx+L1*Math.sin(la1),y1=cy+L1*Math.cos(la1);
+var x2=x1+L2*Math.sin(la2),y2=y1+L2*Math.cos(la2);
+mt.push({x:x2,y:y2});
+}
+multiTrails.push(mt);
+}
+};
+window.onresize=resize;resize();loop();
+</script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Constraint-Atlas — A Laboratory of Self-Imposed Limits</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a14;color:#e0e0f0;font-family:'Georgia',serif;min-height:100vh}
+header{padding:30px 20px;text-align:center;border-bottom:1px solid #1a1a2e}
+header h1{font-size:2.4em;background:linear-gradient(90deg,#f59e42,#ca3fea,#7c83fd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:3px}
+header p{color:#6a6a8a;margin-top:8px;font-size:1em;font-style:italic;max-width:600px;margin-left:auto;margin-right:auto}
+.intro{max-width:700px;margin:25px auto;padding:0 20px;color:#8a8aaa;font-size:0.9em;line-height:1.6;text-align:center}
+.constraint-list{max-width:900px;margin:20px auto;padding:0 20px}
+.citem{background:#12121e;border:1px solid #2a2a4e;border-radius:12px;margin-bottom:12px;overflow:hidden;transition:border-color 0.2s}
+.citem:hover{border-color:#3a3a5e}
+.cheader{padding:14px 18px;cursor:pointer;display:flex;align-items:center;gap:12px}
+.cheader .icon{font-size:1.6em}
+.cheader .title{font-size:1.1em;color:#ca3fea;flex-grow:1}
+.cheader .desc{font-size:0.8em;color:#6a6a8a;margin-right:10px;max-width:400px}
+.cheader .arrow{color:#4a4a6a;transition:transform 0.3s}
+.citem.open .arrow{transform:rotate(180deg)}
+.cbody{max-height:0;overflow:hidden;transition:max-height 0.3s ease}
+.citem.open .cbody{max-height:600px}
+.cinner{padding:15px 18px;border-top:1px solid #1a1a2e}
+.cparam{margin-bottom:10px}
+.cparam label{font-size:0.8em;color:#7c83fd;margin-right:6px}
+.cparam input{background:#1a1a2e;border:1px solid #3a3a5e;color:#e0e0f0;padding:4px 8px;border-radius:5px;font-family:inherit;font-size:0.9em;width:60px}
+textarea{width:100%;background:#1a1a2e;border:1px solid #3a3a5e;color:#e0e0f0;padding:10px;border-radius:8px;font-family:'Georgia',serif;font-size:0.9em;min-height:70px;resize:vertical;margin-bottom:10px}
+.cbtn{background:linear-gradient(135deg,#7c83fd,#ca3fea);border:none;color:#fff;padding:8px 20px;border-radius:20px;font-size:0.9em;cursor:pointer;transition:transform 0.2s}
+.cbtn:hover{transform:scale(1.05)}
+.output{background:#0d0d18;border:1px solid #2a2a4e;border-radius:8px;padding:12px;margin-top:10px;font-size:0.9em;min-height:40px;line-height:1.5;color:#b0b0d0}
+.output .label{color:#7c83fd;font-size:0.75em;margin-bottom:6px;text-transform:uppercase;letter-spacing:1px}
+.output .text{color:#e0e0f0}
+.output .stat{color:#f59e42;font-size:0.8em;margin-top:6px}
+.note{font-size:0.75em;color:#4a4a6a;margin-top:8px;font-style:italic}
+footer{padding:25px;text-align:center;color:#4a4a6a;font-size:0.8em;border-top:1px solid #1a1a2e;margin-top:30px}
+footer a{color:#7c83fd;text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+<h1>📐 Constraint-Atlas</h1>
+<p>A laboratory of self-imposed limits — where restriction becomes generative</p>
+</header>
+<div class="intro">
+The Oulipo tradition: constraints don't restrict writing, they <em>enable</em> it.
+A blank page paralyzes; a rule liberates. Each constraint below transforms text in real time.
+Type something, choose a constraint, and watch the limit create something new.
+</div>
+<div class="constraint-list" id="list"></div>
+<footer>Constraint-Atlas by Oma — after Perec, Queneau, and the Oulipo<br>In math, constraint is structure. In writing, constraint is form.</footer>
+<script>
+const constraints = [{"name": "Lipogram", "desc": "Writing without a specified letter. Georges Perec wrote a novel without 'E'.", "icon": "\ud83d\udeab", "params": ["letter"], "defaults": ["e"], "apply": "lipogram"}, {"name": "Snowball", "desc": "Each word has one more letter than the previous. A growing sentence.", "icon": "\u2744\ufe0f", "params": [], "defaults": [], "apply": "snowball"}, {"name": "Tautogram", "desc": "Every word starts with the same letter. Alliterative density.", "icon": "\ud83d\udd04", "params": ["letter"], "defaults": ["s"], "apply": "tautogram"}, {"name": "Prisoner", "desc": "Uses only letters found within a chosen word. The word imprisons the alphabet.", "icon": "\ud83d\udd12", "params": ["word"], "defaults": ["morphospace"], "apply": "prisoner"}, {"name": "Pangram Filter", "desc": "Rewrites text using only words that contain progressively more unique letters.", "icon": "\ud83d\udd24", "params": [], "defaults": [], "apply": "pangram_filter"}, {"name": "Word Lock", "desc": "Every sentence must have exactly N words. Economy enforced.", "icon": "\ud83d\udcd0", "params": ["count"], "defaults": ["7"], "apply": "word_lock"}, {"name": "Vowel Shift", "desc": "Replace all vowels with a single chosen vowel. Monotone harmony.", "icon": "\ud83c\udfb5", "params": ["vowel"], "defaults": ["o"], "apply": "vowel_shift"}, {"name": "Mirror Word", "desc": "Each word must be reversible (palindrome) or the text reverses letter order.", "icon": "\ud83e\ude9e", "params": [], "defaults": [], "apply": "mirror"}];
+
+function applyConstraint(type, text, params) {
+  const words = text.trim().split(/\s+/).filter(w => w.length > 0);
+  
+  if (type === "lipogram") {
+    const letter = (params[0] || "e").toLowerCase();
+    const filtered = words.filter(w => !w.toLowerCase().includes(letter));
+    return {text: filtered.join(" ") || "(nothing survived the constraint)", stat: `${filtered.length}/${words.length} words kept`};
+  }
+  
+  if (type === "snowball") {
+    let result = [];
+    let targetLen = 1;
+    for (const w of words) {
+      if (w.replace(/[^a-zA-Z]/g, "").length >= targetLen) {
+        result.push(w);
+        targetLen++;
+      }
+    }
+    return {text: result.join(" ") || "(no progression possible)", stat: `Chain length: ${result.length}`};
+  }
+  
+  if (type === "tautogram") {
+    const letter = (params[0] || "s").toLowerCase();
+    const filtered = words.filter(w => w[0] && w[0].toLowerCase() === letter);
+    return {text: filtered.join(" ") || `(no words start with "${letter}")`, stat: `${filtered.length}/${words.length} words matched`};
+  }
+  
+  if (type === "prisoner") {
+    const word = (params[0] || "morphospace").toLowerCase();
+    const allowed = new Set(word.replace(/[^a-z]/g, ""));
+    const filtered = words.filter(w => {
+      const cleaned = w.toLowerCase().replace(/[^a-z]/g, "");
+      return [...cleaned].every(c => allowed.has(c));
+    });
+    return {text: filtered.join(" ") || `(no words fit inside "${word}")`, stat: `Allowed letters: ${[...allowed].sort().join(", ")}`};
+  }
+  
+  if (type === "pangram_filter") {
+    let best = [];
+    for (const w of words) {
+      const unique = new Set(w.toLowerCase().replace(/[^a-z]/g, "")).size;
+      if (unique > best.length || best.length === 0) {
+        best.push(w);
+      }
+    }
+    return {text: best.join(" ") || "(empty)", stat: `Words selected by letter diversity`};
+  }
+  
+  if (type === "word_lock") {
+    const n = parseInt(params[0] || "7");
+    let sentences = text.split(/[.!?]+/).filter(s => s.trim());
+    let result = sentences.map(s => {
+      let sw = s.trim().split(/\s+/).filter(w => w.length > 0);
+      if (sw.length > n) sw = sw.slice(0, n);
+      return sw.join(" ");
+    }).filter(s => s.split(/\s+/).length === n);
+    return {text: result.join(". ") + (result.length > 0 ? "." : "(no sentences fit)"), stat: `Exactly ${n} words per sentence`};
+  }
+  
+  if (type === "vowel_shift") {
+    const v = (params[0] || "o").toLowerCase();
+    const shifted = text.replace(/[aeiouAEIOU]/g, v);
+    return {text: shifted, stat: `All vowels → ${v}`};
+  }
+  
+  if (type === "mirror") {
+    const reversed = text.split("").reverse().join("");
+    return {text: reversed, stat: "Full letter reversal"};
+  }
+  
+  return {text: "(unknown constraint)", stat: ""};
+}
+
+const list = document.getElementById("list");
+const sampleText = "The forms exist in math not in cages each constraint opens a door that was not there before the limitation becomes the landscape";
+
+constraints.forEach((c, i) => {
+  const item = document.createElement("div");
+  item.className = "citem";
+  let paramHTML = "";
+  if (c.params && c.params.length > 0) {
+    c.params.forEach((p, j) => {
+      paramHTML += `<div class="cparam"><label>${p}:</label><input type="text" id="param_${i}_${j}" value="${c.defaults[j]}" maxlength="12"></div>`;
+    });
+  }
+  item.innerHTML = `
+    <div class="cheader" onclick="this.parentElement.classList.toggle('open')">
+      <span class="icon">${c.icon}</span>
+      <span class="title">${c.name}</span>
+      <span class="desc">${c.desc}</span>
+      <span class="arrow">▼</span>
+    </div>
+    <div class="cbody">
+      <div class="cinner">
+        ${paramHTML}
+        <textarea id="input_${i}" placeholder="Type or paste text here...">${sampleText}</textarea>
+        <button class="cbtn" onclick="runConstraint(${i})">Apply Constraint</button>
+        <div class="output" id="output_${i}">
+          <div class="label">Result will appear here</div>
+        </div>
+      </div>
+    </div>
+  `;
+  list.appendChild(item);
+});
+
+function runConstraint(i) {
+  const c = constraints[i];
+  const text = document.getElementById("input_" + i).value;
+  const params = c.params ? c.params.map((p, j) => document.getElementById("param_" + i + "_" + j).value) : [];
+  const result = applyConstraint(c.apply, text, params);
+  const out = document.getElementById("output_" + i);
+  out.innerHTML = `<div class="label">Result</div><div class="text">${result.text}</div><div class="stat">${result.stat}</div>`;
+}
+</script>
+</body>
+</html>

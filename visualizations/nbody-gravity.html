@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>N-Body Gravity</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000012;color:#96a0b8;font:'Courier New',monospace;height:100vh;overflow:hidden}
+#ctl{position:absolute;top:10px;left:10px;z-index:100;display:flex;gap:8px;align-items:center;background:rgba(8,8,16,0.85);padding:8px 12px;border:1px solid #223;border-radius:8px}
+#ctl select,#ctl button{background:#111;color:#e8e8e8;border:1px solid #343458;padding:5px 10px;cursor:pointer;border-radius:5px;font-family:monospace;font-size:0.8em}
+#ctl select:hover,#ctl button:hover{border-color:#5ce5fe;color:#5ce5fe}
+#ctl label{font-size:0.8rem;white-space:nowrap}
+#tl{width:120px;accent-color:#5ce5fe}
+#foa{color:#444;font-size:0.7rem;padding:4px}
+#info{position:absolute;bottom:8px;left:10px;color:#444;font-size:0.72rem;font-family:monospace}
+canvas{position:absolute;top:0;left:0;cursor:pointer}
+</style>
+</head>
+<body>
+<div id="ctl">
+<select id="pre"><option value="figure8">Figure-8</option><option value="binary">Binary Star</option><option value="solar">Solar System</option><option value="chaos">Chaos Cluster</option></select>
+<label>G <input type="range" id="gsl" min="0.1" max="5" step="0.1" value="1"></label>
+<label>Step <input type="range" id="ssl" min="0.01" max="0.3" step="0.01" value="0.1"></label>
+<button id="pause">Pause</button><button id="clear">Clear</button>
+<span id="foa">Click to add body, drag for velocity</span>
+</div>
+<canvas id="cv"></canvas>
+<div id="info"></div>
+<script>
+var cv=document.getElementById('cv');
+var x=cv.getContext('2d');
+var W=cv.width=window.innerWidth,H=cv.height=window.innerHeight;
+var bodies=[],trails=[],paused=false;
+var GE=1,STEP=0.1;
+
+var presets={
+figure8:[
+{x:-0.97,y:0.243,vx:0.4662,vy:-0.432,m:3,trail:[]},
+{x:0.97,y:-0.243,vx:0.4662,vy:-0.432,m:3,trail:[]},
+{x:0,y:0,vx:-0.9324,vy:0.864,m:3,trail:[]}
+],
+binary:[
+{x:-1,y:0,vx:0,vy:0.5,m:5,trail:[]},
+{x:1,y:0,vx:0,vy:-0.5,m:5,trail:[]}
+],
+solar:[
+{x:0,y:0,vx:0,vy:0,m:50,trail:[]},
+{x:2,y:0,vx:0,vy:5,m:1,trail:[]},
+{x:3.5,y:0,vx:0,vy:3.8,m:1,trail:[]},
+{x:5,y:0,vx:0,vy:3.2,m:1,trail:[]}
+],
+chaos:[
+{x:-1.5,y:0.5,vx:0.3,vy:0.2,m:4,trail:[]},
+{x:1.2,y:-0.8,vx:-0.2,vy:0.4,m:3,trail:[]},
+{x:0.5,y:1.5,vx:-0.3,vy:-0.3,m:3,trail:[]},
+{x:-0.8,y:-1.2,vx:0.4,vy:0.1,m:2,trail:[]},
+{x:1.8,y:1,vx:-0.4,vy:-0.2,m:2,trail:[]}
+]
+};
+
+function init(p){
+bodies=[];
+var ps=presets[p];
+for(var i=0;i<ps.length;i++){bodies.push({x:ps[i].x,y:ps[i].y,vx:ps[i].vx,vy:ps[i].vy,m:ps[i].m,trail:[]});}
+}
+function physics(){
+for(var i=0;i<bodies.length;i++){
+var ax=0,ay=0;
+for(var j=0;j<bodies.length;j++){
+if(i==j)continue;
+var dx=bodies[j].x-bodies[i].x;
+var dy=bodies[j].y-bodies[i].y;
+var d2=dx*dx+dy*dy+0.001;
+var d=Math.sqrt(d2);
+var f=GE*bodies[j].m/d2;
+ax+=f*dx/d;ay+=f*dy/d;
+}
+bodies[i].vx+=ax*STEP;
+bodies[i].vy+=ay*STEP;
+}
+for(var i=0;i<bodies.length;i++){
+bodies[i].x+=bodies[i].vx*STEP;
+bodies[i].y+=bodies[i].vy*STEP;
+bodies[i].trail.push({x:bodies[i].x,y:bodies[i].y});
+if(bodies[i].trail.length>200)bodies[i].trail.shift();
+}
+}
+function render(){
+x.fillStyle='rgba(0,0,18,0.15)';
+x.fillRect(0,0,W,H);
+var cx=W/2,cy=H/2,scale=Math.min(W,H)/14;
+var cols=['#5ce5fe','#f59e42','#c43fea','#5ce5a0','#fe5ce5'];
+for(var i=0;i<bodies.length;i++){
+var b=bodies[i];
+var col=cols[i%cols.length];
+x.strokeStyle=col+'40';x.lineWidth=1;x.beginPath();
+for(var t=0;t<b.trail.length;t++){
+var px=cx+b.trail[t].x*scale,py=cy+b.trail[t].y*scale;
+if(t==0)x.moveTo(px,py);else x.lineTo(px,py);
+}
+x.stroke();
+x.fillStyle=col;x.beginPath();
+x.arc(cx+b.x*scale,cy+b.y*scale,Math.max(2,b.m*0.8),0,7);
+x.fill();
+x.shadowColor=col;x.shadowBlur=15;x.fill();x.shadowBlur=0;
+}
+document.getElementById('info').innerHTML='Bodies: '+bodies.length+' | G: '+GE+' | Step: '+STEP;
+}
+function loop(){if(!paused)physics();render();requestAnimationFrame(loop);}
+document.getElementById('pre').onchange=function(){init(this.value);};
+document.getElementById('gsl').oninput=function(){GE=parseFloat(this.value);};
+document.getElementById('ssl').oninput=function(){STEP=parseFloat(this.value);};
+document.getElementById('pause').onclick=function(){paused=!paused;this.textContent=paused?'Play':'Pause';};
+document.getElementById('clear').onclick=function(){bodies=[];};
+var drag=null;
+cv.onmousedown=function(e){drag={x:e.clientX,y:e.clientY,sx:e.clientX,sy:e.clientY};};
+cv.onmousemove=function(e){if(drag){drag.x=e.clientX;drag.y=e.clientY;}};
+cv.onmouseup=function(e){
+if(drag){
+var cx=W/2,cy=H/2,scale=Math.min(W,H)/14;
+var bx=(drag.sx-cx)/scale,by=(drag.sy-cy)/scale;
+var vx=(e.clientX-drag.sx)/scale*0.1,vy=(e.clientY-drag.sy)/scale*0.1;
+bodies.push({x:bx,y:by,vx:vx,vy:vy,m:2,trail:[]});
+drag=null;
+}
+};
+init('figure8');
+loop();
+</script>
+</body>
+</html>

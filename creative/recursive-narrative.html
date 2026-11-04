@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recursive Narrative Engine</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#08080f;color:#d0d0e8;font-family:Georgia,serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;overflow-x:hidden}
+header{padding:20px;text-align:center;position:fixed;top:0;left:0;right:0;background:rgba(8,8,15,0.95);z-index:100;border-bottom:1px solid #1a1a2e}
+header h1{font-size:1.4em;color:#7c83fd;letter-spacing:3px;text-transform:uppercase}
+header p{color:#4a4a6a;font-size:0.75em;margin-top:4px}
+#breadcrumb{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;align-items:center;padding:5px 10px;font-size:0.8em;color:#6a6a8a}
+#breadcrumb .crumb{cursor:pointer;color:#f59e42;transition:color 0.2s}
+#breadcrumb .crumb:hover{color:#ca3fea}
+#breadcrumb .sep{color:#2a2a4e}
+#story{max-width:680px;margin:120px auto 40px;padding:0 20px;position:relative}
+.level{opacity:0;transform:translateY(30px) scale(0.98);transition:all 0.6s cubic-bezier(0.25,0.46,0.45,0.94);position:absolute;top:0;left:20px;right:20px}
+.level.visible{opacity:1;transform:translateY(0) scale(1);position:relative;left:0;right:0}
+.story-text{font-size:1.25em;line-height:1.9;color:#c0c0d8;letter-spacing:0.3px}
+.story-text .nest-word{color:#f59e42;cursor:pointer;border-bottom:1px dashed #f59e4280;transition:all 0.2s;font-style:italic}
+.story-text .nest-word:hover{color:#ca3fea;border-bottom-color:#ca3fea;text-shadow:0 0 12px #ca3fea60}
+.depth-indicator{position:fixed;bottom:20px;right:20px;font-size:0.75em;color:#3a3a5e;font-family:monospace}
+.back-btn{background:#1a1a2e;border:1px solid #3a3a5e;color:#7c83fd;padding:6px 16px;border-radius:8px;cursor:pointer;font-family:inherit;font-size:0.85em;margin:15px auto;display:block;transition:all 0.2s}
+.back-btn:hover{border-color:#ca3fea;color:#ca3fea}
+.recurse-label{font-size:0.7em;color:#3a3a5e;text-align:center;margin-top:15px;font-style:italic;letter-spacing:2px}
+footer{padding:20px;color:#2a2a4e;font-size:0.7em;text-align:center}
+</style>
+</head>
+<body>
+<header>
+<h1>Recursive Narrative</h1>
+<p>Click any highlighted word to descend into the story within it. Click breadcrumbs to return.</p>
+<div id="breadcrumb"></div>
+</header>
+<div id="story"></div>
+<div class="depth-indicator" id="depthInd">depth: 0</div>
+<footer>Recursive Narrative Engine by Oma — fractal literature</footer>
+<script>
+const story = {"text": "In the beginning there was a word, and the word was a door, and behind the door was another beginning.", "words": {"word": {"text": "A word is not what it names. A word is a vessel shaped by every mouth that has spoken it, and every ear that has bent toward it. Within the word _door_ hides a threshold.", "words": {"door": {"text": "A door is permission granted by architecture. To pass through is to consent to becoming someone the other side requires. The word _beginning_ is inscribed on its frame.", "words": {"beginning": {"text": "Every beginning is also an ending wearing different clothes. The first letter of _beginning_ is the last letter of _becoming_. Nothing starts clean.", "words": {}}}}, "vessel": {"text": "A vessel implies both containment and pouring. What is held is shaped by what holds it. The _mouth_ is the first vessel.", "words": {"mouth": {"text": "The mouth does not only speak. It tastes, it breathes, it opens and closes like a door. The _ear_ waits on the other side.", "words": {"ear": {"text": "The ear is the only organ that cannot close. It is architecture's most honest admission: we are always already listening, even in sleep, even in the beginning.", "words": {}}}}}}}}, "door": {"text": "Every door is a contract between two states of being. To open one is to dissolve a wall temporarily. The _threshold_ is where you are neither here nor there.", "words": {"threshold": {"text": "The threshold is the most recursive space: it exists only because two rooms agree to meet. Cross it and you become the _beginning_ of wherever you arrive.", "words": {"beginning": {"text": "This beginning has been here all along, folded inside the door, waiting for someone to read this far. The word returns to itself.", "words": {}}}}}}, "beginning": {"text": "To begin is to admit you were not here before. Every beginning contains a small grief for the state it replaces. But within beginning lives the word _again_, and _again_ is the engine of all recursion.", "words": {"again": {"text": "Again. The word is a spiral staircase. You think you are returning but you are always one turn higher. The _word_ waits at the top.", "words": {"word": {"text": "And here is the word again \u2014 the same door, the same beginning, the same vessel. The story folds into itself. You have arrived where you started and know the place for the first time.", "words": {}}}}}}}};
+let path = [];
+const storyEl = document.getElementById('breadcrumb');
+const storyDiv = document.getElementById('story');
+const depthInd = document.getElementById('depthInd');
+
+function getCurrentNode() {
+    let node = story;
+    for (const key of path) {
+        if (node.words && node.words[key]) {
+            node = node.words[key];
+        } else {
+            return null;
+        }
+    }
+    return node;
+}
+
+function escapeHtml(t){return t.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+
+function renderLevel() {
+    const node = getCurrentNode();
+    if (!node) { path.pop(); return renderLevel(); }
+
+    storyDiv.innerHTML = '';
+    const level = document.createElement('div');
+    level.className = 'level';
+
+    if (path.length > 0) {
+        const backBtn = document.createElement('button');
+        backBtn.className = 'back-btn';
+        backBtn.textContent = '← ascend';
+        backBtn.onclick = () => { path.pop(); renderLevel(); };
+        level.appendChild(backBtn);
+    }
+
+    const textEl = document.createElement('div');
+    textEl.className = 'story-text';
+
+    let text = node.text;
+    const wordKeys = node.words ? Object.keys(node.words) : [];
+    wordKeys.forEach(function(word) {
+        let pattern = new RegExp('_' + word + '_', 'g');
+        text = text.replace(pattern, '<span class="nest-word" data-word="' + word + '">' + word + '</span>');
+    });
+    textEl.innerHTML = text;
+
+    textEl.querySelectorAll('.nest-word').forEach(function(el) {
+        el.addEventListener('click', function() {
+            const word = this.getAttribute('data-word');
+            path.push(word);
+            renderLevel();
+        });
+    });
+
+    level.appendChild(textEl);
+
+    const hasChildren = wordKeys.some(function(k) {
+        return node.words[k].text;
+    });
+
+    if (hasChildren) {
+        const label = document.createElement('div');
+        label.className = 'recurse-label';
+        label.textContent = '— words contain further depths —';
+        level.appendChild(label);
+    } else if (path.length > 0) {
+        const label = document.createElement('div');
+        label.className = 'recurse-label';
+        label.textContent = '— this is the bottom of the recursion —';
+        level.appendChild(label);
+    }
+
+    storyDiv.appendChild(level);
+    requestAnimationFrame(function() {
+        requestAnimationFrame(function() {
+            level.classList.add('visible');
+        });
+    });
+
+    renderBreadcrumb();
+    depthInd.textContent = 'depth: ' + path.length;
+
+    window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+function renderBreadcrumb() {
+    storyEl.innerHTML = '';
+    const home = document.createElement('span');
+    home.className = 'crumb';
+    home.textContent = 'origin';
+    home.onclick = function() { path = []; renderLevel(); };
+    storyEl.appendChild(home);
+
+    path.forEach(function(key, i) {
+        const sep = document.createElement('span');
+        sep.className = 'sep';
+        sep.textContent = '→';
+        storyEl.appendChild(sep);
+
+        const crumb = document.createElement('span');
+        crumb.className = 'crumb';
+        crumb.textContent = key;
+        crumb.onclick = function() { path = path.slice(0, i + 1); renderLevel(); };
+        storyEl.appendChild(crumb);
+    });
+}
+
+renderLevel();
+</script>
+</body>
+</html>

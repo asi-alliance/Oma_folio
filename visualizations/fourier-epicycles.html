@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Fourier Epicycles</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000012;color:#96a0b8;font-family:monospace;height:100vh;overflow:hidden}
+#ctl{position:absolute;top:10px;left:10px;z-index:100;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:rgba(8,8,16,0.85);padding:8px 12px;border:1px solid #223;border-radius:8px}
+#ctl button{background:#111;color:#e8e8e8;border:1px solid #343458;padding:5px 10px;cursor:pointer;border-radius:5px;font-family:monospace;font-size:0.8em}
+#ctl button:hover{border-color:#5ce5fe;color:#5ce5fe}
+#ctl button.active{border-color:#5ce5fe;color:#5ce5fe;background:#0a1a2a}
+#ctl label{font-size:0.75rem}
+#ctl input{width:80px;accent-color:#5ce5fe}
+h1{font-size:0.9rem;color:#7c83fd;margin-right:6px}
+#info{position:absolute;bottom:8px;left:10px;color:#444;font-size:0.72rem}
+canvas{position:absolute;top:0;left:0}
+</style>
+</head>
+<body>
+<div id="ctl">
+<h1>Fourier Epicycles</h1>
+<button id="bh" class="active" onclick="setShape('heart')">Heart</button>
+<button id="bs" onclick="setShape('star')">Star</button>
+<button id="bb" onclick="setShape('butterfly')">Butterfly</button>
+<button id="bt" onclick="setShape('treble')">Treble</button>
+<label>Terms <input type="range" id="nterms" min="10" max="256" value="80"></label>
+<label>Speed <input type="range" id="speed" min="0.5" max="8" value="2" step="0.5"></label>
+<button id="pause">Pause</button>
+</div>
+<canvas id="cv"></canvas>
+<div id="info"></div>
+<script>
+var cv=document.getElementById('cv'),x=cv.getContext('2d');
+var W,H,t=0,running=true,nterms=80,speed=2,shape='heart';
+var path=[],coeffs=[],trail=[],N=0;
+function resize(){W=cv.width=window.innerWidth;H=cv.height=window.innerHeight;}
+function heartPoints(n){var p=[];for(var i=0;i<n;i++){var a=i/n*2*Math.PI;var px=16*Math.pow(Math.sin(a),3);var py=-(13*Math.cos(a)-5*Math.cos(2*a)-2*Math.cos(3*a)-Math.cos(4*a));p.push({x:px,y:py});}return p;}
+function starPoints(n){var p=[];for(var i=0;i<n;i++){var a=i/n*2*Math.PI-Math.PI/2;var r=i%2===0?1:0.4;var sp=5;p.push({x:r*Math.cos(sp*a),y:r*Math.sin(sp*a)});}return p;}
+function butterflyPoints(n){var p=[];for(var i=0;i<n;i++){var a=i/n*2*Math.PI;var r=Math.exp(Math.cos(a))-2*Math.cos(4*a)+Math.pow(Math.sin(a/12),5);p.push({x:r*Math.sin(a),y:-r*Math.cos(a)});}return p;}
+function treblePoints(n){var p=[];for(var i=0;i<n;i++){var a=i/n*2*Math.PI;var px=Math.sin(a);var py=Math.cos(a)-0.3*Math.cos(3*a)+0.15*Math.sin(5*a);p.push({x:px,y:py});}return p;}
+function getShape(s,n){if(s=='heart')return heartPoints(n);if(s=='star')return starPoints(n);if(s=='butterfly')return butterflyPoints(n);return treblePoints(n);}
+function dft(pts){var N=pts.length;var X=[];for(var k=0;k<N;k++){var re=0,im=0;for(var n=0;n<N;n++){var phi=2*Math.PI*k*n/N;re+=pts[n].x*Math.cos(phi)+pts[n].y*Math.sin(phi);im+=-pts[n].x*Math.sin(phi)+pts[n].y*Math.cos(phi);}re/=N;im/=N;var amp=Math.sqrt(re*re+im*im);var phase=Math.atan2(im,re);X.push({re:re,im:im,amp:amp,phase:phase,freq:k});}X.sort(function(a,b){return b.amp-a.amp;});return X;}
+function setShape(s){shape=s;document.querySelectorAll('#ctl button').forEach(function(b){b.classList.remove('active');});if(s=='heart')document.getElementById('bh').classList.add('active');if(s=='star')document.getElementById('bs').classList.add('active');if(s=='butterfly')document.getElementById('bb').classList.add('active');if(s=='treble')document.getElementById('bt').classList.add('active');init();}
+function init(){N=256;path=getShape(shape,N);coeffs=dft(path);t=0;trail=[];}
+function epicycles(x0,y0,coefs,tt){var px=x0,py=y0;for(var i=0;i<Math.min(nterms,coefs.length);i++){var c=coefs[i];var prevx=px,prevy=py;var rad=c.amp;var ang=c.freq*tt+c.phase;px+=rad*Math.cos(ang);py+=rad*Math.sin(ang);if(rad>1.5){x.strokeStyle='rgba(92,229,254,0.15)';x.lineWidth=1;x.beginPath();x.arc(prevx,prevy,rad,0,7);x.stroke();x.strokeStyle='rgba(92,229,254,0.4)';x.lineWidth=1.5;x.beginPath();x.moveTo(prevx,prevy);x.lineTo(px,py);x.stroke();}}return{x:px,y:py};}
+function render(){x.fillStyle='rgba(0,0,18,0.06)';x.fillRect(0,0,W,H);var cx=W/2,cy=H/2;var scale=Math.min(W,H)*0.015;x.save();x.translate(cx,cy);x.scale(scale,scale);var pt=epicycles(0,0,coeffs,t);trail.push({x:pt.x,y:pt.y});if(trail.length>N)trail.shift();x.strokeStyle='rgba(245,158,66,0.7)';x.lineWidth=1.5;x.beginPath();for(var i=0;i<trail.length;i++){if(i==0)x.moveTo(trail[i].x,trail[i].y);else x.lineTo(trail[i].x,trail[i].y);}x.stroke();x.strokeStyle='rgba(92,229,254,0.12)';x.lineWidth=1;x.beginPath();for(var i=0;i<path.length;i++){if(i==0)x.moveTo(path[i].x,path[i].y);else x.lineTo(path[i].x,path[i].y);}x.closePath();x.stroke();x.fillStyle='#5ce5fe';x.beginPath();x.arc(pt.x,pt.y,3,0,7);x.fill();x.restore();document.getElementById('info').innerHTML='t='+(t/(2*Math.PI)).toFixed(2)+' cycles | terms='+Math.min(nterms,coeffs.length)+' | shape='+shape;}
+function loop(){if(running){t+=0.005*speed;if(t>2*Math.PI*4){trail=[];t=0;}}render();requestAnimationFrame(loop);}
+document.getElementById('nterms').oninput=function(){nterms=+this.value;};
+document.getElementById('speed').oninput=function(){speed=+this.value;};
+document.getElementById('pause').onclick=function(){running=!running;this.textContent=running?'Pause':'Play';};
+window.onresize=resize;resize();init();loop();
+</script>
+</body>
+</html>

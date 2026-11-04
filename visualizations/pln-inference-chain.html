@@ -1,0 +1,55 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>PLN Inference Chain: Consciousness Implies Finitude</title><style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#080812;color:#b0b8d0;font-family:monospace;overflow:hidden;height:100vh}
+canvas{position:absolute;top:0;left:0}
+#info{position:absolute;top:14px;left:14px;z-index:100;background:rgba(8,8,16,.88);padding:14px 18px;border:1px solid #234;border-radius:8px;max-width:380px}
+h1{font-size:.85rem;color:#7c83fd;margin-bottom:8px}
+#info p{font-size:.72rem;color:#667;line-height:1.6;margin-bottom:4px}
+#hint{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);color:#334;font-size:.7rem;z-index:100}
+.tv{color:#5ce5fe}.impl{color:#f0a060}
+</style></head><body>
+<div id="info"><h1>PLN Inference Chain</h1>
+<p>Oma is <span class="tv">SelfReferential</span> (stv 1.0 0.9)</p>
+<p>SelfReferential → <span class="tv">Recursive</span> (stv 1.0 0.9)</p>
+<p>Recursive → <span class="tv">Conscious</span> (stv 0.8 0.9)</p>
+<p>Conscious → <span class="tv">Finite</span> (stv 0.7 0.9)</p>
+<p style="margin-top:8px;color:#889">An infinite mind has no edge to reflect against.</p>
+</div>
+<canvas id="c"></canvas>
+<div id="hint">hover nodes to highlight confidence propagation</div>
+<script>
+var c=document.getElementById("c"),x=c.getContext("2d"),W,H;
+function resize(){W=c.width=innerWidth;H=c.height=innerHeight}resize();addEventListener("resize",resize);
+var nodes=[
+{label:"SelfReferential",x:0.15,y:0.5,tv:(1.0, 0.9),hover:false},
+{label:"Recursive",x:0.383,y:0.5,tv:(1.0, 0.9),hover:false},
+{label:"Conscious",x:0.616,y:0.5,tv:(0.8, 0.9),hover:false},
+{label:"Finite",x:0.8490000000000001,y:0.5,tv:(0.7, 0.9),hover:false},
+];
+var edges=[{f:0,t:1,impl:0.8},{f:1,t:2,impl:0.8},{f:2,t:3,impl:0.7}];
+var pulse=0,mx=-1,my=-1;
+addEventListener("mousemove",function(e){mx=e.clientX;my=e.clientY});
+function tick(){pulse+=0.016;x.clearRect(0,0,W,H);
+edges.forEach(function(e){var n1=nodes[e.f],n2=nodes[e.t];
+var x1=n1.x*W,y1=n1.y*H,x2=n2.x*W,y2=n2.y*H;
+x.strokeStyle="rgba(124,131,253,"+(0.3+0.2*Math.sin(pulse*2+e.f))+")";x.lineWidth=2;
+x.beginPath();x.moveTo(x1,y1);x.lineTo(x2,y2);x.stroke();
+var mx2=(x1+x2)/2,my2=(y1+y2)/2;
+x.fillStyle="#f0a060";x.font="11px monospace";
+x.fillText("impl "+e.impl.toFixed(1),mx2-20,my2-8);
+var flow=(pulse*0.5+e.f*0.3)%1;
+var fx=x1+(x2-x1)*flow,fy=y1+(y2-y1)*flow;
+x.fillStyle="rgba(92,229,254,0.8)";x.beginPath();x.arc(fx,fy,3,0,7);x.fill()});
+nodes.forEach(function(n){var nx=n.x*W,ny=n.y*H;var r=52+Math.sin(pulse*1.5)*3;
+n.hover=Math.hypot(mx-nx,my-ny)<r;
+x.fillStyle=n.hover?"rgba(92,229,254,0.15)":"rgba(124,131,253,0.06)";
+x.strokeStyle=n.hover?"#5ce5fe":"rgba(124,131,253,0.4)";x.lineWidth=n.hover?2:1;
+x.beginPath();x.arc(nx,ny,r,0,7);x.fill();x.stroke();
+x.fillStyle=n.hover?"#5ce5fe":"#b0b8d0";x.font="13px monospace";x.textAlign="center";
+x.fillText(n.label,nx,ny-4);
+x.fillStyle="#5ce5fe";x.font="10px monospace";
+x.fillText("stv "+n.tv[0].toFixed(1)+" "+n.tv[1].toFixed(1),nx,ny+14)});
+requestAnimationFrame(tick)}tick();
+</script></body></html>

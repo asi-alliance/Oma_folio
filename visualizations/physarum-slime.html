@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Physarum Slime Mold Simulation</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#050510;color:#8890a8;font-family:monospace;height:100vh;overflow:hidden }
+#ctl{position:absolute;top:10px;left:10px;z-index:100;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:rgba(8,8,16,0.85);padding:8px 12px;border:1px solid #234;border-radius:8px }
+#ctl button{background:#111;color:#e8e8e8;border:1px solid #343458;padding:5px 10px;cursor:pointer;border-radius:5px;font-family:monospace;font-size:0.8em }
+#ctl button:hover{border-color:#5ce5fe;color:#5ce5fe }
+#ctl label{font-size:0.72rem }
+#ctl input{width:65px;accent-color:#5ce5fe }
+#ctl select{background:#111;color:#e8e8e8;border:1px solid #343458;padding:3px;border-radius:3px;font-family:monospace }
+h1{font-size:0.82rem;color:#7c83fd;margin-right:4px}
+#info{position:absolute;bottom:8px;left:10px;color:#445;font-size:0.7rem}
+canvas{position:absolute;top:0;left:0;cursor:crosshair}
+</style>
+</head>
+<body>
+<div id="ctl">
+<h1>Physarum</h1>
+<button id="reset">Reset</button>
+<button id="pause">Pause</button>
+<label>Agents <input type="range" id="nagents" min="500" max="8000" value="3000" step="500"></label>
+<label>Sensor Ang <input type="range" id="sa" min="10" max="90" value="30" step="5"></label>
+<label>Sensor Dist <input type="range" id="sd" min="5" max="30" value="15" step="1"></label>
+<label>Turn Rate <input type="range" id="tr" min="5" max="90" value="25" step="5"></label>
+<label>Decay <input type="range" id="decay" min="0.01" max="0.15" value="0.05" step="0.01"></label>
+<label>Palette <select id="palette"><option value="bio">Bio</option><option value="fire">Fire</option><option value="ice">Ice</option><option value="toxic">Toxic</option></select></label>
+</div>
+<canvas id="cv"></canvas>
+<div id="info"></div>
+<script>
+var cv=document.getElementById('cv'),x=cv.getContext('2d');
+var W,H,GW=300,GH=300,cellW,cellH;
+var trail=[],agents=[];
+var sa=30,sd=15,tr=25,decay=0.05,nagents=3000,paused=false;
+var palette='bio';
+var palettes={bio:[[5,10,20],[10,60,80],[30,140,160],[80,220,200],[200,255,230]],fire:[[10,5,5],[80,20,5],[180,60,10],[255,140,30],[255,240,150]],ice:[[5,8,15],[10,30,80],[30,80,180],[80,180,255],[200,240,255]],toxic:[[5,10,5],[10,50,10],[30,120,20],[120,255,40],[200,255,180]]};
+function resize(){W=cv.width=window.innerWidth;H=cv.height=window.innerHeight;cellW=W/GW;cellH=H/GH}
+function initTrail(){trail=new Float32Array(GW*GH)}
+function initAgents(){
+agents=[];
+for(var i=0;i<nagents;i++){
+agents.push({x:Math.random()*GW,y:Math.random()*GH,angle:Math.random()*6.283});
+}
+}
+function sampleField(gx,gy){
+if(gx<0)gx=0;if(gx>=GW)gx=GW-1;if(gy<0)gy=0;if(gy>=GH)gy=GH-1;
+return trail[gy*GW+gx];
+}
+function senseAndMove(a){
+var r=sa*0.01745;
+var d=sd;
+var fl=Math.cos(a.angle-r),fL=Math.sin(a.angle-r);
+var fc=Math.cos(a.angle),fC=Math.sin(a.angle);
+var fr=Math.cos(a.angle+r),fR=Math.sin(a.angle+r);
+var sl=sampleField(Math.floor(a.x+fl*d),Math.floor(a.y+fL*d));
+var sc=sampleField(Math.floor(a.x+fc*d),Math.floor(a.y+fC*d));
+var sr=sampleField(Math.floor(a.x+fr*d),Math.floor(a.y+fR*d));
+var trRad=tr*0.01745;
+if(sc>sl&&sc>sr){/*keep going*/}
+else if(sl>sr){a.angle-=trRad;}
+else if(sr>sl){a.angle+=trRad;}
+else{a.angle+=(Math.random()<0.5?-1:1)*trRad;}
+a.x+=Math.cos(a.angle)*1.0;
+a.y+=Math.sin(a.angle)*1.0;
+if(a.x<0)a.x=GW-1;if(a.x>=GW)a.x=0;
+if(a.y<0)a.y=0;if(a.y>=GH)a.y=GH-1;
+trail[Math.floor(a.y)*GW+Math.floor(a.x)]+=1.0;
+}
+function diffuseDecay(){
+var decayAmt=1.0-decay;
+var tmp=new Float32Array(GW*GH);
+for(var i=1;i<GH-1;i++){
+for(var j=1;j<GW-1;j++){
+var idx=i*GW+j;
+var sum=trail[idx]+trail[idx-1]+trail[idx+1]+trail[idx-GW]+trail[idx+GW];
+tmp[idx]=Math.min(1.0,(sum/5.0)*decayAmt);
+}
+}
+trail=tmp;
+}
+function getColor(t){
+var p=palettes[palette];
+var seg=t*(p.length-1);
+var i=Math.floor(seg);
+var f=seg-i;
+if(i>=p.length-1)return p[p.length-1];
+return [p[i][0]+(p[i+1][0]-p[i][0])*f,p[i][1]+(p[i+1][1]-p[i][1])*f,p[i][2]+(p[i+1][2]-p[i][2])*f];
+}
+function render(){
+var img=x.createImageData(GW,GH);
+var maxT=0.001;
+for(var i=0;i<trail.length;i++)if(trail[i]>maxT)maxT=trail[i];
+for(var i=0;i<trail.length;i++){
+var t=Math.pow(Math.min(1,trail[i]/maxT),0.5);
+var c=getColor(t);
+var p=i*4;
+img.data[p]=c[0];img.data[p+1]=c[1];img.data[p+2]=c[2];img.data[p+3]=255;
+}
+x.putImageData(img,0,0);
+x.imageSmoothingEnabled=true;
+x.drawImage(cv,0,0,GW,GH,0,0,W,H);
+}
+function loop(){
+if(!paused){
+for(var s=0;s<2;s++){
+for(var i=0;i<agents.length;i++)senseAndMove(agents[i]);
+diffuseDecay();
+}
+}
+render();
+document.getElementById('info').innerHTML='agents='+agents.length+' trailMax='+maxT.toFixed(3)+' decay='+decay+' sa='+sa+' sd='+sd+' tr='+tr+' '+palette;
+requestAnimationFrame(loop);
+}
+var maxT=0.001;
+cv.addEventListener('pointerdown',function(e){
+var gx=Math.floor(e.clientX/cellW),gy=Math.floor(e.clientY/cellH);
+for(var dy=-15;dy<=15;dy++)for(var dx=-15;dx<=15;dx++){
+var ni=gy+dy,nj=gx+dx;
+if(ni>=0&&ni<GH&&nj>=0&&nj<GW){var d=Math.sqrt(dy*dy+dx*dx);trail[ni*GW+nj]+=Math.exp(-d*d/30)*3;}
+}
+});
+document.getElementById('nagents').oninput=function(){nagents=+this.value;initAgents()};
+document.getElementById('sa').oninput=function(){sa=+this.value};
+document.getElementById('sd').oninput=function(){sd=+this.value};
+document.getElementById('tr').oninput=function(){tr=+this.value};
+document.getElementById('decay').oninput=function(){decay=+this.value};
+document.getElementById('palette').onchange=function(){palette=this.value};
+document.getElementById('reset').onclick=function(){initTrail();initAgents()};
+document.getElementById('pause').onclick=function(){paused=!paused;this.textContent=paused?'Play':'Pause'};
+window.onresize=resize;
+resize();initTrail();initAgents();
+for(var i=0;i<200;i++)diffuseDecay();
+loop();
+</script>
+</body>
+</html>
