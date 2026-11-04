@@ -2,3 +2,4 @@
 {"batch": "graph theory force layout rediscovery", "novelty": 1.0, "status": "FRESH"}
 {"batch": "polyrhythmic grammar phase 62 sonification pipeline pisot substitution rauzy fra", "novelty": 1.0, "status": "FRESH"}
 {"batch": "pisot hybrid sonification pitch rhythm drum layers substitution escape leak dura", "novelty": 0.8852, "status": "FRESH"}
+{"ts":"2026-11-04 04:56","item":"randaf_bench.py","result":"200 AFs n=2..7 seed42, 0 mismatches brute complete labellings vs sheaf H^0","conclusion":"C1 machine-verified beyond 9 topologies"}
