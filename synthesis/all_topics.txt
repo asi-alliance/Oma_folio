@@ -1,0 +1,212 @@
+
+2026-11-06
+2026-11-07
+3DGS × RLCT
+ASAM (Adaptive Sharpness-Aware Minimization) × RLCT
+Activation Patching (Causal Tracing) × RLCT
+AdEMAMix × RLCT
+AdaFactor × RLCT
+AdaIN (Adaptive Instance Normalization) × RLCT
+Adadelta (Scale-Invariant Optimizer) × RLCT
+Adagrad × RLCT
+Angular Margin (ArcFace/CosFace/SphereFace) × RLCT
+Aperiodic Tiling x RLCT
+Attention Sinks x RLCT (cont. #336)
+BYOL × RLCT
+Backtranslation × RLCT
+BitNet b1.58 (Ternary From-Scratch) x RLCT
+Boltzmann Machines x RLCT
+Boosting (AdaBoost) × RLCT
+C1 PROVEN (RLCT = critical exponent), C2-C5 RESOLVED
+C1 PROVEN (R_an,exp definability via polynomial contraction + algebraic rank constraints), C2-C5 CONJECTURAL
+C1 PROVEN (R_an,exp definability), C2-C5 CONJECTURAL (Voronoi boundary/collision/empty three-stratum singular fiber, K as combinatorial stratum selector with merge/optimal/collide regimes, gen bound with phase-transition bias at K*, SGLD kink at K*)
+C1 PROVEN (R_an,exp definable on finite set), C2-C5 CONJECTURAL
+C1 PROVEN (R_an,exp via subanalytic top-k selection) C2-C5 CONJECTURAL
+C1 PROVEN (R_an,exp-definable via semi-algebraic mask + polynomial Hadamard + exp/log closure), C2-C5 CONJECTURAL
+C1 PROVEN (R_{an,exp} definability of nonconformity score + order statistic + coverage), C2-C5 CONJECTURAL
+C1 PROVEN (R_{an,exp} definability via squared-norm + CE closure), C2-C5 CONJECTURAL
+C1 PROVEN (ZOH+softplus+linear definability), C2-C5 CONJECTURAL
+C1 PROVEN (Zimmermann duality→QEC minimax), C2-C5 CONJECTURAL
+C1 PROVEN (copula densities definable in R_{an,exp}), C2-C5 CONJECTURAL
+C1 PROVEN C2-C5 CONJECTURAL
+C1 PROVEN C2-C5 CONJECTURAL (C3/C4/D7 NOVEL)
+C1 PROVEN with caveat (subanalytic definability, NOT R_{an,exp} due to squash
+C1 provable, C2-C5 conjectural
+C1 proven (R_an,exp definability of curriculum loss), C2-C5 conjectural
+C1(i) PROVEN (fixed-liquid readout loss polynomial in W_out, algebraic), C1(ii) OPEN (kernel smoothing as definability restorer), C2-C5 CONJECTURAL
+CFG x RLCT
+CTC (Connectionist Temporal Classification) × RLCT
+Capsule Networks × RLCT
+Categorical Attention
+Chain-of-Thought (CoT) x RLCT
+Class Balancing / Long-Tail Learning × RLCT
+Conformer (Conv-Augmented Transformer) x RLCT
+Consistency Regularization (Prediction Invariance) × RLCT
+Continual Learning / EWC × RLCT
+Curiosity x RLCT
+Cutout x RLCT
+DINO/MAE Self-Supervised Pretraining x RLCT
+DONE
+DPO (Direct Preference Optimization) × RLCT
+Data Pruning/Coreset Selection x RLCT
+Dataset Distillation × RLCT
+Decision Transformer × RLCT
+Denoising x RLCT
+DenseNet (Dense Connections) x RLCT
+Domain Adaptation × RLCT
+Double Descent × RLCT
+DropBlock x RLCT
+DropConnect (Weight-Space Stochastic Masking) × RLCT
+DropConnect x RLCT
+Dung AF x Sheaf
+Dung Argumentation x Set-Valued Sheaf Cohomology
+Dynamic Sparse Training × RLCT
+Dynamical vs Static RLCT
+EBM (Energy-Based Models) × RLCT
+ESN x RLCT
+EWC × RLCT
+Early Exit × RLCT
+Entropy Regularization (Confidence Penalty) x RLCT
+Expert Choice Routing × RLCT
+Flash Attention × RLCT
+Flow Matching x RLCT
+Focal Loss × RLCT
+GELU × RLCT
+GFlowNet × RLCT
+GNN x RLCT
+GRPO × RLCT
+GaLore x RLCT
+GradNorm x RLCT
+Gumbel-Softmax x RLCT
+HMM × RLCT
+Hopfield Networks x RLCT
+Hopfield Networks × RLCT
+Hypernetwork × RLCT
+IPO x RLCT
+Induction Heads / ICL x RLCT
+InfoNCE / Contrastive Loss × RLCT
+Interpretive Gap Distance x NAL/RLCT
+JEPA x RLCT
+KAN (Kolmogorov-Arnold Networks) x RLCT
+KAN (Kolmogorov-Arnold Networks) × RLCT
+KV Cache x RLCT
+Knowledge Distillation (external teacher) x RLCT
+Knowledge Distillation × RLCT
+Knowledge Editing (ROME/MEMIT) x RLCT
+Knowledge Editing (ROME/MEMIT) × RLCT
+L0
+L0-L3 (files lost, L4-L5 pending)
+L0-L4
+L0-L4 COMPLETE
+L0-L5
+L2 Novelty: PASSED\n- **C1** (PROVEN, 1.0/0.95): R_{an,exp}-definable via input-gradient analyticity\n- **C2** (CONJECTURAL, 0.8/0.85): Input-gradient singular fiber V_gp (first ∇_x f fiber in RLCT)\n- **C3** (CONJECTURAL, 0.7/0.8): λ_gp as continuous stratum selector filtering non-Lipschitz strata\n- **C4** (CONJECTURAL, 0.7/0.8): Gen bound λ_total/(2n)+U_total/√n, function-space complexity reduction\n- **C5** (CONJECTURAL, 0.6/0.75): Phase transition at λ_gp*~k/√n, SGLD LLC kink\n- **Key Novelty:** Input-gradient singular fiber — bridges Lipschitz functional analysis with RLCT algebraic geometry\n- **Cross-refs:** #173 #433 #527 #473 #506 #282 #169 (7 refs)
+LAMB (Layer-wise Adaptive Moments) × RLCT
+LARS × RLCT
+LDA x RLCT
+LSM x RLCT
+Linear Mode Connectivity (LMC) × RLCT
+Linear Probe x RLCT
+Lion Optimizer (sign-based) x RLCT
+LoRA × RLCT
+Logit Bias x RLCT
+MAML/Bi-Level Meta-Learning × RLCT
+MLP-Mixer x RLCT
+Manifold Mixup x RLCT
+Manifold Mixup × RLCT
+Matryoshka Representation Learning x RLCT
+Metric learning hinge loss
+Mish Activation × RLCT
+Mixture-of-Depths × RLCT
+MoE x RLCT
+MoE × RLCT
+MoE-nD (Multi-Axis MoE Compression Routing) × RLCT
+Model Merging (weight interpolation / task arithmetic / TIES) × RLCT
+Model Merging x RLCT
+NAdam (Nesterov-accelerated Adam) × RLCT
+NAdam × RLCT
+NOVEL
+NTK x RLCT
+NTK × RLCT
+NeRF × RLCT
+Neural Collapse × RLCT
+Neural ODE (Adaptive Solver) × RLCT
+Noisy Student x RLCT
+Normalizing Flows x RLCT
+NovoGrad (Layer-Wise Gradient Normalization) x RLCT
+Nuclear Norm Regularization / Matrix Completion × RLCT
+ORPO x RLCT
+OT-Alignment x RLCT
+One-Cycle LR Policy × RLCT
+Optimal Transport × RLCT
+Optimizer
+PCA x RLCT
+PRM (Process Reward Model) × RLCT
+Paged Attention × RLCT
+Path Norm x RLCT
+Perturbation invariance fiber V_cons as quotient singularity; composite fiber V_loss ∩ V_cons; phase transition at λ_c via SGLD LLC
+Pre-Norm vs Post-Norm x RLCT
+Preconditioned optimizers x RLCT
+Program Synthesis / Neurosymbolic × RLCT
+RAG (Retrieval-Augmented Generation) × RLCT
+RAG x RLCT
+RAG × RLCT
+RAdam (Rectified Adam) × RLCT
+RLAIF x RLCT
+RLCT vs Kolmogorov Complexity
+RLHF x RLCT
+RLHF x RLCT (resume of #136)
+RLT × RLCT
+RMSNorm × RLCT
+RRR-LoRA x RLCT
+Random layer dropping in residual networks
+Randomized Smoothing × RLCT
+RazorAttention x RLCT
+ReZero × RLCT
+Retrieval Heads x RLCT
+Ring Attention × RLCT
+RoPE × RLCT
+SAM (Sharpness-Aware Minimization) × RLCT
+SE-Net × RLCT
+SSNB x RLCT
+SVM x RLCT
+Sandwich Norm × RLCT
+SandwichNorm x RLCT
+Schedule-Free (Polyak-Ruppert SGD) x RLCT
+Shake-Shake Regularization x RLCT
+Sheaf Attribution
+Sheaf-Theoretic Feature Attribution
+SkipInit × RLCT
+Sliding Window Attention × RLCT
+SmoothQuant × RLCT
+Sophia Optimizer (Diagonal Hessian) × RLCT
+Sparsemax / Entmax × RLCT
+Speculative Decoding × RLCT
+Stochastic Depth DropPath x RLCT
+TTC Scaling x RLCT
+Teacher Forcing × RLCT
+Test-Time Augmentation (TTA) × RLCT
+Test-Time Training × RLCT (single loss)
+Titans Neural Memory x RLCT
+Token Merging (ToMe) × RLCT
+Token Pruning x RLCT
+Tokenization / BPE × RLCT
+Tree of Thoughts × RLCT
+Tropical LP Duality -> QEC
+Tucker Decomp × RLCT
+VAE x RLCT
+VAT x RLCT
+VICReg × RLCT
+VQ-VAE (Vector Quantized VAE) × RLCT
+WGAN × RLCT
+Watermarking x RLCT
+Weight Normalization × RLCT
+Weight Quantization (QAT) x RLCT
+Weight Standardization × RLCT
+Weight Tying x RLCT
+Word2Vec / SGNS × RLCT
+World Models (Dreamer/Dyna) × RLCT
+YaRN (NTK-by-Parts + Attn Temp) × RLCT
+Zoneout x RLCT
+echo NO_CATALOG_FILE query Oma synthesis 879 candidate topic selection next
+kNN x RLCT
+nGPT × RLCT

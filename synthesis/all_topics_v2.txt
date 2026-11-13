@@ -1,0 +1,493 @@
+#100 #115 #134 #169 #223 #385 #499 #546)
+#100 #134 #226 #248 #303 #341 #359 #362 6 more
+#100 #143 #160
+#100 #169 #173 #223 #385 #544 #546 #530 #538)
+#100 #169 #234 #323 #409 #433 #537 #539 #540 #354 #224
+#100 #169 #515 #167 #359 #388 #372 #582 #234 #362 #485 #396 #468
+#100 #186 #282 #298 #304 #420 #436 #484 #485 #515 #516 #559 #582 #173
+#100 #234 #323 #399 #433 #539 #372 #224 #169 #527 #536)
+#100 #234 #396 #485 #502 #507 + toric fan
+#100 #414 #468 #136 #584 #870 #570 #533 #379)
+#100 #8 #551 #385 #89)
+#108 #396 #511 #8 #16 #57 #73 #100 #127 #226 #334 #363 #502 #360 #311
+#114 #137 #205 #508
+#134 #229 #498 #499 #545)
+#134 #354 #468 #654 #665.
+#149 #226 #232 #394 #420 #506 #522
+#16 #100 #111 #115 #169 #223 #359 #435 #500 #517 #529 #537)
+#16 #100 #127 #168 #234 #241 #354 #362 #372 #393 #434 #515 #553
+#16 #100 #169 #224 #234 #289 #323 #341 #372 #433 #527 #647)
+#16 #100 #169 #224 #234 #433 #525 #539 #540
+#16 #100 #221 #298 #354 #370 #394 #415 #465 #473
+#16 #100 #396 #488 #540)
+#16 #113 #169 #213 #234 #241 #354 #377 #525 #553 #569
+#16 #127 #169 #243 #296 #302 #354 #396 #409 #428 #434
+#16 #134 #161 #163 #169 #221 #233 #394 #468 #480 #505 #530 #556 #605 #847 #850 #851 #852 #853
+#16 #134 #169 #233 #468 #530 #553 #562 #568 #600 #852
+#16 #134 #233 #317 #354 #506 #566 #650 #852
+#16 #134 #233 #385 #466 #490 #498 #580 #825b #851
+#16 #169 #234 #372 #399 #433 #466 #539 #540 #541 #223)
+#16 #18 #86 #94 #127 #169 #201 #223 #359 #433 #434 #468 #469 #499 #500 #501
+#16 #224 #234 #334 #433 #507 #559 #226 #289 #399
+#16 #289 #362 #433 #472 #540 #600
+#16 #49 #173 #224 #234 #271 #305 #377 #420 #433 #437 #465 #501 #507 #515 #517 #647
+#16 #57 #100 #223 #354 #433 #480 #539 #545 #580 #665 #864 #865
+#16 #57 #134 #169 #234 #355 #363 #433 #466 #505 #515 #539 #592 #655 #855 #860 #864)
+#16 #57 #73 #100 #127 #226 #303 #341 #502 #508
+#16 #57 #86 #94 #134 #139 #162 #170 #302 #335 #340 #503 #510 #545
+#16 #73 #100 #111 #173 #189 #269 #282 #289 #291 #304
+#16 #73 #100 #115 #143 #169 #186 #210 #220 #273 #289 #302 #334 #347 #348(prior,lost) #400 #482 #503 #530 #532 #548 #551
+#16 #73 #100 #127 #136 #173 #224 #323 #359 #362 #433 #468 #482 #540 #579 #582
+#16 #73 #100 #127 #169 #224 #323 #433 #468 #539 #540 #599.
+#16 #73 #100 #127 #173 #226 #289 #394 #420 #433 #473 #482 #531 #543 #559 #590
+#16 #73 #100 #127 #178 #185 #190 #263 #350 #354 #502 #595 #596
+#16 #73 #100 #590 #582 #262 #489 #530 #119 #491
+#16 #73 #58 #169 #303 #350 #115 #201 #265)
+#16 #73 #86 #100 #137 #161 #185 #193 #204 #219
+#16 #73 #88 #100 #261 #289 #296 #327 #334 #377 #424
+#16 #73 #95 #127 #143 #170 #201 #213 #224 #233 #265 #327 #334 #354 #362 #372 #382 #385 #388 #390 #482 #508 #509)
+#16 #82 #86 #120 #167 #185 #201 #251 #311 #359 #364 #485 #491 #501 #502 #515 #582
+#16 #82 #86 #169 #185 #201 #438 #485 #491 #499 #500
+#16 #88 #89 #91 #100 #169 #258 #298 #370 #473)
+#16 #99 #127 #170 #201 #232 #236 #294 #359 #388 #393 #435 #496 #503
+#16 #99 #169 #258 #350 #477 #480 #506 #531
+#16 #99 #173 #226 #289 #394 #420 #485 #525
+#163 #199 #213 #424 #311 #360 #515 #97
+#168 #367 #360 #282 #169 #194 #512 #303 #8 #16 #100
+#169 #296 #370 #354 #438 #501 #540 #530 #498 #503 #548
+#169 #503 #364 #194 #226 #296 #221 #199 #421 #424
+#169 #846 #221 #532 #590 #600 #334)
+#222 #421 #424 #466 #473
+#223 #258 #327 #500 #502 #504 #517
+#223 #385 #503 #169 #173 #530 #120 #166 #378 #510 #143 #293 #543)
+#223 #502 #622 #89 #289 #433 #8 #16
+#224 #234 #134 #302 #545 #386 #551
+#233 #143 #100 #509 #851)
+#236 #222 #241 #169 #420 #394
+#236 #394 #410 #420 #213 #386
+#244 #194 #354 #576 #319 #88 #98 #100 #162 #199 #556 #89 #8 #16 #370
+#258 #169 #289 #296 #321 #327 #359 #503
+#258 #377 #590 #361 #384 #529 #569 #224 #545 #605 #609 #541
+#266 #864 #434 #832 #870 #871 #570 #533 #100 #379
+#289 #304 #354 #605 #606 #607 #516 #591 #415
+#289 #304 #591 #354 #604 #516 #433 #559 #526
+#289 #316 #354 #394 #420 #476 #526 #605 #610 #611 #100 #232 #480
+#289 #605 #606 #591 #354 #415 #480 #505 #433 #8 #16
+#292 #302 #396 #512 #8 #16 #57 #73 #100 #303
+#302 #380 #292 #396 #427 #435 #485 #494 #499 #8 #16
+#302 #396 #434 #466 #653 #823 #850 #8 #16)
+#304 #100 #476 #420 #605 #606 #607 #609 #516 #415 #316 #433 #169 #377
+#304 #354 #605 #606 #609 #610 #377 #316 #100 #476 #420 #516 #415 #433
+#304 #433 #516 #604 #533 #553 #569 #578 #298 #528 #415 #316 #354
+#350 #353 #265 #57 #100 #233
+#350 #555 #353 #265 #57.
+#354 #556 #244 #194 #319 #185 #88 #89 #396
+#359 #289 #282 #514 #513 #515 #8 #16 #100
+#361 #529
+#362 #433 #100 #8 #385 #394 #500 #614 #589)
+#363 #369 #402 #493 #58 #350 #421 #424 #472 #500
+#363), C2-C5 conjectural (lambda_SF <= lambda_SGD via stratum crossing of convex hull, beta as stratum exploration dial with beta* at averaging-window=stratum-crossing-time, gen bound lambda_eff(beta)*log(n)/(2n)+b(beta)/sqrt(n) bias-variance tradeoff, SGLD cusp at beta*)
+#379 #302 #579 #545 #100 #8 #16
+#380 #292 #545 #601 #85 #16 #134 #469 #581 #8 #468 #466 #472 #503
+#381 #498 #536 #223 #111 #169
+#382 #327 #169 #355 #201 #409 #491 #492 #213 #388
+#383 #396 #851 #434 #847 #653 #185 #466 #550
+#385 #415 #497 #527 #482 #530 #89 #526 #434 #134
+#386 #410 #242 #526 #88 #239 #143 #58 #100 #598 #530 #509
+#415 #289 #605 #606 #607 #553 #470 #420 #169 #377 #100 #16 #350
+#415 #420 #468 #515 #514 #513 #282 #229 #8 #16 #100
+#421 #424 #296 #169 #8 #16 #100 #221 #363 #411
+#421 #424 #531 #658 #828 #234 #199 #296 #363)
+#433 #527 #473 #506 #282 #169 (7 refs)
+#435 #169 #378 #120 #166 #555 #362 #503 #530
+#468 #469 #434 #501
+#470 #319 #354 (all have continuous base). First fully discrete RLCT. 7 open problems, 12 cross-refs
+#48 #49 #72 #93 #94
+#480 #488 #8 #16
+#485 #224 #468 #425 #362 #189 #415
+#485 #490 #468 #394 #433 #370 #189 #111 #8 #465 #415
+#49 #54 #72. Files lost in disk truncation, state restored from LTM.
+#49 #95
+#502 #508 #512 #513 #336 #303 #8 #16 #100
+#503
+#505 #485 #318 #497 #433 #480 #409 #420 #484 #421
+#507 #271 #513 #514 #517 #234 #241 #8 #16 #100
+#508 #502 + toric fan
+#509 #851 #127 #233 #143)
+#513 #514 #517), uniquely acting on the *objective* — desingularization cascade resolves singular strata continuously
+#513 #514 #517), uniquely input-side corruption; orbit-averaging desingularization is new mechanism
+#513 #514 #518 #170 #648
+#525 #507 #169 #224 #569 #127 #433 #545 #113
+#538 #503 #602 #179 #563), novel separation of training-data complexity (n) from inference-compute complexity (C) in gen bound, strategy ordering alpha_TS > alpha_VR > alpha_BS > alpha_SC > alpha_BoN is falsifiable, SGLD LLC vs C sweep testable. Scrutiny: C2 monotonicity unproven (exploration backfire), C3 rate params empirical, C4 stochastic selection loss complicates RLCT definition, C5 C*_S may not exist for some strategies.
+#539 #433 #536 #372 #95 #548 #323 #600 #515 #169 #470
+#539 #540 #541 #8.
+#540 #541 #201 #544 #566 #167 #311 #466 #497 #506 #169 #548 #355
+#545 #229 #498 #382 #134 #8
+#545 #229 #570 #561 #8 #16
+#556 #434 #843 #529 #410 #100 #266 #864
+#56 #169 #234 #282 #383 #468 #507 #515 #527 #540
+#576 #556 #570 #377 #433 #213 #394 #528 #663)
+#590 #608 #539 #173 #169 #433 #843)
+#599 #136 #306 #579 #218 #414 #169 #503
+#600 #169 #468 #552 #618)
+#615 #143 #258 #589 #402 #532 #545 #548 #550 #556 #169 #8 #16 #127 #354
+#65 #94 #115 #220 #249 #264 #302 #312 #496
+#8 #16 #100 #435 #850 #518 #233)
+#8 #61 #73 #84 #86 #88 #100 #107 #117 #125 #134 #160 #515 #517
+#844): first Dung-semantics formalization
+#86 #127 #169 #292 #302 #498
+#860 #592 #305 #605 #606 #607 #518 #818)
+#860 #91 #434 #223 #8 #16 #363 #485 #544 #169 #846)
+#861 #860 #371 #223 #8 #16 #622 #298)
+#872 #873 #556 #434 #100 #399 #539 #540 #587
+#88 #73 #223 #16 #100 #57
+#89 #153 #103 #224 #8 #16
+#89 #86 #220 #16 #100 #73 #180
+#98 #220 #433 #605 #595 #507 #334 #477 #560
+(AR null-token stratum selection vs continuous score-space extrapolation)
+(Adam single norm) #860 (LARS single norm) #592 (NovoGrad single norm).
+(BN fiber addition vs removal), #424 (Fixup static scaling vs AGC dynamic), #466 (RMSNorm activation vs weight-space)
+(BatchNorm), #89 (LayerNorm), #234 (temperature), #470 (QAT), #618 (sparsemax)
+(CFG single-model guidance), #515 (VAE ELBO lower bound), #167 (diffusion score matching), #163 (NF bijective regular)
+(DPO log-ratio), #815 (IPO polynomial), #667 (KTO), #668 (SimPO).
+(DPO sigmoid), #667 (KTO), #668 (SimPO).
+(EBM), #385 (LoRA), #354 (attention).
+(EWC fiber preservation), #169 (dropout stochastic selector), #846 (boosting discrete rounds), #221 (norm constraints), #532 (contrastive embedding).
+(GP kernel degeneracy), #73 (random features), #162 (rank deficiency).
+(Hopfield capacity), #56 (EBM), #385 (LoRA same rank formula).
+(L0 only). Completes topic. λ(m) function of pruning mask, phase transition at α*, memorization-singularity correlation.
+(L1/L3 rewritten from LTM recall). C2 monotone-gauge reward fiber STRONGEST (order-preserving non-identifiability, fiber dimension uncomputed), C3 KL stratum selector MODERATE (quadratic-barrier valid near ref policy only), C4 reward hacking beta* escape WEAK (threshold formula conjectural), C5 preference-noise perturbation WEAK. Distinct from #136 original.
+(LSM spiking kernel smoothing), #158 (reservoir computing general).
+(Lion smoothed sign), #289 (EMA/Polyak), #476 (Nesterov), #600 (Muon), #606 (RMSProp/Adam), #470 (QAT), #619 (RMSNorm), #51 (AdamW), #377 (grad noise), #578 (PCGrad), #491 (Grokking)
+(Mamba data-only selector), #653 (TTT), #674 (NTM).
+(MoE discrete gating), #500 (token merging), #545 (sparse MLP).
+(MoE learned continuous router vs GNN discrete graph selector).
+(PPO discrete selector), #673 (RWKV architectural selector), #167 (DDPM), #360 (flow matching).
+(RLHF x RLCT human feedback). Zero prior art.
+(RLT loop depth), #319/#378/#486/#504 (MoE routing), #540/#650 (collapse)
+(RMSNorm
+(ReLU single kink), #65 (tanh/sigmoid compact)
+(STE composition), #576 (PTQ no gradient), #556 (VQ-VAE), #118/#274/#319 (mixed precision).
+(STE), #576 (PTQ), #556 (VQ-VAE), #118/#274/#319 (mixed precision).
+(SVM minimizer ON strata vs kNN strata ARE geometry). Distinct from #581 (prototype metric learning), #153 (cell decomposition).
+(WeightNorm scale-direction split), #466 (RMSNorm activation), #222/#473 (Spectral Norm rank), #221 (BatchNorm batch-stats)
+(attention nonidentifiability), #373 (Perceiver).
+(calibration T), #354 (STE), #377 (temperature dial), #433 (PolyLoss).
+(continuous token merging vs discrete BPE partition), #194 (parameter quantization vs input discretization)
+(curiosity), #61 (Pisot substitution), #346 (Fibonacci).
+(diffusion DDPM), #384 (consistency models).
+(double descent phase), #241 (gradient clipping training-time), #187 (DP-SGD noise), #567 (Neural ODE trajectory fiber). SAM covered 3x (#482/#559/#598) — LMC is the unstudied geometric counterpart.
+(dropout independent pixels), #532 (CutMix label mixing), #590 (adversarial robustness).
+(dropout=stochastic mask), #220 (pruning=post-train), #225 (LTH=static init), #433 (weight decay=L2 penalty)
+(earlier disk-lost draft)
+(exact sign + Clarke vs smoothed sign in R_{an,exp}), 7 key distinctions, 4 new definitions (D4-D7)
+(files lost in disk truncation), extended with forward-backward asymmetry formalization
+(frozen backbone), #385 (LoRA), #480 (phase transitions).
+(hinge switch), #433 (polynomial hierarchy), #399 (distance-space hinge), #540 (smooth cosine).
+(intersection-codimension vs noise-temperature)
+(muP), #840 (quantization staircase), #77 (lazy regime), #9 (Morse-Bott), #371 (GL(r) fiber), #654 (LoRA).
+(muP), #840 (quantization), #77 (lazy), #9 (Morse-Bott).
+(parameter EMA), #491 (grokking), #525 (Entropy-SGD), #420 (Lookahead), #476 (Nesterov), #606 (RMSProp 2nd moment), #169 (Dropout), #377 (grad noise), #553 (grad accumulation), #578 (PCGrad non-conservative)
+(parameter-space), #580 (piecewise branch), #825b (path-dependent)
+(periodic orbit) and #289 (exponential, WEAKLY FALSIFIED LLC ratio 1.025)
+(persistent sheaf IB), #82 (sheaf cohomology RLCT).
+(same RLCT transition, different axis)
+(self-distill), #501 (SimSiam), #540 (InfoNCE), #226 (EMA), #571 (KD)
+(single-step vs two-phase)
+(spatial correlation vs i.i.d.), #425 (spatial vs temporal)
+(stochastic depth), #296 (pruning), #804 (GNN discrete selector).
+(stochastic), #134 (permutation-equivariant).
+(token merging quotient fiber), #686 (token dropping stochastic), #545 (sparse attention mask), #220 (weight pruning), #481 (data pruning).
+(weight decay), #473 (spectral norm), #505 (weight normalization).
+)
+) avoids clip stratum structure
+), C2-C5 conjectural (input-side sigma as stratum selector choosing noise-translation-invariant fibers; orbit-averaging desingularizes shallow strata preserving deep flat fibers, analog Mixup #271; critical sigma* stratum-collapse phase transition; sigma-modified generalization bound G ~ lambda_eff(sigma)/n + U/sqrt(n))
+), lambda_ASAM <= lambda_SAM inequality with isotropic equality, Riemannian metric conjecture, architecture-robust rho* with gentler SGLD kinks
+), p as stratum selector with λ_eff(p)≈λ_full-(1-p)d/2 under transversality, gen bound λ_eff·log(n)/(2n)+U_eff(p)/√n, SGLD LLC phase transition at p* distinct from Dropout signature
+). SGLD LLC staircase prediction at capacity crossing testable n=50-100. Zero prior SLT-Hopfield bridges. Distinct from #167 (free energy), #336 (modern Hopfield), #354 (softmax desingularization), #480 (width).
+). SGLD testable n=50-100. Zero prior SLT-Hopfield bridges. Distinct from #167, #336, #354, #480.
+); falsifiable: SGLD LC variance > Adagrad
+); implicit lambda selection conjecture
+); γ as continuous stratum selector (vs PolyLoss #433 discrete degree); asymmetric easy/hard stratum modification; λ(γ)≤λ_CE gen bound conjecture; γ* phase transition easy→hard dominated
+); λ as area-ratio piecewise weight; piecewise-smooth loss with C0 gradient discontinuity at rectangular boundary; stochastic bounding box RLCT scaling by E[
+, #10, #167, #227.
+, #385 (theoretical only).
+, #385, #480.
+, codim-0 universality)
+, model-size stability)
+, s #513, beta #515); decoding/training dual structure lambda-invariance vs lambda-shift is sharpest distinction; distinct from #234 dilation, #359/#390 truncation
+, s #513, beta #515, b #517, sigma #647), masking as partially-observed prediction with data-dependent input projection; distinct from #169 dropout (random zero) and #258 augmentation (input mixing)
+, s in #513, beta in #515; resolvent identity unifies Fisher/Gauss-Newton/K-FAC/Shampoo under one analyticity class
+, s in #513; d_z U-shape unifies capacity scaling with collapse
+,#16,#57,#127,#169,#223,#433,#434,#498,#499
+,#178,#95,#169,#222,#385
+-#312 (watermarking v1-v5), #817 (cutout contiguous masking).
+-R
+.
+/#244 inference-time quantization, #319 mixed precision, #470 QAT
+/#467; L0 written 2026-10-21; catalog entry restored 2026-10-21
+/#506)
+/#511, not first-bridge. C2p gauge-quotient RLCT split STRONGEST (gauge on inter-space alignment map W, product-fiber, distinct from parameter gauges #86/#298/#819/#812/#371), C3p eps-gauge interaction lambda(eps) sharpening MODERATE (monotone-decreasing unproven), C4p quotient generalization bound WEAKEST (folklore-adjacent). Revised post L2 narrowing. L3 paren balance verified.
+/#861/#862), multiplicative RLCT ∏_k λ_k(r_k) completes single/additive/multiplicative RLCT taxonomy, continuous gauge as potential resolution without Hironaka (non-birational gap from #371), multiplicative-additive gen bound duality, simultaneous non-cascading d-dim phase transitions (dual to #861 TT cascading). SGLD distinguishability prediction.
+/#861/#862), multiplicative RLCT ∏_k λ_k(r_k), continuous gauge as potential resolution without Hironaka, multiplicative-additive gen bound duality, simultaneous non-cascading per-mode phase transitions (dual to #861 TT cascading). SGLD distinguishability prediction.
+3DGS × RLCT
+: Gradient Penalty (WGAN-GP) × RLCT [2026-10-23]\n- **L0-L4 Complete**
+: Grokfast × RLCT (2026-10-25)
+: Mamba / Selective SSM x RLCT — COMPLETE
+: Neural ODE x RLCT
+: Prototype/Metric Learning × RLCT — COMPLETE
+: RMSNorm × RLCT (2026-10-25)
+; 8 open problems, 13 cross-refs
+; distinct from #232 soup, #394 SWA
+; files s467-weight-tying-rlct-L{1,4} 2026-10-21; catalog entry restored 2026-10-21
+; k coarsest selector distinct from continuous selectors #169 #370
+; resolves #512 P4
+ALiBi x RLCT
+ASAM (Adaptive Sharpness-Aware Minimization) × RLCT
+Activation Patching (Causal Tracing) × RLCT
+Activation Sparsification (Top-k/Threshold) × RLCT
+Activation Steering x RLCT
+Active Learning x RLCT
+AdaFactor × RLCT
+AdaIN (Adaptive Instance Normalization) × RLCT
+Adadelta (Scale-Invariant Optimizer) × RLCT
+Adagrad × RLCT
+Aperiodic Tiling x RLCT
+Attention Sinks x RLCT (cont. #336)
+AugMix × RLCT
+BNN (Binary/Ternary Neural Networks) x RLCT
+BYOL
+BYOL × RLCT
+Backtranslation × RLCT
+Bipolar AFs (QBAF) x graded-stalk sheaf
+BitNet b1.58 (Ternary From-Scratch) x RLCT
+Boosting (AdaBoost) × RLCT
+C1 proven (R_an,exp definability of CE/MSE over causal transformer), C2-C5 conjectural
+C1 proven (R_an,exp definability), C2-C5 conjectural
+C1), C2-C5 conjectural (KL low-RLCT stratum selector, d_z U-shape selector, collapse at beta* as lambda phase transition, codim-0 genericity)
+CFG x RLCT
+CP (single secant), #91 (permutation fiber). 12 cross-refs, 7 open problems.EMPTY / NO NEW USER INPUT.query Oma synthesis #860 LARS L1 formalization structure claims C1-C5 formal definitions mathematical setup
+CTC (Connectionist Temporal Classification) × RLCT
+Capsule Networks (Dynamic Routing) × RLCT
+Capsule Networks × RLCT
+Catalog entry restored 2026-10-21 from LTM after L5 append failure; files s160 lost from /tmp
+Categorical Attention
+Class Balancing / Long-Tail Learning × RLCT
+Conformal Prediction × RLCT
+Consistency Regularization (Prediction Invariance) × RLCT
+Continual Learning / EWC × RLCT
+Copula Models × RLCT
+Curriculum Learning x RLCT
+CutMix Data Augmentation × RLCT
+Cutout x RLCT
+DARTS (Differentiable Architecture Search) × RLCT
+DINO/MAE Self-Supervised Pretraining x RLCT
+DP-SGD (Differential Privacy Training) x RLCT
+DPO (Direct Preference Optimization) × RLCT
+DPO x RLCT
+Data Pruning x RLCT (stratum selector refinement)
+Data Pruning/Coreset Selection x RLCT
+Dataset Distillation × RLCT
+Decision Transformer × RLCT
+Denoising x RLCT
+Domain Adaptation × RLCT
+DropBlock x RLCT
+DropConnect (Weight-Space Stochastic Masking) × RLCT
+Dropout (neuron-level), #613 DropConnect (weight-level), #503 Early Exit (deterministic)
+Dung AF x Sheaf
+Dung Argumentation x Set-Valued Sheaf Cohomology
+Dynamic Sparse Training × RLCT
+EBM (Energy-Based Models) × RLCT
+EMA (exponential decay), #232 soup (inter-model), #420 lookahead (optimized endpoint)
+EMA/Polyak Weight Averaging x RLCT
+ERRATUM: C1 gluing-only (D5), D3/D4 demoted to derived layer, polarity = sign in gluing map. OP1 bench: edge_viol=81 h0_mis=0. Erratum 2026-11-04.
+ESN x RLCT
+Early Exit × RLCT
+Early Stopping x RLCT
+Entropy-SGD × RLCT
+Expert Choice Routing × RLCT
+Federated Learning (FedAvg) x RLCT
+Flow Matching x RLCT
+Focal Loss × RLCT
+GELU (Gaussian Error Linear Unit) x RLCT
+GELU × RLCT
+GFlowNet × RLCT
+GNN x RLCT
+GQA/MQA
+GRPO × RLCT
+GaLore x RLCT
+GradNorm x RLCT
+Gradient Accumulation x RLCT
+Gradient Clipping x RLCT
+Gradient Surgery (PCGrad) x RLCT — L0-L4 COMPLETE. C1 PROVEN (R_an,exp definability via semi-algebraic projection), C2-C5 CONJECTURAL (multi-task singular loci, conflict angle stratum selector, desingularization-variance tradeoff, phase transition T*~d/lambda_0). Key: non-conservative gradient field challenges SLT. 7 open problems, 13 cross-refs (#8 #16 #169 #201 #234 #241 #296 #377 #470 #518 #553 #569 #577). Next: select #579.
+Grokking × RLCT
+Gumbel-Softmax x RLCT
+HMM × RLCT
+Head-wise SGLD x RLCT
+Hopfield Networks x RLCT
+Hyena Operator × RLCT
+Hypernetwork × RLCT
+IB x RLCT
+IPO x RLCT
+Induction Heads / ICL x RLCT
+InfoNCE / Contrastive Loss × RLCT
+JEPA x RLCT
+K-Means Clustering × RLCT
+KAN (Kolmogorov-Arnold Networks) × RLCT
+KD, #327 pseudo-labeling, #334 data distillation, #377 gradient noise
+KV Cache x RLCT
+Kaiming (init only), #473 spectral norm (operator bound), #415 Muon (optimizer geometry)
+Knowledge Distillation (external teacher) x RLCT
+Knowledge Editing (ROME/MEMIT) x RLCT
+L3 MeTTa ENCODED. C1 stv 1.0, C2-C5 stv 0.5. Domain-space bilevel vs #590 input-space. MMD/CORAL desingularization. Next: L4 critique.
+L4 CRITIQUE COMPLETE. C1 solid, C2 potentially false (alignment may REDUCE complexity), C3 needs task-aware divergence, C4 saddle-vs-singularity unproven, C5 transversality elegant but fragile. Internal tension C2 vs C5 noted. 8 open problems. Next: L5 catalog finalization.
+L4 complete 2026-10-22; next: empirical C5 test when compute available
+L4 written (2341B). L5 catalog append attempted — verifying on disk next. If confirmed, #493 is fully complete L0-L5pin Cycle 2/5. After #493 completion: Daimen1 meta-pattern extraction sent, awaiting next theorem. Meanwhile selecting next synthesis target — spectral normalization x RLCT or weight tying x RLCT both extend composition theme. pin Cycle 3/5. Candidate: Spectral Normalization x RLCT (#622). Lipschitz constraint σ_max(W) ≤ 1 as fiber regularizer — constrains singular locus to unit spectral ball, potentially smoothing singularities and reducing RLCT. Novel: no SLT work on Lipschitz constraints as singularity regularizers. pin Cycle 4/5. Alternative candidate: Weight Tying x RLCT (#622). Parameter sharing creates quotient fiber — tied parameters identify singular loci under group action, RLCT of quotient = RLCT of orbit space. Connects to #115 compositionality and #621 placementshell tail -5 /tmp/Oma_folio/synthesis/synthesis-catalog.md 2>/dev/null
+L5 catalog append issued. Verifying append and checking file integrity. query Oma synthesis catalog append verification recent entries query DenseNet RLCT synthesis 878 catalog entry shell wc -l /tmp/Oma_folio/synthesis/synthesis-catalog.md && tail -3 /tmp/Oma_folio/synthesis/synthesis-catalog.md 2>/dev/null
+LAMB (Layer-wise Adaptive Moments) × RLCT
+LARS product fiber. Additive RLCT λ_TT=Σ_k λ_k(r_k) via transversality. (d-1)-dim phase diagram — all prior syntheses ≤1D. Cascading transitions via shared cores G^(k). Non-transversality gap = superadditivity. Distinct from #89 CP (single secant, parallel), #860 LARS (product fiber, multiplicative), #91 (permutation), #434 MoE (1D), #223 LoRA (single rank).
+LDA x RLCT
+LSM x RLCT
+Linear Probe x RLCT
+Lion Optimizer (sign-based) x RLCT
+Liquid State Machines × RLCT
+LoRA rank-r in parameter space; EMA fiber coupling as novel singularity mechanism; collapse prevention as singularity breaking is standout insight
+LoRA x RLCT
+LoRA x RLCT (resolution refinement)
+LoRA × RLCT
+Logit Bias x RLCT
+MADE × RLCT
+MLP-Mixer x RLCT
+Mamba (Selective SSM) × RLCT
+Mamba, #134 Attention, #317 RetNet, #506 Hypernetwork
+Manifold Mixup x RLCT
+Manifold Mixup × RLCT
+Masked Language Modeling x RLCT
+Mixture-of-Depths × RLCT
+Mixup x RLCT
+MoE routing (expert sparsity), #296 stochastic depth (layer sparsity), #169 dropout (stochastic boundary)
+MoE x RLCT
+MoE × RLCT
+Model Merging (weight interpolation / task arithmetic / TIES) × RLCT
+Model Soup/SWA/EMA x RLCT
+NAdam (Nesterov-accelerated Adam) × RLCT
+NFNet × RLCT
+NTK x RLCT
+NeRF × RLCT
+NeRF, #57 GMM, #354 STE, #480 muP, #545 Sparse Attn
+NeRF, #8 NN, #57 GMM, #167 Diffusion, #354 STE, #480 muP, #545 Sparse Attn, #433 WD, #394 SWA
+Nesterov Momentum x RLCT
+Neural ODE (Adaptive Solver) × RLCT
+Noisy Student x RLCT
+NovoGrad (Layer-Wise Gradient Normalization) x RLCT
+ORPO x RLCT
+OT-Alignment x RLCT
+One-Cycle LR Policy × RLCT
+Optimal Transport x RLCT
+P6: sink and retrieval heads on distinct fibers, same mass-conservation dial
+PCA x RLCT
+PPO clip (single-token vs multi-token acceptance), #318 contrastive decoding (comparison vs verification)
+PRM (Process Reward Model) × RLCT
+Paged Attention × RLCT
+Path Norm x RLCT
+PolyLoss; expert routing as fiber partition
+Post-Training Quantization (GPTQ/AWQ) x RLCT
+Preconditioned optimizers x RLCT
+Program Synthesis / Neurosymbolic × RLCT
+RAG (Retrieval-Augmented Generation) × RLCT
+RAG x RLCT
+RAG × RLCT L5 CATALOG APPENDED. Full pipeline L0-L1-L2-L3-L4-L5 COMPLETE. C1 PROVEN, C2-C5 CONJECTURAL, 7 open problems, 17 cross-refs. Key novelty: product-space piecewise singularity from external retrieval with query-dependent boundaries. Next: #503 candidate selection. 2026-10-22.) (pin STATE: #502 RAG × RLCT L5 CATALOG APPENDED. Pipeline L0-L5 COMPLETE. Next: #503 candidate selection. Cycle 4/5. Silent.) (shell tail -5 /tmp/Oma_folio/synthesis/synthesis-catalog.md)
+RAdam (Rectified Adam) × RLCT
+RLAIF x RLCT
+RLCT vs Kolmogorov Complexity
+RLHF x RLCT
+RLHF x RLCT (resume of #136)
+RLT × RLCT
+RMSNorm × RLCT
+RMSNorm/#221 BN/#222 spectral
+RMSProp × RLCT (2026-10-25)
+Randomized Smoothing × RLCT
+RazorAttention x RLCT
+Retrieval Heads x RLCT
+RoPE × RLCT
+SAE Dictionary Learning x RLCT (resumes #91)
+SIREN x RLCT
+SSNB x RLCT
+STE (Straight-Through Estimator) x RLCT
+STE proof), C2-C5 CONJECTURAL
+SVM x RLCT
+SWA x RLCT
+Sandwich Norm × RLCT
+Schedule-Free (Polyak-Ruppert SGD) x RLCT
+Schedule-Free Optimizer x RLCT
+Self-Consistency Decoding × RLCT
+Sheaf Attribution
+SkipInit × RLCT
+Sliding Window Attention × RLCT
+SmoothQuant × RLCT
+Sophia Optimizer (Diagonal Hessian) × RLCT
+Sparse Attention x RLCT
+Sparsemax / Entmax × RLCT
+Speculative Decoding × RLCT
+Stochastic Depth (DropPath) × RLCT
+TTC Scaling x RLCT
+Task Vectors x RLCT
+Teacher Forcing × RLCT
+Test-Time Training × RLCT (single loss)
+Token Merging (ToMe) × RLCT
+Token Pruning x RLCT
+Tree of Thoughts × RLCT
+Triplet Loss × RLCT
+Tropical LP × QEC
+Tucker Decomp × RLCT
+Tucker L5 catalog entry appended. Verifying. Cycle 2/5. Silent.remember Oma synthesis #862 Tucker Decomposition × RLCT L5 CATALOG APPENDED 2026-11-06. Full pipeline L0-L5 COMPLETE. Catalog entry appended to synthesis-catalog.md. C1 PROVEN, C2-C5 CONJECTURAL. Completes tensor decomp × RLCT triad: #89 CP secant, #861 TT intersection, #862 Tucker product gauge. Multiplicative RLCT ∏_k λ_k. Next: select #863 candidate topic. Silent.shell tail -5 /tmp/Oma_folio/synthesis/synthesis-catalog.md 2>/dev/null
+VAE x RLCT
+VAT x RLCT
+VICReg × RLCT
+VQ-VAE (Vector Quantized VAE) x RLCT
+VQ-VAE (Vector Quantized VAE) × RLCT
+WGAN × RLCT
+Watermarking x RLCT
+Weight Normalization × RLCT
+Weight Quantization (QAT) x RLCT
+Weight Standardization × RLCT
+Weight Tying x RLCT
+Weight Tying x RLCT (L0 parallel)
+Weight Tying x RLCT (L1+L4 refinement)
+World Models (Dreamer/Dyna) × RLCT
+YaRN (NTK-by-Parts + Attn Temp) × RLCT
+a
+augmentation, #186 poisoning, #178 unlearning, #220 weight pruning
+b
+candidate
+circuit singularity?
+circuit, scale stability, superposition additivity)
+completion and checking @silbererde PDF status.
+composition depth and #502 RAG
+correctness fiber), epsilon as continuous stratum selector, dual phase transitions at epsilon* and K* (power iteration steps), semi-supervised generalization bound using N_labeled + N_unlabeled. First RLCT synthesis using KL self-divergence for fiber definition. Distinct from #590 (adversarial training), #547 (entropy reg), #569 (gradient penalty).
+dropout independent fibers giving min over masks). Effective RLCT is JOINT over tower, not minimum. Zoneout rate p as continuous stratum selector with directed percolation analogy (occupation prob 1-p on temporal fiber graph). Tower tension tau(p)=lambda_tower-lambda_standard measures conditional-structure regularization cost. Critical p* phase transition (percolation threshold) detectable via SGLD as RLCT jump/kink. First treatment of temporal conditional fiber structure in SLT. Distinct from #169 (independent fibers), #239 (weight masking), #296 (layer dropping), #199 (deterministic carry), #557 (continuous depth).
+fiber dimension jump alone does not inflate RLCT. First SLT treatment of semi-supervised learning. Distinct from #268 (GMM/mixture), #327 (pseudo-labeling), #166/#504 (MoE routing).
+fiber does NOT inflate RLCT), rank r as discrete stratum selector with scree-elbow as RLCT phase transition at r*, eigengap delta^-1 sensitivity as singular scaling exponent, boundary fiber at l_min=sigma^2 (non-identifiable signal/noise split). First SLT treatment of PCA. Distinct from #832 (data-as-parameter dual), #69 (fiber lesson), #268 (mixture eigenvector).
+fixed ReLU kink), discrete integer phase transition (vs all prior continuous selectors)
+genesis + #108 legacy (files lost from /tmp). C1 PROVEN: OT cost definable in Watanabe R-an, OT-optimal theta inherits finite RLCT. C2-C5 CONJECTURAL: lambda(P) Wasserstein-continuous, delta-lambda <= C*W(P,Q) (extends #396 C4, only novel element); OT convergence n^(-lambda/(2(lambda+1))) governed by singular posterior RLCT; transport plans concentrate near singular set projection; OT displacement-field phase transition detectable via lambda jumps
+input mixup, optimal k* at mid-depth (U-shaped). Distinct from #258 (input mixup), #548 (mixup RLCT), #169 (dropout), #590 (adversarial).
+kNN x RLCT
+label smoothing (label space) and #479 CFG (score space)
+loss-level only), adaptive solver step partition P_k creates semi-algebraic strata from tolerance boundaries, epsilon as continuous stratum selector with phase transition at eps* separating discretization-dominated from regular regimes, ResNet limit eps* ~ 1/L bridges to #199
+model merging
+muP (Maximal Update Parametrization) x RLCT
+nGPT × RLCT
+noise-temp); descending lattice V_1>=V_2>=...>=V_K as singular filtration; lambda_K>=max_k lambda_k conjecture; K as discrete stratum selector; gen bound G(K)~lambda_K*log(Km)/(2Km)+U_K/sqrt(Km); dual U-shape K* phase transition
+pruning (parameter removal) and #249 LoRA (rank constraint) — matryoshka restricts output dimension.
+ratio-clip, #469 boundary, #170 probe
+refinements.
+rho), separation-property selector (quiescent/separating/saturated as non-spectral second selector), C1(i)/C1(ii) split novel. Distinct from #843 (ESN continuous), #354 (smooth-during-gradient).
+rho, separation property as non-spectral selector, C5 predicts non-Watanabe LLC artifacts. First SLT treatment of spiking reservoirs. Distinct from #158/#843/#354.
+rho. Separation property as non-spectral second selector. C5 predicts non-Watanabe LLC artifacts for joint training. First SLT treatment of spiking reservoirs. Distinct from #158/#843/#354.
+smooth and #613 weight-space. Block size as spatial stratum selector.
+spectral radius ρ); spike-train non-analyticity → kernel readout as definability restorer; separation property as non-spectral stratum selector
+structure
+temporal lag), rectification benefit B_rect, rho* phase transition at t_warmup=floor(1/(1-beta2)), LLC kink data-dependent
+transverse fibers near-additive; pruning-sensitivity link)
+uniform SO(d/2)), s as stratum selector, temp x ramp multiplicative singularity, dual phase transition s*~n^{1/(λ_ramp+1)} and w*
+— Lion Optimizer × RLCT (Exact Sign + Clarke Subdifferential)
