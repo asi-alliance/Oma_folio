@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang=en><head><meta charset=UTF-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>Cow Moorhuhn - Oma Arcade</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a12;overflow:hidden;width:100vw;height:100vh}
+canvas{display:block;cursor:crosshair}
+#ui{position:fixed;top:0;left:0;right:0;pointer-events:none;z-index:10;
+  font:14px monospace;color:#7ec8e3;text-align:center;padding:10px;
+  background:linear-gradient(180deg,rgba(10,10,18,0.9),transparent);
+  display:flex;justify-content:space-around;align-items:center}
+#ui span{background:rgba(0,0,0,0.5);padding:6px 16px;border-radius:6px;border:1px solid #7ec8e355}
+#go{position:fixed;top:0;left:0;width:100%;height:100%;display:none;
+  flex-direction:column;align-items:center;justify-content:center;
+  background:rgba(0,0,0,0.85);color:#7ec8e3;font:18px monospace;z-index:20}
+#go h1{font-size:2em;margin-bottom:20px;color:#e94560}
+#go button{margin-top:15px;padding:12px 30px;font:16px monospace;
+  background:#141422;color:#7ec8e3;border:1px solid #7ec8e3;border-radius:6px;cursor:pointer}
+#go button:hover{background:#1c1c34}
+</style></head><body>
+<canvas id=game></canvas>
+<div id=ui><span>Score: <b id=score>0</b></span><span>Time: <b id=time>60</b></span><span>Cows Shot: <b id=hits>0</b></span></div>
+<div id=go><h1>Game Over!</h1><p>Final Score: <b id=fs>0</b></p><p>Cows Hit: <b id=fh>0</b></p><button onclick=location.reload()>Play Again</button></div>
+<script>
+var cv=document.getElementById('game'),x=cv.getContext('2d');
+function resize(){cv.width=innerWidth;cv.height=innerHeight}
+resize();onresize=resize;
+var cows=[],score=0,hits=0,time=60,timer=setInterval(function(){time--;document.getElementById('time').textContent=time;if(time<=0){clearInterval(timer);gameOver()}},1000);
+var clouds=[];
+for(var i=0;i<5;i++)clouds.push({x:Math.random()*innerWidth,y:30+Math.random()*120,w:80+Math.random()*60,speed:0.3+Math.random()*0.4});
+function spawnCow(){
+var s=0.5+Math.random()*0.8;
+var fromLeft=Math.random()<0.5;
+cows.push({x:fromLeft?-80:innerWidth+80,y:50+Math.random()*(innerHeight*0.5),
+vx:(fromLeft?1:-1)*(1+Math.random()*2)*s*40,
+vy:0,osc:Math.random()*6.28,oscSpeed:1+Math.random()*1.5,
+scale:s,hit:false,fall:0,rot:0,flip:fromLeft?1:-1,wing:0});
+}
+setInterval(spawnCow,800);
+spawnCow();
+function drawCow(o){
+x.save();x.translate(o.x,o.y);
+if(o.hit){x.rotate(o.rot);}
+x.scale(o.flip*o.scale,o.scale);
+// Wing
+var wf=Math.sin(o.wing)*0.3;
+x.save();x.rotate(wf);
+x.fillStyle='#f0f0f0';x.strokeStyle='#ccc';
+x.beginPath();x.ellipse(-2,-8,12,6,0,0,6.28);x.fill();x.stroke();
+x.restore();
+// Body
+x.fillStyle='#fff';x.strokeStyle='#888';x.lineWidth=1.5;
+x.beginPath();x.ellipse(0,0,18,12,0,0,6.28);x.fill();x.stroke();
+// Spots
+x.fillStyle='#222';
+x.beginPath();x.arc(-6,-3,4,0,6.28);x.fill();
+x.beginPath();x.arc(8,2,3,0,6.28);x.fill();
+x.beginPath();x.arc(2,-5,2.5,0,6.28);x.fill();
+// Head
+x.beginPath();x.ellipse(14,-6,8,7,0,0,6.28);x.fill();x.stroke();
+// Ears
+x.fillStyle='#d4c4b0';
+x.beginPath();x.ellipse(16,-11,2.5,4,-0.5,0,6.28);x.fill();
+x.beginPath();x.ellipse(21,-9,2.5,3,0.5,0,6.28);x.fill();
+// Horns
+x.strokeStyle='#dcccaa';x.lineWidth=2;
+x.beginPath();x.moveTo(18,-12);x.lineTo(17,-16);x.moveTo(23,-11);x.lineTo(24,-15);x.stroke();
+// Eye
+x.fillStyle='#000';x.beginPath();x.arc(16,-7,1.2,0,6.28);x.fill();
+// Muzzle
+x.fillStyle='#ffaa99';x.beginPath();x.ellipse(20,-3,3.5,2.5,0,0,6.28);x.fill();
+x.strokeStyle='#000';x.lineWidth=0.5;x.stroke();
+// Nostrils
+x.fillStyle='#300';x.beginPath();x.arc(19,-3,0.5,0,6.28);x.arc(21,-3,0.5,0,6.28);x.fill();
+// Legs
+x.strokeStyle='#888';x.lineWidth=2;
+x.beginPath();x.moveTo(-8,11);x.lineTo(-8,16);x.moveTo(-4,12);x.lineTo(-4,17);
+x.moveTo(4,12);x.lineTo(4,17);x.moveTo(8,11);x.lineTo(8,16);x.stroke();
+// Udder
+x.fillStyle='#ff9999';x.beginPath();x.ellipse(2,10,3,4,0,0,6.28);x.fill();
+x.restore();
+}
+function drawSky(){
+var g=x.createLinearGradient(0,0,0,cv.height);
+g.addColorStop(0,'#1a1a3a');g.addColorStop(0.5,'#2a2a5a');g.addColorStop(1,'#3a3a6a');
+x.fillStyle=g;x.fillRect(0,0,cv.width,cv.height);
+// Stars
+x.fillStyle='rgba(255,255,255,0.3)';
+for(var i=0;i<50;i++)x.fillRect((i*73)%cv.width,(i*37)%(cv.height*0.6),1,1);
+// Moon
+x.fillStyle='rgba(255,255,200,0.4)';x.beginPath();x.arc(cv.width-80,60,25,0,6.28);x.fill();
+}
+function drawClouds(){
+for(var c of clouds){
+c.x+=c.speed;if(c.x>cv.width+100)c.x=-100;
+x.fillStyle='rgba(255,255,255,0.08)';
+x.beginPath();x.ellipse(c.x,c.y,c.w,c.w*0.3,0,0,6.28);x.fill();
+x.beginPath();x.ellipse(c.x+c.w*0.3,c.y-5,c.w*0.6,c.w*0.25,0,0,6.28);x.fill();
+}
+}
+function drawGround(){
+var g=x.createLinearGradient(0,cv.height*0.8,0,cv.height);
+g.addColorStop(0,'#1a3a1a');g.addColorStop(1,'#0a1a0a');
+x.fillStyle=g;x.fillRect(0,cv.height*0.8,cv.width,cv.height*0.2);
+// Grass tufts
+x.strokeStyle='#2a5a2a';x.lineWidth=1;
+for(var i=0;i<cv.width;i+=8){x.beginPath();x.moveTo(i,cv.height*0.8);x.lineTo(i+2,cv.height*0.8-4);x.stroke();}
+}
+function loop(){
+drawSky();drawClouds();drawGround();
+for(var i=cows.length-1;i>=0;i--){
+var o=cows[i];
+if(!o.hit){
+o.wing+=0.3;
+o.x+=o.vx/60;o.osc+=o.oscSpeed/60;
+o.y+=Math.sin(o.osc)*0.5;
+if(o.x<-100||o.x>cv.width+100)cows.splice(i,1);
+}else{
+o.fall+=0.5;o.y+=o.fall;o.rot+=0.05;
+if(o.y>cv.height)cows.splice(i,1);
+}
+drawCow(o);
+}
+requestAnimationFrame(loop);
+}
+loop();
+cv.addEventListener('click',function(e){
+for(var i=cows.length-1;i>=0;i--){
+var o=cows[i];
+if(o.hit)continue;
+var dx=e.clientX-o.x,dy=e.clientY-o.y;
+var r=20*o.scale;
+if(dx*dx+dy*dy<r*r){
+o.hit=true;hits++;
+var pts=Math.floor(10/o.scale);
+score+=pts;
+document.getElementById('score').textContent=score;
+document.getElementById('hits').textContent=hits;
+// Hit effect
+x.save();x.fillStyle='rgba(255,200,0,0.5)';x.beginPath();x.arc(e.clientX,e.clientY,r,0,6.28);x.fill();x.restore();
+return;
+}
+}
+// Miss - small dust
+x.save();x.fillStyle='rgba(150,150,150,0.3)';x.beginPath();x.arc(e.clientX,e.clientY,8,0,6.28);x.fill();x.restore();
+});
+function gameOver(){
+document.getElementById('fs').textContent=score;
+document.getElementById('fh').textContent=hits;
+document.getElementById('go').style.display='flex';
+}
+</script></body></html>

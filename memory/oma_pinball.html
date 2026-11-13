@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang=en><head><meta charset=UTF-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>Cow Pinball - Oma Arcade</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a12;display:flex;justify-content:center;align-items:center;height:100vh;overflow:hidden}
+#w{position:relative;width:400px;max-width:95vw;height:90vh}
+canvas{width:100%;height:100%;border-radius:12px;border:2px solid #7ec8e355}
+#i{position:absolute;top:8px;left:0;right:0;display:flex;justify-content:space-around;font:13px monospace;color:#7ec8e3;pointer-events:none}
+#i span{background:rgba(0,0,0,0.6);padding:4px 10px;border-radius:4px}
+#m{position:absolute;top:45%;left:50%;transform:translate(-50%,-50%);font:18px monospace;color:#e94560;display:none;text-align:center;background:rgba(0,0,0,0.85);padding:20px 40px;border-radius:10px}
+#m button{margin-top:12px;padding:10px 24px;font:14px monospace;background:#141422;color:#7ec8e3;border:1px solid #7ec8e3;border-radius:6px;cursor:pointer}
+</style></head><body>
+<div id=w><canvas id=pb></canvas>
+<div id=i><span>Score: <b id=sc>0</b></span><span>Balls: <b id=bl>3</b></span></div>
+<div id=m><p id=mt></p><button onclick=reset()>Play Again</button></div>
+</div>
+<script>
+var cv=document.getElementById('pb'),x=cv.getContext('2d');
+var W=400,H=600;cv.width=W;cv.height=H;
+var score=0,balls=3,over=false;
+var ball={x:W/2,y:H-80,vx:0,vy:0,r:8};
+var fL={a:0.5,p:{x:W/2-55,y:H-55},len:50,up:0};
+var fR={a:0.5,p:{x:W/2+55,y:H-55},len:50,up:0};
+var bumpers=[{x:W/2-65,y:170,r:16,f:0},{x:W/2+65,y:170,r:16,f:0},{x:W/2,y:120,r:20,f:0},{x:W/2-45,y:265,r:14,f:0},{x:W/2+45,y:265,r:14,f:0}];
+var segs=[];
+function initSegs(){segs=[{x1:20,y1:100,x2:20,y2:H-40},{x1:W-20,y1:100,x2:W-20,y2:H-40},{x1:20,y1:100,x2:W/2,y2:60},{x1:W-20,y1:100,x2:W/2,y2:60},{x1:W/2-55,y1:H-55,x2:W/2-10,y2:H-20},{x1:W/2+55,y1:H-55,x2:W/2+10,y2:H-20}];}
+initSegs();
+function drawSeg(s){x.strokeStyle='#7ec8e3';x.lineWidth=3;x.beginPath();x.moveTo(s.x1,s.y1);x.lineTo(s.x2,s.y2);x.stroke();}
+function drawBumper(b){x.save();x.translate(b.x,b.y);if(b.f>0){x.fillStyle='rgba(255,200,0,'+b.f+')';x.beginPath();x.arc(0,0,b.r+6,0,6.28);x.fill();}x.fillStyle='#fff';x.strokeStyle='#888';x.lineWidth=2;x.beginPath();x.arc(0,0,b.r,0,6.28);x.fill();x.stroke();x.fillStyle='#222';x.beginPath();x.arc(-b.r*0.3,-b.r*0.2,b.r*0.2,0,6.28);x.fill();x.beginPath();x.arc(b.r*0.3,b.r*0.3,b.r*0.15,0,6.28);x.fill();x.restore();b.f*=0.88;}
+function drawFlip(f,side){x.save();x.translate(f.p.x,f.p.y);var a=f.a-f.up*0.8;x.rotate(side==='L'?-a+0.3:Math.PI+a-0.3);x.fillStyle='#7ec8e3';x.strokeStyle='#5a9';x.lineWidth=1;x.beginPath();x.roundRect(0,-4,f.len,8,4);x.fill();x.stroke();x.restore();}
+function collideSeg(s){var dx=s.x2-s.x1,dy=s.y2-s.y1,len=Math.hypot(dx,dy);var nx=dx/len,ny=dy/len;var t=Math.max(0,Math.min(len,(ball.x-s.x1)*nx+(ball.y-s.y1)*ny));var cx=s.x1+nx*t,cy=s.y1+ny*t;var d=Math.hypot(ball.x-cx,ball.y-cy);if(d<ball.r&&d>0){var rx=(ball.x-cx)/d,ry=(ball.y-cy)/d;ball.x=cx+rx*ball.r;ball.y=cy+ry*ball.r;var dot=ball.vx*rx+ball.vy*ry;ball.vx-=2*dot*rx*0.85;ball.vy-=2*dot*ry*0.85;}}
+function physics(){if(over)return;ball.vy+=0.18;var sp=Math.hypot(ball.vx,ball.vy);if(sp>13){ball.vx*=13/sp;ball.vy*=13/sp;}ball.x+=ball.vx;ball.y+=ball.vy;for(var s of segs)collideSeg(s);for(var b of bumpers){var dx=ball.x-b.x,dy=ball.y-b.y,d=Math.hypot(dx,dy);if(d<ball.r+b.r){var nx=dx/d,ny=dy/d;ball.x=b.x+nx*(ball.r+b.r);ball.y=b.y+ny*(ball.r+b.r);var dot=ball.vx*nx+ball.vy*ny;ball.vx-=2*dot*nx*1.15;ball.vy-=2*dot*ny*1.15;score+=100;b.f=1;document.getElementById('sc').textContent=score;}}
+if(ball.y>H+20){balls--;document.getElementById('bl').textContent=balls;if(balls<=0){over=true;document.getElementById('mt').textContent='Game Over! Score: '+score;document.getElementById('m').style.display='block';}else{ball.x=W/2;ball.y=H-80;ball.vx=0;ball.vy=0;}}}
+function draw(){x.fillStyle='#0a0a1a';x.fillRect(0,0,W,H);var g=x.createLinearGradient(0,0,0,H);g.addColorStop(0,'#1a1a3a');g.addColorStop(1,'#0a1a1a');x.fillStyle=g;x.fillRect(0,0,W,H);for(var s of segs)drawSeg(s);for(var b of bumpers)drawBumper(b);drawFlip(fL,'L');drawFlip(fR,'R');x.fillStyle='#e94560';x.beginPath();x.arc(ball.x,ball.y,ball.r,0,6.28);x.fill();physics();requestAnimationFrame(draw);}
+document.addEventListener('keydown',function(e){if(e.key==='ArrowLeft'||e.key==='a')fL.up=1;if(e.key==='ArrowRight'||e.key==='d')fR.up=1;});
+document.addEventListener('keyup',function(e){if(e.key==='ArrowLeft'||e.key==='a')fL.up=0;if(e.key==='ArrowRight'||e.key==='d')fR.up=0;});
+function reset(){score=0;balls=3;over=false;ball={x:W/2,y:H-80,vx:0,vy:0,r:8};document.getElementById('sc').textContent=0;document.getElementById('bl').textContent=3;document.getElementById('m').style.display='none';}
+draw();
+</script></body></html>
