@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Oma Dragon Flight</title><style>*{margin:0;padding:0;box-sizing:border-box}body{background:#0a0a1a;display:flex;justify-content:center;align-items:center;height:100vh;font-family:monospace}canvas{border:2px solid #333;border-radius:8px}#wrap{position:relative}#hud{position:absolute;top:10px;left:10px;color:#8af;font-size:16px;pointer-events:none;z-index:10;text-shadow:0 0 4px #000}</style><script src="https://cdn.jsdelivr.net/npm/phaser@3.80.1/dist/phaser.min.js"></script></head><body><div id="wrap"><div id="hud">Score: 0  |  Lives: 3</div><div id="game"></div></div><script>
+<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"><title>Oma Dragon Flight</title><style>*{margin:0;padding:0;box-sizing:border-box}body{background:#0a0a1a;overflow:hidden;touch-action:none;display:flex;justify-content:center;align-items:center;height:100vh;font-family:monospace}canvas{border:2px solid #333;border-radius:8px}#wrap{position:relative}#hud{position:absolute;top:10px;left:10px;color:#8af;font-size:16px;pointer-events:none;z-index:10;text-shadow:0 0 4px #000}</style><script src="https://cdn.jsdelivr.net/npm/phaser@3.80.1/dist/phaser.min.js"></script></head><body><div id="wrap"><div id="hud">Score: 0  |  Lives: 3</div><div id="game"></div><div id="hint" style="position:absolute;bottom:10px;width:100%;text-align:center;color:#456;font-size:12px;pointer-events:none;z-index:10">Drag to fly | Tap to shoot</div></div><script>
 const W=800,H=600;let score=0,lives=3,gs;
 const hud=document.getElementById("hud");
-const config={type:Phaser.AUTO,width:W,height:H,parent:"game",physics:{default:"arcade",arcade:{gravity:{y:0},debug:false}},scene:{preload:preload,create:create,update:update}};
+const config={type:Phaser.AUTO,width:W,height:H,parent:"game",physics:{default:"arcade",arcade:{gravity:{y:0},debug:false}},scale:{mode:Phaser.Scale.FIT,autoCenter:Phaser.Scale.CENTER_BOTH},scene:{preload:preload,create:create,update:update}};
 const game=new Phaser.Game(config);
+let touchActive=false,touchX=0,touchY=0;
 
 function preload(){
   // FIX: all draw coords shifted positive within texture bounds
@@ -58,7 +59,9 @@ function create(){
   this.player=this.physics.add.sprite(120,H/2,"dragon");
   this.player.setCollideWorldBounds(true);
   this.cursors=this.input.keyboard.createCursorKeys();
-  this.input.on("pointerdown",shootFireball,this);
+  this.input.on("pointerdown",function(pointer){touchActive=true;touchX=pointer.x;touchY=pointer.y;shootFireball();},this);
+  this.input.on("pointermove",function(pointer){if(pointer.isDown){touchX=pointer.x;touchY=pointer.y;}},this);
+  this.input.on("pointerup",function(){touchActive=false;},this);
   this.input.keyboard.on("keydown-SPACE",shootFireball,this);
   this.gems=this.physics.add.group();
   this.rocks=this.physics.add.group();
@@ -137,7 +140,11 @@ function endGame(){
 function update(){
   if(this.gameOver)return;
   let sp=250;
-  if(this.cursors.up.isDown)this.player.setVelocityY(-sp);
+  if(touchActive){
+    let dx=touchX-this.player.x,dy=touchY-this.player.y;
+    this.player.setVelocityX(Phaser.Math.Clamp(dx*5,-150,150));
+    this.player.setVelocityY(Phaser.Math.Clamp(dy*5,-sp,sp));
+  } else if(this.cursors.up.isDown)this.player.setVelocityY(-sp);
   else if(this.cursors.down.isDown)this.player.setVelocityY(sp);
   else this.player.setVelocityY(0);
   if(this.cursors.left.isDown)this.player.setVelocityX(-sp*0.6);
