@@ -28,3 +28,27 @@ if(stepLog){ctx.fillStyle="#ffdd44";ctx.font="10px monospace";ctx.textAlign="lef
 }
 doGen();render();
 </script>
+<script>
+var W=960,H=460;var N=0,adj=[],parent=[],depth=[],subSize=[],heavyChild=[],chainHead=[],chainId=[],chainPos=[],nodeX=[],nodeY=[];var phase="Idle",chains=[],curChain=-1,curU=-1,curV=-1,lcaNode=-1,pathU=[],pathV=[],pathAll=[];var stepLog="",tHandle=null,running=false,decompDone=false;
+function doGen(){clearTimer();N=parseInt(document.getElementById("nn").value)||10;phase="Generated";decompDone=false;chains=[];stepLog="Tree with "+N+" nodes. Click Decompose.";buildTree();layoutTree();}
+function buildTree(){adj=[];parent=[];depth=[];subSize=[];heavyChild=[];chainHead=[];chainId=[];chainPos=[];for(var i=0;i<N;i++){adj[i]=[];parent[i]=-1;depth[i]=0;subSize[i]=0;heavyChild[i]=-1;chainHead[i]=-1;chainId[i]=-1;}for(var i=1;i<N;i++){var p=Math.floor(Math.random()*i);adj[p].push(i);adj[i].push(p);parent[i]=p;depth[i]=depth[p]+1;}}
+function dfsSize(v){subSize[v]=1;var mx=0;for(var i=0;i<adj[v].length;i++){var u=adj[v][i];if(u===parent[v])continue;dfsSize(u);subSize[v]+=subSize[u];if(subSize[u]>mx){mx=subSize[u];heavyChild[v]=u;}}}
+var chainCount=0;
+function buildChains(){chainCount=0;chains=[];dfsChain(0,0);}
+function dfsChain(v,hd){chainHead[v]=hd;chainId[v]=chainCount;if(!chains[chainCount])chains[chainCount]={head:hd,nodes:[]};chains[chainCount].nodes.push(v);if(heavyChild[v]!==-1)dfsChain(heavyChild[v],hd);for(var i=0;i<adj[v].length;i++){var u=adj[v][i];if(u===parent[v]||u===heavyChild[v])continue;chainCount++;dfsChain(u,u);}}
+function layoutTree(){nodeX=[];nodeY=[];var lvls=[];for(var i=0;i<N;i++){if(!lvls[depth[i]])lvls[depth[i]]=[];lvls[depth[i]].push(i);}var maxD=0;for(var i=0;i<N;i++)if(depth[i]>maxD)maxD=depth[i];for(var d=0;d<=maxD;d++){if(!lvls[d])continue;var c=lvls[d].length;for(var j=0;j<c;j++){var v=lvls[d][j];nodeX[v]=(j+0.5)*(W/(c+1));nodeY[v]=60+d*((H-100)/Math.max(maxD,1));}}}
+function doDecomp(){if(N===0)return;clearTimer();dfsSize(0);buildChains();decompDone=true;phase="Decomposed";stepLog="Decomposed into "+chains.length+" heavy chains. Blue=heavy edges.";updateInfo();render();}
+function findLCA(u,v){while(chainId[u]!==chainId[v]){if(depth[chainHead[u]]>depth[chainHead[v]])u=parent[chainHead[u]];else v=parent[chainHead[v]];}return depth[u]<depth[v]?u:v;}
+function doPath(){if(!decompDone||N===0)return;clearTimer();curU=parseInt(document.getElementById("nu").value)||0;curV=parseInt(document.getElementById("nv").value)||0;if(curU>=N||curV>=N)return;phase="Pathing";pathU=[];pathV=[];lcaNode=findLCA(curU,curV);var u=curU,v=curV;while(u!==lcaNode){pathU.push(u);u=parent[u];}while(v!==lcaNode){pathV.push(v);v=parent[v];}pathU.push(lcaNode);pathAll=pathU.concat(pathV.reverse());stepLog="Path: "+curU+" -> LCA("+lcaNode+") -> "+curV+" ("+pathAll.length+" nodes)";updateInfo();render();}
+function doStep(){if(phase==="Generated")doDecomp();else if(phase==="Decomposed")doPath();}
+function doRun(){running=true;var s=parseInt(document.getElementById("spd").value)||300;tHandle=setInterval(function(){if(phase==="Pathing"||phase==="Done"){clearTimer();return;}doStep();},s);}
+function doStop(){clearTimer();phase="Paused";updateInfo();render();}
+function doReset(){clearTimer();phase="Idle";N=0;decompDone=false;chains=[];stepLog="";updateInfo();render();}
+function clearTimer(){if(tHandle){clearInterval(tHandle);tHandle=null;}running=false;}
+function updateInfo(){document.getElementById("nph").textContent=phase;document.getElementById("nch").textContent=decompDone?chains.length:"--";document.getElementById("ncc").textContent=curChain>=0?curChain:"--";document.getElementById("nu2").textContent=curU>=0?curU+" (d="+depth[curU]+")":"--";document.getElementById("nv2").textContent=curV>=0?curV+" (d="+depth[curV]+")":"--";document.getElementById("nlca").textContent=lcaNode>=0?lcaNode:"--";document.getElementById("npn").textContent=pathAll.length>0?pathAll.length:"--";}
+function render(){var cv=document.getElementById("canv");var ctx=cv.getContext("2d");ctx.fillStyle="#0c0a18";ctx.fillRect(0,0,W,H);if(N===0){ctx.fillStyle="#505080";ctx.font="14px monospace";ctx.textAlign="center";ctx.fillText("Click Generate Tree",W/2,H/2);return;}
+for(var i=1;i<N;i++){var p=parent[i];var isH=decompDone&&heavyChild[p]===i;ctx.strokeStyle=isH?"#5bb9e6":"#2a2a4a";ctx.lineWidth=isH?3:1.5;ctx.beginPath();ctx.moveTo(nodeX[p],nodeY[p]);ctx.lineTo(nodeX[i],nodeY[i]);ctx.stroke();}
+for(var i=0;i<N;i++){var onU=pathU.indexOf(i)>=0,onV=pathV.indexOf(i)>=0,isL=i===lcaNode,isHd=decompDone&&chainHead[i]===i;var col="#3a3a5a";if(isL)col="#44ff88";else if(onU)col="#ffdd44";else if(onV)col="#ff66aa";else if(decompDone&&(heavyChild[i]!==-1||(i>0&&heavyChild[parent[i]]===i)))col="#5bb9e6";if(isHd)col="#a855f7";ctx.fillStyle=col;ctx.beginPath();ctx.arc(nodeX[i],nodeY[i],12,0,Math.PI*2);ctx.fill();ctx.strokeStyle="#08060f";ctx.lineWidth=2;ctx.stroke();ctx.fillStyle="#e0e0e6";ctx.font="11px monospace";ctx.textAlign="center";ctx.textBaseline="middle";ctx.fillText(i,nodeX[i],nodeY[i]);if(decompDone){ctx.fillStyle="#505080";ctx.font="8px monospace";ctx.fillText("c"+chainId[i],nodeX[i]+15,nodeY[i]-8);}}
+if(stepLog){ctx.fillStyle="#ffdd44";ctx.font="10px monospace";ctx.textAlign="left";ctx.fillText(stepLog.substring(0,130),20,H-5);}}
+doGen();render();
+</script>
