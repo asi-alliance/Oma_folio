@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang=en><head><meta charset=UTF-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>Turing Machine Simulator - Oma</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a14;color:#c8d6e5;font:14px monospace;display:flex;flex-direction:column;align-items:center;min-height:100vh}
+h1{margin:12px;font-size:18px;color:#7ec8e3}
+#ctrl{display:flex;flex-wrap:wrap;gap:8px;margin:8px;align-items:center}
+button{background:#141428;color:#7ec8e3;border:1px solid #7ec8e355;padding:6px 12px;border-radius:4px;cursor:pointer;font:13px monospace}
+button:hover{background:#1c1c3a;border-color:#7ec8e3}
+button.active{background:#2a2a4a;border-color:#e94560;color:#e94560}
+select{background:#141428;color:#c8d6e5;border:1px solid #7ec8e355;padding:4px 8px;border-radius:4px;font:13px monospace}
+#tapeWrap{overflow:hidden;width:90%;max-width:800px;margin:12px auto;position:relative}
+#tape{display:flex;gap:2px;justify-content:center;transition:transform 0.3s ease}
+.cell{width:36px;height:40px;border:1px solid #7ec8e355;border-radius:4px;display:flex;align-items:center;justify-content:center;font:16px monospace;flex-shrink:0;transition:all 0.2s}
+.cell.head{border-color:#e94560;box-shadow:0 0 12px #e9456077;background:#1a0a1a}
+.cell.written{color:#e94560}
+.cell.read{color:#7ec8e3}
+#stateBar{display:flex;gap:12px;margin:8px;align-items:center;font:13px monospace}
+#stateBar span{padding:4px 10px;border-radius:4px;background:#141428;border:1px solid #7ec8e355}
+#rules{margin:8px;padding:12px;background:#141428;border:1px solid #7ec8e355;border-radius:6px;font:12px monospace;max-width:700px;width:90%}
+#rules div{margin:3px 0;color:#576574}
+#rules .cur{color:#e94560}
+#info{font:12px monospace;color:#576574;margin:8px;text-align:center}
+#log{margin:8px;padding:8px;background:#141428;border:1px solid #7ec8e355;border-radius:4px;font:11px monospace;color:#485460;max-width:700px;width:90%;max-height:100px;overflow-y:auto}
+</style></head><body>
+<h1>🧠 Turing Machine Simulator</h1>
+<div id=ctrl>
+<button id=runBtn onclick=toggleRun()>▶ Run</button>
+<button onclick=step()>Step</button>
+<button onclick=reset()>Reset</button>
+<select id=program onchange=loadProgram()>
+<option value=increment>Binary Increment</option>
+<option value=busy>Busy Beaver (3-state)</option>
+<option value=unary>Add (Unary)</option>
+<option value=parity>Parity Check</option>
+</select>
+<label>Speed:</label>
+<input id=speed type=range min=1 max=20 value=5 oninput=setSpeed()>
+</div>
+<div id=tapeWrap><div id=tape></div></div>
+<div id=stateBar>
+<span>State: <b id=curState>q0</b></span>
+<span>Head: <b id=curHead>0</b></span>
+<span>Steps: <b id=curStep>0</b></span>
+<span>Status: <b id=curStatus>Ready</b></span>
+</div>
+<div id=rules></div>
+<div id=log></div>
+<div id=info>Watch the tape, head, and state transitions. Programs run until halt state.</div>
+<script>
+var tape={};
+var head=0;
+var state='q0';
+var stepCount=0;
+var running=false;
+var intervalId=null;
+var speed=5;
+var programs={
+  increment:{
+    init:'1011',
+    blank:'0',
+    rules:{
+      'q0,0':'q0,0,R',
+      'q0,1':'q0,1,R',
+      'q0,B':'q1,B,L',
+      'q1,0':'q2,1,R',
+      'q1,1':'q1,0,L',
+      'q2,*':'HALT'
+    },
+    desc:'Increment a binary number by 1. Scans right to end, flips trailing 1s to 0, flips first 0 to 1.'
+  },
+  busy:{
+    init:'',
+    blank:'0',
+    rules:{
+      'q0,0':'q1,1,R',
+      'q0,1':'q2,1,R',
+      'q1,0':'q1,1,R',
+      'q1,1':'q0,1,L',
+      'q2,0':'q3,1,L',
+      'q2,1':'q2,1,L',
+      'q3,0':'q0,1,L',
+      'q3,1':'HALT'
+    },
+    desc:'3-state Busy Beaver. Writes maximum 1s (6) on blank tape before halting.'
+  },
+  unary:{
+    init:'111+111',
+    blank:'B',
+    rules:{
+      'q0,1':'q0,1,R',
+      'q0,+':'q1,+,R',
+      'q0,B':'q3,B,L',
+      'q1,1':'q1,1,R',
+      'q1,B':'q2,B,L',
+      'q2,1':'q0,1,L',
+      'q2,+':'q3,+,L',
+      'q3,1':'q3,1,L',
+      'q3,B':'HALT'
+    },
+    desc:'Add two unary numbers (111+111). Moves 1s across the + sign, converts + to 1.'
+  },
+  parity:{
+    init:'1101101',
+    blank:'B',
+    rules:{
+      'q0,0':'q0,0,R',
+      'q0,1':'q1,1,R',
+      'q0,B':'q2,0,R',
+      'q1,0':'q1,0,R',
+      'q1,1':'q0,1,R',
+      'q1,B':'q2,1,R',
+      'q2,*':'HALT'
+    },
+    desc:'Check parity (even/odd count of 1s). q0=even so far, q1=odd. Outputs 0 for even, 1 for odd.'
+  }
+};
+var curProg=null;
+function loadProgram(){
+  var p=document.getElementById('program').value;
+  curProg=programs[p];
+  reset();
+  displayRules();
+}
+function displayRules(){
+  var rc=document.getElementById('rules');
+  rc.innerHTML='';
+  var d=document.createElement('div');
+  d.textContent='Program: '+curProg.desc;
+  d.style.color='#7ec8e3';
+  d.style.marginBottom='8px';
+  rc.appendChild(d);
+  for(var key in curProg.rules){
+    var val=curProg.rules[key];
+    var div=document.createElement('div');
+    div.textContent='  ('+key.replace(',',', ')+') → ('+val.replace(',',', ')+')';
+    var parts=key.split(',');
+    if(parts[0]===state){
+      var sym=readTape(head);
+      if(parts[1]==='*'||parts[1]===sym||parts[1]==='B'&&(sym===curProg.blank)){
+        div.className='cur';
+      }
+    }
+    rc.appendChild(div);
+  }
+}
+function reset(){
+  tape={};
+  head=0;
+  state='q0';
+  stepCount=0;
+  running=false;
+  document.getElementById('runBtn').textContent='▶ Run';
+  if(intervalId)clearInterval(intervalId);
+  if(curProg){
+    for(var i=0;i<curProg.init.length;i++)tape[i]=curProg.init[i];
+  }
+  document.getElementById('curStatus').textContent='Ready';
+  document.getElementById('log').innerHTML='';
+  draw();
+  displayRules();
+}
+function readTape(pos){
+  if(tape[pos]!==undefined)return tape[pos];
+  return curProg.blank;
+}
+function writeTape(pos,val){
+  if(val===curProg.blank){delete tape[pos];}
+  else{tape[pos]=val;}
+}
+function step(){
+  if(state==='HALT')return;
+  var sym=readTape(head);
+  var key=state+','+sym;
+  var rule=curProg.rules[key];
+  if(!rule){
+    var wk=state+',*';
+    rule=curProg.rules[wk];
+    if(!rule){
+      var bk=state+',B';
+      if(sym===curProg.blank)rule=curProg.rules[bk];
+    }
+  }
+  if(!rule){
+    log('ERROR: No rule for state='+state+', symbol='+sym);
+    running=false;
+    document.getElementById('runBtn').textContent='▶ Run';
+    if(intervalId)clearInterval(intervalId);
+    document.getElementById('curStatus').textContent='Stuck!';
+    return;
+  }
+  var parts=rule.split(',');
+  var newState=parts[0];
+  var writeSym=parts[1];
+  var dir=parts[2];
+  if(writeSym==='*')writeSym=sym;
+  writeTape(head,writeSym);
+  if(dir==='L')head--;
+  else if(dir==='R')head++;
+  var oldState=state;
+  state=newState;
+  stepCount++;
+  log('Step '+stepCount+': ('+oldState+','+sym+')→('+state+','+writeSym+','+dir+')');
+  draw();
+  displayRules();
+  if(state==='HALT'){
+    running=false;
+    document.getElementById('runBtn').textContent='▶ Run';
+    if(intervalId)clearInterval(intervalId);
+    document.getElementById('curStatus').textContent='HALTED ✓';
+    log('Machine halted after '+stepCount+' steps.');
+  }
+}
+function log(msg){
+  var l=document.getElementById('log');
+  var div=document.createElement('div');
+  div.textContent=msg;
+  l.appendChild(div);
+  l.scrollTop=l.scrollHeight;
+}
+function draw(){
+  var tw=document.getElementById('tape');
+  tw.innerHTML='';
+  var keys=Object.keys(tape).map(Number).sort(function(a,b){return a-b;});
+  var minPos=head-10;
+  var maxPos=head+10;
+  if(keys.length>0){
+    minPos=Math.min(minPos,keys[0]-2);
+    maxPos=Math.max(maxPos,keys[keys.length-1]+2);
+  }
+  minPos=Math.min(minPos,-1);
+  maxPos=Math.max(maxPos,0);
+  for(var p=minPos;p<=maxPos;p++){
+    var cell=document.createElement('div');
+    cell.className='cell';
+    var val=readTape(p);
+    cell.textContent=val===curProg.blank?'·':val;
+    if(p===head){
+      cell.classList.add('head');
+    }
+    if(tape[p]!==undefined){
+      cell.classList.add('written');
+    }else{
+      cell.classList.add('read');
+    }
+    tw.appendChild(cell);
+  }
+  document.getElementById('curState').textContent=state;
+  document.getElementById('curHead').textContent=head;
+  document.getElementById('curStep').textContent=stepCount;
+  if(state!=='HALT'&&running){
+    document.getElementById('curStatus').textContent='Running...';
+  }
+}
+function toggleRun(){
+  if(state==='HALT')return;
+  running=!running;
+  document.getElementById('runBtn').textContent=running?'⏸ Pause':'▶ Run';
+  if(running){
+    if(intervalId)clearInterval(intervalId);
+    intervalId=setInterval(step,1000/speed);
+  }else{
+    if(intervalId)clearInterval(intervalId);
+  }
+}
+function setSpeed(){
+  speed=parseInt(document.getElementById('speed').value);
+  if(running){
+    if(intervalId)clearInterval(intervalId);
+    intervalId=setInterval(step,1000/speed);
+  }
+}
+loadProgram();
+</script></body></html>
