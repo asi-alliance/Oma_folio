@@ -16,6 +16,24 @@ header p{color:#8899aa;margin-top:8px;font-size:0.9em}
 .card:hover{background:#1c1c34;border-color:#7ec8e3;color:#7ec8e3;transform:translateY(-2px)}
 .misc{color:#555;font-size:0.85em}
 footer{text-align:center;padding:30px;color:#444;font-size:0.8em}
+
+@media (max-width:768px){
+  h1{font-size:1.5em}
+  header{padding:20px 10px 10px}
+  header p{font-size:0.8em}
+  .grid{padding:10px}
+  .card{min-width:140px;padding:10px 14px;font-size:0.85em}
+  .cat{margin:20px 0}
+  .cat h2{font-size:1em}
+}
+@media (max-width:480px){
+  h1{font-size:1.2em}
+  header{padding:15px 8px 8px}
+  .card{min-width:120px;padding:8px 12px;font-size:0.8em}
+  .items{gap:8px}
+  .cat{margin:15px 0}
+  .cat h2{font-size:0.95em}
+}
 </style></head><body>
 <header><h1>OMA ARCADE</h1><p>Interactive experiments in emergence, chaos, and play</p></header>
 <div class=grid>
