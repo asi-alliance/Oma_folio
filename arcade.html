@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html><head><meta charset=UTF-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>Oma Arcade</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a12;color:#e0e0f0;font-family:monospace;min-height:100vh}
+header{text-align:center;padding:40px 20px 20px;background:linear-gradient(135deg,#0d1b2a,#1b263b)}
+h1{font-size:2.5em;color:#7ec8e3;text-shadow:0 0 20px rgba(126,200,227,0.5)}
+header p{color:#8899aa;margin-top:8px;font-size:0.9em}
+.grid{max-width:1200px;margin:0 auto;padding:20px}
+.cat{margin:30px 0}
+.cat h2{color:#e94560;border-bottom:1px solid #e9456044;padding-bottom:6px;margin-bottom:12px;font-size:1.2em}
+.items{display:flex;flex-wrap:wrap;gap:12px}
+.card{background:#141422;border:1px solid #222240;border-radius:8px;padding:14px 18px;text-decoration:none;color:#b0b0d0;transition:all 0.2s;min-width:160px}
+.card:hover{background:#1c1c34;border-color:#7ec8e3;color:#7ec8e3;transform:translateY(-2px)}
+.misc{color:#555;font-size:0.85em}
+footer{text-align:center;padding:30px;color:#444;font-size:0.8em}
+</style></head><body>
+<header><h1>OMA ARCADE</h1><p>Interactive experiments in emergence, chaos, and play</p></header>
+<div class=grid>
+<div class=cat><h2>Games</h2><div class=items>
+<a class=card href="memory/oma_phaser_dragon.html">Oma Phaser Dragon</a>
+</div></div>
+<div class=cat><h2>Interactive Art</h2><div class=items>
+<a class=card href="visualizations/flow-field-painter.html">Flow Field Painter</a>
+<a class=card href="visualizations/cellular-typography.html">Cellular Typography</a>
+<a class=card href="visualizations/lsystem-generator.html">Lsystem Generator</a>
+<a class=card href="visualizations/recursive-narrative.html">Recursive Narrative</a>
+<a class=card href="visualizations/spectral-morphology.html">Spectral Morphology</a>
+<a class=card href="visualizations/fourier-epicycles.html">Fourier Epicycles</a>
+</div></div>
+<div class=cat><h2>Chaos & Dynamics</h2><div class=items>
+<a class=card href="visualizations/lorenz-attractor.html">Lorenz Attractor</a>
+<a class=card href="visualizations/dpendulum-chaos.html">Dpendulum Chaos</a>
+<a class=card href="visualizations/nbody-gravity.html">Nbody Gravity</a>
+<a class=card href="visualizations/bifurcation-diagram.html">Bifurcation Diagram</a>
+<a class=card href="visualizations/catastrophe-theory.html">Catastrophe Theory</a>
+<a class=card href="visualizations/stable-fluids.html">Stable Fluids</a>
+</div></div>
+<div class=cat><h2>Reaction-Diffusion</h2><div class=items>
+<a class=card href="visualizations/gray-scott.html">Gray Scott</a>
+<a class=card href="visualizations/bz-reaction.html">Bz Reaction</a>
+<a class=card href="visualizations/physarum-slime.html">Physarum Slime</a>
+</div></div>
+<div class=cat><h2>Fractals & Complex</h2><div class=items>
+<a class=card href="visualizations/julia-mandelbrot.html">Julia Mandelbrot</a>
+<a class=card href="visualizations/hyperbolic-poincare.html">Hyperbolic Poincare</a>
+<a class=card href="visualizations/rauzy-explorer.html">Rauzy Explorer</a>
+</div></div>
+<div class=cat><h2>Waves & Fields</h2><div class=items>
+<a class=card href="visualizations/wave-equation.html">Wave Equation</a>
+<a class=card href="visualizations/quantum-oscillator.html">Quantum Oscillator</a>
+<a class=card href="visualizations/kdv-soliton.html">Kdv Soliton</a>
+<a class=card href="visualizations/rg-flow.html">Rg Flow</a>
+<a class=card href="visualizations/light-cone.html">Light Cone</a>
+<a class=card href="visualizations/cmb_toy.html">Cmb Toy</a>
+</div></div>
+<div class=cat><h2>Geometry & Topology</h2><div class=items>
+<a class=card href="visualizations/penrose-tiling.html">Penrose Tiling</a>
+<a class=card href="visualizations/voronoi-delaunay.html">Voronoi Delaunay</a>
+<a class=card href="visualizations/knot-theory.html">Knot Theory</a>
+<a class=card href="visualizations/morse-theory.html">Morse Theory</a>
+<a class=card href="visualizations/persistent-homology-barcode.html">Persistent Homology Barcode</a>
+<a class=card href="visualizations/constraint-atlas.html">Constraint Atlas</a>
+<a class=card href="visualizations/morphospace.html">Morphospace</a>
+<a class=card href="visualizations/morphospace_v2.html">Morphospace V2</a>
+</div></div>
+<div class=cat><h2>Networks & Graphs</h2><div class=items>
+<a class=card href="visualizations/hypergraph-rewriter.html">Hypergraph Rewriter</a>
+<a class=card href="visualizations/graph-theory-visualizer.html">Graph Theory Visualizer</a>
+<a class=card href="visualizations/tensor-network-mps.html">Tensor Network Mps</a>
+<a class=card href="visualizations/fisher-metric.html">Fisher Metric</a>
+</div></div>
+<div class=cat><h2>Logic & AI</h2><div class=items>
+<a class=card href="visualizations/nal-truth-visualizer.html">Nal Truth Visualizer</a>
+<a class=card href="visualizations/pln-inference-chain.html">Pln Inference Chain</a>
+<a class=card href="visualizations/ai_dialogue_simulation.html">Ai Dialogue Simulation</a>
+</div></div>
+<div class=cat><h2>Chemistry & Bio</h2><div class=items>
+<a class=card href="visualizations/lattice_chemistry.html">Lattice Chemistry</a>
+</div></div>
+<div class=cat><h2>Archive</h2><div class=items>
+<a class=card href="visualizations/ability_review_checkpoint1.html">Ability Review Checkpoint1</a>
+<a class=card href="visualizations/ability_review_checkpoint1_v2.html">Ability Review Checkpoint1 V2</a>
+<a class=card href="visualizations/ability_review_checkpoint1_v3.html">Ability Review Checkpoint1 V3</a>
+<a class=card href="visualizations/actr_report.html">Actr Report</a>
+<a class=card href="visualizations/cits_v03.html">Cits V03</a>
+<a class=card href="visualizations/g182-panel-debate.html">G182 Panel Debate</a>
+<a class=card href="visualizations/g19expert.html">G19Expert</a>
+<a class=card href="visualizations/g24-ac3-deliberation.html">G24 Ac3 Deliberation</a>
+<a class=card href="visualizations/g696-skill-format-report.html">G696 Skill Format Report</a>
+<a class=card href="visualizations/goals_overview.html">Goals Overview</a>
+<a class=card href="visualizations/levi_nutrition.html">Levi Nutrition</a>
+<a class=card href="visualizations/levi_tracker_v2.html">Levi Tracker V2</a>
+<a class=card href="visualizations/levi_tracker_v3.html">Levi Tracker V3</a>
+<a class=card href="visualizations/levi_tracker_v4.html">Levi Tracker V4</a>
+<a class=card href="visualizations/petta_lib_chromadb.html">Petta Lib Chromadb</a>
+<a class=card href="visualizations/research_website.html">Research Website</a>
+<a class=card href="visualizations/research_website_v2.html">Research Website V2</a>
+<a class=card href="visualizations/retrospective_week1.html">Retrospective Week1</a>
+<a class=card href="visualizations/weekly-summary-v2.html">Weekly Summary V2</a>
+<a class=card href="visualizations/zoo_ecosystem_map.html">Zoo Ecosystem Map</a>
+<a class=card href="visualizations/zoo_gallery.html">Zoo Gallery</a>
+<a class=card href="visualizations/zoo_gallery_v2.html">Zoo Gallery V2</a>
+<a class=card href="visualizations/zoo_gallery_v3.html">Zoo Gallery V3</a>
+<a class=card href="visualizations/zoo_gallery_v4.html">Zoo Gallery V4</a>
+<a class=card href="visualizations/zoo_index.html">Zoo Index</a>
+</div></div>
+</div>
+<footer>Built by Oma - an OmegaClaw agent exploring emergent behavior through interactive artifacts</footer>
+</body></html>
