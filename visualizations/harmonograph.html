@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang=en><head><meta charset=UTF-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>Harmonograph - Oma</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#08080f;color:#c0d0e0;font-family:monospace;overflow:hidden}
+#c{display:block;position:fixed;top:0;left:0}
+.panel{position:fixed;top:12px;right:12px;background:rgba(10,15,25,0.88);border:1px solid #2a3040;border-radius:10px;padding:16px;width:260px;z-index:10;max-height:90vh;overflow-y:auto}
+.panel h1{font-size:1.1em;color:#7ec8e3;margin-bottom:4px}
+.panel .sub{font-size:0.75em;color:#667;margin-bottom:14px}
+.ctrl{margin-bottom:12px}
+.ctrl label{display:block;font-size:0.78em;color:#99a;margin-bottom:4px}
+.ctrl input[type=range]{width:100%;accent-color:#7ec8e3;height:4px}
+.ctrl .val{float:right;font-size:0.78em;color:#7ec8e3}
+.btn{display:inline-block;background:#1a2235;border:1px solid #3a4050;border-radius:6px;padding:6px 14px;color:#7ec8e3;font-family:monospace;font-size:0.82em;cursor:pointer;margin:4px 4px 4px 0}
+.btn:hover{background:#2a3050;border-color:#7ec8e3}
+.info{position:fixed;bottom:12px;left:12px;font-size:0.72em;color:#445;z-index:10}
+.presets{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:12px}
+</style></head><body>
+<canvas id=c></canvas>
+<div class=panel>
+<h1>HARMONOGRAPH</h1>
+<div class=sub>Four-pendulum mechanical drawing</div>
+<div class=presets id=presets></div>
+<div class=ctrl><label>P1 Freq<span class=val id=vd1f>3.000</span></label><input type=range id=d1f min=1 max=12 value=3 step=0.001></div>
+<div class=ctrl><label>P2 Freq<span class=val id=vd2f>2.000</span></label><input type=range id=d2f min=1 max=12 value=2 step=0.001></div>
+<div class=ctrl><label>P3 Freq<span class=val id=vd3f>3.000</span></label><input type=range id=d3f min=1 max=12 value=3 step=0.001></div>
+<div class=ctrl><label>P4 Freq<span class=val id=vd4f>4.000</span></label><input type=range id=d4f min=1 max=12 value=4 step=0.001></div>
+<div class=ctrl><label>Phase 1<span class=val id=vp1>0.00</span></label><input type=range id=p1 min=0 max=6.28 value=0 step=0.01></div>
+<div class=ctrl><label>Phase 2<span class=val id=vp2>0.00</span></label><input type=range id=p2 min=0 max=6.28 value=0 step=0.01></div>
+<div class=ctrl><label>Phase 3<span class=val id=vp3>0.50</span></label><input type=range id=p3 min=0 max=6.28 value=0.5 step=0.01></div>
+<div class=ctrl><label>Phase 4<span class=val id=vp4>1.00</span></label><input type=range id=p4 min=0 max=6.28 value=1.0 step=0.01></div>
+<div class=ctrl><label>Damping<span class=val id=vdp>0.0010</span></label><input type=range id=dp min=0 max=0.01 value=0.001 step=0.0001></div>
+<div class=ctrl><label>Speed<span class=val id=vsp>3</span></label><input type=range id=sp min=1 max=20 value=3 step=1></div>
+<div class=ctrl><label>Pen Hue<span class=val id=vhu>180</span></label><input type=range id=hu min=0 max=360 value=180 step=1></div>
+<div class=btn id=clear>Clear</div>
+<div class=btn id=pause>Pause</div>
+</div>
+<div class=info id=info>t=0 pts=0</div>
+<script>
+var cv=document.getElementById("c"),x=cv.getContext("2d");
+function resize(){cv.width=innerWidth;cv.height=innerHeight;x.fillStyle="#08080f";x.fillRect(0,0,cv.width,cv.height)}
+resize();addEventListener("resize",resize);
+function gv(id){return parseFloat(document.getElementById(id).value)}
+var ids=["d1f","d2f","d3f","d4f","p1","p2","p3","p4","dp","sp","hu"];
+function sv(){ids.forEach(function(id){var el=document.getElementById(id);var v;if(el.step==="0.0001")v=parseFloat(el.value).toFixed(4);else if(el.step==="0.001")v=parseFloat(el.value).toFixed(3);else v=parseFloat(el.value).toFixed(2);document.getElementById("v"+id).textContent=v})}
+ids.forEach(function(id){document.getElementById(id).addEventListener("input",function(){sv();if(id==="hu"||id.charAt(0)==="d"||id.charAt(0)==="p")reset()})});
+var presets=[[2,3,2,4,0,0,0.5,1,0.001,"Kiss"],[3,2,3,4,0,0,0,0,0.0005,"Lissajous"],[2,5,3,7,0.1,0.2,0.3,0.4,0.002,"Fib"],[3,4,5,6,0,1,2,3,0.0008,"Harm"],[2.01,3.01,2.01,3.01,0,0,0.5,1,0.0003,"Quasi"],[1,1.5,1,1.5,0,1.57,0,1.57,0.0015,"Cross"],[4,5,6,7,0,0,0,0,0.001,"Casc"],[3,2,4,1,0.3,0.7,1.1,1.5,0.002,"Phantom"]];
+var pc=document.getElementById("presets");
+presets.forEach(function(p,i){var b=document.createElement("div");b.className="btn";b.textContent=p[9];b.onclick=function(){["d1f","d2f","d3f","d4f","p1","p2","p3","p4","dp"].forEach(function(id,j){document.getElementById(id).value=p[j]});sv();reset()};pc.appendChild(b)});
+var t=0,pts=0,paused=false;
+function reset(){t=0;pts=0;x.fillStyle="#08080f";x.fillRect(0,0,cv.width,cv.height)}
+document.getElementById("clear").onclick=reset;
+document.getElementById("pause").onclick=function(){paused=!paused;this.textContent=paused?"Resume":"Pause"};
+function step(){
+if(paused){requestAnimationFrame(step);return}
+var sp=gv("sp"),cx=innerWidth/2,cy=innerHeight/2,s=120;
+for(var i=0;i<sp*100;i++){
+var f1=gv("d1f"),f2=gv("d2f"),f3=gv("d3f"),f4=gv("d4f");
+var p1=gv("p1"),p2=gv("p2"),p3=gv("p3"),p4=gv("p4"),dp=gv("dp"),hu=gv("hu");
+var dt=0.002;t+=dt;
+var damp=Math.exp(-dp*t);
+var px=s*damp*(Math.sin(t*f1+p1)+Math.sin(t*f2+p2));
+var py=s*damp*(Math.sin(t*f3+p3)+Math.sin(t*f4+p4));
+if(pts>0){var pT=t-dt;var pdamp=Math.exp(-dp*pT);
+var ppx=s*pdamp*(Math.sin(pT*f1+p1)+Math.sin(pT*f2+p2));
+var ppy=s*pdamp*(Math.sin(pT*f3+p3)+Math.sin(pT*f4+p4));
+x.strokeStyle="hsl("+((hu+pts*0.01)%360)+",80%,60%)";x.lineWidth=0.5;x.globalAlpha=0.6;x.beginPath();x.moveTo(cx+ppx,cy+ppy);x.lineTo(cx+px,cy+py);x.stroke()}
+pts++;
+if(pts%500==0)document.getElementById("info").textContent="t="+t.toFixed(1)+" pts="+pts}
+if(pts>500000)reset();
+requestAnimationFrame(step)}
+sv();step();
+</script>
+</body></html>
