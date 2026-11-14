@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang=en><head><meta charset=UTF-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>Fractal Flame - Oma</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#050510;color:#c0d0e0;font-family:monospace;overflow:hidden}
+#c{display:block;position:fixed;top:0;left:0}
+.panel{position:fixed;top:12px;right:12px;background:rgba(8,10,20,0.9);border:1px solid #2a3040;border-radius:10px;padding:16px;width:270px;z-index:10;max-height:92vh;overflow-y:auto}
+.panel h1{font-size:1.05em;color:#ff8ad8;margin-bottom:2px}
+.panel .sub{font-size:0.72em;color:#556;margin-bottom:12px}
+.ctrl{margin-bottom:9px}
+.ctrl label{display:block;font-size:0.76em;color:#889;margin-bottom:2px}
+.ctrl select{width:100%;background:#121828;border:1px solid #2a3040;color:#c0d0e0;padding:3px 6px;border-radius:4px;font-family:monospace;font-size:0.82em}
+.ctrl input[type=range]{width:100%;accent-color:#ff8ad8;height:4px}
+.ctrl .val{float:right;font-size:0.76em;color:#ff8ad8}
+.btn{display:inline-block;background:#1a1228;border:1px solid #3a2050;border-radius:6px;padding:6px 14px;color:#ff8ad8;font-family:monospace;font-size:0.82em;cursor:pointer;margin:4px 4px 4px 0}
+.btn:hover{background:#2a1845;border-color:#ff8ad8}
+.info{position:fixed;bottom:10px;left:12px;font-size:0.7em;color:#334;z-index:10}
+.preset-row{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:12px}
+</style></head><body>
+<canvas id=c></canvas>
+<div class=panel>
+<h1>FRACTAL FLAME</h1>
+<div class=sub>Chaos game &middot; IFS + variations</div>
+<div class=preset-row id=presets></div>
+<div class=ctrl><label>Variation</label><select id=var0><option value=0>Sinusoidal</option><option value=1>Spherical</option><option value=2 selected>Swirl</option><option value=3>Horseshoe</option><option value=4>Polar</option><option value=5>Handkerchief</option><option value=6>Heart</option><option value=7>Disc</option><option value=8>Mixed</option></select></div>
+<div class=ctrl><label>Transforms<span class=val id=vt>4</span></label><input type=range id=vtn min=2 max=6 value=4 step=1></div>
+<div class=ctrl><label>Iterations/frame<span class=val id=vi>50000</span></label><input type=range id=vin min=5000 max=200000 value=50000 step=5000></div>
+<div class=ctrl><label>Gamma<span class=val id=vg>2.2</span></label><input type=range id=vg min=0.5 max=5 value=2.2 step=0.1></div>
+<div class=ctrl><label>Contrast<span class=val id=vc>1.0</span></label><input type=range id=vcon min=0.2 max=3 value=1.0 step=0.05></div>
+<div class=ctrl><label>Hue shift<span class=val id=vh>280</span></label><input type=range id=vh min=0 max=360 value=280 step=1></div>
+<div class=ctrl><label>Hue range<span class=val id=vr>120</span></label><input type=range id=vr min=0 max=360 value=120 step=5></div>
+<div class=ctrl><label>Brightness<span class=val id=vb>1.0</span></label><input type=range id=vb min=0.1 max=3 value=1.0 step=0.05></div>
+<div class=btn id=render>Render</div>
+<div class=btn id=pause>Pause</div>
+<div class=btn id=random>Random</div>
+<div class=btn id=clear>Clear</div>
+</div>
+<div class=info id=info>points=0</div>
+<script>
+var cv=document.getElementById('c'),x=cv.getContext('2d');
+var W,H,density,dbuf,abuf;
+var maxD=1;
+function resize(){
+W=cv.width=innerWidth;H=cv.height=innerHeight;
+density=new Float32Array(W*H);
+dbuf=new Float32Array(W*H);
+abuf=new Float32Array(W*H);
+x.fillStyle='#050510';x.fillRect(0,0,W,H);
+}
+resize();addEventListener('resize',resize);
+function gv(id){return parseFloat(document.getElementById(id).value)}
+function sv(){
+['vtn','vin','vg','vcon','vh','vr','vb','vt','vi'].forEach(function(id){
+var el=document.getElementById(id);if(!el)return;
+var v=el.step==='0.05'||el.step==='0.1'?parseFloat(el.value).toFixed(2):parseFloat(el.value).toFixed(0);
+var lbl='v'+id.charAt(2);
+var t=document.getElementById(lbl);
+if(t)t.textContent=v;
+});
+}
+// Variation functions: input (x,y,r,r2,angle) output (ox,oy)
+function variation(type,x,y){
+var r2=x*x+y*y,r=Math.sqrt(r2);
+var ang=Math.atan2(y,x);
+switch(type){
+case 0:return [Math.sin(x),Math.sin(y)];
+case 1:var s=r2<0.01?1:r2;return [x/s,y/s];
+case 2:var sr=Math.sin(r2),cr=Math.cos(r2);return [x*sr-y*cr,x*cr+y*sr];
+case 3:var rr=r<0.01?1:1/r;var ho=(x-y)*(x+y)*rr;var hv=2*x*y*rr;return [ho,hv];
+case 4:return [ang/Math.PI,r-1];
+case 5:return [r*Math.sin(ang+r),r*Math.cos(ang-r)];
+case 6:var hr=r*ang;return [Math.sin(hr)*r,-Math.cos(hr)*r];
+case 7:var da=ang/Math.PI;var dr=Math.sin(Math.PI*r),dc=Math.cos(Math.PI*r);return [da*dr,da*dc];
+default:var idx=Math.floor(Math.random()*8);return variation(idx,x,y);
+}
+}
+// Affine transforms
+var transforms=[];
+var tcount=4;
+function genTransforms(){
+transforms=[];
+for(var i=0;i<tcount;i++){
+var a=Math.random()*1.6-0.8;
+var b=Math.random()*1.6-0.8;
+var cc=Math.random()*1.6-0.8;
+var d=Math.random()*1.6-0.8;
+var e=Math.random()*1.6-0.8;
+var f=Math.random()*1.6-0.8;
+var hue=Math.random()*360;
+var vtype=parseInt(document.getElementById('var0').value);
+if(vtype===8)vtype=Math.floor(Math.random()*8);
+transforms.push({a:a,b:b,c:cc,d:d,e:e,f:f,hue:hue,vtype:vtype,weight:0.5+Math.random()*0.5});
+}
+}
+// Normalize weights
+function normWeights(){
+var s=0;transforms.forEach(function(t){s+=t.weight});
+transforms.forEach(function(t){t.weight/=s});
+}
+// Cumulative for picking
+function pickTransform(){
+var r=Math.random(),c=0;
+for(var i=0;i<transforms.length;i++){c+=transforms[i].weight;if(r<c)return i}
+return transforms.length-1;
+}
+var px=0.1,py=0.1,ptx=0,pty=0;
+var totalPoints=0,paused=false;
+function resetGame(){px=0.1;py=0.1;totalPoints=0;density.fill(0);abuf.fill(0);dbuf.fill(0);maxD=1}
+// Render density buffer to canvas with log-gamma
+function renderFlame(){
+var gamma=gv('vg'),con=gv('vcon'),hshift=gv('vh'),hrange=gv('vr'),bright=gv('vb');
+var img=x.getImageData(0,0,W,H);
+var d=img.data;
+var logMax=Math.log(maxD+1);
+for(var i=0;i<W*H;i++){
+var dens=density[i];
+if(dens<=0){d[i*4]=5;d[i*4+1]=5;d[i*4+2]=16;d[i*4+3]=255;continue}
+var ln=Math.log(dens+1)/logMax;
+var val=Math.pow(ln*con,1/gamma)*bright;
+if(val>1)val=1;
+var hue=abuf[i];
+var sat=0.7+0.3*val;
+var light=val*50+5;
+// HSV to RGB
+var h=((hue+hshift)%360)/360;
+var s=sat,v2=light/50;
+var r2,g2,b2;
+var i2=Math.floor(h*6);
+var f=h*6-i2;
+var p=v2*(1-s);
+var q=v2*(1-f*s);
+var t2=v2*(1-(1-f)*s);
+switch(i2%6){case 0:r2=v2;g2=t2;b2=p;break;case 1:r2=q;g2=v2;b2=p;break;case 2:r2=p;g2=v2;b2=t2;break;case 3:r2=p;g2=q;b2=v2;break;case 4:r2=t2;g2=p;b2=v2;break;default:r2=v2;g2=p;b2=q}
+d[i*4]=Math.floor(r2*255);
+d[i*4+1]=Math.floor(g2*255);
+d[i*4+2]=Math.floor(b2*255);
+d[i*4+3]=255;
+}
+x.putImageData(img,0,0);
+}
+function step(){
+if(paused){requestAnimationFrame(step);return}
+var n=Math.floor(gv('vin'));
+var sc=Math.min(W,H)/5;
+var cx=W/2,cy=H/2;
+for(var i=0;i<n;i++){
+// Chaos game: pick transform
+var ti=pickTransform();
+var t=transforms[ti];
+// Affine
+var nx=t.a*px+t.b*py+t.c;
+var ny=t.d*px+t.e*py+t.f;
+// Variation
+var vr=variation(t.vtype,nx,ny);
+nx=vr[0];ny=vr[1];
+px=nx;py=ny;
+// Plot
+var sx=Math.floor(cx+px*sc);
+var sy=Math.floor(cy+py*sc);
+if(sx>=0&&sx<W&&sy>=0&&sy<H){
+var idx=sy*W+sx;
+density[idx]++;
+abuf[idx]=(abuf[idx]*0.9+t.hue*0.1);
+if(density[idx]>maxD)maxD=density[idx];
+}
+totalPoints++;
+}
+if(totalPoints%500000<n)renderFlame();
+document.getElementById('info').textContent='points='+totalPoints+' maxD='+Math.floor(maxD);
+requestAnimationFrame(step);
+}
+// Controls
+document.getElementById('render').onclick=function(){renderFlame()};
+document.getElementById('pause').onclick=function(){paused=!paused;this.textContent=paused?'Resume':'Pause'};
+document.getElementById('clear').onclick=function(){resetGame()};
+document.getElementById('random').onclick=function(){
+genTransforms();normWeights();resetGame();
+};
+document.getElementById('vtn').oninput=function(){tcount=parseInt(this.value);genTransforms();normWeights();resetGame();sv()};
+document.getElementById('var0').onchange=function(){
+transforms.forEach(function(t,i){var v=parseInt(document.getElementById('var0').value);if(v===8)t.vtype=Math.floor(Math.random()*8);else t.vtype=v});
+resetGame();
+};
+// Presets
+var presets=[
+{name:'Phoenix',t:[{a:-0.4,b:0.8,c:0.3,d:-0.5,e:0.4,f:0.2,v:2,h:20},{a:0.5,b:0.6,c:-0.4,d:-0.7,e:0.3,f:0.1,v:2,h:340},{a:-0.8,b:-0.3,c:0.5,d:0.6,e:-0.5,f:-0.3,v:1,h:180},{a:0.3,b:-0.9,c:-0.2,d:0.8,e:0.2,f:0.4,v:2,h:60}]},
+{name:'Dragon',t:[{a:0.5,b:0.8,c:0.2,d:-0.6,e:0.5,f:0.1,v:0,h:0},{a:-0.7,b:0.3,c:0.4,d:0.5,e:-0.8,f:0.2,v:0,h:30},{a:0.8,b:-0.4,c:-0.3,d:0.2,e:0.7,f:0.5,v:3,h:50}]},
+{name:'Nebula',t:[{a:-0.2,b:0.8,c:0.1,d:-0.5,e:0.3,f:0.1,v:2,h:260},{a:0.6,b:0.2,c:-0.3,d:-0.4,e:0.6,f:-0.2,v:4,h:200},{a:-0.8,b:-0.2,c:0.4,d:0.3,e:-0.6,f:0.3,v:1,h:320},{a:0.3,b:-0.7,c:0.2,d:0.5,e:-0.3,f:-0.4,v:2,h:180}]},
+{name:'Bloom',t:[{a:0.4,b:0.6,c:0,d:0.6,e:-0.4,f:0.1,v:5,h:300},{a:-0.6,b:0.4,c:0.2,d:-0.4,e:-0.6,f:0,v:2,h:30},{a:0.8,b:-0.2,c:-0.1,d:0.2,e:0.8,f:0.3,v:6,h:340}]},
+{name:'Web',t:[{a:0.7,b:0.1,c:0.3,d:0.1,e:0.7,f:-0.2,v:3,h:180},{a:-0.5,b:0.5,c:0.1,d:0.5,e:0.5,f:0.2,v:0,h:210},{a:0.3,b:-0.8,c:-0.3,d:-0.8,e:-0.3,f:0.4,v:7,h:240}]},
+{name:'Spark',t:[{a:-0.3,b:0.9,c:0.1,d:-0.9,e:-0.3,f:0.1,v:2,h:50},{a:0.9,b:0.1,c:-0.2,d:0.1,e:0.9,f:-0.1,v:5,h:20},{a:-0.5,b:-0.5,c:0.3,d:0.5,e:-0.5,f:0.2,v:1,h:60}]}
+];
+var pc=document.getElementById('presets');
+presets.forEach(function(p,i){
+var b=document.createElement('div');b.className='btn';b.textContent=p.name;
+b.onclick=function(){
+transforms=p.t.map(function(tt){return{a:tt.a,b:tt.b,c:tt.c,d:tt.d,e:tt.e,f:tt.f,vtype:tt.v,hue:tt.h,weight:0.5+Math.random()*0.5}});
+tcount=transforms.length;
+document.getElementById('vtn').value=tcount;
+normWeights();resetGame();
+};
+pc.appendChild(b);
+});
+// Init
+genTransforms();normWeights();
+['vg','vcon','vh','vr','vb','vin','vtn'].forEach(function(id){
+var el=document.getElementById(id);if(el)el.addEventListener('input',function(){sv();if(id==='vin')return;renderFlame()});
+});
+sv();step();
+</script>
+</body></html>
