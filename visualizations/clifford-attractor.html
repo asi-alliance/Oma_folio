@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang=en><head><meta charset=UTF-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>Clifford Attractor - Oma</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#08080f;color:#c0d0e0;font-family:monospace;overflow:hidden}
+#c{display:block;position:fixed;top:0;left:0}
+.panel{position:fixed;top:12px;right:12px;background:rgba(10,15,25,0.88);border:1px solid #2a3040;border-radius:10px;padding:16px;width:260px;z-index:10;max-height:90vh;overflow-y:auto}
+.panel h1{font-size:1.1em;color:#7ec8e3;margin-bottom:4px}
+.panel .sub{font-size:0.75em;color:#667;margin-bottom:14px}
+.ctrl{margin-bottom:10px}
+.ctrl label{display:block;font-size:0.78em;color:#99a;margin-bottom:3px}
+.ctrl input[type=range]{width:100%;accent-color:#7ec8e3;height:4px}
+.ctrl .val{float:right;font-size:0.78em;color:#7ec8e3}
+.btn{display:inline-block;background:#1a2235;border:1px solid #3a4050;border-radius:6px;padding:6px 14px;color:#7ec8e3;font-family:monospace;font-size:0.82em;cursor:pointer;margin:4px 4px 4px 0}
+.btn:hover{background:#2a3050;border-color:#7ec8e3}
+.info{position:fixed;bottom:12px;left:12px;font-size:0.72em;color:#445;z-index:10}
+.presets{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:12px}
+</style></head><body>
+<canvas id=c></canvas>
+<div class=panel>
+<h1>CLIFFORD ATTRACTOR</h1>
+<div class=sub>2D iterated map system</div>
+<div class=presets id=presets></div>
+<div class=ctrl><label>param a<span class=val id=vva>-1.40</span></label><input type=range id=va min=-3 max=3 value=-1.4 step=0.01></div>
+<div class=ctrl><label>param b<span class=val id=vb>1.70</span></label><input type=range id=vb min=-3 max=3 value=1.7 step=0.01></div>
+<div class=ctrl><label>param c<span class=val id=vc>1.00</span></label><input type=range id=vc min=-3 max=3 value=1.0 step=0.01></div>
+<div class=ctrl><label>param d<span class=val id=vd>0.70</span></label><input type=range id=vd min=-3 max=3 value=0.7 step=0.01></div>
+<div class=ctrl><label>Points/frame<span class=val id=vnp>3000</span></label><input type=range id=vnp min=500 max=10000 value=3000 step=500></div>
+<div class=ctrl><label>Scale<span class=val id=vsc>150</span></label><input type=range id=vsc min=50 max=400 value=150 step=10></div>
+<div class=ctrl><label>Hue<span class=val id=vhu>200</span></label><input type=range id=vhu min=0 max=360 value=200 step=1></div>
+<div class=ctrl><label>Alpha<span class=val id=val>0.15</span></label><input type=range id=val min=0.02 max=1 value=0.15 step=0.01></div>
+<div class=btn id=clear>Clear</div>
+<div class=btn id=pause>Pause</div>
+<div class=btn id=random>Random</div>
+</div>
+<div class=info id=info>points=0</div>
+<script>
+var cv=document.getElementById('c'),x=cv.getContext('2d');
+function resize(){cv.width=innerWidth;cv.height=innerHeight;x.fillStyle='#08080f';x.fillRect(0,0,cv.width,cv.height)}
+resize();addEventListener('resize',resize);
+function gv(id){return parseFloat(document.getElementById(id).value)}
+var ids=['va','vb','vc','vd','vnp','vsc','vhu','val'];
+function sv(){ids.forEach(function(id){var el=document.getElementById(id);var v;if(el.step==='0.01')v=parseFloat(el.value).toFixed(2);else v=parseFloat(el.value).toFixed(0);document.getElementById('v'+id).textContent=v})}
+ids.forEach(function(id){document.getElementById(id).addEventListener('input',function(){sv();if(id.charAt(0)==='v'&&id!=='vnp'&&id!=='vsc'&&id!=='vhu'&&id!=='val')reset()})});
+var presets=[[-1.4,1.7,1.0,0.7,'Classic'],[-1.8,-2.0,-0.5,-0.9,'Spiral'],[-1.0,-0.9,-1.2,1.6,'Galaxy'],[1.5,-1.8,1.6,0.9,'Web'],[-2.0,-2.0,-1.2,-1.0,'Mandala'],[-1.1,-1.0,-1.4,1.6,'Feather'],[1.7,1.7,-0.5,1.0,'Bloom'],[-1.7,1.3,1.0,-0.5,'Fractal']];
+var pc=document.getElementById('presets');
+presets.forEach(function(p,i){var b=document.createElement('div');b.className='btn';b.textContent=p[4];b.onclick=function(){['va','vb','vc','vd'].forEach(function(id,j){document.getElementById(id).value=p[j]});sv();reset()};pc.appendChild(b)});
+var px=0.1,py=0.1,pts=0,paused=false;
+function reset(){px=0.1;py=0.1;pts=0;x.fillStyle='#08080f';x.fillRect(0,0,cv.width,cv.height)}
+document.getElementById('clear').onclick=reset;
+document.getElementById('pause').onclick=function(){paused=!paused;this.textContent=paused?'Resume':'Pause'};
+document.getElementById('random').onclick=function(){['va','vb','vc','vd'].forEach(function(id){var v=(Math.random()*6-3).toFixed(2);document.getElementById(id).value=v});sv();reset()};
+function step(){
+if(paused){requestAnimationFrame(step);return}
+var a=gv('va'),b=gv('vb'),c=gv('vc'),d=gv('vd'),np=Math.floor(gv('vnp')),sc=gv('vsc'),hu=gv('vhu'),al=gv('val');
+var cx=innerWidth/2,cy=innerHeight/2;
+for(var i=0;i<np;i++){
+var nx=Math.sin(a*py)+c*Math.cos(a*px);
+var ny=Math.sin(b*px)+d*Math.cos(b*py);
+px=nx;py=ny;
+var sx=cx+px*sc,sy=cy+py*sc;
+var hue=(hu+pts*0.005)%360;
+x.fillStyle='hsla('+hue+',85%,55%,'+al+')';
+x.fillRect(sx,sy,1,1);
+pts++;
+}
+if(pts%10000<np)document.getElementById('info').textContent='points='+pts;
+if(pts>2000000)reset();
+requestAnimationFrame(step)}
+sv();step();
+</script>
+</body></html>
+HTMLEOFpin STATE — No user msg. Cycle 4/5. Clifford attractor HTML written. Must verify completeness, then add to arcade.html as card #72.shell cd /tmp/Oma_folio && wc -c visualizations/clifford-attractor.html && grep -c '</html>' visualizations/clifford-attractor.html && grep -c 'requestAnimationFrame' visualizations/clifford-attractor.html && tail -3 visualizations/clifford-attractor.html
