@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang=en><head><meta charset=UTF-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>Lissajous Orbiter — Oma</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#08080f;color:#c0d0e0;font-family:monospace;overflow:hidden}
+#canvas{display:block;position:fixed;top:0;left:0}
+.panel{position:fixed;top:12px;right:12px;background:rgba(10,15,25,0.88);border:1px solid #2a3040;border-radius:10px;padding:16px;width:280px;z-index:10;max-height:90vh;overflow-y:auto}
+.panel h1{font-size:1.1em;color:#7ec8e3;margin-bottom:4px}
+.panel .sub{font-size:0.75em;color:#667;margin-bottom:14px}
+.ctrl{margin-bottom:12px}
+.ctrl label{display:block;font-size:0.78em;color:#99a;margin-bottom:4px}
+.ctrl input[type=range]{width:100%;accent-color:#7ec8e3;height:4px}
+.ctrl .val{float:right;font-size:0.78em;color:#7ec8e3}
+.btn{display:inline-block;background:#1a2235;border:1px solid #3a4050;border-radius:6px;padding:6px 14px;color:#7ec8e3;font-family:monospace;font-size:0.82em;cursor:pointer;margin:4px 4px 4px 0;transition:all 0.15s}
+.btn:hover{background:#2a3050;border-color:#7ec8e3}
+.btn.active{background:#7ec8e3;color:#08080f;border-color:#7ec8e3}
+.info{position:fixed;bottom:12px;left:12px;font-size:0.72em;color:#445;z-index:10;max-width:40vw}
+.presets{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:12px}
+</style></head><body>
+<canvas id=canvas></canvas>
+<div class=panel>
+<h1>LISSAJOUS ORBITER</h1>
+<div class=sub>Audio-visual sonification of harmonic ratios</div>
+<div class=presets id=presets></div>
+<div class=ctrl><label>Frequency Ratio X<span class=val id=vfx>3</span></label><input type=range id=fx min=1 max=12 value=3 step=1></div>
+<div class=ctrl><label>Frequency Ratio Y<span class=val id=vfy>2</span></label><input type=range id=fy min=1 max=12 value=2 step=1></div>
+<div class=ctrl><label>Phase Offset<span class=val id=vph>0.00</span></label><input type=range id=ph min=0 max=6.28 value=0 step=0.01></div>
+<div class=ctrl><label>Trail Length<span class=val id=vtr>400</span></label><input type=range id=tr min=50 max=2000 value=400 step=10></div>
+<div class=ctrl><label>Base Pitch<span class=val id=vbp>220</span> Hz</label><input type=range id=bp min=55 max=880 value=220 step=1></div>
+<div class=ctrl><label>Glow<span class=val id=vgl>0.8</span></label><input type=range id=gl min=0 max=1 value=0.8 step=0.05></div>
+<div class=ctrl><label>Rotation Speed<span class=val id=vrs>0.3</span></label><input type=range id=rs min=0 max=2 value=0.3 step=0.05></div>
+<div class=ctrl style="margin-top:16px">
+<button class=btn id=audioBtn>Start Audio</button>
+<button class=btn id=clearBtn>Clear</button>
+</div>
+</div>
+<div class=info id=info>Drag to rotate · Scroll to zoom · Adjust ratios to explore harmonic orbits</div>
+<script>
+const c=document.getElementById('canvas'),x=c.getContext('2d');
+let W,H,cx,cy,scale=1,rotX=0.3,rotY=-0.2;
+function resize(){W=c.width=innerWidth;H=c.height=innerHeight;cx=W/2;cy=H/2}
+resize();addEventListener('resize',resize);
+const params={fx:3,fy:2,ph:0,tr:400,bp:220,gl:0.8,rs:0.3};
+const ids=['fx','fy','ph','tr','bp','gl','rs'];
+const vIds=['vfx','vfy','vph','vtr','vbp','vgl','vrs'];
+ids.forEach((id,i)=>{const el=document.getElementById(id);
+el.addEventListener('input',()=>{params[id]=parseFloat(el.value);
+document.getElementById(vIds[i]).textContent=id==='ph'?params[id].toFixed(2):id==='gl'||id==='rs'?params[id].toFixed(2):params[id];
+if(id==='bp'&&audio.on)audio.setFreq();});});
+// Mouse interaction
+let dragging=false,mx=0,my=0;
+c.addEventListener('mousedown',e=>{dragging=true;mx=e.clientX;my=e.clientY});
+addEventListener('mousemove',e=>{if(!dragging)return;rotY+=(e.clientX-mx)*0.01;rotX+=(e.clientY-my)*0.01;mx=e.clientX;my=e.clientY});
+addEventListener('mouseup',()=>dragging=false);
+c.addEventListener('wheel',e=>{e.preventDefault();scale*=e.deltaY>0?0.92:1.08;scale=Math.max(0.2,Math.min(5,scale))},{passive:false});
+// Presets
+const presets=[[3,2,0,'3:2 Fifth'],[4,3,0,'4:3 Fourth'],[5,4,0,'5:4 Third'],[5,3,0,'5:3 Sixth'],[7,5,0,'7:5 Tritone'],[9,8,0,'9:8 Tone'],[1,1,0,'Unison'],[6,5,1.57,'6:5 Minor Third'],[7,4,0,'7:4 Harmonic 7th'],[11,8,0,'11:8 Quarter-tone']];
+const pDiv=document.getElementById('presets');
+presets.forEach(p=>{const b=document.createElement('button');b.className='btn';b.textContent=p[3];
+b.onclick=()=>{params.fx=p[0];params.fy=p[1];params.ph=p[2];document.getElementById('fx').value=p[0];document.getElementById('fy').value=p[1];document.getElementById('ph').value=p[2];document.getElementById('vfx').textContent=p[0];document.getElementById('vfy').textContent=p[1];document.getElementById('vph').textContent=p[2].toFixed(2);if(audio.on)audio.setFreq();};pDiv.appendChild(b);});
+document.getElementById('clearBtn').onclick=()=>{trail=[]};
+// Trail
+let trail=[];
+let t=0;
+// 3D projection
+function proj(px,py,pz){const cy1=Math.cos(rotY),sy1=Math.sin(rotY);const cx1=Math.cos(rotX),sx1=Math.sin(rotX);
+let x1=px*cy1+pz*sy1;let z1=-px*sy1+pz*cy1;let y1=py*cx1-z1*sx1;let z2=py*sx1+z1*cx1;
+const d=400;const f=d/(d+z2);return{sx:cx+x1*f*scale*100,sy:cy+y1*f*scale*100,f:f};}
+// Audio
+const audio={ctx:null,on:false,oscX:null,oscY:null,gain:null,setFreq(){
+if(!this.on)return;const r=Math.min(params.fx,params.fy);this.oscX.frequency.value=params.bp;this.oscY.frequency.value=params.bp*params.fy/params.fx;},
+start(){if(this.on)return;this.ctx=this.ctx||new(window.AudioContext||window.webkitAudioContext)();
+if(this.ctx.state==='suspended')this.ctx.resume();this.oscX=this.ctx.createOscillator();this.oscY=this.ctx.createOscillator();
+this.gain=this.ctx.createGain();const filter=this.ctx.createBiquadFilter();filter.type='lowpass';filter.frequency.value=2000;
+this.oscX.type='sine';this.oscY.type='sine';this.oscX.frequency.value=params.bp;this.oscY.frequency.value=params.bp*params.fy/params.fx;
+this.gain.gain.value=0;this.gain.gain.linearRampToValueAtTime(0.08,this.ctx.currentTime+0.5);
+this.oscX.connect(filter);this.oscY.connect(filter);filter.connect(this.gain);this.gain.connect(this.ctx.destination);
+this.oscX.start();this.oscY.start();this.on=true;document.getElementById('audioBtn').textContent='Stop Audio';document.getElementById('audioBtn').classList.add('active');},
+stop(){if(!this.on)return;this.gain.gain.linearRampToValueAtTime(0,this.ctx.currentTime+0.3);
+setTimeout(()=>{this.oscX.stop();this.oscY.stop();},350);this.on=false;document.getElementById('audioBtn').textContent='Start Audio';document.getElementById('audioBtn').classList.remove('active');}};
+document.getElementById('audioBtn').onclick=()=>{audio.on?audio.stop():audio.start()};
+// Lissajous in 3D: x=A*sin(fx*t+ph), y=B*sin(fy*t), z=C*sin((fx+fy)/2*t) for helical depth
+function lissajous3D(tt){const r=2.5;return{x:r*Math.sin(params.fx*tt+params.ph),y:r*Math.sin(params.fy*tt),z:0.8*r*Math.sin((params.fx+params.fy)/2*tt)};}
+// Animation
+function loop(){t+=0.012;const p=lissajous3D(t);const pp=proj(p.x,p.y,p.z);trail.push({x:pp.sx,y:pp.sy,f:pp.f,t:t});if(trail.length>params.tr)trail.shift();
+x.fillStyle='rgba(8,8,15,0.08)';x.fillRect(0,0,W,H);
+// Draw orbital cage: faint circles showing the X and Y oscillation planes
+x.strokeStyle='rgba(40,50,70,0.25)';x.lineWidth=1;
+for(let ax=0;ax<2;ax++){x.beginPath();for(let a=0;a<=64;a++){const ang=a/64*6.283;const px=ax===0?2.5*Math.sin(ang):0;const py=ax===0?0:2.5*Math.sin(ang);const pz=ax===0?0:2.5*Math.cos(ang);const pr=px===0?0:5*0;const pp2=proj(px,py,pz);if(a===0)x.moveTo(pp2.sx,pp2.sy);else x.lineTo(pp2.sx,pp2.sy);}x.stroke();}
+// Draw trail with gradient color based on position in trail
+for(let i=1;i<trail.length;i++){const tp=trail[i],tp0=trail[i-1];const frac=i/trail.length;const hue=(tp.t*30)%360;const light=30+frac*50;const alpha=frac*params.gl;
+x.strokeStyle=`hsla(${hue},${60+frac*30}%,${light}%,${alpha})`;x.lineWidth=frac*2.5+0.3;x.beginPath();x.moveTo(tp0.x,tp0.y);x.lineTo(tp.x,tp.y);x.stroke();}
+// Current point
+const hueNow=(t*30)%360;x.fillStyle=`hsl(${hueNow},80%,65%)`;x.shadowColor=x.fillStyle;x.shadowBlur=15*params.gl;x.beginPath();x.arc(pp.sx,pp.sy,4*pp.f,0,6.283);x.fill();x.shadowBlur=0;
+// Projected shadows on floor and wall
+const floorP=proj(p.x,p.y,-2.5);x.fillStyle='rgba(126,200,227,0.15)';x.beginPath();x.arc(floorP.sx,floorP.sy,2.5,0,6.283);x.fill();
+const wallP=proj(p.x,-2.5,p.z);x.fillStyle='rgba(233,69,96,0.15)';x.beginPath();x.arc(wallP.sx,wallP.sy,2.5,0,6.283);x.fill();
+// Auto-rotate if not dragging
+if(!dragging){rotY+=0.002*params.rs;}
+requestAnimationFrame(loop);}
+loop();
+</script></body></html>
